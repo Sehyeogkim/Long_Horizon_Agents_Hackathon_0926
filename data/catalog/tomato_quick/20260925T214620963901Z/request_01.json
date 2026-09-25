@@ -1,0 +1,80 @@
+{
+  "provider": "nimble",
+  "retrieved_at": "2026-09-25T21:46:20.967035+00:00",
+  "endpoint": "https://sdk.nimbleway.com/v2/search",
+  "request": {
+    "query": "tomato spoilage time series image dataset same fruit daily timestamps download",
+    "max_results": 5,
+    "search_depth": "lite",
+    "full_content": false
+  },
+  "ok": true,
+  "http_status": 200,
+  "response": {
+    "total_results": 5,
+    "results": [
+      {
+        "title": "FreshLab-Tomato: A Longitudinal Shelf-Life Dataset",
+        "description": "FreshLab-Tomato is a longitudinal image and environmental dataset developed to support research on tomato shelf-life assessment and spoilage prediction. The dataset contains 1,080 images collected from 12 individual tomatoes monitored over 10 consecutive days under three storage conditions: ambient, refrigerated, and outdoor.",
+        "url": "https://ieee-dataport.org/documents/freshlab-tomato-longitudinal-shelf-life-dataset",
+        "content": "",
+        "metadata": {
+          "position": 1,
+          "entity_type": "OrganicResult",
+          "country": "US",
+          "locale": "en"
+        }
+      },
+      {
+        "title": "Tomato; Shelf life; Food spoilage; Postharvest monitoring; Agricultural ...",
+        "description": "FreshLab-Tomato is a longitudinal image and environmental dataset developed to support research on tomato shelf-life assessment and spoilage prediction. The dataset contains 1,080 images collected from 12 individual tomatoes monitored over 10 consecutive days under three storage conditions: ambient, refrigerated, and outdoor.",
+        "url": "https://ieee-dataport.org/keywords/tomato-shelf-life-food-spoilage-postharvest-monitoring-agricultural-image-dataset",
+        "content": "",
+        "metadata": {
+          "position": 2,
+          "entity_type": "OrganicResult",
+          "country": "US",
+          "locale": "en"
+        }
+      },
+      {
+        "title": "Multimodal perishable fruits and vegetables dataset",
+        "description": "Comprehensive lifecycle coverage: The dataset documents the full lifecycle of fruits, from the unripe stage to the visible spoilage stage, using multimodal data. Measurements are captured three times daily—morning, afternoon, and evening—recording natural variations in temperature, color, and methane emission patterns.",
+        "url": "https://www.sciencedirect.com/science/article/pii/S2352340926000983",
+        "content": "",
+        "metadata": {
+          "position": 3,
+          "entity_type": "OrganicResult",
+          "country": "US",
+          "locale": "en"
+        }
+      },
+      {
+        "title": "GitHub - laboroai/LaboroTomato",
+        "description": "Laboro Tomato is an image dataset of growing tomatoes at different stages of their ripening which is designed for object detection and instance segmentation tasks. We also provide two subsets of tomatoes separated by size. Dataset was gathered at a local farm with two separate cameras with its different resolution and image quality.",
+        "url": "https://github.com/laboroai/LaboroTomato",
+        "content": "",
+        "metadata": {
+          "position": 4,
+          "entity_type": "OrganicResult",
+          "country": "US",
+          "locale": "en"
+        }
+      },
+      {
+        "title": "GitHub - skarifahmed/FGrade: FGrade: A Large Volume Dataset for Grading ...",
+        "description": "Here, annotation referred to grouping tomato by its freshness. We have 6,470 number of images of tomatoes and they are grouped in 10 classes. Class 1 contains most fresh items and last class contains the images of fully rotten tomatoes. As per our collected data it was noticed that all the samples were not rotten on the same day. They have a different life of span of freshness as they were not ...",
+        "url": "https://github.com/skarifahmed/FGrade",
+        "content": "",
+        "metadata": {
+          "position": 5,
+          "entity_type": "OrganicResult",
+          "country": "US",
+          "locale": "en"
+        }
+      }
+    ],
+    "request_id": "c4a47d5d-f950-48c9-9cc8-ee06439d790f"
+  },
+  "content_available": true
+}

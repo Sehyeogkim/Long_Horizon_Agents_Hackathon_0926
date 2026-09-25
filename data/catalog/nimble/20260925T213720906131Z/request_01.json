@@ -1,0 +1,15 @@
+{
+  "provider": "nimble",
+  "retrieved_at": "2026-09-25T21:37:20.908525+00:00",
+  "endpoint": "https://sdk.nimbleway.com/v2/extract",
+  "request": {
+    "url": "https://vcl.iti.gr/media/documents/real-time-freshness-prediction-for-apples-and-lettuces-using-imaging-recognition-and-advanced-algorithms-in-a-user-friendly-mobile-applicationpdf",
+    "render": false,
+    "formats": [
+      "markdown"
+    ]
+  },
+  "ok": false,
+  "error": "transport_or_json_error",
+  "content_available": false
+}

@@ -1,0 +1,16 @@
+{
+  "checked_at": "2026-09-25T21:56:58.525858+00:00",
+  "provider": "nimble",
+  "endpoint": "https://sdk.nimbleway.com/v2",
+  "credential_present": true,
+  "credential_source": "env_file",
+  "cli_available": false,
+  "authenticated_request_verified": true,
+  "state": "collection_incomplete",
+  "image_files_downloaded": 0,
+  "successful_requests": 1,
+  "responses_with_content": 1,
+  "attempted_requests": 2,
+  "candidate_count": 0,
+  "run_directory": "data/catalog/tomato/nimble/20260925T215658529501Z"
+}

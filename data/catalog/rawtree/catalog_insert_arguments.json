@@ -1,0 +1,35 @@
+{
+  "table": "apple_lha_dataset_catalog",
+  "data": [
+    {
+      "event_id": "apple_lha_catalog_wikimedia_fuji_browning_2017_v1",
+      "schema_version": 1,
+      "catalog_version": 1,
+      "catalog_entry_id": "wikimedia_fuji_browning_2017",
+      "dataset_id": "wikimedia_fuji_browning_2017",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Browning_Fuji_apple_-_32_minutes_in_16_seconds.webm",
+      "file_url": "https://upload.wikimedia.org/wikipedia/commons/5/5b/Browning_Fuji_apple_-_32_minutes_in_16_seconds.webm",
+      "local_path": "data/samples/apple_browning_fuji/source.webm",
+      "manifest_path": "data/samples/apple_browning_fuji/observations.jsonl",
+      "sha256": "2c5b736d26c749261df0bffd02c8db56a2fe0b5827506bda57cc0fc4752c216b",
+      "bytes": 57350,
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "discovery_tool": "web search",
+      "metadata_verification_tool": "nimble",
+      "download_tool": "curl",
+      "download_status": "downloaded_and_hash_verified",
+      "frame_count": 32,
+      "sequence_count": 1,
+      "entity_count": 1,
+      "observation_interval_seconds": 60,
+      "absolute_timestamps_available": false,
+      "phenomenon": "oxidation/browning after cutting",
+      "disease_labels_available": false,
+      "purpose": "chronological replay and memory pipeline demonstration",
+      "synthetic": false,
+      "verification_status": "replay_sample_verified_not_disease_benchmark",
+      "verified_at": "2026-09-25T21:41:09.760018+00:00"
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "provider": "nimble",
+  "retrieved_at": "2026-09-25T21:34:01.169430+00:00",
+  "endpoint": "https://sdk.nimbleway.com/v2/search",
+  "request": {
+    "query": "apple fruit shelf life time series RGB images dataset daily storage spoilage",
+    "max_results": 5,
+    "search_depth": "lite",
+    "full_content": false
+  },
+  "ok": true,
+  "http_status": 200,
+  "response": {
+    "total_results": 5,
+    "results": [
+      {
+        "title": "Multimodal perishable fruits and vegetables dataset",
+        "description": "Comprehensive lifecycle coverage: The dataset documents the full lifecycle of fruits, from the unripe stage to the visible spoilage stage, using multimodal data. Measurements are captured three times daily—morning, afternoon, and evening—recording natural variations in temperature, color, and methane emission patterns.",
+        "url": "https://www.sciencedirect.com/science/article/pii/S2352340926000983",
+        "content": "",
+        "metadata": {
+          "position": 1,
+          "entity_type": "OrganicResult",
+          "country": "US",
+          "locale": "en"
+        }
+      },
+      {
+        "title": "AgriFreshNET Freshness and Shelf-Life Image Dataset",
+        "description": "The AgriFreshNET Dataset is a large-scale image dataset developed for automated produce freshness assessment and shelf-life prediction. It contains 14,500 RGB images across 24 classes of fruits and vegetables, with samples categorized into Fresh, Semi-Fresh, and Rotten stages. Images were collected from real-world environments, including local markets, supermarkets, households, farms, and ...",
+        "url": "https://data.mendeley.com/datasets/42m5tb7yv9",
+        "content": "",
+        "metadata": {
+          "position": 2,
+          "entity_type": "OrganicResult",
+          "country": "US",
+          "locale": "en"
+        }
+      },
+      {
+        "title": "fruit and vegetable dataset for Shelf life | Kaggle",
+        "description": "This dataset contains images of apple,tomato,banana & carrot .",
+        "url": "https://www.kaggle.com/datasets/soorajkavumpadi/fruit-and-vegetable-dataset-for-shelf-life",
+        "content": "",
+        "metadata": {
+          "position": 3,
+          "entity_type": "OrganicResult",
+          "country": "US",
+          "locale": "en"
+        }
+      },
+      {
+        "title": "Apple spoilage Detection Computer Vision Dataset",
+        "description": "113 open source Fresh-Apple-Spoiled-Apple images and annotations in multiple formats for training computer vision models. Apple spoilage Detection (v1, 2024-12-22 9:11pm), created by Fruit Spoilage Detection",
+        "url": "https://universe.roboflow.com/fruit-spoilage-detection/apple-spoilage-detection/dataset/1",
+        "content": "",
+        "metadata": {
+          "position": 4,
+          "entity_type": "OrganicResult",
+          "country": "US",
+          "locale": "en"
+        }
+      },
+      {
+        "title": "Real-time freshness prediction for Apples and Lettuces using imaging ...",
+        "description": "To automate real-time quality assurance of perishable agricultural products, we have developed a user-friendly smartphone application that enables freshness assessment of apples and lettuces using RGB data at multiple stages of the supply chain.",
+        "url": "https://www.sciencedirect.com/science/article/pii/S2772375525003612",
+        "content": "",
+        "metadata": {
+          "position": 5,
+          "entity_type": "OrganicResult",
+          "country": "US",
+          "locale": "en"
+        }
+      }
+    ],
+    "request_id": "58950904-a7e2-4a2b-aa3a-bdd03eb8514a"
+  }
+}

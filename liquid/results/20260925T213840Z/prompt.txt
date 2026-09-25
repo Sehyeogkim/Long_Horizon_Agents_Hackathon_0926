@@ -1,0 +1,3 @@
+Inspect this apple fruit photo for visible surface abnormalities. Do not identify a pathogen, infer internal disease, or claim changes over time from a single image. Natural red/green color alone is not an abnormality. Return only JSON with exactly these fields:
+{"visible_anomaly":"yes|no|uncertain", "evidence":"short description of visible evidence", "next_action":"routine_observation|strong_analysis|retake_photo"}.
+Use strong_analysis for visible damage/rot, uncertain concerning marks, or an unresolved concern in the supplied memory. Use retake_photo when the fruit cannot be inspected. Routine observation is not a health diagnosis.

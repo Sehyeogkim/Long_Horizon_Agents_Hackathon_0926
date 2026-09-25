@@ -1,0 +1,3 @@
+{
+  "sql": "SELECT event_id, dataset_id, frame_count, license, verification_status FROM apple_lha_dataset_catalog WHERE event_id = 'apple_lha_catalog_wikimedia_fuji_browning_2017_v1'"
+}

@@ -1,0 +1,56 @@
+{
+  "name": "insert-json",
+  "inputSchema": {
+    "type": "object",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "properties": {
+      "organization": {
+        "type": "string",
+        "minLength": 1,
+        "description": "RawTree organization containing the target cluster."
+      },
+      "cluster": {
+        "type": "string",
+        "minLength": 1,
+        "description": "RawTree cluster to use for this operation."
+      },
+      "database": {
+        "description": "Optional RawTree database override. RawTree uses the default database when omitted.",
+        "type": "string",
+        "minLength": 1
+      },
+      "table": {
+        "type": "string",
+        "minLength": 1,
+        "description": "Target table name. RawTree accepts identifiers like events, traces, api_logs."
+      },
+      "data": {
+        "anyOf": [
+          {
+            "type": "object",
+            "propertyNames": {
+              "type": "string"
+            },
+            "additionalProperties": {}
+          },
+          {
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "type": "object",
+              "propertyNames": {
+                "type": "string"
+              },
+              "additionalProperties": {}
+            }
+          }
+        ],
+        "description": "A JSON object or a non-empty array of JSON objects to insert."
+      }
+    },
+    "required": [
+      "table",
+      "data"
+    ]
+  }
+}

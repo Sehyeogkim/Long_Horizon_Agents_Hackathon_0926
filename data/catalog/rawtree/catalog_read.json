@@ -1,0 +1,67 @@
+{
+  "checked_at": "2026-09-25T21:42:14.027663+00:00",
+  "transport": "stdio",
+  "package": "@rawtree/mcp@0.3.2",
+  "remote_mutation_requested": false,
+  "initialize": {
+    "protocolVersion": "2024-11-05",
+    "capabilities": {
+      "tools": {
+        "listChanged": true
+      }
+    },
+    "serverInfo": {
+      "name": "rawtree",
+      "version": "0.3.2"
+    }
+  },
+  "tools": [
+    "list-organizations",
+    "list-organization-members",
+    "add-organization-member",
+    "update-organization-member",
+    "remove-organization-member",
+    "run-query",
+    "insert-json",
+    "insert-from-url",
+    "list-tables",
+    "create-table",
+    "describe-table",
+    "delete-table",
+    "list-logs",
+    "list-api-keys",
+    "create-api-key",
+    "delete-api-key",
+    "list-databases",
+    "verify-database-s3-access",
+    "create-database",
+    "delete-database",
+    "list-clusters",
+    "list-cluster-sizes",
+    "verify-cluster-s3-access",
+    "create-cluster",
+    "get-cluster",
+    "update-cluster",
+    "pause-cluster",
+    "resume-cluster",
+    "list-connectors",
+    "get-connector",
+    "create-connector",
+    "get-connector-metrics",
+    "add-connector-destination",
+    "set-connector-status",
+    "list-apps",
+    "install-app",
+    "uninstall-app"
+  ],
+  "tool_name": "run-query",
+  "tool_result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"meta\": [\n    {\n      \"name\": \"event_id\",\n      \"type\": \"Dynamic\"\n    },\n    {\n      \"name\": \"dataset_id\",\n      \"type\": \"Dynamic\"\n    },\n    {\n      \"name\": \"frame_count\",\n      \"type\": \"Dynamic\"\n    },\n    {\n      \"name\": \"license\",\n      \"type\": \"Dynamic\"\n    },\n    {\n      \"name\": \"verification_status\",\n      \"type\": \"Dynamic\"\n    }\n  ],\n  \"data\": [\n    {\n      \"event_id\": \"apple_lha_catalog_wikimedia_fuji_browning_2017_v1\",\n      \"dataset_id\": \"wikimedia_fuji_browning_2017\",\n      \"frame_count\": 32,\n      \"license\": \"CC BY-SA 4.0\",\n      \"verification_status\": \"replay_sample_verified_not_disease_benchmark\"\n    }\n  ],\n  \"rows\": 1,\n  \"statistics\": {\n    \"elapsed\": 0.00363696,\n    \"rows_read\": 1,\n    \"bytes_read\": 218\n  }\n}"
+      }
+    ]
+  },
+  "ok": true
+}

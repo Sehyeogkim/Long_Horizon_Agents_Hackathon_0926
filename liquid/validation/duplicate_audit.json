@@ -1,0 +1,2965 @@
+{
+  "created_at_utc": "2026-09-25T22:08:11.682076+00:00",
+  "purpose": "Independent dependence-risk indicators; no inference outputs read and no samples changed.",
+  "software": {
+    "python": "3.14.7",
+    "pillow": "12.3.0"
+  },
+  "method": {
+    "exact": "SHA256 of full original bytes, verified against frozen source manifest",
+    "perceptual": "64-bit horizontal dHash: Pillow JPEG draft RGB512, EXIF transpose, grayscale, LANCZOS resize9x8, left>right per row; row-major bits",
+    "hamming_threshold": 3,
+    "comparison": "All unordered pairs; one image decoded at a time on CPU",
+    "components": "Connected components of candidate-pair graph; transitive links need not meet threshold pairwise"
+  },
+  "input_manifests": [
+    {
+      "source": "primary",
+      "path": "liquid/validation/manifest.json",
+      "sha256": "ff5aadd2c51802eabc0993c9fbe2d032aec66aeed452a24eca524ca5d50c09f5",
+      "image_count": 200
+    },
+    {
+      "source": "external",
+      "path": "liquid/validation/external/manifest.json",
+      "sha256": "7d5c625ae5abecca402bdf584d8d8a6371b07ddc7782e6e991e3a0b594762007",
+      "image_count": 40
+    }
+  ],
+  "image_count": 240,
+  "class_counts_by_source": {
+    "primary": {
+      "healthy": 100,
+      "infected": 100
+    },
+    "external": {
+      "healthy": 20,
+      "infected": 20
+    }
+  },
+  "compared_pairs": 28680,
+  "exact_summary": {
+    "pair_count": 0,
+    "pairs_by_source": {
+      "within_primary": 0,
+      "within_external": 0,
+      "across_sources": 0
+    },
+    "pairs_by_label_agreement": {},
+    "hamming_distance_histogram": {},
+    "affected_image_count": 0,
+    "affected_image_fraction": 0.0,
+    "affected_images_by_source": {},
+    "connected_component_count_non_singleton": 0,
+    "component_sizes": [],
+    "components": []
+  },
+  "perceptual_summary": {
+    "pair_count": 0,
+    "pairs_by_source": {
+      "within_primary": 0,
+      "within_external": 0,
+      "across_sources": 0
+    },
+    "pairs_by_label_agreement": {},
+    "hamming_distance_histogram": {},
+    "affected_image_count": 0,
+    "affected_image_fraction": 0.0,
+    "affected_images_by_source": {},
+    "connected_component_count_non_singleton": 0,
+    "component_sizes": [],
+    "components": []
+  },
+  "exact_pairs": [],
+  "perceptual_candidate_pairs": [],
+  "images": [
+    {
+      "id": "primary:H181",
+      "source": "primary",
+      "source_label": "healthy",
+      "path": "liquid/validation/data/healthy/H181.jpg",
+      "sha256": "d512d0d4ed334e8c3b01b58a38f1af0236e5ae2f726678c96f82e4c3c1e29211",
+      "dhash64_hex": "163c25230541c389",
+      "original_dimensions": [
+        3024,
+        4032
+      ]
+    },
+    {
+      "id": "primary:H293",
+      "source": "primary",
+      "source_label": "healthy",
+      "path": "liquid/validation/data/healthy/H293.jpg",
+      "sha256": "e7f71a004f9dfb3ea0e0dc8cd2d5cf63588f26d7d10198c463c880a6715012ff",
+      "dhash64_hex": "870b0f03264cecfd",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:H142",
+      "source": "primary",
+      "source_label": "healthy",
+      "path": "liquid/validation/data/healthy/H142.jpg",
+      "sha256": "486c1c9f99cdeae6a2f6f7759aa15722fce3d63fd77f9414a65ea5531d012eab",
+      "dhash64_hex": "d7b3b73f1fbedde9",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:H107",
+      "source": "primary",
+      "source_label": "healthy",
+      "path": "liquid/validation/data/healthy/H107.jpg",
+      "sha256": "af8d50186df60dc6c39322f59cea16bf200ea0adfcd84067a8626dd582bbca6d",
+      "dhash64_hex": "f1fcfcdede5e5ccc",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:H378",
+      "source": "primary",
+      "source_label": "healthy",
+      "path": "liquid/validation/data/healthy/H378.jpg",
+      "sha256": "7abbd1911e624a4ca9bcf3006f66ebba64212f7c39717ec0d837a1b371858827",
+      "dhash64_hex": "c20686969397d3e9",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:H259",
+      "source": "primary",
+      "source_label": "healthy",
+      "path": "liquid/validation/data/healthy/H259.jpg",
+      "sha256": "fa2d9b2986a7fe9a165ed623dab911c987c4d9743c7c1cad0f219c121dcaeaaa",
+      "dhash64_hex": "ac267d7c3c3db979",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:H431",
+      "source": "primary",
+      "source_label": "healthy",
+      "path": "liquid/validation/data/healthy/H431.jpg",
+      "sha256": "ccd843ef5789484e789a1f17c1a6311cd5dd1b1c55cf027e49c57a7395d7e122",
+      "dhash64_hex": "2cc596730bab5e0e",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:H251",
+      "source": "primary",
+      "source_label": "healthy",
+      "path": "liquid/validation/data/healthy/H251.jpg",
+      "sha256": "312cccb85e461d0850876b10a33824f950b9cf905b84ab619736b77c92ca2e34",
+      "dhash64_hex": "0f1b1f3e3c3c2c3c",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:H141",
+      "source": "primary",
+      "source_label": "healthy",
+      "path": "liquid/validation/data/healthy/H141.jpg",
+      "sha256": "ae24c5a9e4a68280eb8cbd8332c649f9cdca214c69bfcf364eac2b3689cb2d37",
+      "dhash64_hex": "c9e0094060619370",
+      "original_dimensions": [
+        3024,
+        4032
+      ]
+    },
+    {
+      "id": "primary:H154",
+      "source": "primary",
+      "source_label": "healthy",
+      "path": "liquid/validation/data/healthy/H154.jpg",
+      "sha256": "d8511cb68c89fab0149c08b25212411d6c1f35764957fa86a9840d056a7c2c35",
+      "dhash64_hex": "4f37233b3b3a3b69",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:H364",
+      "source": "primary",
+      "source_label": "healthy",
+      "path": "liquid/validation/data/healthy/H364.jpg",
+      "sha256": "54c855c0549086602d17af6283f8802225f2debc077b3058b7e744db24987210",
+      "dhash64_hex": "091d3737170f9fe6",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:H206",
+      "source": "primary",
+      "source_label": "healthy",
+      "path": "liquid/validation/data/healthy/H206.jpg",
+      "sha256": "83a39f63fce5307eb5138501f05c40e5541862ac0001add6c0262a03d35d9e60",
+      "dhash64_hex": "948d010001034d93",
+      "original_dimensions": [
+        3024,
+        4032
+      ]
+    },
+    {
+      "id": "primary:H016",
+      "source": "primary",
+      "source_label": "healthy",
+      "path": "liquid/validation/data/healthy/H016.jpg",
+      "sha256": "d5b7d3c6076949ab697a1ba2f7b7bd08a4aebc4c18fbd5c71c62b3eebe9a2677",
+      "dhash64_hex": "1806397c7c7878f1",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:H394",
+      "source": "primary",
+      "source_label": "healthy",
+      "path": "liquid/validation/data/healthy/H394.jpg",
+      "sha256": "06e47a0c43989f8154a67bfff4485a9793b17f252bbce70918f1ee57027b6468",
+      "dhash64_hex": "0c1293938b874363",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:H467",
+      "source": "primary",
+      "source_label": "healthy",
+      "path": "liquid/validation/data/healthy/H467.jpg",
+      "sha256": "74748f409a8ee03391e3016482abf52e6acefacb20f024dff130c6e7719e3e80",
+      "dhash64_hex": "9283071b1b87c820",
+      "original_dimensions": [
+        3024,
+        4032
+      ]
+    },
+    {
+      "id": "primary:H108",
+      "source": "primary",
+      "source_label": "healthy",
+      "path": "liquid/validation/data/healthy/H108.jpg",
+      "sha256": "85dd6243583349f8187743716d5a73412662364756130892310f77d77d380d8d",
+      "dhash64_hex": "f1dcbc3c3c3c3c6c",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:H436",
+      "source": "primary",
+      "source_label": "healthy",
+      "path": "liquid/validation/data/healthy/H436.jpg",
+      "sha256": "0bdaf277f0493ce3b1c9ddb113f61754407a2a2cc038e53ff0e236610753bb3a",
+      "dhash64_hex": "1d1f2e66676e3e1f",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:H326",
+      "source": "primary",
+      "source_label": "healthy",
+      "path": "liquid/validation/data/healthy/H326.jpg",
+      "sha256": "20fea755cf6315f5e0215f5d23f72494946830f1dbb809dd28802bc7dc735da4",
+      "dhash64_hex": "9c8f030b1fd9f2b1",
+      "original_dimensions": [
+        3024,
+        4032
+      ]
+    },
+    {
+      "id": "primary:H134",
+      "source": "primary",
+      "source_label": "healthy",
+      "path": "liquid/validation/data/healthy/H134.jpg",
+      "sha256": "c424f4da65b5a6a28d49e6e3bb605f231083b72a3b21765cc49515a3aa277a8d",
+      "dhash64_hex": "e60701080d090724",
+      "original_dimensions": [
+        3024,
+        4032
+      ]
+    },
+    {
+      "id": "primary:H299",
+      "source": "primary",
+      "source_label": "healthy",
+      "path": "liquid/validation/data/healthy/H299.jpg",
+      "sha256": "e6ca5ee4aa4af3efcf549c6b9787d9179c6c8512980fb6a10aacc2a0a3a2d593",
+      "dhash64_hex": "071f5f56773c7cdc",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:H531",
+      "source": "primary",
+      "source_label": "healthy",
+      "path": "liquid/validation/data/healthy/H531.jpg",
+      "sha256": "8dd7a0171cc8d87a9ddd780a7623b50f535664359912c250d059f0d988be8c12",
+      "dhash64_hex": "aab24103868767ec",
+      "original_dimensions": [
+        3024,
+        4032
+      ]
+    },
+    {
+      "id": "primary:H004",
+      "source": "primary",
+      "source_label": "healthy",
+      "path": "liquid/validation/data/healthy/H004.jpg",
+      "sha256": "ccc6157f74a905f112899f218e6edbc4148d8a56e83dac418a692ce443156264",
+      "dhash64_hex": "4d0f078787c78283",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:H292",
+      "source": "primary",
+      "source_label": "healthy",
+      "path": "liquid/validation/data/healthy/H292.jpg",
+      "sha256": "4c8b17313b78353468f01ba446fe7ed97e08e6b665bef74d549d56af77c3b518",
+      "dhash64_hex": "0b07372e2c6c5db9",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:H471",
+      "source": "primary",
+      "source_label": "healthy",
+      "path": "liquid/validation/data/healthy/H471.jpg",
+      "sha256": "1bd63d3a756424839230cf755409ade37ede760609db92904163988a6140a39a",
+      "dhash64_hex": "e30f2f4c1fc26106",
+      "original_dimensions": [
+        3024,
+        4032
+      ]
+    },
+    {
+      "id": "primary:H434",
+      "source": "primary",
+      "source_label": "healthy",
+      "path": "liquid/validation/data/healthy/H434.jpg",
+      "sha256": "cfdcfff52729e80610805c2eb1bba90322afef6f011c98e6868ec4bc974e2882",
+      "dhash64_hex": "191d3e3e1f3f1f8f",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:H368",
+      "source": "primary",
+      "source_label": "healthy",
+      "path": "liquid/validation/data/healthy/H368.jpg",
+      "sha256": "55f55e1fb5425e4e61a08839a24c65ecc8ca12e27ac9877b175a750a8dc6d98a",
+      "dhash64_hex": "85161687878642eb",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:H233",
+      "source": "primary",
+      "source_label": "healthy",
+      "path": "liquid/validation/data/healthy/H233.jpg",
+      "sha256": "3fef076d1f7030add30ba6280ba481a9836c2ecb6f231c75ccb5a1bcb1831fb0",
+      "dhash64_hex": "a56c59bdf8f97272",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:H336",
+      "source": "primary",
+      "source_label": "healthy",
+      "path": "liquid/validation/data/healthy/H336.jpg",
+      "sha256": "03d7551e64fda38d9f2da5e33f722c06843cb697673a9af994cb866e9aa45aab",
+      "dhash64_hex": "0c1c3e7f4f2e1e1e",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:H494",
+      "source": "primary",
+      "source_label": "healthy",
+      "path": "liquid/validation/data/healthy/H494.jpg",
+      "sha256": "fd3961716487cb1eae02068ac4112b929aa57c7e79e3c1dd362bf642be65be88",
+      "dhash64_hex": "1c9e172f0707e3e3",
+      "original_dimensions": [
+        3024,
+        4032
+      ]
+    },
+    {
+      "id": "primary:H285",
+      "source": "primary",
+      "source_label": "healthy",
+      "path": "liquid/validation/data/healthy/H285.jpg",
+      "sha256": "558e2045a00c83ba311f6283de7d446dec240895c2f33164b548c91ed85ae2de",
+      "dhash64_hex": "9c267273765e3c7c",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:H457",
+      "source": "primary",
+      "source_label": "healthy",
+      "path": "liquid/validation/data/healthy/H457.jpg",
+      "sha256": "aad4e5cc25e0c48f6edfd9d7ed054c8ba59538c90e70ea7a0e49b47225d4ad86",
+      "dhash64_hex": "8d9f2f2737378745",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:H035",
+      "source": "primary",
+      "source_label": "healthy",
+      "path": "liquid/validation/data/healthy/H035.jpg",
+      "sha256": "75c0cf5254d37209e733caaf2c86147b9a493aa7a909d50a11b3faa7fc484079",
+      "dhash64_hex": "2c70c08080c0e068",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:H318",
+      "source": "primary",
+      "source_label": "healthy",
+      "path": "liquid/validation/data/healthy/H318.jpg",
+      "sha256": "f62d77a557b483e73aca1fc6caa6d087a8f5e5b78eb548b78287ca8386b6cee1",
+      "dhash64_hex": "26363f3e1e3c3d7b",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:H402",
+      "source": "primary",
+      "source_label": "healthy",
+      "path": "liquid/validation/data/healthy/H402.jpg",
+      "sha256": "ef9d5fce0ee2063b8529bf86d0dbdb0148bde93b0bdb6156a0b5fcb67ae3aa6a",
+      "dhash64_hex": "43068283c3c14565",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:H393",
+      "source": "primary",
+      "source_label": "healthy",
+      "path": "liquid/validation/data/healthy/H393.jpg",
+      "sha256": "72242d31465804f0b0de07d35adf089b6a15cd854c7bf3939877f017c8e494af",
+      "dhash64_hex": "cb9b12938b06c3e3",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:H438",
+      "source": "primary",
+      "source_label": "healthy",
+      "path": "liquid/validation/data/healthy/H438.jpg",
+      "sha256": "f28174b0dadcf762336123634906567a9fb68aa1857d48fa19ff20baa4716d54",
+      "dhash64_hex": "86073e3e3d3d3d61",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:H295",
+      "source": "primary",
+      "source_label": "healthy",
+      "path": "liquid/validation/data/healthy/H295.jpg",
+      "sha256": "224cd2b7b735f8f49b755822360259e62783bd26991974e5d31a0b7e7d14a4b6",
+      "dhash64_hex": "070717160e5c9cbc",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:H130",
+      "source": "primary",
+      "source_label": "healthy",
+      "path": "liquid/validation/data/healthy/H130.jpg",
+      "sha256": "61acaffeca2a7e22cd39d2fd065f2716738a9ad251cff25d8a0492ba19e434bd",
+      "dhash64_hex": "913000008103873e",
+      "original_dimensions": [
+        3024,
+        4032
+      ]
+    },
+    {
+      "id": "primary:H161",
+      "source": "primary",
+      "source_label": "healthy",
+      "path": "liquid/validation/data/healthy/H161.jpg",
+      "sha256": "41a8e2416484bc3c8d7548e949be44baf250cdccd850bcdb0670725b0cbbc7fc",
+      "dhash64_hex": "f68f2d3dfd7d5be3",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:H008",
+      "source": "primary",
+      "source_label": "healthy",
+      "path": "liquid/validation/data/healthy/H008.jpg",
+      "sha256": "f8ff96cd5e5133f09d5d7026321f3936973651147a68577b7cc934196f49d975",
+      "dhash64_hex": "e98e870343e16062",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:H286",
+      "source": "primary",
+      "source_label": "healthy",
+      "path": "liquid/validation/data/healthy/H286.jpg",
+      "sha256": "34a079584057c51ebba71e9e1c8496d3bd54864eb00799ef7820f19e17db94be",
+      "dhash64_hex": "223e3e3e7e3e3e7c",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:H201",
+      "source": "primary",
+      "source_label": "healthy",
+      "path": "liquid/validation/data/healthy/H201.jpg",
+      "sha256": "7377e61d79bf7754a479a8fb6ba933ba0c6f858ec6ca219cc8740bda375db427",
+      "dhash64_hex": "998b03030383c315",
+      "original_dimensions": [
+        3024,
+        4032
+      ]
+    },
+    {
+      "id": "primary:H179",
+      "source": "primary",
+      "source_label": "healthy",
+      "path": "liquid/validation/data/healthy/H179.jpg",
+      "sha256": "3f8ad92596912d9d55cd76b4febe0290bed73823f2146d62ad528ddb7e73d718",
+      "dhash64_hex": "24eb848618b1e1a9",
+      "original_dimensions": [
+        3024,
+        4032
+      ]
+    },
+    {
+      "id": "primary:H440",
+      "source": "primary",
+      "source_label": "healthy",
+      "path": "liquid/validation/data/healthy/H440.jpg",
+      "sha256": "fcb42fc79a7f09980b7f771b854b77dd50dd3eb82f0e552ac234544090351d49",
+      "dhash64_hex": "0f262667271f9fcb",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:H484",
+      "source": "primary",
+      "source_label": "healthy",
+      "path": "liquid/validation/data/healthy/H484.jpg",
+      "sha256": "37f58159cd8c36005d24527b337a824b0728441a419389b3abd80762bb52dccc",
+      "dhash64_hex": "6b0f070d07c3010c",
+      "original_dimensions": [
+        3024,
+        4032
+      ]
+    },
+    {
+      "id": "primary:H391",
+      "source": "primary",
+      "source_label": "healthy",
+      "path": "liquid/validation/data/healthy/H391.jpg",
+      "sha256": "22d0cf3537eba2e509aade30a0598858f381925cd9ec770621f90c129a4092f7",
+      "dhash64_hex": "e98753d393830361",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:H306",
+      "source": "primary",
+      "source_label": "healthy",
+      "path": "liquid/validation/data/healthy/H306.jpg",
+      "sha256": "0c2d88429d922583b3f33b87fea6354d0059a9233ecf31c1dff96ad86fd5e600",
+      "dhash64_hex": "4b1f3e3e3e3c2c3c",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:H143",
+      "source": "primary",
+      "source_label": "healthy",
+      "path": "liquid/validation/data/healthy/H143.jpg",
+      "sha256": "8264fd81300f70bd077c80dce0ad63eba8c71905de6d02b8aa3151b65a8fa7f0",
+      "dhash64_hex": "8f8f0f0f1f9f0f3d",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:H097",
+      "source": "primary",
+      "source_label": "healthy",
+      "path": "liquid/validation/data/healthy/H097.jpg",
+      "sha256": "54763f488e36cdb4e6855892badab3cb4b13cc86b158072e3476a24a493e9479",
+      "dhash64_hex": "2d07434160206064",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:H235",
+      "source": "primary",
+      "source_label": "healthy",
+      "path": "liquid/validation/data/healthy/H235.jpg",
+      "sha256": "f7f671ae83a2ba6cdb936eb23b8f649345a3faa6baefae27c3f5957ab3c2838c",
+      "dhash64_hex": "949b3b3333666f6a",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:H342",
+      "source": "primary",
+      "source_label": "healthy",
+      "path": "liquid/validation/data/healthy/H342.jpg",
+      "sha256": "b6043ed0a84de7b76ddc80d6a802d355001308c639334e8648fee6f4458ba11f",
+      "dhash64_hex": "9cc3830301072202",
+      "original_dimensions": [
+        3024,
+        4032
+      ]
+    },
+    {
+      "id": "primary:H186",
+      "source": "primary",
+      "source_label": "healthy",
+      "path": "liquid/validation/data/healthy/H186.jpg",
+      "sha256": "7f5462a6ea11bdec5d5b605b2448b501c6701f093f82e16308a6fcd416e73697",
+      "dhash64_hex": "8cbc7ecfdf3f569c",
+      "original_dimensions": [
+        3024,
+        4032
+      ]
+    },
+    {
+      "id": "primary:H538",
+      "source": "primary",
+      "source_label": "healthy",
+      "path": "liquid/validation/data/healthy/H538.jpg",
+      "sha256": "573c8507b805e1352d52973d9003871219878ecd0215be98d5e9cee57b58062b",
+      "dhash64_hex": "d2d1a18383037632",
+      "original_dimensions": [
+        3024,
+        4032
+      ]
+    },
+    {
+      "id": "primary:H518",
+      "source": "primary",
+      "source_label": "healthy",
+      "path": "liquid/validation/data/healthy/H518.jpg",
+      "sha256": "f973fea1d1e080718b79d9f26ebe990f30473c5284fafcad1b4ff23cb0ad45e4",
+      "dhash64_hex": "e00006172317d093",
+      "original_dimensions": [
+        3024,
+        4032
+      ]
+    },
+    {
+      "id": "primary:H433",
+      "source": "primary",
+      "source_label": "healthy",
+      "path": "liquid/validation/data/healthy/H433.jpg",
+      "sha256": "12882db786927e1e5758802c66af7d682041cdd8336c6faca274032b71c22b58",
+      "dhash64_hex": "191d3e2e2f3f9fc9",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:H178",
+      "source": "primary",
+      "source_label": "healthy",
+      "path": "liquid/validation/data/healthy/H178.jpg",
+      "sha256": "c09e1e2c2f00031c79bcb4c020091d26b3fbd3e3d8b0ad4bc88f9176c5be4358",
+      "dhash64_hex": "4387070301071153",
+      "original_dimensions": [
+        3024,
+        4032
+      ]
+    },
+    {
+      "id": "primary:H411",
+      "source": "primary",
+      "source_label": "healthy",
+      "path": "liquid/validation/data/healthy/H411.jpg",
+      "sha256": "9caf2bceb3363be5156918648c40759abd040e45e8773ec6357f9df016419bab",
+      "dhash64_hex": "63831393cb82e36b",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:H077",
+      "source": "primary",
+      "source_label": "healthy",
+      "path": "liquid/validation/data/healthy/H077.jpg",
+      "sha256": "ac929d7ead00a0eb71c526f77dd8842a197321282f777310e50fb59a40787192",
+      "dhash64_hex": "3034333a3a3799c9",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:H074",
+      "source": "primary",
+      "source_label": "healthy",
+      "path": "liquid/validation/data/healthy/H074.jpg",
+      "sha256": "f4657e4176c6a6ba5c44fbdb66d7d44ffe180895e0fe9e0c97f16e6c31079f50",
+      "dhash64_hex": "c1923223333b9ac8",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:H406",
+      "source": "primary",
+      "source_label": "healthy",
+      "path": "liquid/validation/data/healthy/H406.jpg",
+      "sha256": "629eebbf2c1747aea3dca740651661cbde1b3a4ed6edfa2a1d5b56f824c94c6f",
+      "dhash64_hex": "cc868383c1c1c064",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:H491",
+      "source": "primary",
+      "source_label": "healthy",
+      "path": "liquid/validation/data/healthy/H491.jpg",
+      "sha256": "1cedb87d5ca93dd49cdd25aa50a9510faf9dd4679dba24bcdf38aef8d527b393",
+      "dhash64_hex": "968301273983800d",
+      "original_dimensions": [
+        3024,
+        4032
+      ]
+    },
+    {
+      "id": "primary:H347",
+      "source": "primary",
+      "source_label": "healthy",
+      "path": "liquid/validation/data/healthy/H347.jpg",
+      "sha256": "0780372d307e0c429dc232f88a9ee83f5c5faabcadbafba04d7504e5e99fd7ba",
+      "dhash64_hex": "0d0383878381c1e1",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:H120",
+      "source": "primary",
+      "source_label": "healthy",
+      "path": "liquid/validation/data/healthy/H120.jpg",
+      "sha256": "76ce6180569917d09971bee3877afa87fd7bdaa8b6d02e041e3661024ad5a5e8",
+      "dhash64_hex": "ce9636363e3e1e0d",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:H040",
+      "source": "primary",
+      "source_label": "healthy",
+      "path": "liquid/validation/data/healthy/H040.jpg",
+      "sha256": "c426e39e78221e6625b062ca2969a4b9c7f4837756cd7cc4bd73e2a29ae23f4e",
+      "dhash64_hex": "9d1b7b7078382c3c",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:H272",
+      "source": "primary",
+      "source_label": "healthy",
+      "path": "liquid/validation/data/healthy/H272.jpg",
+      "sha256": "51109aed74f633e195a2aeb799f2388015ebf41af4ae93a6e796699e23bd028c",
+      "dhash64_hex": "0587161e3e3c7c3c",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:H071",
+      "source": "primary",
+      "source_label": "healthy",
+      "path": "liquid/validation/data/healthy/H071.jpg",
+      "sha256": "4875d4eba777bf5b1148455475a98d5a4ae6361490f8b20419c439e52f1d7b17",
+      "dhash64_hex": "84c3cb2b3b189bc8",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:H536",
+      "source": "primary",
+      "source_label": "healthy",
+      "path": "liquid/validation/data/healthy/H536.jpg",
+      "sha256": "efffd95734b9453ba99c3c40267839af56b443d9cc273ce4eb49ffecdefce594",
+      "dhash64_hex": "61cc900103038aba",
+      "original_dimensions": [
+        3024,
+        4032
+      ]
+    },
+    {
+      "id": "primary:H078",
+      "source": "primary",
+      "source_label": "healthy",
+      "path": "liquid/validation/data/healthy/H078.jpg",
+      "sha256": "a0d646b7098d5ff8532ba500820bfd5654672c656cc8f504ca79780c6efa49d2",
+      "dhash64_hex": "669ab939393b3f4d",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:H109",
+      "source": "primary",
+      "source_label": "healthy",
+      "path": "liquid/validation/data/healthy/H109.jpg",
+      "sha256": "43ad4caca345b99db3b403252c8f29e59ef14e3a219f4ff299a079fe805d00bd",
+      "dhash64_hex": "536e64bcbc7cf9d9",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:H087",
+      "source": "primary",
+      "source_label": "healthy",
+      "path": "liquid/validation/data/healthy/H087.jpg",
+      "sha256": "5f50c7506dbbb4dd3a141b79090f1585c753b2df6960e0dd9b4463b67e840810",
+      "dhash64_hex": "901251d1497120d4",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:H056",
+      "source": "primary",
+      "source_label": "healthy",
+      "path": "liquid/validation/data/healthy/H056.jpg",
+      "sha256": "33fa49771e65b37bd271ce1d9b53ba7b0ad76d7171317cf9bbec4fbdada633b3",
+      "dhash64_hex": "b0444783c3a391c9",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:H363",
+      "source": "primary",
+      "source_label": "healthy",
+      "path": "liquid/validation/data/healthy/H363.jpg",
+      "sha256": "683ea8a2a9961d36da949bb1629381425d2a96f869d9fcf19dfe2e5dff8e6433",
+      "dhash64_hex": "0c9693a78787c163",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:H195",
+      "source": "primary",
+      "source_label": "healthy",
+      "path": "liquid/validation/data/healthy/H195.jpg",
+      "sha256": "5f82a738eb8f040b61953d2b67704bd42763d34bbb57b535ab625fe1f44c23c1",
+      "dhash64_hex": "761e3f3f5f5f721f",
+      "original_dimensions": [
+        3024,
+        4032
+      ]
+    },
+    {
+      "id": "primary:H009",
+      "source": "primary",
+      "source_label": "healthy",
+      "path": "liquid/validation/data/healthy/H009.jpg",
+      "sha256": "1784e34f21765ba95ae2acf9b8b71554d3e1a23ffe189003935ece632f9679fd",
+      "dhash64_hex": "d41633c3c3637141",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:H173",
+      "source": "primary",
+      "source_label": "healthy",
+      "path": "liquid/validation/data/healthy/H173.jpg",
+      "sha256": "bfbd8bc97c734e776815828d48e0b89df63cfb881bd77b8c83fb22406f438ed4",
+      "dhash64_hex": "c55c0d0a08894272",
+      "original_dimensions": [
+        3024,
+        4032
+      ]
+    },
+    {
+      "id": "primary:H157",
+      "source": "primary",
+      "source_label": "healthy",
+      "path": "liquid/validation/data/healthy/H157.jpg",
+      "sha256": "3c080135e31784a3f189e9da261bd1dd95bda15efca84fe737984995ca4789b4",
+      "dhash64_hex": "8d33b2b4b93978f2",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:H050",
+      "source": "primary",
+      "source_label": "healthy",
+      "path": "liquid/validation/data/healthy/H050.jpg",
+      "sha256": "383639c5fcd794793c7efc754e6b7d0e290519de09b4cf712a57f3e6bcdc079f",
+      "dhash64_hex": "d687c3c3c1d3c3cb",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:H276",
+      "source": "primary",
+      "source_label": "healthy",
+      "path": "liquid/validation/data/healthy/H276.jpg",
+      "sha256": "8998eae58865ede494d0eddef5656ac2c70b5eb179b18f33a3bccb2598065e7f",
+      "dhash64_hex": "8c3f3f3c7d3c7d5b",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:H384",
+      "source": "primary",
+      "source_label": "healthy",
+      "path": "liquid/validation/data/healthy/H384.jpg",
+      "sha256": "5f3daa7cab75cedd45ff38c367b3cdc8f54c78f2aeb8312082428603ff2fde96",
+      "dhash64_hex": "451632ab87874303",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:H427",
+      "source": "primary",
+      "source_label": "healthy",
+      "path": "liquid/validation/data/healthy/H427.jpg",
+      "sha256": "521ae187dc07f0aee72a4cf6a3ec1a0d47956a4f8d1ae45a2a7750fe0c4ae4ac",
+      "dhash64_hex": "852527772f3f2fcf",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:H370",
+      "source": "primary",
+      "source_label": "healthy",
+      "path": "liquid/validation/data/healthy/H370.jpg",
+      "sha256": "a5154d3672916e693a82dc228157f8aff9acf408f1456782bf5dbddb84d29b91",
+      "dhash64_hex": "093d27160686c66a",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:H288",
+      "source": "primary",
+      "source_label": "healthy",
+      "path": "liquid/validation/data/healthy/H288.jpg",
+      "sha256": "89b7139ba20b166aa22caef0c98df784d9c5d70efb938b76fa3b7d84e69195dd",
+      "dhash64_hex": "062f3d7d7d3c3c79",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:H277",
+      "source": "primary",
+      "source_label": "healthy",
+      "path": "liquid/validation/data/healthy/H277.jpg",
+      "sha256": "2636011d188b876fb5b4f1d9322076421150709a1d9299f70a6a95e70c9b9129",
+      "dhash64_hex": "ce173f3e3e3c9ddd",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:H010",
+      "source": "primary",
+      "source_label": "healthy",
+      "path": "liquid/validation/data/healthy/H010.jpg",
+      "sha256": "937df3594af01006311fcedc8bb5782af8633b2b84d2497c5301cf377c284cd5",
+      "dhash64_hex": "4c1623038bc30199",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:H423",
+      "source": "primary",
+      "source_label": "healthy",
+      "path": "liquid/validation/data/healthy/H423.jpg",
+      "sha256": "3348d2ea64a0bc40eb77d4ddce34791e2acbf0875a7cfb577fb973992e3b21fd",
+      "dhash64_hex": "8946468383834664",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:H246",
+      "source": "primary",
+      "source_label": "healthy",
+      "path": "liquid/validation/data/healthy/H246.jpg",
+      "sha256": "d7c90c91070156b32aa1e1154f25ebdef1c6f6d33d230864f2ee5bac5280b05f",
+      "dhash64_hex": "0d1e3667676f3938",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:H070",
+      "source": "primary",
+      "source_label": "healthy",
+      "path": "liquid/validation/data/healthy/H070.jpg",
+      "sha256": "27cb792738e52367069adc709097c6ae9be259b3cda336e263167083d2ecbdb2",
+      "dhash64_hex": "8c96d979393898c4",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:H442",
+      "source": "primary",
+      "source_label": "healthy",
+      "path": "liquid/validation/data/healthy/H442.jpg",
+      "sha256": "87e57965a3db8ed1bf9d488bf2b9fd53c08c39623057d2e7ec5fa211440c5711",
+      "dhash64_hex": "061e3e3d3e3e9e9f",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:H038",
+      "source": "primary",
+      "source_label": "healthy",
+      "path": "liquid/validation/data/healthy/H038.jpg",
+      "sha256": "ffe49fe85c3fd4023f4e61af8cfb827c58fb1a906edb88476c8b7f09ae91962f",
+      "dhash64_hex": "33b3b060e160b4b6",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:H250",
+      "source": "primary",
+      "source_label": "healthy",
+      "path": "liquid/validation/data/healthy/H250.jpg",
+      "sha256": "f4794bf96a608d9e0e57b10b1c6445a10889203a9d2df440b6d53a8ed76e8a60",
+      "dhash64_hex": "2f8e3f3b2e2fad29",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:H415",
+      "source": "primary",
+      "source_label": "healthy",
+      "path": "liquid/validation/data/healthy/H415.jpg",
+      "sha256": "20045215a1eddb8523529555962788a192a7e73e2622e69986bbd3fb62e332d5",
+      "dhash64_hex": "839b5bc7c3c30162",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:H487",
+      "source": "primary",
+      "source_label": "healthy",
+      "path": "liquid/validation/data/healthy/H487.jpg",
+      "sha256": "aa3bdb3fa2377993f83f0cb9e91de16428ee0b37ea0e6c90fdd6c2c238208bd8",
+      "dhash64_hex": "6b07376707c2f30c",
+      "original_dimensions": [
+        3024,
+        4032
+      ]
+    },
+    {
+      "id": "primary:H350",
+      "source": "primary",
+      "source_label": "healthy",
+      "path": "liquid/validation/data/healthy/H350.jpg",
+      "sha256": "a89d79758d94d817671abbf68e3c37e3b2a7ccd7835d8b1b10f73ea0efb70285",
+      "dhash64_hex": "8b8f968382834369",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:H249",
+      "source": "primary",
+      "source_label": "healthy",
+      "path": "liquid/validation/data/healthy/H249.jpg",
+      "sha256": "a4d3d72450e6182838380e1ecb953fae9ff68537828b5b0f75d96fcec333e1a8",
+      "dhash64_hex": "8f072b67672f2f69",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:H025",
+      "source": "primary",
+      "source_label": "healthy",
+      "path": "liquid/validation/data/healthy/H025.jpg",
+      "sha256": "fb3d4aafa8c5f97bb7431571d792d746cacb0e0d313e27e5c87b9c3b457e556a",
+      "dhash64_hex": "a5430101010323e0",
+      "original_dimensions": [
+        3024,
+        4032
+      ]
+    },
+    {
+      "id": "primary:H331",
+      "source": "primary",
+      "source_label": "healthy",
+      "path": "liquid/validation/data/healthy/H331.jpg",
+      "sha256": "9394a2c433f248b036ac75dc7c778bf10b89cba0c0fd12e95e1e508e8020fe8e",
+      "dhash64_hex": "2e0a0b2f03607080",
+      "original_dimensions": [
+        3024,
+        4032
+      ]
+    },
+    {
+      "id": "primary:H389",
+      "source": "primary",
+      "source_label": "healthy",
+      "path": "liquid/validation/data/healthy/H389.jpg",
+      "sha256": "c56484ad0f332b6085399f5f145fdc24edf1e34d871bc1292ec44e80f79b3083",
+      "dhash64_hex": "07273313939b8bc1",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:H067",
+      "source": "primary",
+      "source_label": "healthy",
+      "path": "liquid/validation/data/healthy/H067.jpg",
+      "sha256": "48cf54459997769487ca33a8f9b7dd16e39ee66f63d87742119b6dd371ac01a0",
+      "dhash64_hex": "9b260223333b96c9",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:H412",
+      "source": "primary",
+      "source_label": "healthy",
+      "path": "liquid/validation/data/healthy/H412.jpg",
+      "sha256": "35aee0eea63cc0b7e5a8a7865b7dda4c12e3a8675908d01700c7b12d8adbcea5",
+      "dhash64_hex": "47839393c989c171",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:H099",
+      "source": "primary",
+      "source_label": "healthy",
+      "path": "liquid/validation/data/healthy/H099.jpg",
+      "sha256": "d61a7d04f60312efffc877289a436725fc10ac3c54e702e835c83a4b9640db58",
+      "dhash64_hex": "8149c848c0b8f0c4",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:I276",
+      "source": "primary",
+      "source_label": "infected",
+      "path": "liquid/validation/data/infected/I276.jpg",
+      "sha256": "1b2efc3734bc85dd81f4037fc08e3089a656122eb67a2d71b8d5e170bf11cfd4",
+      "dhash64_hex": "072b3f1f1b333731",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:I278",
+      "source": "primary",
+      "source_label": "infected",
+      "path": "liquid/validation/data/infected/I278.jpg",
+      "sha256": "729c267b8a3edbe27fe94c66a38b2bda9e22500d845d34e023e96b0c554bc66a",
+      "dhash64_hex": "860e3b3a323a9ed3",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:I192",
+      "source": "primary",
+      "source_label": "infected",
+      "path": "liquid/validation/data/infected/I192.jpg",
+      "sha256": "7c73f553862f209d42790dd97e55eb5e10690dbe1ba44b5b72d8df4443a0b0f9",
+      "dhash64_hex": "776f0f1f9fed6d39",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:I217",
+      "source": "primary",
+      "source_label": "infected",
+      "path": "liquid/validation/data/infected/I217.jpg",
+      "sha256": "51a1b78571993f4a9c828d8873cf614c25802ddce97f4384294a866a902f51da",
+      "dhash64_hex": "2d327195ccfdf9d9",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:I103",
+      "source": "primary",
+      "source_label": "infected",
+      "path": "liquid/validation/data/infected/I103.jpg",
+      "sha256": "319a87403b127d17526f7fb6fa1a7aca52e591376b640e5467e08a5c4c669a68",
+      "dhash64_hex": "c7470f0f0a623419",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:I434",
+      "source": "primary",
+      "source_label": "infected",
+      "path": "liquid/validation/data/infected/I434.jpg",
+      "sha256": "5a223aac86a58b095dbaf51ebf4838d1432b0254653c9b317042871936e7fd95",
+      "dhash64_hex": "6c5e43c1e1e171c9",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:I023",
+      "source": "primary",
+      "source_label": "infected",
+      "path": "liquid/validation/data/infected/I023.jpg",
+      "sha256": "420b8d170c65ce3558a601e1f2fff6743d279b02f7aecc0fee08322ab887dbf9",
+      "dhash64_hex": "d84ac6c6c3c5d647",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:I454",
+      "source": "primary",
+      "source_label": "infected",
+      "path": "liquid/validation/data/infected/I454.jpg",
+      "sha256": "dd546ecf521f56b2b3ad3134c47db20e0243a73734f1851108602113e4564e14",
+      "dhash64_hex": "07038ac302814147",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:I061",
+      "source": "primary",
+      "source_label": "infected",
+      "path": "liquid/validation/data/infected/I061.jpg",
+      "sha256": "41bb21367348559a447b052cdfe00c7427f1bf1f8f475d67e8b50746ee9638b1",
+      "dhash64_hex": "3b9f0f270d79d9d9",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:I128",
+      "source": "primary",
+      "source_label": "infected",
+      "path": "liquid/validation/data/infected/I128.jpg",
+      "sha256": "2a5eadc6010bba5da822239ab748ce2336ef5ad5f2488fbe251d8698589b0815",
+      "dhash64_hex": "8683830b0be10141",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:I475",
+      "source": "primary",
+      "source_label": "infected",
+      "path": "liquid/validation/data/infected/I475.jpg",
+      "sha256": "38a4e6313c1f2e6cf98199e7814424ab76d0877a474750e6b10ac7430a9815c6",
+      "dhash64_hex": "363acbc5c151c940",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:I244",
+      "source": "primary",
+      "source_label": "infected",
+      "path": "liquid/validation/data/infected/I244.jpg",
+      "sha256": "f9c22b21510cf5f5b50ed506dc8ecc0bda35f00329d5b912e5cea6aa68f090d2",
+      "dhash64_hex": "3532b2b27070b030",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:I333",
+      "source": "primary",
+      "source_label": "infected",
+      "path": "liquid/validation/data/infected/I333.jpg",
+      "sha256": "7b1f5b8430479da81c48f2b541d47563ea510c6b0e6e5251153c7bc578b15ff8",
+      "dhash64_hex": "960f7bb8c8e949c3",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:I182",
+      "source": "primary",
+      "source_label": "infected",
+      "path": "liquid/validation/data/infected/I182.jpg",
+      "sha256": "c150e7ebb31185a4a18e7e55bdecc08f1b437f4e02c2aefaabba17f7b981623e",
+      "dhash64_hex": "9c2e3e1e3fcd793f",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:I205",
+      "source": "primary",
+      "source_label": "infected",
+      "path": "liquid/validation/data/infected/I205.jpg",
+      "sha256": "bb8436454ff263735da6cd42e41c753aed49e4caba08fae4eac133919e3ba63b",
+      "dhash64_hex": "4a4b3824656d693f",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:I423",
+      "source": "primary",
+      "source_label": "infected",
+      "path": "liquid/validation/data/infected/I423.jpg",
+      "sha256": "be20be5c2a378dd71ce514410c889101a62ec4599817cab44af887d230e6baea",
+      "dhash64_hex": "430464e4e1f1f199",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:I451",
+      "source": "primary",
+      "source_label": "infected",
+      "path": "liquid/validation/data/infected/I451.jpg",
+      "sha256": "cc09f15e17f28621ebd2f73e91e599b48afc360ea2adc8a2abda9b0931106b79",
+      "dhash64_hex": "2f65a4a092c2d393",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:I301",
+      "source": "primary",
+      "source_label": "infected",
+      "path": "liquid/validation/data/infected/I301.jpg",
+      "sha256": "9d24d7d9de70da97bc68f002dd37557414ea2a5cb254a5857b0304e121185ad8",
+      "dhash64_hex": "5c0e3b26befc5c6c",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:I167",
+      "source": "primary",
+      "source_label": "infected",
+      "path": "liquid/validation/data/infected/I167.jpg",
+      "sha256": "9dcae82029e51fa61c018931cfb91ee5176f1cbf216cc4295ea9ebb5de000c06",
+      "dhash64_hex": "911e270e2eab5103",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:I057",
+      "source": "primary",
+      "source_label": "infected",
+      "path": "liquid/validation/data/infected/I057.jpg",
+      "sha256": "8686fc5e3450fe7a3a71f72561d5aaa2a6a1a0a21f666c1ab7b72f1ae5748523",
+      "dhash64_hex": "438e38ddcd6cf969",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:I090",
+      "source": "primary",
+      "source_label": "infected",
+      "path": "liquid/validation/data/infected/I090.jpg",
+      "sha256": "c943dd6c86fc7b275e3eb573aac2dcd96aa870f8ac6caf8987c9252c69c7b162",
+      "dhash64_hex": "4f0f07070781c367",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:I062",
+      "source": "primary",
+      "source_label": "infected",
+      "path": "liquid/validation/data/infected/I062.jpg",
+      "sha256": "104809793ed63632041edaeba8475effa6e19ec4b0459f96acc7cb7a2f23a4d9",
+      "dhash64_hex": "9d851632cbc9c1c9",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:I233",
+      "source": "primary",
+      "source_label": "infected",
+      "path": "liquid/validation/data/infected/I233.jpg",
+      "sha256": "d92616fb253a7e2aa0a229ea8a5bfa0cbf9b39b4071d16d52dc866b831f7cbe2",
+      "dhash64_hex": "6fb7370e84f870c9",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:I086",
+      "source": "primary",
+      "source_label": "infected",
+      "path": "liquid/validation/data/infected/I086.jpg",
+      "sha256": "9d72e5342ac233cf987db4df7e49ccbe40c592e30a8683ffa8e6fe0c3b95d970",
+      "dhash64_hex": "6427070362d3c363",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:I199",
+      "source": "primary",
+      "source_label": "infected",
+      "path": "liquid/validation/data/infected/I199.jpg",
+      "sha256": "916aa5a13223e76d6ddd38c72ba0c75ea5d72a404dacb06fc430cac8d95868ec",
+      "dhash64_hex": "2b3f3d3d3d7d7c3f",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:I008",
+      "source": "primary",
+      "source_label": "infected",
+      "path": "liquid/validation/data/infected/I008.jpg",
+      "sha256": "096ecc5914a3fae8f3336abf3b774d51d31b27d8b3945e29d4797c7923c0eb97",
+      "dhash64_hex": "4a9c96960f490659",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:I286",
+      "source": "primary",
+      "source_label": "infected",
+      "path": "liquid/validation/data/infected/I286.jpg",
+      "sha256": "3451e6e80db4885e53ac0518541203a125b60ea3cfb2c3c71148e35ca13e4b3e",
+      "dhash64_hex": "1e1783838109c3c3",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:I447",
+      "source": "primary",
+      "source_label": "infected",
+      "path": "liquid/validation/data/infected/I447.jpg",
+      "sha256": "8ccca478d310a6a9f4567bebba40931090a97156957a8401f2eb51405ef7562e",
+      "dhash64_hex": "1e238383c94989c1",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:I444",
+      "source": "primary",
+      "source_label": "infected",
+      "path": "liquid/validation/data/infected/I444.jpg",
+      "sha256": "fb0892baa5f4a3096378be4fb5a523e87950d0bda72b8b332bd92deffdf4d5c6",
+      "dhash64_hex": "3f0725c5c169cbeb",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:I110",
+      "source": "primary",
+      "source_label": "infected",
+      "path": "liquid/validation/data/infected/I110.jpg",
+      "sha256": "8b3ad1a9584bb9516fc59dc00d4d55aaf2ef9da19388fbecea1f7248a469c186",
+      "dhash64_hex": "ed861713919989d3",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:I468",
+      "source": "primary",
+      "source_label": "infected",
+      "path": "liquid/validation/data/infected/I468.jpg",
+      "sha256": "e70f0dc7c3e551da5072ffdc3354704d3a0ba4ea07eef4f0ab0d135df448cb55",
+      "dhash64_hex": "07132766478342e2",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:I489",
+      "source": "primary",
+      "source_label": "infected",
+      "path": "liquid/validation/data/infected/I489.jpg",
+      "sha256": "9a5bb10c5323cb3a7a9d03991bed1efb357c42b8fe2c2a7f45f9a9b6714d78b0",
+      "dhash64_hex": "134546c6cc4a819b",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:I139",
+      "source": "primary",
+      "source_label": "infected",
+      "path": "liquid/validation/data/infected/I139.jpg",
+      "sha256": "eaa3282acb412599275e35747195db8bc544addd5b85443d27e5ffe61db1c426",
+      "dhash64_hex": "9d97373387e1c1e3",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:I015",
+      "source": "primary",
+      "source_label": "infected",
+      "path": "liquid/validation/data/infected/I015.jpg",
+      "sha256": "27c371c2b30fb01a7a295b955af36bedcdae18adcb3338f932e00652b924aaaf",
+      "dhash64_hex": "418d068fa988c363",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:I165",
+      "source": "primary",
+      "source_label": "infected",
+      "path": "liquid/validation/data/infected/I165.jpg",
+      "sha256": "6c8c78a58393c5bb2e0dbb3872a3238007033147dcc3c046286ae3ce740fa6bc",
+      "dhash64_hex": "33ad0e578f4d4b33",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:I438",
+      "source": "primary",
+      "source_label": "infected",
+      "path": "liquid/validation/data/infected/I438.jpg",
+      "sha256": "0f7167bf585e26bae6b230c77770049321ee78d4f9c0cd8fae6e33d76d6edffb",
+      "dhash64_hex": "1e133191d1c983d3",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:I336",
+      "source": "primary",
+      "source_label": "infected",
+      "path": "liquid/validation/data/infected/I336.jpg",
+      "sha256": "bd59e00add8ec90efd07ff127ff3d3eae3c08e4813702d5e5036ea0684bd5013",
+      "dhash64_hex": "1b072333b1f9f9d9",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:I257",
+      "source": "primary",
+      "source_label": "infected",
+      "path": "liquid/validation/data/infected/I257.jpg",
+      "sha256": "fbc72d01c6a4e6fd19470fabc11aa6aa3ba693ad25685e4d3e482b4ba571dbca",
+      "dhash64_hex": "3670b9f9f1717332",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:I044",
+      "source": "primary",
+      "source_label": "infected",
+      "path": "liquid/validation/data/infected/I044.jpg",
+      "sha256": "08210e4eb91bfb7056fe025c22b649e33c216d3b3945f2d9d62d2559be6f4e30",
+      "dhash64_hex": "b1171e2b2945e961",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:I186",
+      "source": "primary",
+      "source_label": "infected",
+      "path": "liquid/validation/data/infected/I186.jpg",
+      "sha256": "d60c5fb10dda0dce8b441978d7d88122197555bd32e726174b663e0e9153f563",
+      "dhash64_hex": "860bdfd7cf6c7c3b",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:I117",
+      "source": "primary",
+      "source_label": "infected",
+      "path": "liquid/validation/data/infected/I117.jpg",
+      "sha256": "98d3a427543a85c759887a2e695d3280377ff86f6ea8bbfb47cf51d70d0991dd",
+      "dhash64_hex": "ce5e1e3f3c7c7933",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:I024",
+      "source": "primary",
+      "source_label": "infected",
+      "path": "liquid/validation/data/infected/I024.jpg",
+      "sha256": "d1ded83337e7c981dc51360ca55e5d6c013d1ffc0b2d57b7b783ee664aef5fdc",
+      "dhash64_hex": "3d96c6c3c2d35166",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:I252",
+      "source": "primary",
+      "source_label": "infected",
+      "path": "liquid/validation/data/infected/I252.jpg",
+      "sha256": "b9d551ba4ed25325b5b2e39c447fb3cd25665e164981df726528c7d21cf1603b",
+      "dhash64_hex": "7764757d7df9fbe7",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:I078",
+      "source": "primary",
+      "source_label": "infected",
+      "path": "liquid/validation/data/infected/I078.jpg",
+      "sha256": "99b57ce4914b50bbc1acba5c2534b847b46bdf01f1b0fb0ed86723f00bea8b88",
+      "dhash64_hex": "2e07a7022bd189b2",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:I325",
+      "source": "primary",
+      "source_label": "infected",
+      "path": "liquid/validation/data/infected/I325.jpg",
+      "sha256": "edfc89c183f818561f1b72d211baa6eb406e79995872c2ee6b4364bc4e28a267",
+      "dhash64_hex": "6d8da736a6eb9be3",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:I052",
+      "source": "primary",
+      "source_label": "infected",
+      "path": "liquid/validation/data/infected/I052.jpg",
+      "sha256": "d1d85dee4d285d1e46db3a18dfaba5fee7153f2ae76dd90fa91c8b9c75431f61",
+      "dhash64_hex": "9d1d3d282c69c973",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:I386",
+      "source": "primary",
+      "source_label": "infected",
+      "path": "liquid/validation/data/infected/I386.jpg",
+      "sha256": "e7aafe87d05fb2c0b7571e19db5b3ce69827bb67afbf14382ec94db5a818ed86",
+      "dhash64_hex": "535a4d9ce4f57dcd",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:I285",
+      "source": "primary",
+      "source_label": "infected",
+      "path": "liquid/validation/data/infected/I285.jpg",
+      "sha256": "789903c6459369edff56bae1c4bc7d109b4c73c3e7f84444d372985a8020f5da",
+      "dhash64_hex": "3f1b498303c1f0d0",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:I138",
+      "source": "primary",
+      "source_label": "infected",
+      "path": "liquid/validation/data/infected/I138.jpg",
+      "sha256": "fc00ea2b0d68f0d10d1394af6026924afe3bde70adf41cd74b7cd9b4839d4e9f",
+      "dhash64_hex": "dc1749c5c5e97933",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:I484",
+      "source": "primary",
+      "source_label": "infected",
+      "path": "liquid/validation/data/infected/I484.jpg",
+      "sha256": "a07ed0350e9b01b19bc30c0e127a268950ba73f0e731f67d1ec49fda34cf08a6",
+      "dhash64_hex": "8b254f87c563bb81",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:I360",
+      "source": "primary",
+      "source_label": "infected",
+      "path": "liquid/validation/data/infected/I360.jpg",
+      "sha256": "9eb16cd9adb5652c8d9f873f4e54406c0ef0ae0ac39a7d169cd78cb7000b45fc",
+      "dhash64_hex": "5b1e3b3b3b0da5dd",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:I073",
+      "source": "primary",
+      "source_label": "infected",
+      "path": "liquid/validation/data/infected/I073.jpg",
+      "sha256": "bfd8314d7976b25026feef24b93cb15b83b2bbc3d1f2929c99e38c97a6303584",
+      "dhash64_hex": "7446060b9b95a0a1",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:I122",
+      "source": "primary",
+      "source_label": "infected",
+      "path": "liquid/validation/data/infected/I122.jpg",
+      "sha256": "0f179bc3d70091bd79fb8319ab0c62006e67b26e4381da18b05acd4ac82d1349",
+      "dhash64_hex": "d65e27273499c162",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:I466",
+      "source": "primary",
+      "source_label": "infected",
+      "path": "liquid/validation/data/infected/I466.jpg",
+      "sha256": "77f47b4ca5305dc085aa315b949c7ec3fcd9e29b5a12514ce49bcc7854b17201",
+      "dhash64_hex": "26039999c9c9c8c2",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:I353",
+      "source": "primary",
+      "source_label": "infected",
+      "path": "liquid/validation/data/infected/I353.jpg",
+      "sha256": "d61444bb4a10f93850d665596d0fa4973113589fda203098fe0407e3e875c970",
+      "dhash64_hex": "afaf43f9a9ead7cd",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:I274",
+      "source": "primary",
+      "source_label": "infected",
+      "path": "liquid/validation/data/infected/I274.jpg",
+      "sha256": "7db4d937a9306d84428c271768d8860cd8c328dfb48ee3f6a35cc64569979d93",
+      "dhash64_hex": "421c0e1f3f3f1fdb",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:I183",
+      "source": "primary",
+      "source_label": "infected",
+      "path": "liquid/validation/data/infected/I183.jpg",
+      "sha256": "e482c8d1591858a59cfbfef29f7e983033e217ab365d4c90ada1788fc5800765",
+      "dhash64_hex": "2d8e9f3d19697933",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:I131",
+      "source": "primary",
+      "source_label": "infected",
+      "path": "liquid/validation/data/infected/I131.jpg",
+      "sha256": "ddcd0f4e0a6f9d7bf6a9ff15ef9d81905d53d8f94de87b65043431cb7d675d13",
+      "dhash64_hex": "d60e86136171d9d3",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:I400",
+      "source": "primary",
+      "source_label": "infected",
+      "path": "liquid/validation/data/infected/I400.jpg",
+      "sha256": "a7bc421c58ae5ef7dd0fa65518975ad86767ba62a5ce43bb70720a099a0db24e",
+      "dhash64_hex": "840d5c9cd9f9fbdb",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:I309",
+      "source": "primary",
+      "source_label": "infected",
+      "path": "liquid/validation/data/infected/I309.jpg",
+      "sha256": "41611843b0bb771dc92576cfd82bac54cb735d9281433f621430fd46477864ec",
+      "dhash64_hex": "0c1633324dedcd69",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:I162",
+      "source": "primary",
+      "source_label": "infected",
+      "path": "liquid/validation/data/infected/I162.jpg",
+      "sha256": "9ad8676ab89f9b1e00e3c7bd6884ce31493b6ade48c985b78b55fd8589f9c946",
+      "dhash64_hex": "8d0e2e270fafc363",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:I267",
+      "source": "primary",
+      "source_label": "infected",
+      "path": "liquid/validation/data/infected/I267.jpg",
+      "sha256": "7ce78acb8e878826cfa16f4ef514b36ccc87aa4abf40a876937c41ff9de15a79",
+      "dhash64_hex": "0d1c3c3c3d3ebebe",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:I154",
+      "source": "primary",
+      "source_label": "infected",
+      "path": "liquid/validation/data/infected/I154.jpg",
+      "sha256": "9e1d97962a87f8b8bfba43e95420404d31cb9bb5ba3a9cdecb5d35b7e331d5ce",
+      "dhash64_hex": "268783032731e162",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:I064",
+      "source": "primary",
+      "source_label": "infected",
+      "path": "liquid/validation/data/infected/I064.jpg",
+      "sha256": "1f85601d697f36871a2897f956ae5ee01cb18d6852447c54323a72c03ea73c66",
+      "dhash64_hex": "0f8f0b0f33d1c063",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:I388",
+      "source": "primary",
+      "source_label": "infected",
+      "path": "liquid/validation/data/infected/I388.jpg",
+      "sha256": "8c9aa5b38e228b09d76dfd67dab6af7f57fc499a62d7ea502ad3f08916241ea0",
+      "dhash64_hex": "2f333b3ab6fdbd9c",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:I207",
+      "source": "primary",
+      "source_label": "infected",
+      "path": "liquid/validation/data/infected/I207.jpg",
+      "sha256": "bcd9017b45a866b36ee6af9ec1ec3cb6b68ba5f8d6e3a6230f8309bd10b6d245",
+      "dhash64_hex": "490f5d7465ed6d3f",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:I283",
+      "source": "primary",
+      "source_label": "infected",
+      "path": "liquid/validation/data/infected/I283.jpg",
+      "sha256": "3f2cf9c7954dd5cfc90fec566884c0e1cf8b5720768d47f6bea25bd17c264aa4",
+      "dhash64_hex": "c793cacbc9e1e1c9",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:I462",
+      "source": "primary",
+      "source_label": "infected",
+      "path": "liquid/validation/data/infected/I462.jpg",
+      "sha256": "cd00e45444f7c2f3bb7bd2aa381377ae4df6ab2703db15ce39cfcbbc7ce8ff19",
+      "dhash64_hex": "634dd4b1a9f189d9",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:I392",
+      "source": "primary",
+      "source_label": "infected",
+      "path": "liquid/validation/data/infected/I392.jpg",
+      "sha256": "8fca4e3a4c8a588b5bd21c87336c9beff506f4944a760ff0599ae0cb793a7eb5",
+      "dhash64_hex": "34d2e6e2a1b1f9f9",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:I310",
+      "source": "primary",
+      "source_label": "infected",
+      "path": "liquid/validation/data/infected/I310.jpg",
+      "sha256": "8cc0e3c29018045940e69fdd72d71208e107d061400f8b227797d473cd8e87e7",
+      "dhash64_hex": "96160dcdd5f4d8c8",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:I354",
+      "source": "primary",
+      "source_label": "infected",
+      "path": "liquid/validation/data/infected/I354.jpg",
+      "sha256": "899ef045b5b0a853b282498a0e512358c99f63693176c6583cada5a77f0418ff",
+      "dhash64_hex": "a70317d98bcddddd",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:I214",
+      "source": "primary",
+      "source_label": "infected",
+      "path": "liquid/validation/data/infected/I214.jpg",
+      "sha256": "a8ba17d7aba54ff106b46fe89bfba943760041bc2d41af7f5afd6691289c8ac3",
+      "dhash64_hex": "cb3373958df9b898",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:I082",
+      "source": "primary",
+      "source_label": "infected",
+      "path": "liquid/validation/data/infected/I082.jpg",
+      "sha256": "6b4d1012e6b42225713dd2d892531a91d4a2f14292ca60169fa52e3df2e94077",
+      "dhash64_hex": "6b87831333f1d071",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:I385",
+      "source": "primary",
+      "source_label": "infected",
+      "path": "liquid/validation/data/infected/I385.jpg",
+      "sha256": "64f59ac6a833ed8da9abd0b5bbc38ff7bc672147b57dfed47ccfb8ab5c96356f",
+      "dhash64_hex": "441fdcccd4fdd9d9",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:I171",
+      "source": "primary",
+      "source_label": "infected",
+      "path": "liquid/validation/data/infected/I171.jpg",
+      "sha256": "c756f25e6d060368c597adbb6b266c3e81bbf0aabdd70875ecad7a2d88a7ced6",
+      "dhash64_hex": "941f1bbbb3477d39",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:I477",
+      "source": "primary",
+      "source_label": "infected",
+      "path": "liquid/validation/data/infected/I477.jpg",
+      "sha256": "199af9cb991b59545f8825b7dfda1fa29863c9c69b5b00ccfa815baa85fe2c7b",
+      "dhash64_hex": "4e1371f3d178a460",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:I481",
+      "source": "primary",
+      "source_label": "infected",
+      "path": "liquid/validation/data/infected/I481.jpg",
+      "sha256": "6a1d03e85d68bca1df7902c3fed11f552f2100d83d271e465f9b369f816ac46b",
+      "dhash64_hex": "854450d8984d7199",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:I405",
+      "source": "primary",
+      "source_label": "infected",
+      "path": "liquid/validation/data/infected/I405.jpg",
+      "sha256": "830930f61bb006f6bdc15aa077b984c1133f4b0b9ba723d16e92bdcecf4cfb95",
+      "dhash64_hex": "fc2683c3c3f3b393",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:I058",
+      "source": "primary",
+      "source_label": "infected",
+      "path": "liquid/validation/data/infected/I058.jpg",
+      "sha256": "78b36b6c1406478068c4ab855ac50ad018ad98d20759dcc3c6be3c09cfdb8b10",
+      "dhash64_hex": "871d47cbc3c4c9c9",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:I119",
+      "source": "primary",
+      "source_label": "infected",
+      "path": "liquid/validation/data/infected/I119.jpg",
+      "sha256": "acd8508c005f96b5f040bea217d813c16b077d9892cd8c35e12e988ee6c37059",
+      "dhash64_hex": "632f0f0f1d89d1c2",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:I282",
+      "source": "primary",
+      "source_label": "infected",
+      "path": "liquid/validation/data/infected/I282.jpg",
+      "sha256": "1382b42e19ee3579fcc57ac3d071cebfabae937b69fff706a2dfc961490ec876",
+      "dhash64_hex": "c7d3d3d3d34191c9",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:I291",
+      "source": "primary",
+      "source_label": "infected",
+      "path": "liquid/validation/data/infected/I291.jpg",
+      "sha256": "37b0445d6d4114306c02d255e61688c11f9ccc0a6b85f928cd47ad938fc90165",
+      "dhash64_hex": "973713a9bbb7f5c9",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:I170",
+      "source": "primary",
+      "source_label": "infected",
+      "path": "liquid/validation/data/infected/I170.jpg",
+      "sha256": "fb700b23e0e0be37831bbf76204d58ae7de38ddb57b1771ab422fdf6873cddaf",
+      "dhash64_hex": "58162f2f2e0f5b03",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:I242",
+      "source": "primary",
+      "source_label": "infected",
+      "path": "liquid/validation/data/infected/I242.jpg",
+      "sha256": "eb9277cdc4179de4f7c8fe25db67551682e191bdefb5af3dd7469ef8ce3acbd4",
+      "dhash64_hex": "da92626061e0c031",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:I464",
+      "source": "primary",
+      "source_label": "infected",
+      "path": "liquid/validation/data/infected/I464.jpg",
+      "sha256": "603db51ca9ba9f7f3abc4a5b6bb7ab8308506576763598e74c9f939b84c19213",
+      "dhash64_hex": "1723b393c9a1d1e1",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:I370",
+      "source": "primary",
+      "source_label": "infected",
+      "path": "liquid/validation/data/infected/I370.jpg",
+      "sha256": "fa60982684d69bcffae6c899ac15487194911b282c7aac171d986944cde2f663",
+      "dhash64_hex": "ca0eb73396dcd9cb",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:I047",
+      "source": "primary",
+      "source_label": "infected",
+      "path": "liquid/validation/data/infected/I047.jpg",
+      "sha256": "6439a2df851e21264db6e9325429cc2396edb79be8ff4e806bb69ca095543ace",
+      "dhash64_hex": "b193373253f1d1e1",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:I413",
+      "source": "primary",
+      "source_label": "infected",
+      "path": "liquid/validation/data/infected/I413.jpg",
+      "sha256": "1504d4e3b0b14747584994e7c2128f81222018825270240eaf99c296ae3914e9",
+      "dhash64_hex": "8c4e43c1e061e0e1",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:I212",
+      "source": "primary",
+      "source_label": "infected",
+      "path": "liquid/validation/data/infected/I212.jpg",
+      "sha256": "a645fcb00ff8c0dcd0532a79bac48c7a004c35370694f210d557150a834ebbe5",
+      "dhash64_hex": "0f3775ddf9f96c6a",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:I399",
+      "source": "primary",
+      "source_label": "infected",
+      "path": "liquid/validation/data/infected/I399.jpg",
+      "sha256": "b53cf2ace4435bd8e218dbc82687a75bc3f516ea11779917a32579baf8628bf3",
+      "dhash64_hex": "8c26323b0e34cae0",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:I397",
+      "source": "primary",
+      "source_label": "infected",
+      "path": "liquid/validation/data/infected/I397.jpg",
+      "sha256": "4e8528be8c0fd94757192d42ffa5e6d83b2abf53079be508454bebe93c2f9d74",
+      "dhash64_hex": "a925a9393d39391b",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:I364",
+      "source": "primary",
+      "source_label": "infected",
+      "path": "liquid/validation/data/infected/I364.jpg",
+      "sha256": "bf150174769c159cb318455fef68028ec4816c8cd1dee07765544689d38d9660",
+      "dhash64_hex": "1f0b431f37f1d4dd",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:I166",
+      "source": "primary",
+      "source_label": "infected",
+      "path": "liquid/validation/data/infected/I166.jpg",
+      "sha256": "73bfe0515c2531e87ad0f238095715ce4cddb60b25781c16d77f4699b203a9bf",
+      "dhash64_hex": "4d8606cfd7633107",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:I228",
+      "source": "primary",
+      "source_label": "infected",
+      "path": "liquid/validation/data/infected/I228.jpg",
+      "sha256": "3f09eac06db03785b050ada1fb5105e504a5c4fee34469454bf7dc2441c74c94",
+      "dhash64_hex": "25374fecf8f999c8",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:I342",
+      "source": "primary",
+      "source_label": "infected",
+      "path": "liquid/validation/data/infected/I342.jpg",
+      "sha256": "60fd4650a806d9c8f19b34d73249acd6b2b828f807d64f64713d06bcd3122cc8",
+      "dhash64_hex": "97172f3e9d99b3db",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:I445",
+      "source": "primary",
+      "source_label": "infected",
+      "path": "liquid/validation/data/infected/I445.jpg",
+      "sha256": "fe48d3cdccc066fba9b527b036214b8d9b37d23698da43ec75321cf4f8fe8cfa",
+      "dhash64_hex": "3e27278bc3e1a39b",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:I133",
+      "source": "primary",
+      "source_label": "infected",
+      "path": "liquid/validation/data/infected/I133.jpg",
+      "sha256": "982c4ba2018f55b6084006d2a7c3bfa4565844e5c3c6ddaa942478990fcbed99",
+      "dhash64_hex": "8797834361e1e1e3",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:I359",
+      "source": "primary",
+      "source_label": "infected",
+      "path": "liquid/validation/data/infected/I359.jpg",
+      "sha256": "a10f722e8b5784f266ca185be047e42d3976ea0567fce88fc05853adb5194f50",
+      "dhash64_hex": "968f1727c7e56d4c",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:I113",
+      "source": "primary",
+      "source_label": "infected",
+      "path": "liquid/validation/data/infected/I113.jpg",
+      "sha256": "bbe3ff479f9a4cf2592d695a4db2366561eabc90bed163be14d7a0fa3e856342",
+      "dhash64_hex": "c767430b43c4c961",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "primary:I311",
+      "source": "primary",
+      "source_label": "infected",
+      "path": "liquid/validation/data/infected/I311.jpg",
+      "sha256": "415ba162543d961cb1238ca4f16c71a244f86df0dd335b042c7ff378a117a328",
+      "dhash64_hex": "cc17b3250f07cd69",
+      "original_dimensions": [
+        4032,
+        3024
+      ]
+    },
+    {
+      "id": "external:FreshApple_a15827ebc98a",
+      "source": "external",
+      "source_label": "healthy",
+      "path": "liquid/validation/external/data/healthy/FreshApple_a15827ebc98a.jpg",
+      "sha256": "060fd6f2d2163b186c419a577628184c71c6a0d7a564c6e1b48c9c03e2d3761f",
+      "dhash64_hex": "9cb86cce7e7cf8b8",
+      "original_dimensions": [
+        2855,
+        2261
+      ]
+    },
+    {
+      "id": "external:FreshApple_19047fa403c0",
+      "source": "external",
+      "source_label": "healthy",
+      "path": "liquid/validation/external/data/healthy/FreshApple_19047fa403c0.jpg",
+      "sha256": "ea603ea66deb6580b53645a1e04473ff17b76e18be32f943b3b4a5597d6bc61d",
+      "dhash64_hex": "f0d8dcf4f4ecf870",
+      "original_dimensions": [
+        1927,
+        1863
+      ]
+    },
+    {
+      "id": "external:FreshApple_3c22854281e4",
+      "source": "external",
+      "source_label": "healthy",
+      "path": "liquid/validation/external/data/healthy/FreshApple_3c22854281e4.jpg",
+      "sha256": "e94736c451f78b05ce9add24b0a14e6186e25fbb0b934a190f807532f14a44ae",
+      "dhash64_hex": "0070f0a080c4c462",
+      "original_dimensions": [
+        2267,
+        1898
+      ]
+    },
+    {
+      "id": "external:FreshApple_6fc9a1ae55be",
+      "source": "external",
+      "source_label": "healthy",
+      "path": "liquid/validation/external/data/healthy/FreshApple_6fc9a1ae55be.jpg",
+      "sha256": "6649b9842cd41eaf648bbe9fa1b3a481e79668f3d290e5a665f93d63276743f1",
+      "dhash64_hex": "1038b09a11528a28",
+      "original_dimensions": [
+        3120,
+        4160
+      ]
+    },
+    {
+      "id": "external:FreshApple_2a95986a2548",
+      "source": "external",
+      "source_label": "healthy",
+      "path": "liquid/validation/external/data/healthy/FreshApple_2a95986a2548.jpg",
+      "sha256": "e641c4f6178468967eeb55c11bb5e11522d56aa1391c95e1c61a537ee37b6c54",
+      "dhash64_hex": "f0f0cc9c98dcc870",
+      "original_dimensions": [
+        2374,
+        2304
+      ]
+    },
+    {
+      "id": "external:FreshApple_429d1478f566",
+      "source": "external",
+      "source_label": "healthy",
+      "path": "liquid/validation/external/data/healthy/FreshApple_429d1478f566.jpg",
+      "sha256": "a495b5713d2e19802ba7816466671d66c2eb0dacd4bbb884e966c9625516ef61",
+      "dhash64_hex": "3371c8988cc47122",
+      "original_dimensions": [
+        2138,
+        2165
+      ]
+    },
+    {
+      "id": "external:FreshApple_89da0371a673",
+      "source": "external",
+      "source_label": "healthy",
+      "path": "liquid/validation/external/data/healthy/FreshApple_89da0371a673.jpg",
+      "sha256": "1550bba76977206bcbf0f372b53c44e007cd215155432742f4966cfec88ec80c",
+      "dhash64_hex": "da5ad0491b91d5d3",
+      "original_dimensions": [
+        4160,
+        3120
+      ]
+    },
+    {
+      "id": "external:FreshApple_dfa350897a0e",
+      "source": "external",
+      "source_label": "healthy",
+      "path": "liquid/validation/external/data/healthy/FreshApple_dfa350897a0e.jpg",
+      "sha256": "7828a36d74490d7265ff242eef614c753da51f5c6aafd6d5ef68fd5286e21b9b",
+      "dhash64_hex": "c0d8e4e0c2c46932",
+      "original_dimensions": [
+        2414,
+        2471
+      ]
+    },
+    {
+      "id": "external:FreshApple_cf814b879e17",
+      "source": "external",
+      "source_label": "healthy",
+      "path": "liquid/validation/external/data/healthy/FreshApple_cf814b879e17.jpg",
+      "sha256": "4d1e98e9e76eede6324d006b5b3cd14b364f1cb0f0df62245a3d457edd463cd3",
+      "dhash64_hex": "e0e0ece6d6b8f2e7",
+      "original_dimensions": [
+        3081,
+        1966
+      ]
+    },
+    {
+      "id": "external:FreshApple_a9e582b87d48",
+      "source": "external",
+      "source_label": "healthy",
+      "path": "liquid/validation/external/data/healthy/FreshApple_a9e582b87d48.jpg",
+      "sha256": "e7dc06100e70d521394c6f8f67ebcdd4449bdce574d6d960cc789eb61d8df2f4",
+      "dhash64_hex": "d19c5818e0e0e020",
+      "original_dimensions": [
+        3000,
+        3056
+      ]
+    },
+    {
+      "id": "external:FreshApple_57980d872073",
+      "source": "external",
+      "source_label": "healthy",
+      "path": "liquid/validation/external/data/healthy/FreshApple_57980d872073.jpg",
+      "sha256": "1f6d72bfde870de4bc978bfdc32da4325ba0a81ea331b3cbe45a5e5729398fdc",
+      "dhash64_hex": "1a73f0f8e2b2f0f8",
+      "original_dimensions": [
+        1769,
+        2244
+      ]
+    },
+    {
+      "id": "external:FreshApple_82fad1df5059",
+      "source": "external",
+      "source_label": "healthy",
+      "path": "liquid/validation/external/data/healthy/FreshApple_82fad1df5059.jpg",
+      "sha256": "e1d114a07642ade950566d6b1ab8c260f4f897cb1c9d379feac09e195cbfd01a",
+      "dhash64_hex": "80f0e4ccd8d06033",
+      "original_dimensions": [
+        2180,
+        2265
+      ]
+    },
+    {
+      "id": "external:FreshApple_42e65a63fc3a",
+      "source": "external",
+      "source_label": "healthy",
+      "path": "liquid/validation/external/data/healthy/FreshApple_42e65a63fc3a.jpg",
+      "sha256": "e53da60ecf18c8f479b939326f056d2dccd59b727a7389be003b35828c89b871",
+      "dhash64_hex": "3e3edaeceecadabc",
+      "original_dimensions": [
+        3263,
+        2858
+      ]
+    },
+    {
+      "id": "external:FreshApple_9620915713a8",
+      "source": "external",
+      "source_label": "healthy",
+      "path": "liquid/validation/external/data/healthy/FreshApple_9620915713a8.jpg",
+      "sha256": "d5ea9883902d24d8129c5dd00dcbf2276e69b904dbef0e88b75505828a719f72",
+      "dhash64_hex": "e0f8ccf0b4e4e60e",
+      "original_dimensions": [
+        2363,
+        2311
+      ]
+    },
+    {
+      "id": "external:FreshApple_6c86e0067e32",
+      "source": "external",
+      "source_label": "healthy",
+      "path": "liquid/validation/external/data/healthy/FreshApple_6c86e0067e32.jpg",
+      "sha256": "f26915fa64ef8263bc8eb55d7e7ffc0dc5869a75bfa1f82d12a5d63f4b0585ae",
+      "dhash64_hex": "80f0f8f0d0c46032",
+      "original_dimensions": [
+        2218,
+        1984
+      ]
+    },
+    {
+      "id": "external:FreshApple_e7544bbdfb54",
+      "source": "external",
+      "source_label": "healthy",
+      "path": "liquid/validation/external/data/healthy/FreshApple_e7544bbdfb54.jpg",
+      "sha256": "49290b7edb3fa05166a47fe0898cea85328ebcc2beef4dd3fb9a688da9db16f4",
+      "dhash64_hex": "1c0c2c899391199b",
+      "original_dimensions": [
+        4160,
+        3120
+      ]
+    },
+    {
+      "id": "external:FreshApple_728eade16181",
+      "source": "external",
+      "source_label": "healthy",
+      "path": "liquid/validation/external/data/healthy/FreshApple_728eade16181.jpg",
+      "sha256": "801e988007e11e95f7d19e35864d70e2ec1f8c898de762a43390057cc7e3a2d9",
+      "dhash64_hex": "a0e0d0c0c0c46032",
+      "original_dimensions": [
+        2320,
+        2045
+      ]
+    },
+    {
+      "id": "external:FreshApple_5d288bd064e6",
+      "source": "external",
+      "source_label": "healthy",
+      "path": "liquid/validation/external/data/healthy/FreshApple_5d288bd064e6.jpg",
+      "sha256": "0a2b388ed669a61c8d33401bed06809bb051c8180231310c898dd0f9173b38ee",
+      "dhash64_hex": "b0f0d4c6c6602820",
+      "original_dimensions": [
+        2107,
+        2564
+      ]
+    },
+    {
+      "id": "external:FreshApple_f68b848a7151",
+      "source": "external",
+      "source_label": "healthy",
+      "path": "liquid/validation/external/data/healthy/FreshApple_f68b848a7151.jpg",
+      "sha256": "2a36fcd276e37d8e5d0f69aedabf2bdb6b768b5acf3e4602299b8e726957ddd8",
+      "dhash64_hex": "96f1e8a0b6d4f871",
+      "original_dimensions": [
+        2079,
+        2494
+      ]
+    },
+    {
+      "id": "external:FreshApple_6de9b4ec1fda",
+      "source": "external",
+      "source_label": "healthy",
+      "path": "liquid/validation/external/data/healthy/FreshApple_6de9b4ec1fda.jpg",
+      "sha256": "b02b3e847650370ca95abe9884579661fdcc22719dd3ccaa84900e07c73884ea",
+      "dhash64_hex": "31f4e6e6f6f4f0f3",
+      "original_dimensions": [
+        2645,
+        2606
+      ]
+    },
+    {
+      "id": "external:RottenApple_79ab4ef8941a",
+      "source": "external",
+      "source_label": "infected",
+      "path": "liquid/validation/external/data/infected/RottenApple_79ab4ef8941a.jpg",
+      "sha256": "335a7bb37dd5823dfba96d4bcc731bb533e9aba6d44cc61656ce246acd530058",
+      "dhash64_hex": "e0e0f8f87ceccc82",
+      "original_dimensions": [
+        3453,
+        2469
+      ]
+    },
+    {
+      "id": "external:RottenApple_eaad6e78b7de",
+      "source": "external",
+      "source_label": "infected",
+      "path": "liquid/validation/external/data/infected/RottenApple_eaad6e78b7de.jpg",
+      "sha256": "23d58e9ef224f3e532e168893c68f0ada2631b37d713d73dcb1246b638001b4f",
+      "dhash64_hex": "70d0c4c8d9d18282",
+      "original_dimensions": [
+        3080,
+        2702
+      ]
+    },
+    {
+      "id": "external:RottenApple_84c69abda0a0",
+      "source": "external",
+      "source_label": "infected",
+      "path": "liquid/validation/external/data/infected/RottenApple_84c69abda0a0.jpg",
+      "sha256": "1811f47b6ed32ee9e0ca228108c7bbcb994f79f355c879034ab3b3079c908f4b",
+      "dhash64_hex": "0670d9c4c4f13208",
+      "original_dimensions": [
+        2722,
+        2488
+      ]
+    },
+    {
+      "id": "external:RottenApple_f71f87d22c4c",
+      "source": "external",
+      "source_label": "infected",
+      "path": "liquid/validation/external/data/infected/RottenApple_f71f87d22c4c.jpg",
+      "sha256": "2edfe6fd8abf0d2e13e742a8e9347ed63495986f3e9fda74362d533cd047340d",
+      "dhash64_hex": "9cf069697160f2f3",
+      "original_dimensions": [
+        2946,
+        2690
+      ]
+    },
+    {
+      "id": "external:RottenApple_ddd4e4ee0d54",
+      "source": "external",
+      "source_label": "infected",
+      "path": "liquid/validation/external/data/infected/RottenApple_ddd4e4ee0d54.jpg",
+      "sha256": "b97f21ee57256f7175f56438fd0a496bc563528a6139901119e641670c043123",
+      "dhash64_hex": "1938626666663419",
+      "original_dimensions": [
+        2822,
+        3331
+      ]
+    },
+    {
+      "id": "external:RottenApple_c0d890139134",
+      "source": "external",
+      "source_label": "infected",
+      "path": "liquid/validation/external/data/infected/RottenApple_c0d890139134.jpg",
+      "sha256": "24895302d639534baf0daf5143ee1750d04e05d48665cb4558f0fab7ca4f2dbe",
+      "dhash64_hex": "e0e0d8dcda7cfcc4",
+      "original_dimensions": [
+        3252,
+        2555
+      ]
+    },
+    {
+      "id": "external:RottenApple_5f1ef3b47ff0",
+      "source": "external",
+      "source_label": "infected",
+      "path": "liquid/validation/external/data/infected/RottenApple_5f1ef3b47ff0.jpg",
+      "sha256": "18c2fe964407c8df92b9e6da8d7923435ed280c54c528655dc1d25eeee982abf",
+      "dhash64_hex": "33e4a4dcf0f1f1f2",
+      "original_dimensions": [
+        3033,
+        3047
+      ]
+    },
+    {
+      "id": "external:RottenApple_c317b4b363aa",
+      "source": "external",
+      "source_label": "infected",
+      "path": "liquid/validation/external/data/infected/RottenApple_c317b4b363aa.jpg",
+      "sha256": "67b522508a5d694947738d92bc5161e422407f5006a785ed6fecc6418152d34d",
+      "dhash64_hex": "3773e9c9c969736d",
+      "original_dimensions": [
+        3446,
+        3006
+      ]
+    },
+    {
+      "id": "external:RottenApple_c8059e07b8fa",
+      "source": "external",
+      "source_label": "infected",
+      "path": "liquid/validation/external/data/infected/RottenApple_c8059e07b8fa.jpg",
+      "sha256": "970c93c830c857f56a2ef29af528efc740597f347062ad6a3fbdbf52d48ee716",
+      "dhash64_hex": "7079fcdcd87a3c7e",
+      "original_dimensions": [
+        2152,
+        2135
+      ]
+    },
+    {
+      "id": "external:RottenApple_e03227b3785e",
+      "source": "external",
+      "source_label": "infected",
+      "path": "liquid/validation/external/data/infected/RottenApple_e03227b3785e.jpg",
+      "sha256": "36b0a528b1431823a3d8cc2d1b46072b3aa654aad5b7fb8342cd3cb09f3ee105",
+      "dhash64_hex": "c0c0c190d4d88802",
+      "original_dimensions": [
+        3053,
+        2571
+      ]
+    },
+    {
+      "id": "external:RottenApple_7f8c0899e592",
+      "source": "external",
+      "source_label": "infected",
+      "path": "liquid/validation/external/data/infected/RottenApple_7f8c0899e592.jpg",
+      "sha256": "f23fb687c13f2f535e66b5b2e3f31db42564aa02c797ea42873658d6638e860a",
+      "dhash64_hex": "4010f4e490d8dc01",
+      "original_dimensions": [
+        3120,
+        4160
+      ]
+    },
+    {
+      "id": "external:RottenApple_f2e3060e8dfe",
+      "source": "external",
+      "source_label": "infected",
+      "path": "liquid/validation/external/data/infected/RottenApple_f2e3060e8dfe.jpg",
+      "sha256": "77dad20f7d76b8f3d54a5d19e7caeac08f6d430dcaf0959343c8d3b2e19a8126",
+      "dhash64_hex": "d2f9c0c4c4d8e13e",
+      "original_dimensions": [
+        2769,
+        2202
+      ]
+    },
+    {
+      "id": "external:RottenApple_f76d00951301",
+      "source": "external",
+      "source_label": "infected",
+      "path": "liquid/validation/external/data/infected/RottenApple_f76d00951301.jpg",
+      "sha256": "1697db6e9ceeedea02891095b91450d6af3b898ae0b69190333478844e853df2",
+      "dhash64_hex": "d0c0c0b2e079f0c4",
+      "original_dimensions": [
+        4160,
+        3120
+      ]
+    },
+    {
+      "id": "external:RottenApple_40eaaf1361f9",
+      "source": "external",
+      "source_label": "infected",
+      "path": "liquid/validation/external/data/infected/RottenApple_40eaaf1361f9.jpg",
+      "sha256": "836a5995a5f411893dc1fa220316a3353eed5b745613302ad21e4147b8f86a36",
+      "dhash64_hex": "3859667878787878",
+      "original_dimensions": [
+        3098,
+        3105
+      ]
+    },
+    {
+      "id": "external:RottenApple_c74928293776",
+      "source": "external",
+      "source_label": "infected",
+      "path": "liquid/validation/external/data/infected/RottenApple_c74928293776.jpg",
+      "sha256": "f60114aed409805e216d05e99fd94cb9fa0c794db7e8761ee9af904bceb2cfd5",
+      "dhash64_hex": "48b060f07879b146",
+      "original_dimensions": [
+        2777,
+        2405
+      ]
+    },
+    {
+      "id": "external:RottenApple_940886be065d",
+      "source": "external",
+      "source_label": "infected",
+      "path": "liquid/validation/external/data/infected/RottenApple_940886be065d.jpg",
+      "sha256": "e8ec4332925e7fc251a1bb71da781059d34ed96765ab05fcd51c013b5e237efd",
+      "dhash64_hex": "046cece4ece0c4ec",
+      "original_dimensions": [
+        4160,
+        3120
+      ]
+    },
+    {
+      "id": "external:RottenApple_2f2e59993e3d",
+      "source": "external",
+      "source_label": "infected",
+      "path": "liquid/validation/external/data/infected/RottenApple_2f2e59993e3d.jpg",
+      "sha256": "61e632e7fe6635cea781e4049a851fbf18e99142b509d390a4d0c9bd7c7f5719",
+      "dhash64_hex": "fe7878fc6c70fc78",
+      "original_dimensions": [
+        3034,
+        2521
+      ]
+    },
+    {
+      "id": "external:RottenApple_fff056249af9",
+      "source": "external",
+      "source_label": "infected",
+      "path": "liquid/validation/external/data/infected/RottenApple_fff056249af9.jpg",
+      "sha256": "8a42c724f36c1480d1c34a6f188b83462d1f352d8afd1f473a6effe81bce53a0",
+      "dhash64_hex": "f0f8f8f0e0c0f0e2",
+      "original_dimensions": [
+        2727,
+        2846
+      ]
+    },
+    {
+      "id": "external:RottenApple_b7977e4c19dd",
+      "source": "external",
+      "source_label": "infected",
+      "path": "liquid/validation/external/data/infected/RottenApple_b7977e4c19dd.jpg",
+      "sha256": "59c42c630fbaee1fe3d09358dac882faa6dfd9e26c731dd1bf0f16b91749595e",
+      "dhash64_hex": "c0c0d8dcd8f8cc04",
+      "original_dimensions": [
+        3089,
+        2604
+      ]
+    },
+    {
+      "id": "external:RottenApple_ced7cc85ed65",
+      "source": "external",
+      "source_label": "infected",
+      "path": "liquid/validation/external/data/infected/RottenApple_ced7cc85ed65.jpg",
+      "sha256": "99d6767b1cadc3cc10e0db9d5d50d43d9f0b873809d9abf0ce825575bc695e9c",
+      "dhash64_hex": "05e2e0c0c9e1f2bc",
+      "original_dimensions": [
+        3434,
+        2974
+      ]
+    }
+  ],
+  "limitations": [
+    "dHash candidates indicate similar coarse visual structure; not proof of duplicate files or the same physical fruit.",
+    "Backgrounds, viewpoint, illumination, uniform fruit shape, or resizing can create false matches.",
+    "True related views can exceed the threshold; zero matches does not establish independence.",
+    "Fruit identity and capture-session grouping are unavailable; effective independent sample size cannot be inferred from these counts.",
+    "No sample removal or post-output selection was performed; grouped external data is needed for stronger generalization claims."
+  ],
+  "elapsed_seconds": 15.049398167000618
+}

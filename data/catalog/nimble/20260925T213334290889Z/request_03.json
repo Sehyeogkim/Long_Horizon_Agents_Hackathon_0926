@@ -1,0 +1,31 @@
+{
+  "provider": "nimble",
+  "retrieved_at": "2026-09-25T21:33:36.377734+00:00",
+  "endpoint": "https://sdk.nimbleway.com/v2/extract",
+  "request": {
+    "url": "https://data.mendeley.com/datasets/xkbjx8959c/2",
+    "render": false,
+    "formats": [
+      "markdown"
+    ]
+  },
+  "ok": true,
+  "http_status": 200,
+  "response": {
+    "url": "https://data.mendeley.com/datasets/xkbjx8959c/2",
+    "task_id": "ddd22cdb-e51d-42b5-99a0-f0e5614293f0",
+    "status": "success",
+    "data": {
+      "markdown": "[Skip to main content](https://data.mendeley.com/datasets/xkbjx8959c/2#main)\n\n[Mendeley Data homepage](https://data.mendeley.com/)\n\n*   [FAQ](https://data.mendeley.com/faq)\n\nSign In / Register\n\nSign In / Register\n\n*   [FAQ](https://data.mendeley.com/faq)\n\n# FruitVision: A Benchmark Dataset for Fresh, Rotten, and Formalin-mixed Fruit Detection\n\nPublished: 15 January 2025| Version 2 | DOI: 10.17632/xkbjx8959c.2\n\nContributors:\n\nMd Hasan Imam Bijoy\n\n,\n\nSyeda Zarin Tasnim\n\n,\n\nSyed Ali Awsaf\n\n,\n\nMd Zahid Hasan\n\n## Description\n\nThis dataset, initially consisting of 10,154 high-resolution images of five fruit types—apple, banana, mango, orange, and grapes—has been expanded to over 81,000 using advanced augmentation techniques like rotation, scaling, and brightness adjustment. The images are classified into three key categories: fresh, rotten, and formalin-mixed. This dataset offers a unique opportunity for researchers in computer vision, agriculture, and food safety to develop machine learning and deep learning models for tasks such as real-time fruit quality assessment, contamination detection, and automating food inspection processes. Its extensive and diverse collection makes it a valuable resource for innovations in public health, export quality control, and agricultural productivity. (1) Everyone seeks fresh and high-quality fruits, as fruits naturally degrade over time, leading to spoilage. It is estimated that roughly one-third of harvested fruits rot, causing significant financial loss. Additionally, the sale of fruits is impacted by consumer concerns over the health risks associated with consuming spoiled or chemically treated fruits. The manual classification of fresh and rotten fruits by individuals is inefficient, particularly for farmers, sellers, and the fruit processing industry. (2) In recent years, computer vision techniques have shown great promise in automating tasks like classification and detection of fresh and rotten fruits. (3) To aid in the development of computer vision-based algorithms, we present an extensive fruit dataset containing five fruit classes: Fresh Apple, Rotten Apple, Formalin-mixed Apple, Fresh Banana, Rotten Banana, Formalin-mixed Banana, Fresh Grape, Rotten Grape, Formalin-mixed Grape, Fresh Mango, Rotten Mango, Formalin-mixed Mango, Fresh Orange, Rotten Orange, and Formalin-mixed Orange. Classification into fresh, rotten, and formalin-treated categories was carried out with the assistance of agricultural experts.\n\nDownload All\n\n## Files\n\n## Institutions\n\n*   Daffodil International University\n\n*   Leading University\n\n## Categories\n\nComputer Vision, Image Processing, Image Classification, Recognition, Data Collection in Agriculture, Deep Learning, Agriculture\n\n## Licence\n\nCC BY-NC-ND 4.0Learn more\n\nhttps://plu.mx/plum/a/?doi=10.17632/xkbjx8959c\n\n*   [Home](https://data.mendeley.com/)\n*   |\n*   [About](https://data.mendeley.com/about)\n*   |\n*   [Accessibility Statement](https://data.mendeley.com/accessibility)\n*   |\n*   [Archive Policy](https://data.mendeley.com/archive-process)\n*   |\n*   [File Formats](https://data.mendeley.com/file-formats)\n*   |\n*   [API Docs](https://data.mendeley.com/api/docs)\n*   |\n*   [OAI](https://data.mendeley.com/oai?verb=Identify)\n*   |\n*   [Mission](https://data.mendeley.com/mission)\n*   |\n*   [Status Updates](https://digitalcommons.elsevier.com/status)\n\n*   [Terms of Use](https://www.mendeley.com/terms/)\n*   |\n*   [Privacy Policy](https://www.elsevier.com/legal/privacy-policy)\n*   |\n*   Cookie Settings\n\n*   All content on this site: Copyright © 2026 Elsevier inc, its licensors, and contributors. All rights are reserved, including those for text and data mining, AI training and similar technologies. For all open access content, the Creative Commons licensing terms apply."
+    },
+    "metadata": {
+      "query_time": "2026-09-25T21:33:36.805Z",
+      "query_duration": 1235,
+      "response_parameters": {
+        "input_url": "https://data.mendeley.com/datasets/xkbjx8959c/2"
+      },
+      "driver": "vx6"
+    },
+    "status_code": 200
+  }
+}

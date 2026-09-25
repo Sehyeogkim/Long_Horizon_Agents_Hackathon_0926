@@ -1,0 +1,16 @@
+{
+  "provider": "nimble",
+  "retrieved_at": "2026-09-25T21:37:06.374849+00:00",
+  "endpoint": "https://sdk.nimbleway.com/v2/extract",
+  "request": {
+    "url": "https://commons.wikimedia.org/wiki/File:Browning_Fuji_apple_-_32_minutes_in_16_seconds.webm",
+    "render": false,
+    "formats": [
+      "markdown"
+    ]
+  },
+  "ok": false,
+  "http_status": 500,
+  "error": "http_error",
+  "content_available": false
+}

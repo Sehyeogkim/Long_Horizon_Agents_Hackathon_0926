@@ -1,0 +1,79 @@
+{
+  "provider": "nimble",
+  "retrieved_at": "2026-09-25T21:34:01.170123+00:00",
+  "endpoint": "https://sdk.nimbleway.com/v2/search",
+  "request": {
+    "query": "apple time lapse rotting image sequence dataset license",
+    "max_results": 5,
+    "search_depth": "lite",
+    "full_content": false
+  },
+  "ok": true,
+  "http_status": 200,
+  "response": {
+    "total_results": 5,
+    "results": [
+      {
+        "title": "Legal - Training Data - Datasets used for Apple Intelligence - Apple",
+        "description": "Different techniques are used to filter datasets, including manual and algorithmic ranking of content, use of heuristics, and use of machine learning models. Time period for collection. Apple has been collecting textual data for training since 2018 and image data for training since 2020. Data collection remains ongoing.",
+        "url": "https://www.apple.com/legal/ai-regulations/training-data/",
+        "content": "",
+        "metadata": {
+          "position": 1,
+          "entity_type": "OrganicResult",
+          "country": "US",
+          "locale": "en"
+        }
+      },
+      {
+        "title": "Indian Apple Fruit Image Dataset with Advanced Preprocessing for ...",
+        "description": "This dataset presents a curated and preprocessed image collection of Indian apple fruits, specifically designed for machine learning and deep learning applications in fruit disease detection. It includes a total of 8,415 raw images, divided into 5,715 images of healthy apples and 2,700 images exhibiting rot disease symptoms.",
+        "url": "https://ieee-dataport.org/documents/indian-apple-fruit-image-dataset-advanced-preprocessing-healthy-and-rot-detection",
+        "content": "",
+        "metadata": {
+          "position": 2,
+          "entity_type": "OrganicResult",
+          "country": "US",
+          "locale": "en"
+        }
+      },
+      {
+        "title": "Malaria dataset - Kaggle",
+        "description": "Discover what actually works in AI. Join millions of builders, researchers, and labs evaluating agents, models, and frontier technology through crowdsourced benchmarks, competitions, and hackathons.",
+        "url": "https://www.kaggle.com/datasets/basmarg/apple-dataset-images",
+        "content": "",
+        "metadata": {
+          "position": 3,
+          "entity_type": "OrganicResult",
+          "country": "US",
+          "locale": "en"
+        }
+      },
+      {
+        "title": "Download Apple Image Classification Dataset - Free Labeled Images for ...",
+        "description": "Apple image dataset with apple labeled images for AI training. Free to download as an ImageFolder-style ZIP with train / val / test splits. Ready for classification and computer vision research with PyTorch, TensorFlow, or Keras.",
+        "url": "https://images.cv/dataset/apple-image-classification-dataset",
+        "content": "",
+        "metadata": {
+          "position": 4,
+          "entity_type": "OrganicResult",
+          "country": "US",
+          "locale": "en"
+        }
+      },
+      {
+        "title": "A Large-Scale Dataset for Fruit Classification: Insights into Fresh ...",
+        "description": "This dataset, initially consisting of 10,154 high-resolution images of five fruit types—apple, banana, mango, orange, and grapes—has been expanded to over 81,000 using advanced augmentation techniques like rotation, scaling, and brightness adjustment. The images are classified into three key categories: fresh, rotten, and formalin-mixed. This dataset offers a unique opportunity for ...",
+        "url": "https://data.mendeley.com/datasets/xkbjx8959c/1",
+        "content": "",
+        "metadata": {
+          "position": 5,
+          "entity_type": "OrganicResult",
+          "country": "US",
+          "locale": "en"
+        }
+      }
+    ],
+    "request_id": "6457e348-6f56-479e-885f-53b666904f4a"
+  }
+}

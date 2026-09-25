@@ -1,0 +1,325 @@
+{
+  "seed": 20260925,
+  "selected": [
+    {
+      "path": "Original Image/FreshApple/FreshApple (175).jpg",
+      "compressed": 984724,
+      "uncompressed": 1002747,
+      "offset": 55894241,
+      "method": 8,
+      "crc32": 441254117
+    },
+    {
+      "path": "Original Image/FreshApple/FreshApple (129).jpg",
+      "compressed": 533515,
+      "uncompressed": 551445,
+      "offset": 24370512,
+      "method": 8,
+      "crc32": 3456726339
+    },
+    {
+      "path": "Original Image/FreshApple/FreshApple (96).jpg",
+      "compressed": 610155,
+      "uncompressed": 628026,
+      "offset": 242220973,
+      "method": 8,
+      "crc32": 2461163471
+    },
+    {
+      "path": "Original Image/FreshApple/FreshApple (36).jpg",
+      "compressed": 3578025,
+      "uncompressed": 3578120,
+      "offset": 112043235,
+      "method": 8,
+      "crc32": 1491219623
+    },
+    {
+      "path": "Original Image/FreshApple/FreshApple (126).jpg",
+      "compressed": 702165,
+      "uncompressed": 720564,
+      "offset": 22642835,
+      "method": 8,
+      "crc32": 560795223
+    },
+    {
+      "path": "Original Image/FreshApple/FreshApple (199).jpg",
+      "compressed": 684718,
+      "uncompressed": 703289,
+      "offset": 75772447,
+      "method": 8,
+      "crc32": 875045695
+    },
+    {
+      "path": "Original Image/FreshApple/FreshApple (49).jpg",
+      "compressed": 4253768,
+      "uncompressed": 4253636,
+      "offset": 146019704,
+      "method": 8,
+      "crc32": 2055061958
+    },
+    {
+      "path": "Original Image/FreshApple/FreshApple (9).jpg",
+      "compressed": 768255,
+      "uncompressed": 787189,
+      "offset": 234633668,
+      "method": 8,
+      "crc32": 2832217134
+    },
+    {
+      "path": "Original Image/FreshApple/FreshApple (71).jpg",
+      "compressed": 846930,
+      "uncompressed": 865171,
+      "offset": 201514492,
+      "method": 8,
+      "crc32": 2932901786
+    },
+    {
+      "path": "Original Image/FreshApple/FreshApple (60).jpg",
+      "compressed": 1319010,
+      "uncompressed": 1337358,
+      "offset": 183815842,
+      "method": 8,
+      "crc32": 952299576
+    },
+    {
+      "path": "Original Image/FreshApple/FreshApple (153).jpg",
+      "compressed": 504469,
+      "uncompressed": 522828,
+      "offset": 40664980,
+      "method": 8,
+      "crc32": 692233283
+    },
+    {
+      "path": "Original Image/FreshApple/FreshApple (5).jpg",
+      "compressed": 776573,
+      "uncompressed": 794745,
+      "offset": 150273547,
+      "method": 8,
+      "crc32": 1766985689
+    },
+    {
+      "path": "Original Image/FreshApple/FreshApple (30).jpg",
+      "compressed": 1366559,
+      "uncompressed": 1388925,
+      "offset": 99791272,
+      "method": 8,
+      "crc32": 1549335424
+    },
+    {
+      "path": "Original Image/FreshApple/FreshApple (19).jpg",
+      "compressed": 742669,
+      "uncompressed": 761108,
+      "offset": 68289552,
+      "method": 8,
+      "crc32": 394435813
+    },
+    {
+      "path": "Original Image/FreshApple/FreshApple (118).jpg",
+      "compressed": 642440,
+      "uncompressed": 660917,
+      "offset": 16770927,
+      "method": 8,
+      "crc32": 2804035089
+    },
+    {
+      "path": "Original Image/FreshApple/FreshApple (38).jpg",
+      "compressed": 3565886,
+      "uncompressed": 3565970,
+      "offset": 116316075,
+      "method": 8,
+      "crc32": 4076691182
+    },
+    {
+      "path": "Original Image/FreshApple/FreshApple (16).jpg",
+      "compressed": 624300,
+      "uncompressed": 642851,
+      "offset": 44297989,
+      "method": 8,
+      "crc32": 4167790530
+    },
+    {
+      "path": "Original Image/FreshApple/FreshApple (100).jpg",
+      "compressed": 676462,
+      "uncompressed": 695040,
+      "offset": 3789138,
+      "method": 8,
+      "crc32": 2007001225
+    },
+    {
+      "path": "Original Image/FreshApple/FreshApple (167).jpg",
+      "compressed": 633682,
+      "uncompressed": 652628,
+      "offset": 48588227,
+      "method": 8,
+      "crc32": 1546913753
+    },
+    {
+      "path": "Original Image/FreshApple/FreshApple (178).jpg",
+      "compressed": 945369,
+      "uncompressed": 964243,
+      "offset": 58279373,
+      "method": 8,
+      "crc32": 3429243602
+    },
+    {
+      "path": "Original Image/RottenApple/RottenApple (153).jpg",
+      "compressed": 834020,
+      "uncompressed": 859291,
+      "offset": 1327959079,
+      "method": 8,
+      "crc32": 4695637
+    },
+    {
+      "path": "Original Image/RottenApple/RottenApple (6).jpg",
+      "compressed": 1024484,
+      "uncompressed": 1043352,
+      "offset": 1432915660,
+      "method": 8,
+      "crc32": 1805351566
+    },
+    {
+      "path": "Original Image/RottenApple/RottenApple (56).jpg",
+      "compressed": 930588,
+      "uncompressed": 949864,
+      "offset": 1427967368,
+      "method": 8,
+      "crc32": 1955412832
+    },
+    {
+      "path": "Original Image/RottenApple/RottenApple (75).jpg",
+      "compressed": 922479,
+      "uncompressed": 942294,
+      "offset": 1450485813,
+      "method": 8,
+      "crc32": 3630847580
+    },
+    {
+      "path": "Original Image/RottenApple/RottenApple (79).jpg",
+      "compressed": 1392793,
+      "uncompressed": 1411324,
+      "offset": 1455195060,
+      "method": 8,
+      "crc32": 3614226631
+    },
+    {
+      "path": "Original Image/RottenApple/RottenApple (150).jpg",
+      "compressed": 863246,
+      "uncompressed": 883252,
+      "offset": 1324569598,
+      "method": 8,
+      "crc32": 1087963030
+    },
+    {
+      "path": "Original Image/RottenApple/RottenApple (24).jpg",
+      "compressed": 731878,
+      "uncompressed": 803484,
+      "offset": 1390116381,
+      "method": 8,
+      "crc32": 624468474
+    },
+    {
+      "path": "Original Image/RottenApple/RottenApple (53).jpg",
+      "compressed": 1509318,
+      "uncompressed": 1528699,
+      "offset": 1425097366,
+      "method": 8,
+      "crc32": 586094842
+    },
+    {
+      "path": "Original Image/RottenApple/RottenApple (10).jpg",
+      "compressed": 525487,
+      "uncompressed": 544621,
+      "offset": 1261926174,
+      "method": 8,
+      "crc32": 1441436928
+    },
+    {
+      "path": "Original Image/RottenApple/RottenApple (124).jpg",
+      "compressed": 716578,
+      "uncompressed": 738826,
+      "offset": 1289156281,
+      "method": 8,
+      "crc32": 3160059600
+    },
+    {
+      "path": "Original Image/RottenApple/RottenApple (142).jpg",
+      "compressed": 1670247,
+      "uncompressed": 1748225,
+      "offset": 1311435471,
+      "method": 8,
+      "crc32": 764723185
+    },
+    {
+      "path": "Original Image/RottenApple/RottenApple (34).jpg",
+      "compressed": 613393,
+      "uncompressed": 633085,
+      "offset": 1399638946,
+      "method": 8,
+      "crc32": 791197428
+    },
+    {
+      "path": "Original Image/RottenApple/RottenApple (158).jpg",
+      "compressed": 1972184,
+      "uncompressed": 1998435,
+      "offset": 1332728902,
+      "method": 8,
+      "crc32": 1214993581
+    },
+    {
+      "path": "Original Image/RottenApple/RottenApple (93).jpg",
+      "compressed": 885924,
+      "uncompressed": 956604,
+      "offset": 1475449130,
+      "method": 8,
+      "crc32": 3173946591
+    },
+    {
+      "path": "Original Image/RottenApple/RottenApple (51).jpg",
+      "compressed": 556492,
+      "uncompressed": 578572,
+      "offset": 1423977292,
+      "method": 8,
+      "crc32": 252529010
+    },
+    {
+      "path": "Original Image/RottenApple/RottenApple (195).jpg",
+      "compressed": 2078160,
+      "uncompressed": 2130140,
+      "offset": 1377351470,
+      "method": 8,
+      "crc32": 2216150475
+    },
+    {
+      "path": "Original Image/RottenApple/RottenApple (174).jpg",
+      "compressed": 657342,
+      "uncompressed": 679054,
+      "offset": 1350517019,
+      "method": 8,
+      "crc32": 1741094890
+    },
+    {
+      "path": "Original Image/RottenApple/RottenApple (145).jpg",
+      "compressed": 880638,
+      "uncompressed": 899732,
+      "offset": 1317191822,
+      "method": 8,
+      "crc32": 1745953110
+    },
+    {
+      "path": "Original Image/RottenApple/RottenApple (152).jpg",
+      "compressed": 1204023,
+      "uncompressed": 1222183,
+      "offset": 1326754978,
+      "method": 8,
+      "crc32": 2078790950
+    },
+    {
+      "path": "Original Image/RottenApple/RottenApple (198).jpg",
+      "compressed": 1100971,
+      "uncompressed": 1125324,
+      "offset": 1382159859,
+      "method": 8,
+      "crc32": 2023237429
+    }
+  ]
+}

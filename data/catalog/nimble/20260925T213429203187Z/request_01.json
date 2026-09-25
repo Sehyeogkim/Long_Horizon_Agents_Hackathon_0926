@@ -1,0 +1,31 @@
+{
+  "provider": "nimble",
+  "retrieved_at": "2026-09-25T21:34:29.205423+00:00",
+  "endpoint": "https://sdk.nimbleway.com/v2/extract",
+  "request": {
+    "url": "https://www.kaggle.com/datasets/soorajkavumpadi/fruit-and-vegetable-dataset-for-shelf-life",
+    "render": false,
+    "formats": [
+      "markdown"
+    ]
+  },
+  "ok": true,
+  "http_status": 200,
+  "response": {
+    "url": "https://www.kaggle.com/datasets/soorajkavumpadi/fruit-and-vegetable-dataset-for-shelf-life",
+    "task_id": "d6694e6d-487c-4213-be31-db3f21b1b47b",
+    "status": "success",
+    "data": {
+      "markdown": ""
+    },
+    "metadata": {
+      "query_time": "2026-09-25T21:34:29.858Z",
+      "query_duration": 3112,
+      "response_parameters": {
+        "input_url": "https://www.kaggle.com/datasets/soorajkavumpadi/fruit-and-vegetable-dataset-for-shelf-life"
+      },
+      "driver": "vx6"
+    },
+    "status_code": 200
+  }
+}

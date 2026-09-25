@@ -1,0 +1,13 @@
+{
+  "provider": "nimble",
+  "retrieved_at": "2026-09-25T21:32:24.191228+00:00",
+  "endpoint": "https://sdk.nimbleway.com/v2/search",
+  "request": {
+    "query": "apple bruising early detection image dataset repeated measurements same apple storage days healthy rotten RGB",
+    "max_results": 5,
+    "search_depth": "lite",
+    "full_content": false
+  },
+  "ok": false,
+  "error": "transport_or_json_error"
+}

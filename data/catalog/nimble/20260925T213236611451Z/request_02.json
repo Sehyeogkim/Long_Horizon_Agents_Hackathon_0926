@@ -1,0 +1,79 @@
+{
+  "provider": "nimble",
+  "retrieved_at": "2026-09-25T21:32:36.613912+00:00",
+  "endpoint": "https://sdk.nimbleway.com/v2/search",
+  "request": {
+    "query": "apple bruising early detection image dataset repeated measurements same apple storage days healthy rotten RGB",
+    "max_results": 5,
+    "search_depth": "lite",
+    "full_content": false
+  },
+  "ok": true,
+  "http_status": 200,
+  "response": {
+    "total_results": 5,
+    "results": [
+      {
+        "title": "A Thermal Imaging Dataset for Fruit Bruise Detection and Classification",
+        "description": "This dataset contains thermal images of fruits for automated bruise detection and classification tasks using deep learning methods. The dataset includes two fruit types: apple and tomato, each categorized into bruised and healthy classes.",
+        "url": "https://data.mendeley.com/datasets/ngszbtxxj2",
+        "content": "",
+        "metadata": {
+          "position": 1,
+          "entity_type": "OrganicResult",
+          "country": "US",
+          "locale": "en"
+        }
+      },
+      {
+        "title": "Early Bruise Detection in Apple Based on an Improved Faster RCNN Model",
+        "description": "To evaluate the effectiveness of early bruise detection by SWIR bands compared to the visible/near-infrared (Vis/NIR) bands, a hybrid dataset with images from two cameras with different bands was used for validation. To improve the accuracy of the model in detecting apple bruises, calyxes, and stems, several improvements are implemented.",
+        "url": "https://www.mdpi.com/2311-7524/10/1/100",
+        "content": "",
+        "metadata": {
+          "position": 2,
+          "entity_type": "OrganicResult",
+          "country": "US",
+          "locale": "en"
+        }
+      },
+      {
+        "title": "Three-dimensional visualization and detection of early bruise in apple ...",
+        "description": "In the context of current literature, this research is the first approach to conduct early bruise detection on the HSI data acquired from a 360° rotation of apple, including the bruise in the shadowed image edge.",
+        "url": "https://www.sciencedirect.com/science/article/pii/S0925521423005148",
+        "content": "",
+        "metadata": {
+          "position": 3,
+          "entity_type": "OrganicResult",
+          "country": "US",
+          "locale": "en"
+        }
+      },
+      {
+        "title": "Early detection of apple bruises using spectral-spatial enhanced 3D CNN ...",
+        "description": "For example, prior 3D-CNN methods have achieved detection accuracies of approximately 60-70% on early bruise datasets (Gai et al., 2022), while region-based 2D approaches such as Faster R-CNN have been limited to RGB or pseudo-RGB images, often failing under weak spectral contrast conditions.",
+        "url": "https://www.sciencedirect.com/science/article/pii/S0963996925019684",
+        "content": "",
+        "metadata": {
+          "position": 4,
+          "entity_type": "OrganicResult",
+          "country": "US",
+          "locale": "en"
+        }
+      },
+      {
+        "title": "TU-IR Apple Image Dataset: Benchmarking, Challenges, and Asymmetric ...",
+        "description": "Toward the aim of developing a bruise detection system for apple harvesting, especially at night time, this article describes the designing issues (i.e., protocol) and creation of a new infrared imaging-based dataset titled TU-IR Apple Image Dataset, which contains 1375 infrared images of apples defining four major categories of bruises (i.e ...",
+        "url": "https://ui.adsabs.harvard.edu/abs/2024ITAE....2..105D/abstract",
+        "content": "",
+        "metadata": {
+          "position": 5,
+          "entity_type": "OrganicResult",
+          "country": "US",
+          "locale": "en"
+        }
+      }
+    ],
+    "request_id": "d33970f9-0bd0-46eb-9404-85144ec8a2a0"
+  }
+}

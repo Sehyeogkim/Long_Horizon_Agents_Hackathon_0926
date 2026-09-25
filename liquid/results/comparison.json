@@ -1,0 +1,65 @@
+[
+  {
+    "run": "20260925T213840Z",
+    "resize_max_edge": 0,
+    "image_max_tokens_setting": 64,
+    "unique_images": 4,
+    "calls": 8,
+    "median_seconds": 6.449114791499994,
+    "sampled_peak_server_rss_gib": 1.5120391845703125,
+    "prompt_tokens": [
+      1749
+    ],
+    "appearance_label_agreement_calls": 8,
+    "positive_calls": 4,
+    "raw_positive_strong_analysis_calls": 0,
+    "guard_positive_strong_analysis_calls": 4,
+    "raw_unresolved_memory_escalations": 0,
+    "guard_unresolved_memory_escalations": 1,
+    "valid_schema_all_calls": 11,
+    "all_calls_including_warmup_and_memory": 11,
+    "guard_evaluation": "Post-hoc replay of saved model outputs; not a GPT-5 invocation"
+  },
+  {
+    "run": "20260925T213840Z",
+    "resize_max_edge": 0,
+    "image_max_tokens_setting": 256,
+    "unique_images": 4,
+    "calls": 8,
+    "median_seconds": 6.954786292000001,
+    "sampled_peak_server_rss_gib": 1.5419158935546875,
+    "prompt_tokens": [
+      1929
+    ],
+    "appearance_label_agreement_calls": 8,
+    "positive_calls": 4,
+    "raw_positive_strong_analysis_calls": 0,
+    "guard_positive_strong_analysis_calls": 4,
+    "raw_unresolved_memory_escalations": 0,
+    "guard_unresolved_memory_escalations": 1,
+    "valid_schema_all_calls": 10,
+    "all_calls_including_warmup_and_memory": 11,
+    "guard_evaluation": "Post-hoc replay of saved model outputs; not a GPT-5 invocation"
+  },
+  {
+    "run": "20260925T214154Z",
+    "resize_max_edge": 512,
+    "image_max_tokens_setting": 256,
+    "unique_images": 4,
+    "calls": 8,
+    "median_seconds": 2.190790750499998,
+    "sampled_peak_server_rss_gib": 1.3296966552734375,
+    "prompt_tokens": [
+      344
+    ],
+    "appearance_label_agreement_calls": 8,
+    "positive_calls": 4,
+    "raw_positive_strong_analysis_calls": 2,
+    "guard_positive_strong_analysis_calls": 4,
+    "raw_unresolved_memory_escalations": 0,
+    "guard_unresolved_memory_escalations": 1,
+    "valid_schema_all_calls": 11,
+    "all_calls_including_warmup_and_memory": 11,
+    "guard_evaluation": "Post-hoc replay of saved model outputs; not a GPT-5 invocation"
+  }
+]

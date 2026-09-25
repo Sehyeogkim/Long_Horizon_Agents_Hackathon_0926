@@ -1,0 +1,482 @@
+{
+  "created_at": "2026-09-25T22:04:18.613339+00:00",
+  "purpose": "External static apple visible-quality evaluation; not temporal diagnosis",
+  "dataset": {
+    "title": "Fresh and Rotten Fruits Dataset for Machine-Based Evaluation of Fruit Quality",
+    "url": "https://data.mendeley.com/datasets/bdd69gyhv8/1",
+    "doi": "10.17632/bdd69gyhv8.1",
+    "authors": [
+      "Nusrat Sultana",
+      "Musfika Jahan",
+      "Mohammad Shorif Uddin"
+    ],
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "download_url": "https://data.mendeley.com/public-files/datasets/bdd69gyhv8/files/de93ba06-6a58-45e3-913d-837b2ae52acb/file_downloaded",
+    "archive": "Original Image.zip",
+    "archive_size": 2794170228,
+    "archive_sha256_from_metadata": "f89d67d4c4b24810bcd8406db877db6b1ac9834cea0b0cb56d65acebe59e66ff",
+    "full_archive_checksum_verified": false
+  },
+  "sampling": {
+    "seed": 20260925,
+    "method": "Uniform sample of 20 names per class from sorted 200 original names, healthy then rotten, Python random.Random",
+    "inference_used_for_selection": false,
+    "same_physical_fruit_ids_known": false
+  },
+  "label_mapping": {
+    "FreshApple": "healthy",
+    "RottenApple": "infected"
+  },
+  "label_note": "infected is compatibility vocabulary only: source means rotten, not pathogen-confirmed infection",
+  "deduplication": {
+    "external_unique_sha256": 40,
+    "compared_primary_and_smoke_files": 204,
+    "exact_overlaps": 0,
+    "near_duplicate_or_physical_fruit_overlap_not_tested": true
+  },
+  "images": [
+    {
+      "path": "liquid/validation/external/data/healthy/FreshApple_a15827ebc98a.jpg",
+      "source_label": "healthy",
+      "original_label": "FreshApple",
+      "archive_path": "Original Image/FreshApple/FreshApple (175).jpg",
+      "sha256": "060fd6f2d2163b186c419a577628184c71c6a0d7a564c6e1b48c9c03e2d3761f",
+      "bytes": 1002747,
+      "compressed_bytes": 984724,
+      "range_start": 55894241,
+      "range_end": 56880064
+    },
+    {
+      "path": "liquid/validation/external/data/healthy/FreshApple_19047fa403c0.jpg",
+      "source_label": "healthy",
+      "original_label": "FreshApple",
+      "archive_path": "Original Image/FreshApple/FreshApple (129).jpg",
+      "sha256": "ea603ea66deb6580b53645a1e04473ff17b76e18be32f943b3b4a5597d6bc61d",
+      "bytes": 551445,
+      "compressed_bytes": 533515,
+      "range_start": 24370512,
+      "range_end": 24905126
+    },
+    {
+      "path": "liquid/validation/external/data/healthy/FreshApple_3c22854281e4.jpg",
+      "source_label": "healthy",
+      "original_label": "FreshApple",
+      "archive_path": "Original Image/FreshApple/FreshApple (96).jpg",
+      "sha256": "e94736c451f78b05ce9add24b0a14e6186e25fbb0b934a190f807532f14a44ae",
+      "bytes": 628026,
+      "compressed_bytes": 610155,
+      "range_start": 242220973,
+      "range_end": 242832226
+    },
+    {
+      "path": "liquid/validation/external/data/healthy/FreshApple_6fc9a1ae55be.jpg",
+      "source_label": "healthy",
+      "original_label": "FreshApple",
+      "archive_path": "Original Image/FreshApple/FreshApple (36).jpg",
+      "sha256": "6649b9842cd41eaf648bbe9fa1b3a481e79668f3d290e5a665f93d63276743f1",
+      "bytes": 3578120,
+      "compressed_bytes": 3578025,
+      "range_start": 112043235,
+      "range_end": 115622358
+    },
+    {
+      "path": "liquid/validation/external/data/healthy/FreshApple_2a95986a2548.jpg",
+      "source_label": "healthy",
+      "original_label": "FreshApple",
+      "archive_path": "Original Image/FreshApple/FreshApple (126).jpg",
+      "sha256": "e641c4f6178468967eeb55c11bb5e11522d56aa1391c95e1c61a537ee37b6c54",
+      "bytes": 720564,
+      "compressed_bytes": 702165,
+      "range_start": 22642835,
+      "range_end": 23346099
+    },
+    {
+      "path": "liquid/validation/external/data/healthy/FreshApple_429d1478f566.jpg",
+      "source_label": "healthy",
+      "original_label": "FreshApple",
+      "archive_path": "Original Image/FreshApple/FreshApple (199).jpg",
+      "sha256": "a495b5713d2e19802ba7816466671d66c2eb0dacd4bbb884e966c9625516ef61",
+      "bytes": 703289,
+      "compressed_bytes": 684718,
+      "range_start": 75772447,
+      "range_end": 76458264
+    },
+    {
+      "path": "liquid/validation/external/data/healthy/FreshApple_89da0371a673.jpg",
+      "source_label": "healthy",
+      "original_label": "FreshApple",
+      "archive_path": "Original Image/FreshApple/FreshApple (49).jpg",
+      "sha256": "1550bba76977206bcbf0f372b53c44e007cd215155432742f4966cfec88ec80c",
+      "bytes": 4253636,
+      "compressed_bytes": 4253768,
+      "range_start": 146019704,
+      "range_end": 150274570
+    },
+    {
+      "path": "liquid/validation/external/data/healthy/FreshApple_dfa350897a0e.jpg",
+      "source_label": "healthy",
+      "original_label": "FreshApple",
+      "archive_path": "Original Image/FreshApple/FreshApple (9).jpg",
+      "sha256": "7828a36d74490d7265ff242eef614c753da51f5c6aafd6d5ef68fd5286e21b9b",
+      "bytes": 787189,
+      "compressed_bytes": 768255,
+      "range_start": 234633668,
+      "range_end": 235403020
+    },
+    {
+      "path": "liquid/validation/external/data/healthy/FreshApple_cf814b879e17.jpg",
+      "source_label": "healthy",
+      "original_label": "FreshApple",
+      "archive_path": "Original Image/FreshApple/FreshApple (71).jpg",
+      "sha256": "4d1e98e9e76eede6324d006b5b3cd14b364f1cb0f0df62245a3d457edd463cd3",
+      "bytes": 865171,
+      "compressed_bytes": 846930,
+      "range_start": 201514492,
+      "range_end": 202362520
+    },
+    {
+      "path": "liquid/validation/external/data/healthy/FreshApple_a9e582b87d48.jpg",
+      "source_label": "healthy",
+      "original_label": "FreshApple",
+      "archive_path": "Original Image/FreshApple/FreshApple (60).jpg",
+      "sha256": "e7dc06100e70d521394c6f8f67ebcdd4449bdce574d6d960cc789eb61d8df2f4",
+      "bytes": 1337358,
+      "compressed_bytes": 1319010,
+      "range_start": 183815842,
+      "range_end": 185135950
+    },
+    {
+      "path": "liquid/validation/external/data/healthy/FreshApple_57980d872073.jpg",
+      "source_label": "healthy",
+      "original_label": "FreshApple",
+      "archive_path": "Original Image/FreshApple/FreshApple (153).jpg",
+      "sha256": "1f6d72bfde870de4bc978bfdc32da4325ba0a81ea331b3cbe45a5e5729398fdc",
+      "bytes": 522828,
+      "compressed_bytes": 504469,
+      "range_start": 40664980,
+      "range_end": 41170548
+    },
+    {
+      "path": "liquid/validation/external/data/healthy/FreshApple_82fad1df5059.jpg",
+      "source_label": "healthy",
+      "original_label": "FreshApple",
+      "archive_path": "Original Image/FreshApple/FreshApple (5).jpg",
+      "sha256": "e1d114a07642ade950566d6b1ab8c260f4f897cb1c9d379feac09e195cbfd01a",
+      "bytes": 794745,
+      "compressed_bytes": 776573,
+      "range_start": 150273547,
+      "range_end": 151051217
+    },
+    {
+      "path": "liquid/validation/external/data/healthy/FreshApple_42e65a63fc3a.jpg",
+      "source_label": "healthy",
+      "original_label": "FreshApple",
+      "archive_path": "Original Image/FreshApple/FreshApple (30).jpg",
+      "sha256": "e53da60ecf18c8f479b939326f056d2dccd59b727a7389be003b35828c89b871",
+      "bytes": 1388925,
+      "compressed_bytes": 1366559,
+      "range_start": 99791272,
+      "range_end": 101158929
+    },
+    {
+      "path": "liquid/validation/external/data/healthy/FreshApple_9620915713a8.jpg",
+      "source_label": "healthy",
+      "original_label": "FreshApple",
+      "archive_path": "Original Image/FreshApple/FreshApple (19).jpg",
+      "sha256": "d5ea9883902d24d8129c5dd00dcbf2276e69b904dbef0e88b75505828a719f72",
+      "bytes": 761108,
+      "compressed_bytes": 742669,
+      "range_start": 68289552,
+      "range_end": 69033319
+    },
+    {
+      "path": "liquid/validation/external/data/healthy/FreshApple_6c86e0067e32.jpg",
+      "source_label": "healthy",
+      "original_label": "FreshApple",
+      "archive_path": "Original Image/FreshApple/FreshApple (118).jpg",
+      "sha256": "f26915fa64ef8263bc8eb55d7e7ffc0dc5869a75bfa1f82d12a5d63f4b0585ae",
+      "bytes": 660917,
+      "compressed_bytes": 642440,
+      "range_start": 16770927,
+      "range_end": 17414466
+    },
+    {
+      "path": "liquid/validation/external/data/healthy/FreshApple_e7544bbdfb54.jpg",
+      "source_label": "healthy",
+      "original_label": "FreshApple",
+      "archive_path": "Original Image/FreshApple/FreshApple (38).jpg",
+      "sha256": "49290b7edb3fa05166a47fe0898cea85328ebcc2beef4dd3fb9a688da9db16f4",
+      "bytes": 3565970,
+      "compressed_bytes": 3565886,
+      "range_start": 116316075,
+      "range_end": 119883059
+    },
+    {
+      "path": "liquid/validation/external/data/healthy/FreshApple_728eade16181.jpg",
+      "source_label": "healthy",
+      "original_label": "FreshApple",
+      "archive_path": "Original Image/FreshApple/FreshApple (16).jpg",
+      "sha256": "801e988007e11e95f7d19e35864d70e2ec1f8c898de762a43390057cc7e3a2d9",
+      "bytes": 642851,
+      "compressed_bytes": 624300,
+      "range_start": 44297989,
+      "range_end": 44923387
+    },
+    {
+      "path": "liquid/validation/external/data/healthy/FreshApple_5d288bd064e6.jpg",
+      "source_label": "healthy",
+      "original_label": "FreshApple",
+      "archive_path": "Original Image/FreshApple/FreshApple (100).jpg",
+      "sha256": "0a2b388ed669a61c8d33401bed06809bb051c8180231310c898dd0f9173b38ee",
+      "bytes": 695040,
+      "compressed_bytes": 676462,
+      "range_start": 3789138,
+      "range_end": 4466699
+    },
+    {
+      "path": "liquid/validation/external/data/healthy/FreshApple_f68b848a7151.jpg",
+      "source_label": "healthy",
+      "original_label": "FreshApple",
+      "archive_path": "Original Image/FreshApple/FreshApple (167).jpg",
+      "sha256": "2a36fcd276e37d8e5d0f69aedabf2bdb6b768b5acf3e4602299b8e726957ddd8",
+      "bytes": 652628,
+      "compressed_bytes": 633682,
+      "range_start": 48588227,
+      "range_end": 49223008
+    },
+    {
+      "path": "liquid/validation/external/data/healthy/FreshApple_6de9b4ec1fda.jpg",
+      "source_label": "healthy",
+      "original_label": "FreshApple",
+      "archive_path": "Original Image/FreshApple/FreshApple (178).jpg",
+      "sha256": "b02b3e847650370ca95abe9884579661fdcc22719dd3ccaa84900e07c73884ea",
+      "bytes": 964243,
+      "compressed_bytes": 945369,
+      "range_start": 58279373,
+      "range_end": 59225841
+    },
+    {
+      "path": "liquid/validation/external/data/infected/RottenApple_79ab4ef8941a.jpg",
+      "source_label": "infected",
+      "original_label": "RottenApple",
+      "archive_path": "Original Image/RottenApple/RottenApple (153).jpg",
+      "sha256": "335a7bb37dd5823dfba96d4bcc731bb533e9aba6d44cc61656ce246acd530058",
+      "bytes": 859291,
+      "compressed_bytes": 834020,
+      "range_start": 1327959079,
+      "range_end": 1328794200
+    },
+    {
+      "path": "liquid/validation/external/data/infected/RottenApple_eaad6e78b7de.jpg",
+      "source_label": "infected",
+      "original_label": "RottenApple",
+      "archive_path": "Original Image/RottenApple/RottenApple (6).jpg",
+      "sha256": "23d58e9ef224f3e532e168893c68f0ada2631b37d713d73dcb1246b638001b4f",
+      "bytes": 1043352,
+      "compressed_bytes": 1024484,
+      "range_start": 1432915660,
+      "range_end": 1433941243
+    },
+    {
+      "path": "liquid/validation/external/data/infected/RottenApple_84c69abda0a0.jpg",
+      "source_label": "infected",
+      "original_label": "RottenApple",
+      "archive_path": "Original Image/RottenApple/RottenApple (56).jpg",
+      "sha256": "1811f47b6ed32ee9e0ca228108c7bbcb994f79f355c879034ab3b3079c908f4b",
+      "bytes": 949864,
+      "compressed_bytes": 930588,
+      "range_start": 1427967368,
+      "range_end": 1428899056
+    },
+    {
+      "path": "liquid/validation/external/data/infected/RottenApple_f71f87d22c4c.jpg",
+      "source_label": "infected",
+      "original_label": "RottenApple",
+      "archive_path": "Original Image/RottenApple/RottenApple (75).jpg",
+      "sha256": "2edfe6fd8abf0d2e13e742a8e9347ed63495986f3e9fda74362d533cd047340d",
+      "bytes": 942294,
+      "compressed_bytes": 922479,
+      "range_start": 1450485813,
+      "range_end": 1451409392
+    },
+    {
+      "path": "liquid/validation/external/data/infected/RottenApple_ddd4e4ee0d54.jpg",
+      "source_label": "infected",
+      "original_label": "RottenApple",
+      "archive_path": "Original Image/RottenApple/RottenApple (79).jpg",
+      "sha256": "b97f21ee57256f7175f56438fd0a496bc563528a6139901119e641670c043123",
+      "bytes": 1411324,
+      "compressed_bytes": 1392793,
+      "range_start": 1455195060,
+      "range_end": 1456588953
+    },
+    {
+      "path": "liquid/validation/external/data/infected/RottenApple_c0d890139134.jpg",
+      "source_label": "infected",
+      "original_label": "RottenApple",
+      "archive_path": "Original Image/RottenApple/RottenApple (150).jpg",
+      "sha256": "24895302d639534baf0daf5143ee1750d04e05d48665cb4558f0fab7ca4f2dbe",
+      "bytes": 883252,
+      "compressed_bytes": 863246,
+      "range_start": 1324569598,
+      "range_end": 1325433945
+    },
+    {
+      "path": "liquid/validation/external/data/infected/RottenApple_5f1ef3b47ff0.jpg",
+      "source_label": "infected",
+      "original_label": "RottenApple",
+      "archive_path": "Original Image/RottenApple/RottenApple (24).jpg",
+      "sha256": "18c2fe964407c8df92b9e6da8d7923435ed280c54c528655dc1d25eeee982abf",
+      "bytes": 803484,
+      "compressed_bytes": 731878,
+      "range_start": 1390116381,
+      "range_end": 1390849359
+    },
+    {
+      "path": "liquid/validation/external/data/infected/RottenApple_c317b4b363aa.jpg",
+      "source_label": "infected",
+      "original_label": "RottenApple",
+      "archive_path": "Original Image/RottenApple/RottenApple (53).jpg",
+      "sha256": "67b522508a5d694947738d92bc5161e422407f5006a785ed6fecc6418152d34d",
+      "bytes": 1528699,
+      "compressed_bytes": 1509318,
+      "range_start": 1425097366,
+      "range_end": 1426607784
+    },
+    {
+      "path": "liquid/validation/external/data/infected/RottenApple_c8059e07b8fa.jpg",
+      "source_label": "infected",
+      "original_label": "RottenApple",
+      "archive_path": "Original Image/RottenApple/RottenApple (10).jpg",
+      "sha256": "970c93c830c857f56a2ef29af528efc740597f347062ad6a3fbdbf52d48ee716",
+      "bytes": 544621,
+      "compressed_bytes": 525487,
+      "range_start": 1261926174,
+      "range_end": 1262452761
+    },
+    {
+      "path": "liquid/validation/external/data/infected/RottenApple_e03227b3785e.jpg",
+      "source_label": "infected",
+      "original_label": "RottenApple",
+      "archive_path": "Original Image/RottenApple/RottenApple (124).jpg",
+      "sha256": "36b0a528b1431823a3d8cc2d1b46072b3aa654aad5b7fb8342cd3cb09f3ee105",
+      "bytes": 738826,
+      "compressed_bytes": 716578,
+      "range_start": 1289156281,
+      "range_end": 1289873960
+    },
+    {
+      "path": "liquid/validation/external/data/infected/RottenApple_7f8c0899e592.jpg",
+      "source_label": "infected",
+      "original_label": "RottenApple",
+      "archive_path": "Original Image/RottenApple/RottenApple (142).jpg",
+      "sha256": "f23fb687c13f2f535e66b5b2e3f31db42564aa02c797ea42873658d6638e860a",
+      "bytes": 1748225,
+      "compressed_bytes": 1670247,
+      "range_start": 1311435471,
+      "range_end": 1313106819
+    },
+    {
+      "path": "liquid/validation/external/data/infected/RottenApple_f2e3060e8dfe.jpg",
+      "source_label": "infected",
+      "original_label": "RottenApple",
+      "archive_path": "Original Image/RottenApple/RottenApple (34).jpg",
+      "sha256": "77dad20f7d76b8f3d54a5d19e7caeac08f6d430dcaf0959343c8d3b2e19a8126",
+      "bytes": 633085,
+      "compressed_bytes": 613393,
+      "range_start": 1399638946,
+      "range_end": 1400253439
+    },
+    {
+      "path": "liquid/validation/external/data/infected/RottenApple_f76d00951301.jpg",
+      "source_label": "infected",
+      "original_label": "RottenApple",
+      "archive_path": "Original Image/RottenApple/RottenApple (158).jpg",
+      "sha256": "1697db6e9ceeedea02891095b91450d6af3b898ae0b69190333478844e853df2",
+      "bytes": 1998435,
+      "compressed_bytes": 1972184,
+      "range_start": 1332728902,
+      "range_end": 1334702187
+    },
+    {
+      "path": "liquid/validation/external/data/infected/RottenApple_40eaaf1361f9.jpg",
+      "source_label": "infected",
+      "original_label": "RottenApple",
+      "archive_path": "Original Image/RottenApple/RottenApple (93).jpg",
+      "sha256": "836a5995a5f411893dc1fa220316a3353eed5b745613302ad21e4147b8f86a36",
+      "bytes": 956604,
+      "compressed_bytes": 885924,
+      "range_start": 1475449130,
+      "range_end": 1476336154
+    },
+    {
+      "path": "liquid/validation/external/data/infected/RottenApple_c74928293776.jpg",
+      "source_label": "infected",
+      "original_label": "RottenApple",
+      "archive_path": "Original Image/RottenApple/RottenApple (51).jpg",
+      "sha256": "f60114aed409805e216d05e99fd94cb9fa0c794db7e8761ee9af904bceb2cfd5",
+      "bytes": 578572,
+      "compressed_bytes": 556492,
+      "range_start": 1423977292,
+      "range_end": 1424534884
+    },
+    {
+      "path": "liquid/validation/external/data/infected/RottenApple_940886be065d.jpg",
+      "source_label": "infected",
+      "original_label": "RottenApple",
+      "archive_path": "Original Image/RottenApple/RottenApple (195).jpg",
+      "sha256": "e8ec4332925e7fc251a1bb71da781059d34ed96765ab05fcd51c013b5e237efd",
+      "bytes": 2130140,
+      "compressed_bytes": 2078160,
+      "range_start": 1377351470,
+      "range_end": 1379430731
+    },
+    {
+      "path": "liquid/validation/external/data/infected/RottenApple_2f2e59993e3d.jpg",
+      "source_label": "infected",
+      "original_label": "RottenApple",
+      "archive_path": "Original Image/RottenApple/RottenApple (174).jpg",
+      "sha256": "61e632e7fe6635cea781e4049a851fbf18e99142b509d390a4d0c9bd7c7f5719",
+      "bytes": 679054,
+      "compressed_bytes": 657342,
+      "range_start": 1350517019,
+      "range_end": 1351175462
+    },
+    {
+      "path": "liquid/validation/external/data/infected/RottenApple_fff056249af9.jpg",
+      "source_label": "infected",
+      "original_label": "RottenApple",
+      "archive_path": "Original Image/RottenApple/RottenApple (145).jpg",
+      "sha256": "8a42c724f36c1480d1c34a6f188b83462d1f352d8afd1f473a6effe81bce53a0",
+      "bytes": 899732,
+      "compressed_bytes": 880638,
+      "range_start": 1317191822,
+      "range_end": 1318073561
+    },
+    {
+      "path": "liquid/validation/external/data/infected/RottenApple_b7977e4c19dd.jpg",
+      "source_label": "infected",
+      "original_label": "RottenApple",
+      "archive_path": "Original Image/RottenApple/RottenApple (152).jpg",
+      "sha256": "59c42c630fbaee1fe3d09358dac882faa6dfd9e26c731dd1bf0f16b91749595e",
+      "bytes": 1222183,
+      "compressed_bytes": 1204023,
+      "range_start": 1326754978,
+      "range_end": 1327960102
+    },
+    {
+      "path": "liquid/validation/external/data/infected/RottenApple_ced7cc85ed65.jpg",
+      "source_label": "infected",
+      "original_label": "RottenApple",
+      "archive_path": "Original Image/RottenApple/RottenApple (198).jpg",
+      "sha256": "99d6767b1cadc3cc10e0db9d5d50d43d9f0b873809d9abf0ce825575bc695e9c",
+      "bytes": 1125324,
+      "compressed_bytes": 1100971,
+      "range_start": 1382159859,
+      "range_end": 1383261931
+    }
+  ],
+  "status": "frozen_before_inference",
+  "frozen_at_utc": "2026-09-25T22:06:32.812812+00:00"
+}

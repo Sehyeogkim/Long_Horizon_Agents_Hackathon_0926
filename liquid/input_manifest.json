@@ -1,0 +1,84 @@
+{
+  "purpose": "Static apple appearance smoke test for a local VLM; not a disease diagnostic or longitudinal benchmark.",
+  "source": {
+    "title": "Image Dataset of Healthy and Infected Apple Fruits for Computer Vision and Image Classification",
+    "url": "https://data.mendeley.com/datasets/y7gktb2wwb/1",
+    "doi": "10.17632/y7gktb2wwb.1",
+    "authors": [
+      "Mir Allahyar Khan Talpur",
+      "Syed Saad Ahmed",
+      "Bandeh Ali Talpur",
+      "Mubariz Rehman",
+      "Ramesh Kumar Ayyasamy",
+      "Kazim Raza Talpur"
+    ],
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "license_evidence_url": "https://data.mendeley.com/datasets/y7gktb2wwb/1",
+    "discovery_provider": "nimble",
+    "discovery_catalog": "data/catalog/nimble/20260925T213401167607Z/candidates.json",
+    "download_url": "https://data.mendeley.com/public-files/datasets/y7gktb2wwb/files/efda2a9d-0424-4ca1-b628-d0153fc34aa7/file_downloaded",
+    "archive_sha256_from_provider": "bd0ee813e5e54480a458418ad2feffb2c71f89f894cae41511ff02fe831be2c0",
+    "download_method": "HTTP byte ranges; ZIP directory and four members only. Per-member CRC32 validated; full archive checksum not checked."
+  },
+  "retrieved_at": "2026-09-25T21:37:34.064544+00:00",
+  "selection": "First two lexicographic JPEG filenames in each source class; no model-output-based selection.",
+  "limitations": [
+    "Source labels healthy and infected are preserved; independent laboratory diagnosis is not established.",
+    "Not the same apple over time; no elapsed-time or onset labels.",
+    "Four examples only; cannot estimate diagnostic accuracy or cost savings for long-horizon operation.",
+    "No synthetic images.",
+    "Healthy examples share market backgrounds; infected examples share dark backgrounds, creating an obvious background confound.",
+    "Adjacent filenames may depict the same physical fruit or very similar fruit; independent fruit identity is unverified."
+  ],
+  "images": [
+    {
+      "path": "liquid/inputs/H001.jpg",
+      "source_label": "healthy",
+      "archive_member": "Apple Fruit Dataset/healthy/H001.jpg",
+      "bytes": 1045333,
+      "sha256": "da9c6509923216448bdce1ba8c384b9c0ecde6691505199f326fa2ba21e21e19",
+      "modified": false,
+      "visual_inspection": {
+        "method": "Assistant image viewing, not expert annotation",
+        "observation": "Large foreground apple with no obvious large damaged patch visible."
+      }
+    },
+    {
+      "path": "liquid/inputs/H002.jpg",
+      "source_label": "healthy",
+      "archive_member": "Apple Fruit Dataset/healthy/H002.jpg",
+      "bytes": 994262,
+      "sha256": "9ecff39871f8a9f3e0a8dd707fc2747299dcf708282f6a9c5cb168ccc0197094",
+      "modified": false,
+      "visual_inspection": {
+        "method": "Assistant image viewing, not expert annotation",
+        "observation": "Large foreground apple with no obvious large damaged patch visible."
+      }
+    },
+    {
+      "path": "liquid/inputs/I001.jpg",
+      "source_label": "infected",
+      "archive_member": "Apple Fruit Dataset/infected/I001.jpg",
+      "bytes": 711536,
+      "sha256": "21f90c78eacdc70914a4f22909347f400f376a8a625cff6a09612d7525f5a013",
+      "modified": false,
+      "visual_inspection": {
+        "method": "Assistant image viewing, not expert annotation",
+        "observation": "Large brown damaged patch visible on foreground apple."
+      }
+    },
+    {
+      "path": "liquid/inputs/I002.jpg",
+      "source_label": "infected",
+      "archive_member": "Apple Fruit Dataset/infected/I002.jpg",
+      "bytes": 809553,
+      "sha256": "414b9f8ff5c351d83de6136ce12738febc1371875ac91a672bbda78b8e670f81",
+      "modified": false,
+      "visual_inspection": {
+        "method": "Assistant image viewing, not expert annotation",
+        "observation": "Large brown damaged patch visible on foreground apple."
+      }
+    }
+  ]
+}

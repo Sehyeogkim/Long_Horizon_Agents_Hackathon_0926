@@ -1,0 +1,9 @@
+{
+  "observed_at": "2026-09-25T22:05:19.180901+00:00",
+  "process_columns": "pid pcpu rss_kib elapsed comm",
+  "processes": [
+    "15031  19.3 1389648       02:21 /Users/jeff/project/Long_Horizon_Agents_Hackathon_0926/liquid/runtime/llama-b11191/llama-server",
+    "16935  53.5 1396880       00:53 /Users/jeff/project/Long_Horizon_Agents_Hackathon_0926/liquid/runtime/llama-b11191/llama-server"
+  ],
+  "limitation": "Two llama-server processes present during this evaluation. Their exact active GPU workload is not measured; latency is not an isolated-device benchmark."
+}

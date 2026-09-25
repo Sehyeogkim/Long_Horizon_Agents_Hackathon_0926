@@ -1,0 +1,79 @@
+{
+  "provider": "nimble",
+  "retrieved_at": "2026-09-25T21:35:17.237293+00:00",
+  "endpoint": "https://sdk.nimbleway.com/v2/search",
+  "request": {
+    "query": "\"Multimodal perishable\" apples \"dataset\"",
+    "max_results": 5,
+    "search_depth": "lite",
+    "full_content": false
+  },
+  "ok": true,
+  "http_status": 200,
+  "response": {
+    "total_results": 5,
+    "results": [
+      {
+        "title": "Multimodal perishable fruits and vegetables dataset",
+        "description": "The dataset supports research in classification, food spoilage detection, shelf-life prediction, multimodal data fusion, non-invasive fruit quality assessment, and deep learning-based freshness assessment, particularly for export-oriented supply chains.",
+        "url": "https://www.sciencedirect.com/science/article/pii/S2352340926000983",
+        "content": "",
+        "metadata": {
+          "position": 1,
+          "entity_type": "OrganicResult",
+          "country": "US",
+          "locale": "en"
+        }
+      },
+      {
+        "title": "Multimodal Perishable Fruits and Vegetables Dataset",
+        "description": "Request PDF | On Feb 1, 2026, Devika Unnikrishnan and others published Multimodal Perishable Fruits and Vegetables Dataset | Find, read and cite all the research you need on ResearchGate",
+        "url": "https://www.researchgate.net/publication/400540463_Multimodal_Perishable_Fruits_and_Vegetables_Dataset",
+        "content": "",
+        "metadata": {
+          "position": 2,
+          "entity_type": "OrganicResult",
+          "country": "US",
+          "locale": "en"
+        }
+      },
+      {
+        "title": "Multimodal perishable fruits and vegetables dataset",
+        "description": "Explore a new multimodal dataset for non-invasive fruit and vegetable freshness assessment using IR-Fusion, sRGB images, and methane sensing. Supports smart agriculture.",
+        "url": "https://visualize.jove.com/41732364-multimodal-perishable-fruits-and-vegetables-dataset",
+        "content": "",
+        "metadata": {
+          "position": 3,
+          "entity_type": "OrganicResult",
+          "country": "US",
+          "locale": "en"
+        }
+      },
+      {
+        "title": "Multimodal perishable fruits and vegetables dataset",
+        "description": "Export, share and cite Exportformat auswählen Select format... BibTeX RDF XML RIS Text export More details on this result Title: Multimodal perishable fruits and vegetables dataset Contributors: Unnikrishnan, Devika ( author ) / Deepak, Krishna ( author ) / P T S, Yogini Aishwaryaa ( author ) / T, Bagyammal ( author ) Published in: Data in Brief ; 65 Publisher: Elsevier New search for ...",
+        "url": "https://www.tib.eu/en/search/id/elsevier:7a0d5720496f7f358d10b097a7c0356efa0b20d0/Multimodal-perishable-fruits-and-vegetables-dataset",
+        "content": "",
+        "metadata": {
+          "position": 4,
+          "entity_type": "OrganicResult",
+          "country": "US",
+          "locale": "en"
+        }
+      },
+      {
+        "title": "Multimodal perishable fruits and vegetables dataset",
+        "description": "112475 A dataset mapping the geographical distribution of past and present collective farmers' stores in France Akermann, Grégori / Pradère, Manonet al. | 2026 Elektronische Ausgabe 112476 Guarding against malicious biased threats (GAMBiT) datasets: Revealing cognitive bias in human-subjects red-team cyber range operations Beltz, Brandon ...",
+        "url": "https://www.tib.eu/de/suchen/id/elsevier:7a0d5720496f7f358d10b097a7c0356efa0b20d0/Multimodal-perishable-fruits-and-vegetables-dataset",
+        "content": "",
+        "metadata": {
+          "position": 5,
+          "entity_type": "OrganicResult",
+          "country": "US",
+          "locale": "en"
+        }
+      }
+    ],
+    "request_id": "5e0c03bb-84ae-4c15-b320-d0797b0837fa"
+  }
+}

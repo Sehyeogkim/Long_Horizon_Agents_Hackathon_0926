@@ -1,0 +1,79 @@
+{
+  "provider": "nimble",
+  "retrieved_at": "2026-09-25T21:32:36.613636+00:00",
+  "endpoint": "https://sdk.nimbleway.com/v2/search",
+  "request": {
+    "query": "apple fruit storage decay longitudinal RGB image sequence dataset Zenodo Mendeley time lapse",
+    "max_results": 5,
+    "search_depth": "lite",
+    "full_content": false
+  },
+  "ok": true,
+  "http_status": 200,
+  "response": {
+    "total_results": 5,
+    "results": [
+      {
+        "title": "Apple Image Dataset for Healthy and Infected Fruit Classification",
+        "description": "This dataset contains 1,045 labeled RGB images of apple fruits, including 545 healthy and 500 infected samples, collected from local fruit markets and retail shops in Islamabad, Pakistan. The dataset is designed for binary image classification, computer vision, deep learning, transfer learning, and automated fruit quality assessment.",
+        "url": "https://data.mendeley.com/datasets/n92vx869tr",
+        "content": "",
+        "metadata": {
+          "position": 1,
+          "entity_type": "OrganicResult",
+          "country": "US",
+          "locale": "en"
+        }
+      },
+      {
+        "title": "PApple_RGB-D-Size dataset | Zenodo",
+        "description": "Fuji apple dataset for on-tree apple detection and measurment containing 3925 images annotated with modal and amodal segmentation masks and fruit diameter ground truth.",
+        "url": "https://zenodo.org/records/7144328",
+        "content": "",
+        "metadata": {
+          "position": 2,
+          "entity_type": "OrganicResult",
+          "country": "US",
+          "locale": "en"
+        }
+      },
+      {
+        "title": "Image Dataset of Healthy and Infected Apple Fruits for Computer Vision ...",
+        "description": "This dataset contains 1,045 labeled RGB images of apple fruits, including 545 healthy and 500 infected samples, collected from local fruit markets and retail shops in Islamabad, Pakistan. The dataset is designed for binary image classification, computer vision, deep learning, transfer learning, and automated fruit quality assessment.",
+        "url": "https://data.mendeley.com/datasets/y7gktb2wwb",
+        "content": "",
+        "metadata": {
+          "position": 3,
+          "entity_type": "OrganicResult",
+          "country": "US",
+          "locale": "en"
+        }
+      },
+      {
+        "title": "KFuji RGB-DS dataset - Zenodo",
+        "description": "The KFuji RGB-DS dataset is composed by 967 multi-modal images of Fuji apples on trees captured using Microsoft Kinect v2 (Microsoft, Redmond, WA, USA). Each image contains information from 3 different modalities: color (RGB), depth (D) and range corrected IR intensity (S). Ground truth fruit locations were manually annotated, labeling a total of 12,839 apples in all the dataset. The reader is ...",
+        "url": "https://zenodo.org/records/3715991",
+        "content": "",
+        "metadata": {
+          "position": 4,
+          "entity_type": "OrganicResult",
+          "country": "US",
+          "locale": "en"
+        }
+      },
+      {
+        "title": "[2608.14235] AppleScab-LT: A Longitudinal Real-Field Apple Scab Dataset ...",
+        "description": "The development of reliable plant disease monitoring systems is constrained by limited longitudinal datasets capturing disease progression under natural field conditions. Although existing plant disease datasets have advanced image-based recognition, most consist of static images acquired at a single time point, limiting analysis of temporal disease evolution and severity progression. To ...",
+        "url": "https://arxiv.org/abs/2608.14235",
+        "content": "",
+        "metadata": {
+          "position": 5,
+          "entity_type": "OrganicResult",
+          "country": "US",
+          "locale": "en"
+        }
+      }
+    ],
+    "request_id": "8aea40fd-8207-4d0f-989a-149310419810"
+  }
+}

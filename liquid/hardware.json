@@ -1,0 +1,8 @@
+{
+  "architecture": "arm64",
+  "macos": "26.5.1",
+  "chip": "Apple M5",
+  "physical_ram_bytes": 17179869184,
+  "metal_device": "Apple M5 (MTL0); verified with llama-server --list-devices",
+  "notes": "Shared personal laptop, no energy meter, CPU/GPU load not controlled"
+}

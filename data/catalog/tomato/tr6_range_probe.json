@@ -1,0 +1,13 @@
+{
+  "source_url": "https://ndownloader.figshare.com/files/60094544",
+  "full_archive_downloaded": false,
+  "max_probe_bytes": 65557,
+  "http_status": 206,
+  "content_range": "bytes 20388365032-20388430588/20388430589",
+  "accept_ranges": "bytes",
+  "received_bytes": 65557,
+  "zip_end_found": true,
+  "zip_entry_count": 21707,
+  "central_directory_size": 2688460,
+  "central_directory_offset": 4294967295
+}

@@ -1,0 +1,7 @@
+runtime/
+models/
+downloads/
+inputs/*
+!inputs/*.md
+__pycache__/
+results/**/prepared/

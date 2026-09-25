@@ -1,0 +1,103 @@
+{
+  "runs": [
+    {
+      "run_id": "tomato_a_demo_v1",
+      "variant": "A",
+      "policy_version": "tomato-two-path-v1",
+      "completed_observations": 18,
+      "decision_count": 18,
+      "high_cost_observations": 18,
+      "low_cost_observations": 0,
+      "models": {
+        "gpt-5": {
+          "calls": 18,
+          "successes": 18,
+          "errors": 0,
+          "input_tokens": 7682,
+          "output_tokens": 1312,
+          "cached_input_tokens": 0,
+          "reasoning_tokens": 0,
+          "unknown_usage_calls": 0,
+          "latency_ms": 34234.96600000001,
+          "api_cost_usd_estimate": 0.0227225
+        }
+      },
+      "api_cost_usd_estimate": 0.0227225,
+      "unknown_cost_calls": 0,
+      "cost_basis": "published_price_estimate_not_invoice",
+      "quality_metrics": {
+        "recall": null,
+        "false_positive_rate": null,
+        "detection_delay": null
+      },
+      "limitations": [
+        "Single specimen; not a disease accuracy benchmark",
+        "No independently verified disease onset/ground truth labels",
+        "Local electricity/device costs are unmeasured",
+        "Policy fixed before replay; this is a development demonstration"
+      ],
+      "requested_observations": 18,
+      "completed": true
+    },
+    {
+      "run_id": "tomato_b_demo_v1",
+      "variant": "B",
+      "policy_version": "tomato-two-path-v1",
+      "completed_observations": 18,
+      "decision_count": 18,
+      "high_cost_observations": 16,
+      "low_cost_observations": 2,
+      "models": {
+        "gpt-5": {
+          "calls": 16,
+          "successes": 16,
+          "errors": 0,
+          "input_tokens": 6844,
+          "output_tokens": 1176,
+          "cached_input_tokens": 0,
+          "reasoning_tokens": 0,
+          "unknown_usage_calls": 0,
+          "latency_ms": 26703.186,
+          "api_cost_usd_estimate": 0.020315
+        },
+        "LFM2.5-VL-1.6B-Q4_K_M": {
+          "calls": 18,
+          "successes": 17,
+          "errors": 1,
+          "input_tokens": 6750,
+          "output_tokens": 996,
+          "cached_input_tokens": 0,
+          "reasoning_tokens": 0,
+          "unknown_usage_calls": 0,
+          "latency_ms": 70786.24299999999,
+          "api_cost_usd_estimate": 0
+        }
+      },
+      "api_cost_usd_estimate": 0.020315,
+      "unknown_cost_calls": 0,
+      "cost_basis": "published_price_estimate_not_invoice",
+      "quality_metrics": {
+        "recall": null,
+        "false_positive_rate": null,
+        "detection_delay": null
+      },
+      "limitations": [
+        "Single specimen; not a disease accuracy benchmark",
+        "No independently verified disease onset/ground truth labels",
+        "Local electricity/device costs are unmeasured",
+        "Policy fixed before replay; this is a development demonstration"
+      ],
+      "requested_observations": 18,
+      "completed": true
+    }
+  ],
+  "comparisons": [
+    {
+      "baseline_variant": "A",
+      "variant": "B",
+      "comparable": true,
+      "gpt5_call_reduction": 0.11111111111111116,
+      "api_cost_reduction": 0.1059522499724942
+    }
+  ]
+}

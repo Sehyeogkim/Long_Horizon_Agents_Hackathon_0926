@@ -1,0 +1,16 @@
+{
+  "checked_at": "2026-09-25T21:59:58.502824+00:00",
+  "provider": "nimble",
+  "endpoint": "https://sdk.nimbleway.com/v2",
+  "credential_present": true,
+  "credential_source": "env_file",
+  "cli_available": false,
+  "authenticated_request_verified": true,
+  "state": "collection_complete",
+  "image_files_downloaded": 0,
+  "successful_requests": 3,
+  "responses_with_content": 3,
+  "attempted_requests": 3,
+  "candidate_count": 0,
+  "run_directory": "liquid/validation/source_research/20260925T215958503116Z"
+}

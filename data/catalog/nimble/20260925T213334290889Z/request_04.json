@@ -1,0 +1,31 @@
+{
+  "provider": "nimble",
+  "retrieved_at": "2026-09-25T21:33:36.540154+00:00",
+  "endpoint": "https://sdk.nimbleway.com/v2/extract",
+  "request": {
+    "url": "https://www.mdpi.com/2311-7524/10/1/100",
+    "render": false,
+    "formats": [
+      "markdown"
+    ]
+  },
+  "ok": true,
+  "http_status": 200,
+  "response": {
+    "url": "https://www.mdpi.com/2311-7524/10/1/100",
+    "task_id": "4eee103c-9a07-4493-a25f-595f908ec783",
+    "status": "success",
+    "data": {
+      "markdown": ""
+    },
+    "metadata": {
+      "query_time": "2026-09-25T21:33:36.915Z",
+      "query_duration": 1441,
+      "response_parameters": {
+        "input_url": "https://www.mdpi.com/2311-7524/10/1/100"
+      },
+      "driver": "vx6"
+    },
+    "status_code": 200
+  }
+}

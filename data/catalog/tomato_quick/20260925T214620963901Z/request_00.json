@@ -1,0 +1,32 @@
+{
+  "provider": "nimble",
+  "retrieved_at": "2026-09-25T21:46:20.966643+00:00",
+  "endpoint": "https://sdk.nimbleway.com/v2/search",
+  "request": {
+    "query": "\"Multimodal perishable fruits and vegetables dataset\" \"download\" \"TR-6\"",
+    "max_results": 5,
+    "search_depth": "lite",
+    "full_content": false
+  },
+  "ok": true,
+  "http_status": 200,
+  "response": {
+    "total_results": 1,
+    "results": [
+      {
+        "title": "Multimodal perishable fruits and vegetables dataset",
+        "description": "There is a growing need in the agricultural industry for non-invasive methods to classify the freshness and quality of produce. To address this, we developed a multimodal dataset comprising six commonly exported fruits and vegetables from India: guava, carrot, tomato, Indian gooseberry, banana, and mango. The specimens were allowed to undergo decomposition in an indoor environment with natural ...",
+        "url": "https://www.sciencedirect.com/science/article/pii/S2352340926000983",
+        "content": "",
+        "metadata": {
+          "position": 1,
+          "entity_type": "OrganicResult",
+          "country": "US",
+          "locale": "en"
+        }
+      }
+    ],
+    "request_id": "cc9c96d1-2cb2-4325-98d5-5c37727bdf3b"
+  },
+  "content_available": true
+}

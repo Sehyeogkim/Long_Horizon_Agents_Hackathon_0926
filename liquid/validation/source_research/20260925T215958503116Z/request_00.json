@@ -1,0 +1,32 @@
+{
+  "provider": "nimble",
+  "retrieved_at": "2026-09-25T21:59:58.505381+00:00",
+  "endpoint": "https://sdk.nimbleway.com/v2/extract",
+  "request": {
+    "url": "https://data.mendeley.com/datasets/bdd69gyhv8/1",
+    "render": false,
+    "formats": [
+      "markdown"
+    ]
+  },
+  "ok": true,
+  "http_status": 200,
+  "response": {
+    "url": "https://data.mendeley.com/datasets/bdd69gyhv8/1",
+    "task_id": "8cfe07e1-44a0-4422-973d-d90effa8de45",
+    "status": "success",
+    "data": {
+      "markdown": "[Skip to main content](https://data.mendeley.com/datasets/bdd69gyhv8/1#main)\n\n[Mendeley Data homepage](https://data.mendeley.com/)\n\n*   [FAQ](https://data.mendeley.com/faq)\n\nSign In / Register\n\nSign In / Register\n\n*   [FAQ](https://data.mendeley.com/faq)\n\n# Fresh and Rotten Fruits Dataset for Machine-Based Evaluation of Fruit Quality\n\nPublished: 8 April 2022| Version 1 | DOI: 10.17632/bdd69gyhv8.1\n\nContributors:\n\nNusrat Sultana, Musfika Jahan,\n\nMohammad Shorif Uddin\n\n## Description\n\n(1) Everyone is interested to get fresh and quality fruits. As fruits are going to be rotten after the passing of time. Hence, fruit quality has substantial economic consequences. It is estimated that roughly one-third of the fruits are rotten causing huge financial loss. Furthermore, the sale of fruits will be impacted because consumers believe that spoiled fruits are harmful to their health. Classification of fresh and rotten fruits is usually carried out by people, which is ineffective for fruit farmers, sellers as well as fruit processing industries. (2) In the recent era, computer vision techniques are very promising in performing such types of classification and detection tasks. (3) With a view to developing computer vision-based algorithms, an extensive fruit dataset is presented containing sixteen types of fruit classes, namely fresh apple, rotten apple, fresh banana, rotten banana, fresh orange, rotten orange, fresh grape, rotten grape, fresh guava, rotten guava, fresh jujube, rotten jujube, fresh pomegranate, rotten pomegranate, fresh strawberry and rotten strawberry. Fresh and rotten classifications are done with the help of a domain expert from an agricultural institute. (4) A total of 3200 images of fresh and rotten fruits are collected from different fruit shops and real fields. Then from these original images, a total of 12335 augmented images are produced by using rotation, flipping, zooming, and shearing techniques to increase the data number.\n\nDownload All\n\n## Files\n\n## Institutions\n\n*   Jahangirnagar University\n\n## Categories\n\nComputer Vision, Image Processing, Image Classification, Recognition, Deep Learning\n\n## Licence\n\nCC BY 4.0Learn more\n\nhttps://plu.mx/plum/a/?doi=10.17632/bdd69gyhv8\n\n*   [Home](https://data.mendeley.com/)\n*   |\n*   [About](https://data.mendeley.com/about)\n*   |\n*   [Accessibility Statement](https://data.mendeley.com/accessibility)\n*   |\n*   [Archive Policy](https://data.mendeley.com/archive-process)\n*   |\n*   [File Formats](https://data.mendeley.com/file-formats)\n*   |\n*   [API Docs](https://data.mendeley.com/api/docs)\n*   |\n*   [OAI](https://data.mendeley.com/oai?verb=Identify)\n*   |\n*   [Mission](https://data.mendeley.com/mission)\n*   |\n*   [Status Updates](https://digitalcommons.elsevier.com/status)\n\n*   [Terms of Use](https://www.mendeley.com/terms/)\n*   |\n*   [Privacy Policy](https://www.elsevier.com/legal/privacy-policy)\n*   |\n*   Cookie Settings\n\n*   All content on this site: Copyright © 2026 Elsevier inc, its licensors, and contributors. All rights are reserved, including those for text and data mining, AI training and similar technologies. For all open access content, the Creative Commons licensing terms apply."
+    },
+    "metadata": {
+      "query_time": "2026-09-25T21:59:58.868Z",
+      "query_duration": 2156,
+      "response_parameters": {
+        "input_url": "https://data.mendeley.com/datasets/bdd69gyhv8/1"
+      },
+      "driver": "vx6"
+    },
+    "status_code": 200
+  },
+  "content_available": true
+}

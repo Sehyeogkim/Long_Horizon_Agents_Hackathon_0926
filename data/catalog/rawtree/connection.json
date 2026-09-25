@@ -1,0 +1,7 @@
+{
+  "checked_at": "2026-09-25T21:37:11.122766+00:00",
+  "endpoint": "https://mcp.rawtree.com/mcp",
+  "ok": false,
+  "error": "http_error",
+  "status": 403
+}

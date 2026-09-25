@@ -1,0 +1,4 @@
+data/
+external/data/
+runs/*/prepared/
+__pycache__/

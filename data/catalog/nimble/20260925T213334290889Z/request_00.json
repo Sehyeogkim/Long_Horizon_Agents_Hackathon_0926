@@ -1,0 +1,43 @@
+{
+  "provider": "nimble",
+  "retrieved_at": "2026-09-25T21:33:34.293479+00:00",
+  "endpoint": "https://sdk.nimbleway.com/v2/search",
+  "request": {
+    "query": "\"apple\" \"spoilage\" \"time-lapse\" dataset",
+    "max_results": 5,
+    "search_depth": "lite",
+    "full_content": false
+  },
+  "ok": true,
+  "http_status": 200,
+  "response": {
+    "total_results": 2,
+    "results": [
+      {
+        "title": "Apple Spoilage Wrappings: Time-lapse video of an apple spoiling.",
+        "description": "Time-lapse video of two apple halves that were left out in a room over six days. To view full directions for this science project, see the \"Yuck, What Happened to My Apple?",
+        "url": "https://www.youtube.com/watch?v=9O0gaI5arfU",
+        "content": "",
+        "metadata": {
+          "position": 1,
+          "entity_type": "OrganicResult",
+          "country": "US",
+          "locale": "en"
+        }
+      },
+      {
+        "title": "Apple Spoilage Time-lapse Video - Pinterest",
+        "description": "Watch a time-lapse video of an apple spoiling to understand the effects of different food wrappings on spoilage.",
+        "url": "https://www.pinterest.com/pin/210684088795761588/",
+        "content": "",
+        "metadata": {
+          "position": 2,
+          "entity_type": "OrganicResult",
+          "country": "US",
+          "locale": "en"
+        }
+      }
+    ],
+    "request_id": "af4ae6fa-ef1c-4799-bac9-ace04a233361"
+  }
+}

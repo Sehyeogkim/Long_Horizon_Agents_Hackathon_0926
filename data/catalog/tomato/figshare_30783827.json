@@ -1,0 +1,200 @@
+{
+  "files": [
+    {
+      "id": 60094544,
+      "name": "TR-6.zip",
+      "size": 20388430589,
+      "is_link_only": false,
+      "download_url": "https://ndownloader.figshare.com/files/60094544",
+      "supplied_md5": "cdbcc4a667051aa35d46c2de71a723d9",
+      "computed_md5": "cdbcc4a667051aa35d46c2de71a723d9",
+      "mimetype": "undefined"
+    }
+  ],
+  "folder_structure": {},
+  "authors": [
+    {
+      "id": 22775741,
+      "full_name": "T Bagyammal",
+      "first_name": "T",
+      "last_name": "Bagyammal",
+      "is_active": true,
+      "url_name": "T_Bagyammal",
+      "orcid_id": ""
+    },
+    {
+      "id": 22767884,
+      "full_name": "Yogini Aishwaryaa P T S",
+      "first_name": "Yogini Aishwaryaa",
+      "last_name": "P T S",
+      "is_active": true,
+      "url_name": "Yogini_Aishwaryaa_P_T_S",
+      "orcid_id": "0009-0004-4967-2972"
+    },
+    {
+      "id": 22769405,
+      "full_name": "Krishna Deepak",
+      "first_name": "Krishna",
+      "last_name": "Deepak",
+      "is_active": true,
+      "url_name": "Krishna_Deepak",
+      "orcid_id": "0009-0000-2927-3422"
+    },
+    {
+      "id": 22769375,
+      "full_name": "Devika Unnikrishnan",
+      "first_name": "Devika",
+      "last_name": "Unnikrishnan",
+      "is_active": true,
+      "url_name": "Devika_Unnikrishnan",
+      "orcid_id": ""
+    }
+  ],
+  "custom_fields": [],
+  "figshare_url": "https://figshare.com/articles/dataset/TriModal_Ripeness_6/30783827",
+  "download_disabled": false,
+  "description": "<p dir=\"ltr\">The dataset consists of three complementary data modalities: Thermal IR-Fusion images, sRGB images, and methane concentration readings. These data collectively capture the visual, thermal, and chemical changes occurring in fruits throughout their lifecycle - from the unripe stage to the spoiled stage. For each fruit, 17 thermal images were captured per day - 16 side angle images taken at equal intervals around the fruit and one top-down image. No preprocessing has been done on the dataset.</p><p><br></p><p dir=\"ltr\">All images are provided in .jpg format, including both thermal and sRGB modalities, and methane concentration readings in .txt format. The dataset TR-6 is divided into two subfolders: Normal and Classified. Each subfolder consists of 10,000+ images. These subfolders include six fruit folders\u2014Guava, Carrot, Tomato, Indian _Gooseberry, Banana, and Mango. Further the Normal subfolder contains each fruit folder with gas-sensor reading, along with subfolders that store the corresponding IR fusion and sRGB images. Classified folder is further divided into two subfolders Spoiled and Not_spoiled, each of which further includes gas-sensor reading, along with subfolders that store the corresponding IR fusion and sRGB image pairs.</p><p><br></p><p dir=\"ltr\">This multimodal dataset (sensor readings and images) can support the development of advanced algorithms for freshness assessment, maturity detection, and quality classification across different produce categories. Researchers may apply any suitable data augmentation strategies to expand the dataset according to their model requirements. <br><br>All the authors contributed equally to the work.</p>",
+  "funding": null,
+  "funding_list": [],
+  "version": 1,
+  "status": "public",
+  "size": 20388430589,
+  "created_date": "2025-12-05T07:34:30Z",
+  "modified_date": "2025-12-05T09:21:35Z",
+  "is_public": true,
+  "is_confidential": false,
+  "is_metadata_record": false,
+  "confidential_reason": "",
+  "metadata_reason": "",
+  "license": {
+    "value": 1,
+    "name": "CC BY 4.0",
+    "url": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "tags": [
+    "machine learning",
+    "computer vision",
+    "fruit spoilage",
+    "vegetable spoilage",
+    "thermal images",
+    "methane gas sensor",
+    "shelf-life prediction",
+    "spoilage detection",
+    "multimodal data"
+  ],
+  "keywords": [
+    "machine learning",
+    "computer vision",
+    "fruit spoilage",
+    "vegetable spoilage",
+    "thermal images",
+    "methane gas sensor",
+    "shelf-life prediction",
+    "spoilage detection",
+    "multimodal data"
+  ],
+  "categories": [
+    {
+      "id": 23881,
+      "title": "Sustainable agricultural development",
+      "parent_id": 23851,
+      "path": "/23812/23851/23881",
+      "source_id": "300210",
+      "taxonomy_id": 100
+    },
+    {
+      "id": 28834,
+      "title": "Evolutionary computation",
+      "parent_id": 28825,
+      "path": "/28798/28825/28834",
+      "source_id": "460203",
+      "taxonomy_id": 100
+    },
+    {
+      "id": 28837,
+      "title": "Fuzzy computation",
+      "parent_id": 28825,
+      "path": "/28798/28825/28837",
+      "source_id": "460204",
+      "taxonomy_id": 100
+    },
+    {
+      "id": 28840,
+      "title": "Intelligent robotics",
+      "parent_id": 28825,
+      "path": "/28798/28825/28840",
+      "source_id": "460205",
+      "taxonomy_id": 100
+    },
+    {
+      "id": 28843,
+      "title": "Knowledge representation and reasoning",
+      "parent_id": 28825,
+      "path": "/28798/28825/28843",
+      "source_id": "460206",
+      "taxonomy_id": 100
+    },
+    {
+      "id": 29161,
+      "title": "Deep learning",
+      "parent_id": 29152,
+      "path": "/28798/29152/29161",
+      "source_id": "461103",
+      "taxonomy_id": 100
+    },
+    {
+      "id": 29164,
+      "title": "Neural networks",
+      "parent_id": 29152,
+      "path": "/28798/29152/29164",
+      "source_id": "461104",
+      "taxonomy_id": 100
+    },
+    {
+      "id": 29167,
+      "title": "Reinforcement learning",
+      "parent_id": 29152,
+      "path": "/28798/29152/29167",
+      "source_id": "461105",
+      "taxonomy_id": 100
+    },
+    {
+      "id": 29170,
+      "title": "Semi- and unsupervised learning",
+      "parent_id": 29152,
+      "path": "/28798/29152/29170",
+      "source_id": "461106",
+      "taxonomy_id": 100
+    }
+  ],
+  "references": [],
+  "has_linked_file": false,
+  "citation": "Bagyammal, T; P T S, Yogini Aishwaryaa; Deepak, Krishna; Unnikrishnan, Devika (2025). TriModal Ripeness 6. figshare. Dataset. https://doi.org/10.6084/m9.figshare.30783827.v1",
+  "related_materials": [],
+  "is_embargoed": false,
+  "embargo_date": null,
+  "embargo_type": null,
+  "embargo_title": "",
+  "embargo_reason": "",
+  "embargo_options": [],
+  "id": 30783827,
+  "title": "TriModal Ripeness 6",
+  "doi": "10.6084/m9.figshare.30783827.v1",
+  "handle": "",
+  "url": "https://api.figshare.com/v2/articles/30783827",
+  "published_date": "2025-12-05T07:34:30Z",
+  "thumb": "",
+  "defined_type": 3,
+  "defined_type_name": "dataset",
+  "group_id": null,
+  "url_private_api": "https://api.figshare.com/v2/account/articles/30783827",
+  "url_public_api": "https://api.figshare.com/v2/articles/30783827",
+  "url_private_html": "https://figshare.com/account/articles/30783827",
+  "url_public_html": "https://figshare.com/articles/dataset/TriModal_Ripeness_6/30783827",
+  "timeline": {
+    "posted": "2025-12-05T07:34:30",
+    "firstOnline": "2025-12-05"
+  },
+  "resource_title": null,
+  "resource_doi": null
+}

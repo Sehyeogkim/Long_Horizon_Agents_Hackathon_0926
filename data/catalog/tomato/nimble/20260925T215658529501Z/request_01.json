@@ -1,0 +1,16 @@
+{
+  "provider": "nimble",
+  "retrieved_at": "2026-09-25T21:56:58.659449+00:00",
+  "endpoint": "https://sdk.nimbleway.com/v2/extract",
+  "request": {
+    "url": "https://figshare.com/articles/dataset/30783827",
+    "render": false,
+    "formats": [
+      "markdown"
+    ]
+  },
+  "ok": false,
+  "http_status": 500,
+  "error": "http_error",
+  "content_available": false
+}

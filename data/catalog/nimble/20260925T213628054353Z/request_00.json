@@ -1,0 +1,80 @@
+{
+  "provider": "nimble",
+  "retrieved_at": "2026-09-25T21:36:28.056194+00:00",
+  "endpoint": "https://sdk.nimbleway.com/v2/search",
+  "request": {
+    "query": "\"Real-time freshness prediction for Apples and Lettuces\" dataset data availability",
+    "max_results": 5,
+    "search_depth": "lite",
+    "full_content": false
+  },
+  "ok": true,
+  "http_status": 200,
+  "response": {
+    "total_results": 5,
+    "results": [
+      {
+        "title": "Real-time freshness prediction for Apples and Lettuces using imaging ...",
+        "description": "Testing data for accuracy values and confusion matrices included here contained 1932 samples for apples and 1923 for lettuces, split evenly between respective freshness classes.",
+        "url": "https://www.sciencedirect.com/science/article/pii/S2772375525003612",
+        "content": "",
+        "metadata": {
+          "position": 1,
+          "entity_type": "OrganicResult",
+          "country": "US",
+          "locale": "en"
+        }
+      },
+      {
+        "title": "(PDF) Real-time freshness prediction for Apples and Lettuces using ...",
+        "description": "Evaluation dataset and app testing protocol For assessing the performance of the models correctly, a test set separate from the training and validation data was used. The test data were images which were not seen during learning by the models but used solely for the purpose of testing in order to deliver unbiased results.",
+        "url": "https://www.academia.edu/165017694/Real_time_freshness_prediction_for_Apples_and_Lettuces_using_imaging_recognition_and_advanced_algorithms_in_a_user_friendly_mobile_application",
+        "content": "",
+        "metadata": {
+          "position": 2,
+          "entity_type": "OrganicResult",
+          "country": "US",
+          "locale": "en"
+        }
+      },
+      {
+        "title": "Real-time freshness prediction for Apples and Lettuces using imaging ...",
+        "description": "All image annotation was by expert agreement for consistency between classes (Classes 1-4 for apples; Classes 1-5 for lettuces). Testing data for accuracy values and confusion matrices included here contained 1932 samples for apples and 1923 for lettuces, split evenly between respective freshness classes.",
+        "url": "https://vcl.iti.gr/media/documents/real-time-freshness-prediction-for-apples-and-lettuces-using-imaging-recognition-and-advanced-algorithms-in-a-user-friendly-mobile-applicationpdf",
+        "content": "",
+        "metadata": {
+          "position": 3,
+          "entity_type": "OrganicResult",
+          "country": "US",
+          "locale": "en"
+        }
+      },
+      {
+        "title": "Real-time freshness prediction for Apples and Lettuces using imaging ...",
+        "description": "To automate real-time quality assurance of perishable agricultural products, we have developed a user-friendly smartphone application that enables freshness assessment of apples and lettuces using RGB data at multiple stages of the supply chain.",
+        "url": "https://doaj.org/article/0ed4a6d813ed4d0591c6e1b453221cc9",
+        "content": "",
+        "metadata": {
+          "position": 4,
+          "entity_type": "OrganicResult",
+          "country": "US",
+          "locale": "en"
+        }
+      },
+      {
+        "title": "Real-time Freshness Prediction for Apples and Lettuces Using Imaging ...",
+        "description": "This research developed a user-friendly smartphone application for real-time freshness assessment of apples and lettuces using RGB imaging and advanced deep learning algorithms. The app categorizes freshness and estimates product lifespan at various supply chain stages. Nine deep learning architectures (ViT, Swin Transformer, ResNet, EfficientNet, ConvNeXt, DeiT, MobileNetV3, MaxViT, TNT) were ...",
+        "url": "https://policycommons.net/artifacts/50665405/real-time-freshness-prediction-for-apples-and-lettuces-using-imaging-recognition-and-advanced-algorithms-in-a-user-friendly-mobile-application/51564107/",
+        "content": "",
+        "metadata": {
+          "position": 5,
+          "entity_type": "OrganicResult",
+          "country": "US",
+          "locale": "en"
+        }
+      }
+    ],
+    "request_id": "b5f88941-2134-49c6-b166-9a839e5d9935"
+  },
+  "content_available": true
+}

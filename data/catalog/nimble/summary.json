@@ -1,0 +1,19 @@
+{
+  "provider": "nimble",
+  "run_date": "2026-09-25",
+  "attempted_requests": 31,
+  "successful_http_responses": 23,
+  "responses_with_content": 19,
+  "search_attempts": 18,
+  "extract_attempts": 13,
+  "unique_search_hit_urls": 51,
+  "search_results_returned": 61,
+  "initial_sandbox_transport_failures": 3,
+  "qualified_apple_disease_training_datasets": 0,
+  "licensed_same_apple_replay_samples": 1,
+  "sample_path": "data/samples/apple_browning_fuji",
+  "sample_phenomenon": "cut-apple oxidation, not disease",
+  "sample_discovery": "web search",
+  "sample_metadata_verification": "nimble",
+  "sample_binary_transport": "curl"
+}

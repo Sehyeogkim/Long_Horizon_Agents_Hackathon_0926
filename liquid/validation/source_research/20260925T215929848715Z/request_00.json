@@ -1,0 +1,80 @@
+{
+  "provider": "nimble",
+  "retrieved_at": "2026-09-25T21:59:29.850310+00:00",
+  "endpoint": "https://sdk.nimbleway.com/v2/search",
+  "request": {
+    "query": "apple fruit decay daily repeated images same fruit dataset storage time series dataset download",
+    "max_results": 5,
+    "search_depth": "lite",
+    "full_content": false
+  },
+  "ok": true,
+  "http_status": 200,
+  "response": {
+    "total_results": 5,
+    "results": [
+      {
+        "title": "FruitVision: A Benchmark Dataset for Fresh, Rotten, and Formalin-mixed ...",
+        "description": "This dataset, initially consisting of 10,154 high-resolution images of five fruit types—apple, banana, mango, orange, and grapes—has been expanded to over 81,000 using advanced augmentation techniques like rotation, scaling, and brightness adjustment. The images are classified into three key categories: fresh, rotten, and formalin-mixed. This dataset offers a unique opportunity for ...",
+        "url": "https://data.mendeley.com/datasets/xkbjx8959c/2",
+        "content": "",
+        "metadata": {
+          "position": 1,
+          "entity_type": "OrganicResult",
+          "country": "US",
+          "locale": "en"
+        }
+      },
+      {
+        "title": "A Large-Scale Dataset for Fruit Classification: Insights into Fresh ...",
+        "description": "This dataset, initially consisting of 10,154 high-resolution images of five fruit types—apple, banana, mango, orange, and grapes—has been expanded to over 81,000 using advanced augmentation techniques like rotation, scaling, and brightness adjustment. The images are classified into three key categories: fresh, rotten, and formalin-mixed. This dataset offers a unique opportunity for ...",
+        "url": "https://data.mendeley.com/datasets/xkbjx8959c/1",
+        "content": "",
+        "metadata": {
+          "position": 2,
+          "entity_type": "OrganicResult",
+          "country": "US",
+          "locale": "en"
+        }
+      },
+      {
+        "title": "FruitVision: A benchmark dataset for fresh, rotten, and formalin-mixed ...",
+        "description": "This dataset provides a comprehensive collection of images of five fruit types—apple, banana, mango, orange, and grapes—classified into three categories: fresh, rotten, and formalin-mixed.",
+        "url": "https://www.sciencedirect.com/science/article/pii/S2352340925004792",
+        "content": "",
+        "metadata": {
+          "position": 3,
+          "entity_type": "OrganicResult",
+          "country": "US",
+          "locale": "en"
+        }
+      },
+      {
+        "title": "Fruits-360 dataset · GitHub",
+        "description": "Fruits-360 dataset Download The dataset consists of multiple repositories: Fruits-360 100x100 (Images scaled to 100x100 pixels. Currently contains 188346 pictures of 265 fruits, vegetables, nuts, seeds and mushrooms.) Fruits-360 original-size (Original (captured) size images.",
+        "url": "https://github.com/fruits-360/",
+        "content": "",
+        "metadata": {
+          "position": 4,
+          "entity_type": "OrganicResult",
+          "country": "US",
+          "locale": "en"
+        }
+      },
+      {
+        "title": "Indian Apple Fruit Image Dataset with Advanced Preprocessing for ...",
+        "description": "This dataset presents a curated and preprocessed image collection of Indian apple fruits, specifically designed for machine learning and deep learning applications in fruit disease detection. It includes a total of 8,415 raw images, divided into 5,715 images of healthy apples and 2,700 images exhibiting rot disease symptoms.",
+        "url": "https://ieee-dataport.org/documents/indian-apple-fruit-image-dataset-advanced-preprocessing-healthy-and-rot-detection",
+        "content": "",
+        "metadata": {
+          "position": 5,
+          "entity_type": "OrganicResult",
+          "country": "US",
+          "locale": "en"
+        }
+      }
+    ],
+    "request_id": "2b30245e-2b5d-4a09-a424-ce10905f9580"
+  },
+  "content_available": true
+}

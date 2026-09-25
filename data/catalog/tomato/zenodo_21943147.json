@@ -1,0 +1,441 @@
+{
+  "created": "2026-08-15T05:45:12.444777+00:00",
+  "modified": "2026-08-15T05:45:19.232917+00:00",
+  "id": 21943147,
+  "conceptrecid": "21943146",
+  "doi": "10.5281/zenodo.21943147",
+  "conceptdoi": "10.5281/zenodo.21943146",
+  "doi_url": "https://doi.org/10.5281/zenodo.21943147",
+  "metadata": {
+    "title": "Longitudinal RGB and Ultraviolet-Excited Tomato Imaging Dataset During 18-Day Storage",
+    "doi": "10.5281/zenodo.21943147",
+    "publication_date": "2026-08-15",
+    "description": "<p class=\"PDq2pG_selectionAnchorContainer\">This dataset supports the research article entitled &ldquo;Longitudinal Visible and Ultraviolet-Excited Imaging of Tomato Changes During Storage.&rdquo; It contains longitudinal image-derived data obtained from an untreated red-stage tomato monitored over 18 consecutive days under ambient storage conditions. The dataset was developed for non-destructive characterization of storage-related changes using complementary RGB and ultraviolet-excited imaging.</p>\n<p class=\"PDq2pG_selectionAnchorContainer\">The RGB dataset contains eight appearance descriptors: mean red-channel intensity (MeanR), mean green-channel intensity (MeanG), mean blue-channel intensity (MeanB), colorfulness, segmented image area, RGB entropy, smoothness, and image contrast. The ultraviolet-excited dataset contains four Gray-Level Co-Occurrence Matrix (GLCM) texture descriptors&mdash;contrast, correlation, energy, and homogeneity&mdash;together with grayscale image entropy. GLCMs were generated using eight gray levels over the 8-bit grayscale intensity range, with a one-pixel horizontal offset [0 1] corresponding to 0&deg;, Symmetric = false, and no directional averaging.</p>\n<p>Contextual environmental measurements recorded during the 18-day storage period are also provided, including temperature, relative humidity, equivalent CO\u2082 (eCO\u2082), and total volatile organic compounds (TVOC). These environmental variables are supplied as contextual storage metadata and were not used as predictors in the RGB&ndash;UV cross-modal analysis.</p>\n<p>The accompanying spreadsheet includes the complete 18-day numerical descriptors, normalized longitudinal trajectories, descriptive Spearman rank associations with storage day, cross-modal Spearman associations, a data dictionary, and quality-control checks supporting the values reported in the manuscript.</p>\n<p>This dataset represents repeated longitudinal observations of a single biological specimen and should not be interpreted as 18 independent biological replicates. The image-derived descriptors characterize changes in visible appearance and ultraviolet-excited spatial texture and should not be interpreted as direct measurements of physiological freshness or physicochemical quality. Segmented image area is expressed in pixels and represents two-dimensional image-space extent rather than calibrated physical surface area.</p>\n<p>The dataset is intended to support reproducibility, methodological transparency, and further research on interpretable computer-vision approaches for longitudinal postharvest imaging.</p>",
+    "access_right": "open",
+    "creators": [
+      {
+        "name": "Hartono, Elvianto",
+        "affiliation": "Universitas 17 Agustus 1945 Surabaya"
+      }
+    ],
+    "resource_type": {
+      "title": "Dataset",
+      "type": "dataset"
+    },
+    "license": {
+      "id": "cc-by-4.0"
+    },
+    "relations": {
+      "version": [
+        {
+          "index": 0,
+          "is_last": true,
+          "parent": {
+            "pid_type": "recid",
+            "pid_value": "21943146"
+          }
+        }
+      ]
+    }
+  },
+  "title": "Longitudinal RGB and Ultraviolet-Excited Tomato Imaging Dataset During 18-Day Storage",
+  "links": {
+    "self": "https://zenodo.org/api/records/21943147",
+    "self_html": "https://zenodo.org/records/21943147",
+    "preview_html": "https://zenodo.org/records/21943147?preview=1",
+    "doi": "https://doi.org/10.5281/zenodo.21943147",
+    "self_doi": "https://doi.org/10.5281/zenodo.21943147",
+    "self_doi_html": "https://zenodo.org/doi/10.5281/zenodo.21943147",
+    "reserve_doi": "https://zenodo.org/api/records/21943147/draft/pids/doi",
+    "parent": "https://zenodo.org/api/records/21943146",
+    "parent_html": "https://zenodo.org/records/21943146",
+    "parent_doi": "https://doi.org/10.5281/zenodo.21943146",
+    "parent_doi_html": "https://zenodo.org/doi/10.5281/zenodo.21943146",
+    "self_iiif_manifest": "https://zenodo.org/api/iiif/record:21943147/manifest",
+    "self_iiif_sequence": "https://zenodo.org/api/iiif/record:21943147/sequence/default",
+    "files": "https://zenodo.org/api/records/21943147/files",
+    "media_files": "https://zenodo.org/api/records/21943147/media-files",
+    "thumbnails": {
+      "10": "https://zenodo.org/api/iiif/record:21943147:UV_12.png/full/%5E10,/0/default.jpg",
+      "50": "https://zenodo.org/api/iiif/record:21943147:UV_12.png/full/%5E50,/0/default.jpg",
+      "100": "https://zenodo.org/api/iiif/record:21943147:UV_12.png/full/%5E100,/0/default.jpg",
+      "250": "https://zenodo.org/api/iiif/record:21943147:UV_12.png/full/%5E250,/0/default.jpg",
+      "750": "https://zenodo.org/api/iiif/record:21943147:UV_12.png/full/%5E750,/0/default.jpg",
+      "1200": "https://zenodo.org/api/iiif/record:21943147:UV_12.png/full/%5E1200,/0/default.jpg"
+    },
+    "archive": "https://zenodo.org/api/records/21943147/files-archive",
+    "archive_media": "https://zenodo.org/api/records/21943147/media-files-archive",
+    "latest": "https://zenodo.org/api/records/21943147/versions/latest",
+    "latest_html": "https://zenodo.org/records/21943147/latest",
+    "versions": "https://zenodo.org/api/records/21943147/versions",
+    "draft": "https://zenodo.org/api/records/21943147/draft",
+    "access_links": "https://zenodo.org/api/records/21943147/access/links",
+    "access_grants": "https://zenodo.org/api/records/21943147/access/grants",
+    "access_users": "https://zenodo.org/api/records/21943147/access/users",
+    "access_request": "https://zenodo.org/api/records/21943147/access/request",
+    "access": "https://zenodo.org/api/records/21943147/access",
+    "communities": "https://zenodo.org/api/records/21943147/communities",
+    "communities-suggestions": "https://zenodo.org/api/records/21943147/communities-suggestions",
+    "request_deletion": "https://zenodo.org/api/records/21943147/request-deletion",
+    "file_modification": "https://zenodo.org/api/records/21943147/file-modification",
+    "quota_increase": "https://zenodo.org/api/records/21943147/quota-increase",
+    "requests": "https://zenodo.org/api/records/21943147/requests"
+  },
+  "updated": "2026-08-15T05:45:19.232917+00:00",
+  "recid": "21943147",
+  "revision": 4,
+  "files": [
+    {
+      "id": "176f5f3d-064f-4cc1-9809-441da8c316e4",
+      "key": "UV_12.png",
+      "size": 1811083,
+      "checksum": "md5:7cbc36935d89068937efc1b954d93cce",
+      "links": {
+        "self": "https://zenodo.org/api/records/21943147/files/UV_12.png/content"
+      }
+    },
+    {
+      "id": "db5263b2-6289-47da-a4d9-54100ac1e2d0",
+      "key": "RGB_01.png",
+      "size": 212713,
+      "checksum": "md5:0f3d79e5e1d5318784da696acd7385dc",
+      "links": {
+        "self": "https://zenodo.org/api/records/21943147/files/RGB_01.png/content"
+      }
+    },
+    {
+      "id": "446ac00e-761d-478b-a07b-8a69dc1c9407",
+      "key": "UV_05.png",
+      "size": 934492,
+      "checksum": "md5:3a3a0f8039cab178df0a190d25aa3c81",
+      "links": {
+        "self": "https://zenodo.org/api/records/21943147/files/UV_05.png/content"
+      }
+    },
+    {
+      "id": "225b0b07-0a8d-4e7b-8d67-aad76f82c0c3",
+      "key": "Tomato_RGB_UV_Data_Availability.xlsx",
+      "size": 47467,
+      "checksum": "md5:14cf44aadade45a569ae3fa216b18702",
+      "links": {
+        "self": "https://zenodo.org/api/records/21943147/files/Tomato_RGB_UV_Data_Availability.xlsx/content"
+      }
+    },
+    {
+      "id": "f49c34c6-e9f4-461b-a613-c77c4b63079a",
+      "key": "RGB_12.png",
+      "size": 254034,
+      "checksum": "md5:3c942d2105dfa112d4ad7271ee2d5445",
+      "links": {
+        "self": "https://zenodo.org/api/records/21943147/files/RGB_12.png/content"
+      }
+    },
+    {
+      "id": "a1d4c054-0779-4408-80fa-ada9c994167e",
+      "key": "RGB_13.png",
+      "size": 258253,
+      "checksum": "md5:958666dbffcccca1890c791d4677e52b",
+      "links": {
+        "self": "https://zenodo.org/api/records/21943147/files/RGB_13.png/content"
+      }
+    },
+    {
+      "id": "2d7e3d4e-9cf2-445c-8745-574a35fb9303",
+      "key": "UV_06.png",
+      "size": 457724,
+      "checksum": "md5:86312f07e4f9fbeba2986072f511d977",
+      "links": {
+        "self": "https://zenodo.org/api/records/21943147/files/UV_06.png/content"
+      }
+    },
+    {
+      "id": "3d877f40-a633-4ae7-aaae-3f884173b20e",
+      "key": "RGB_02.png",
+      "size": 285351,
+      "checksum": "md5:b0dabcb3136dbcd7e1af47e36e326b51",
+      "links": {
+        "self": "https://zenodo.org/api/records/21943147/files/RGB_02.png/content"
+      }
+    },
+    {
+      "id": "04c8cf12-47c9-4a2f-972e-198f601a6f9e",
+      "key": "RGB_03.png",
+      "size": 249286,
+      "checksum": "md5:a9d80c1ba4d3ec1f43df48105d96c056",
+      "links": {
+        "self": "https://zenodo.org/api/records/21943147/files/RGB_03.png/content"
+      }
+    },
+    {
+      "id": "ded336b0-d818-4b3d-8614-42593dbf4b77",
+      "key": "RGB_09.png",
+      "size": 329028,
+      "checksum": "md5:1a8f90b1ae89d2018cf78b20a1cf405b",
+      "links": {
+        "self": "https://zenodo.org/api/records/21943147/files/RGB_09.png/content"
+      }
+    },
+    {
+      "id": "1033789c-f88e-4e73-afd8-356cb1437411",
+      "key": "RGB_18.png",
+      "size": 252967,
+      "checksum": "md5:bbd415f928ec7c93758b2b9210a3838f",
+      "links": {
+        "self": "https://zenodo.org/api/records/21943147/files/RGB_18.png/content"
+      }
+    },
+    {
+      "id": "77a2dbbc-ffd7-4cfd-9db5-4069242d98a6",
+      "key": "RGB_05.png",
+      "size": 284476,
+      "checksum": "md5:bfa345395510bf9f31679d81c1823ec1",
+      "links": {
+        "self": "https://zenodo.org/api/records/21943147/files/RGB_05.png/content"
+      }
+    },
+    {
+      "id": "f2bb727c-e0cd-42b2-ad0d-311bb6ab25dd",
+      "key": "RGB_14.png",
+      "size": 277787,
+      "checksum": "md5:c6177ac8c8feb8c99bd458a6b8f0ac68",
+      "links": {
+        "self": "https://zenodo.org/api/records/21943147/files/RGB_14.png/content"
+      }
+    },
+    {
+      "id": "5474ad85-09bf-4017-a51e-393ae6d27c50",
+      "key": "RGB_11.png",
+      "size": 373744,
+      "checksum": "md5:44603f1cbfe6a7d2709062495c621fd6",
+      "links": {
+        "self": "https://zenodo.org/api/records/21943147/files/RGB_11.png/content"
+      }
+    },
+    {
+      "id": "b1878b5d-1e9b-4424-aaa1-72c2eae2ccd4",
+      "key": "RGB_17.png",
+      "size": 273079,
+      "checksum": "md5:bfb5ef96020a6173c8aaababd9d8c78c",
+      "links": {
+        "self": "https://zenodo.org/api/records/21943147/files/RGB_17.png/content"
+      }
+    },
+    {
+      "id": "044ff626-fee9-4716-8032-33e9123b9318",
+      "key": "UV_03.png",
+      "size": 1249719,
+      "checksum": "md5:8026567b6571ed9ec83d43ad7157a3fe",
+      "links": {
+        "self": "https://zenodo.org/api/records/21943147/files/UV_03.png/content"
+      }
+    },
+    {
+      "id": "4d5b2072-677d-496d-a00d-81c9c20bfbdd",
+      "key": "UV_09.png",
+      "size": 1152865,
+      "checksum": "md5:0dfc91f9a6dbec95c2a697c6c9e7955d",
+      "links": {
+        "self": "https://zenodo.org/api/records/21943147/files/UV_09.png/content"
+      }
+    },
+    {
+      "id": "f81511c7-20b1-42ce-9ed9-13ec1be7ec32",
+      "key": "UV_07.png",
+      "size": 1184444,
+      "checksum": "md5:802c9e0fee8f8687e11028583d6f0a0a",
+      "links": {
+        "self": "https://zenodo.org/api/records/21943147/files/UV_07.png/content"
+      }
+    },
+    {
+      "id": "2d965866-8903-499c-ad5a-dbb84f46f6c1",
+      "key": "UV_13.png",
+      "size": 1118044,
+      "checksum": "md5:709fef8cb3e1da15aea01480b634d212",
+      "links": {
+        "self": "https://zenodo.org/api/records/21943147/files/UV_13.png/content"
+      }
+    },
+    {
+      "id": "8169119f-db8b-46cf-9b0b-ccc69d6141bf",
+      "key": "UV_08.png",
+      "size": 1180991,
+      "checksum": "md5:f96bc2f9716624b1b87a6b4c1b383aeb",
+      "links": {
+        "self": "https://zenodo.org/api/records/21943147/files/UV_08.png/content"
+      }
+    },
+    {
+      "id": "b8b23390-7532-4c6b-80d7-64bf5538c7b1",
+      "key": "RGB_07.png",
+      "size": 311604,
+      "checksum": "md5:d1961906ef52212f3a1303780295278a",
+      "links": {
+        "self": "https://zenodo.org/api/records/21943147/files/RGB_07.png/content"
+      }
+    },
+    {
+      "id": "aa3be8e5-0af8-4c80-93cf-153e91313198",
+      "key": "RGB_06.png",
+      "size": 251231,
+      "checksum": "md5:20497b9e9c2ef529c25546e19b8f42b8",
+      "links": {
+        "self": "https://zenodo.org/api/records/21943147/files/RGB_06.png/content"
+      }
+    },
+    {
+      "id": "a49198c6-f655-4cb3-acbc-6e63979b77ae",
+      "key": "RGB_16.png",
+      "size": 282935,
+      "checksum": "md5:39d2ec6a1bd6ac20ae640c1e872afd02",
+      "links": {
+        "self": "https://zenodo.org/api/records/21943147/files/RGB_16.png/content"
+      }
+    },
+    {
+      "id": "9972acd3-da3f-4a2c-9046-d97ff330ac3a",
+      "key": "UV_11.png",
+      "size": 1242620,
+      "checksum": "md5:f461a6076211d5375d8328ed0db803d9",
+      "links": {
+        "self": "https://zenodo.org/api/records/21943147/files/UV_11.png/content"
+      }
+    },
+    {
+      "id": "221a5460-130b-421f-b868-ec22d97084ca",
+      "key": "UV_14.png",
+      "size": 1102238,
+      "checksum": "md5:3cd8605d6945637fa7632659916b35f2",
+      "links": {
+        "self": "https://zenodo.org/api/records/21943147/files/UV_14.png/content"
+      }
+    },
+    {
+      "id": "be3365a3-605b-4e04-b241-79f305b5347c",
+      "key": "RGB_04.png",
+      "size": 250428,
+      "checksum": "md5:15cb0e8452007100346ea295be7226a6",
+      "links": {
+        "self": "https://zenodo.org/api/records/21943147/files/RGB_04.png/content"
+      }
+    },
+    {
+      "id": "a4d1f4e3-380b-44e3-8714-228add5b802b",
+      "key": "UV_04.png",
+      "size": 186191,
+      "checksum": "md5:d9d58aafdc5997e4625d0c0379e60595",
+      "links": {
+        "self": "https://zenodo.org/api/records/21943147/files/UV_04.png/content"
+      }
+    },
+    {
+      "id": "123c46ad-abfe-419a-b8ea-833205612a46",
+      "key": "RGB_08.png",
+      "size": 314148,
+      "checksum": "md5:5e97e31e8375ba115ed97875d15b88ce",
+      "links": {
+        "self": "https://zenodo.org/api/records/21943147/files/RGB_08.png/content"
+      }
+    },
+    {
+      "id": "6c67de0b-b555-47c8-8c3a-c8fb1aff774d",
+      "key": "RGB_10.png",
+      "size": 379560,
+      "checksum": "md5:557a9f5c8e6b34f0dda38174316e496c",
+      "links": {
+        "self": "https://zenodo.org/api/records/21943147/files/RGB_10.png/content"
+      }
+    },
+    {
+      "id": "8e51aef4-533d-40e8-a335-c9f629bf10f3",
+      "key": "RGB_15.png",
+      "size": 272639,
+      "checksum": "md5:e1326e663daf2f2b4f6720b4150814c6",
+      "links": {
+        "self": "https://zenodo.org/api/records/21943147/files/RGB_15.png/content"
+      }
+    },
+    {
+      "id": "8736f6a2-cdb9-429f-b05a-5efd52873f2f",
+      "key": "UV_15.png",
+      "size": 1024699,
+      "checksum": "md5:87471a46e02250322c2cc2bca3a0bcc0",
+      "links": {
+        "self": "https://zenodo.org/api/records/21943147/files/UV_15.png/content"
+      }
+    },
+    {
+      "id": "110ea7c0-5445-41c0-864f-0f0ea6796144",
+      "key": "UV_02.png",
+      "size": 1370921,
+      "checksum": "md5:6d413c7639cd7cc9f20b26bf022b489f",
+      "links": {
+        "self": "https://zenodo.org/api/records/21943147/files/UV_02.png/content"
+      }
+    },
+    {
+      "id": "c92974e5-e017-4f0c-85ed-2a8bd3547727",
+      "key": "UV_01.png",
+      "size": 1593894,
+      "checksum": "md5:f67ef4a8356e402a46fa649fdf394691",
+      "links": {
+        "self": "https://zenodo.org/api/records/21943147/files/UV_01.png/content"
+      }
+    },
+    {
+      "id": "c7fb05a0-be18-4ce0-996d-acd932d6ecb5",
+      "key": "UV_10.png",
+      "size": 508964,
+      "checksum": "md5:623fa7e6de54995594b21d1a3d583272",
+      "links": {
+        "self": "https://zenodo.org/api/records/21943147/files/UV_10.png/content"
+      }
+    },
+    {
+      "id": "1fb9d367-2709-4e87-b561-37d6ee89b96d",
+      "key": "UV_18.png",
+      "size": 414941,
+      "checksum": "md5:14142577a3da8545d55545f40d916318",
+      "links": {
+        "self": "https://zenodo.org/api/records/21943147/files/UV_18.png/content"
+      }
+    },
+    {
+      "id": "d941ca36-ff08-47db-88fb-087ef1ea5347",
+      "key": "UV_16.png",
+      "size": 1006367,
+      "checksum": "md5:9a1e75c2eb7009e1d0fb54525eb750a3",
+      "links": {
+        "self": "https://zenodo.org/api/records/21943147/files/UV_16.png/content"
+      }
+    },
+    {
+      "id": "fc68d646-9590-4143-90ea-4544bed451aa",
+      "key": "UV_17.png",
+      "size": 473597,
+      "checksum": "md5:0254ccdc9960c1ec15cdec18ad828347",
+      "links": {
+        "self": "https://zenodo.org/api/records/21943147/files/UV_17.png/content"
+      }
+    }
+  ],
+  "swh": {},
+  "owners": [
+    {
+      "id": "1823933"
+    }
+  ],
+  "status": "published",
+  "stats": {
+    "downloads": 159,
+    "unique_downloads": 158,
+    "views": 31,
+    "unique_views": 27,
+    "version_downloads": 159,
+    "version_unique_downloads": 158,
+    "version_unique_views": 27,
+    "version_views": 31
+  },
+  "state": "done",
+  "submitted": true
+}

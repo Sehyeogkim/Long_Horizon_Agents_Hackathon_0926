@@ -1,0 +1,43 @@
+{
+  "provider": "nimble",
+  "retrieved_at": "2026-09-25T21:33:34.293899+00:00",
+  "endpoint": "https://sdk.nimbleway.com/v2/search",
+  "request": {
+    "query": "\"apple\" \"dataset\" \"same fruit\" storage images",
+    "max_results": 5,
+    "search_depth": "lite",
+    "full_content": false
+  },
+  "ok": true,
+  "http_status": 200,
+  "response": {
+    "total_results": 2,
+    "results": [
+      {
+        "title": "Fruits-360 dataset - Mendeley Data",
+        "description": "Different varieties of the same fruit (apple for instance) are stored as belonging to different classes. Repository structure Folders Training and Test contain images for training and testing purposes.",
+        "url": "https://data.mendeley.com/datasets/rp73yg93n8/2",
+        "content": "",
+        "metadata": {
+          "position": 1,
+          "entity_type": "OrganicResult",
+          "country": "US",
+          "locale": "en"
+        }
+      },
+      {
+        "title": "Fruits-360 dataset - Kaggle",
+        "description": "Different varieties of the same fruit (apple, for instance) are stored as belonging to different classes. For the original-size branch r?_image_index.jpg (e.g. r2_31.jpg) where \"r\" stands for rotated fruit. \"r2\" means that the fruit was rotated around the 3rd axis.",
+        "url": "https://www.kaggle.com/datasets/moltean/fruits",
+        "content": "",
+        "metadata": {
+          "position": 2,
+          "entity_type": "OrganicResult",
+          "country": "US",
+          "locale": "en"
+        }
+      }
+    ],
+    "request_id": "03a4fb8e-fb19-4498-b3fe-50367b65004a"
+  }
+}

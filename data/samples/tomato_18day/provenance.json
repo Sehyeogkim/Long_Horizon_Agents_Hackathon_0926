@@ -1,0 +1,207 @@
+{
+  "dataset_id": "zenodo_tomato_18day_21943147",
+  "dataset_version": "21943147",
+  "source_page": "https://zenodo.org/records/21943147",
+  "doi": "10.5281/zenodo.21943147",
+  "title": "Longitudinal RGB and Ultraviolet-Excited Tomato Imaging Dataset During 18-Day Storage",
+  "author": [
+    {
+      "name": "Hartono, Elvianto",
+      "affiliation": "Universitas 17 Agustus 1945 Surabaya"
+    }
+  ],
+  "license": "CC BY 4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "retrieved_at": "2026-09-25T21:59:26.801630+00:00",
+  "metadata_transport": "Zenodo public API",
+  "binary_transport": "HTTPS urllib",
+  "files": [
+    {
+      "filename": "RGB_01.png",
+      "source_url": "https://zenodo.org/api/records/21943147/files/RGB_01.png/content",
+      "local_path": "data/samples/tomato_18day/frames/RGB_01.png",
+      "bytes": 212713,
+      "md5": "0f3d79e5e1d5318784da696acd7385dc",
+      "source_md5_verified": true,
+      "sha256": "77e5ba3f5df379d2eb81f783af03ce24bf2bd5a55b8065dbf8e2f7747741b1e7"
+    },
+    {
+      "filename": "RGB_02.png",
+      "source_url": "https://zenodo.org/api/records/21943147/files/RGB_02.png/content",
+      "local_path": "data/samples/tomato_18day/frames/RGB_02.png",
+      "bytes": 285351,
+      "md5": "b0dabcb3136dbcd7e1af47e36e326b51",
+      "source_md5_verified": true,
+      "sha256": "cae77389b17058349246085dbb7626d3796b12a9f4db008a35bc2bca0a7668e6"
+    },
+    {
+      "filename": "RGB_03.png",
+      "source_url": "https://zenodo.org/api/records/21943147/files/RGB_03.png/content",
+      "local_path": "data/samples/tomato_18day/frames/RGB_03.png",
+      "bytes": 249286,
+      "md5": "a9d80c1ba4d3ec1f43df48105d96c056",
+      "source_md5_verified": true,
+      "sha256": "6ec38e49ec3aed20c7261067e1dd6f72d6b9aaf454db80dce4d3308fb7022a3c"
+    },
+    {
+      "filename": "RGB_04.png",
+      "source_url": "https://zenodo.org/api/records/21943147/files/RGB_04.png/content",
+      "local_path": "data/samples/tomato_18day/frames/RGB_04.png",
+      "bytes": 250428,
+      "md5": "15cb0e8452007100346ea295be7226a6",
+      "source_md5_verified": true,
+      "sha256": "b4cacec9f0c13464fce6def8e847221246265165d8b30b7a03ff6ac44acc2596"
+    },
+    {
+      "filename": "RGB_05.png",
+      "source_url": "https://zenodo.org/api/records/21943147/files/RGB_05.png/content",
+      "local_path": "data/samples/tomato_18day/frames/RGB_05.png",
+      "bytes": 284476,
+      "md5": "bfa345395510bf9f31679d81c1823ec1",
+      "source_md5_verified": true,
+      "sha256": "783f5e9fc0200562dfa52668e17884db26779473bd0b765b58b9243333746464"
+    },
+    {
+      "filename": "RGB_06.png",
+      "source_url": "https://zenodo.org/api/records/21943147/files/RGB_06.png/content",
+      "local_path": "data/samples/tomato_18day/frames/RGB_06.png",
+      "bytes": 251231,
+      "md5": "20497b9e9c2ef529c25546e19b8f42b8",
+      "source_md5_verified": true,
+      "sha256": "6ef941e86983250261fece9302d73beddf5ffbadeb0c8fb897d27e655858dcbb"
+    },
+    {
+      "filename": "RGB_07.png",
+      "source_url": "https://zenodo.org/api/records/21943147/files/RGB_07.png/content",
+      "local_path": "data/samples/tomato_18day/frames/RGB_07.png",
+      "bytes": 311604,
+      "md5": "d1961906ef52212f3a1303780295278a",
+      "source_md5_verified": true,
+      "sha256": "02dc44ca937720a794632cff8b1f3067ca1ed560a0210ff6de308a49fdbe201d"
+    },
+    {
+      "filename": "RGB_08.png",
+      "source_url": "https://zenodo.org/api/records/21943147/files/RGB_08.png/content",
+      "local_path": "data/samples/tomato_18day/frames/RGB_08.png",
+      "bytes": 314148,
+      "md5": "5e97e31e8375ba115ed97875d15b88ce",
+      "source_md5_verified": true,
+      "sha256": "24730374cb15d48848713d1310549e86e7eeae34b3cb607dc1b7dac2fd131f00"
+    },
+    {
+      "filename": "RGB_09.png",
+      "source_url": "https://zenodo.org/api/records/21943147/files/RGB_09.png/content",
+      "local_path": "data/samples/tomato_18day/frames/RGB_09.png",
+      "bytes": 329028,
+      "md5": "1a8f90b1ae89d2018cf78b20a1cf405b",
+      "source_md5_verified": true,
+      "sha256": "6c25d7b22f73f29bf47ed5ad4f2f9cb2ded1b9c65caaecd3273d38c2e5924981"
+    },
+    {
+      "filename": "RGB_10.png",
+      "source_url": "https://zenodo.org/api/records/21943147/files/RGB_10.png/content",
+      "local_path": "data/samples/tomato_18day/frames/RGB_10.png",
+      "bytes": 379560,
+      "md5": "557a9f5c8e6b34f0dda38174316e496c",
+      "source_md5_verified": true,
+      "sha256": "06687eae58f8c445641ca69b170d10eab4e15c997892ff4345fc2cbb6f7a5163"
+    },
+    {
+      "filename": "RGB_11.png",
+      "source_url": "https://zenodo.org/api/records/21943147/files/RGB_11.png/content",
+      "local_path": "data/samples/tomato_18day/frames/RGB_11.png",
+      "bytes": 373744,
+      "md5": "44603f1cbfe6a7d2709062495c621fd6",
+      "source_md5_verified": true,
+      "sha256": "9968ac31121459bba523c8926e82b0db8dc8031b805956198f516f9804e43ad4"
+    },
+    {
+      "filename": "RGB_12.png",
+      "source_url": "https://zenodo.org/api/records/21943147/files/RGB_12.png/content",
+      "local_path": "data/samples/tomato_18day/frames/RGB_12.png",
+      "bytes": 254034,
+      "md5": "3c942d2105dfa112d4ad7271ee2d5445",
+      "source_md5_verified": true,
+      "sha256": "af7b1bbb768426e197133a311b7caf2746aa57e06bbfe7bdd5ac675210d0203e"
+    },
+    {
+      "filename": "RGB_13.png",
+      "source_url": "https://zenodo.org/api/records/21943147/files/RGB_13.png/content",
+      "local_path": "data/samples/tomato_18day/frames/RGB_13.png",
+      "bytes": 258253,
+      "md5": "958666dbffcccca1890c791d4677e52b",
+      "source_md5_verified": true,
+      "sha256": "ddfe22475f1801481a69c054756d5247e26e5848dc03fa6e986958bcbad03065"
+    },
+    {
+      "filename": "RGB_14.png",
+      "source_url": "https://zenodo.org/api/records/21943147/files/RGB_14.png/content",
+      "local_path": "data/samples/tomato_18day/frames/RGB_14.png",
+      "bytes": 277787,
+      "md5": "c6177ac8c8feb8c99bd458a6b8f0ac68",
+      "source_md5_verified": true,
+      "sha256": "a2b7689f48aaf9b288c5990c01f28b3924a98747d67ce27bb3c9d7e9cb30d36e"
+    },
+    {
+      "filename": "RGB_15.png",
+      "source_url": "https://zenodo.org/api/records/21943147/files/RGB_15.png/content",
+      "local_path": "data/samples/tomato_18day/frames/RGB_15.png",
+      "bytes": 272639,
+      "md5": "e1326e663daf2f2b4f6720b4150814c6",
+      "source_md5_verified": true,
+      "sha256": "59188fd942dee37bd95c5812eb70ee650402b7d0ea10fbd6ca6a1aef536b8f37"
+    },
+    {
+      "filename": "RGB_16.png",
+      "source_url": "https://zenodo.org/api/records/21943147/files/RGB_16.png/content",
+      "local_path": "data/samples/tomato_18day/frames/RGB_16.png",
+      "bytes": 282935,
+      "md5": "39d2ec6a1bd6ac20ae640c1e872afd02",
+      "source_md5_verified": true,
+      "sha256": "e8ec4c46aaddb0f1fd7e713bc396e1d14aff0aa2bc0ce35752a108acbde2d89e"
+    },
+    {
+      "filename": "RGB_17.png",
+      "source_url": "https://zenodo.org/api/records/21943147/files/RGB_17.png/content",
+      "local_path": "data/samples/tomato_18day/frames/RGB_17.png",
+      "bytes": 273079,
+      "md5": "bfb5ef96020a6173c8aaababd9d8c78c",
+      "source_md5_verified": true,
+      "sha256": "b8bea61bf1d28e6efaaaff92ce95a750a5229f20e9f214ac32a0c5910f8cbaed"
+    },
+    {
+      "filename": "RGB_18.png",
+      "source_url": "https://zenodo.org/api/records/21943147/files/RGB_18.png/content",
+      "local_path": "data/samples/tomato_18day/frames/RGB_18.png",
+      "bytes": 252967,
+      "md5": "bbd415f928ec7c93758b2b9210a3838f",
+      "source_md5_verified": true,
+      "sha256": "5937b919e48b57d251a4b2d7fa81222f9bbcb479d0b830f39c374f7dba5ea99c"
+    },
+    {
+      "filename": "Tomato_RGB_UV_Data_Availability.xlsx",
+      "source_url": "https://zenodo.org/api/records/21943147/files/Tomato_RGB_UV_Data_Availability.xlsx/content",
+      "local_path": "data/samples/tomato_18day/source/Tomato_RGB_UV_Data_Availability.xlsx",
+      "bytes": 47467,
+      "md5": "14cf44aadade45a569ae3fa216b18702",
+      "source_md5_verified": true,
+      "sha256": "107d5d8fc667fc06d461a13b74d13baacf91b191a541d5dc0d1d3983faca194e"
+    }
+  ],
+  "biological_specimens": 1,
+  "days": 18,
+  "disease_labels_available": false,
+  "synthetic": false,
+  "timing": "Relative storage day; day 1 maps to 0 seconds. Absolute acquisition times unknown.",
+  "state_source": "Environment_Context!A4:E21, joined by exact Day index to RGB_01..18",
+  "state_caveats": [
+    "eCO2 is SGP30 equivalent CO2, not a reference-grade direct CO2 measurement.",
+    "TVOC is SGP30 sensor output; all environmental values are contextual metadata.",
+    "Workbook has cached #NAME? cells in derived correlation sheets; those cells were not imported."
+  ],
+  "nimble_metadata_evidence": "data/catalog/tomato/nimble/20260925T215658529501Z/request_00.json",
+  "limitations": [
+    "Single biological specimen, not 18 independent specimens.",
+    "Appearance and UV texture changes are not direct freshness, infection, or physicochemical measurements."
+  ]
+}

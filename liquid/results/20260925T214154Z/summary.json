@@ -1,0 +1,52 @@
+{
+  "created_at_utc": "20260925T214154Z",
+  "resize_max_edge": 512,
+  "summaries": [
+    {
+      "image_max_tokens_setting": 256,
+      "server_startup_seconds": 3.591542541,
+      "measured_calls": 8,
+      "median_seconds": 2.190790750499998,
+      "min_seconds": 1.4813981670000018,
+      "max_seconds": 3.219615416999999,
+      "sampled_peak_server_rss_bytes": 1427750912,
+      "valid_schema_count": 8,
+      "command": [
+        "/Users/jeff/project/Long_Horizon_Agents_Hackathon_0926/liquid/runtime/llama-b11191/llama-server",
+        "-m",
+        "/Users/jeff/project/Long_Horizon_Agents_Hackathon_0926/liquid/models/LFM2.5-VL-1.6B-Q4_K_M.gguf",
+        "--mmproj",
+        "/Users/jeff/project/Long_Horizon_Agents_Hackathon_0926/liquid/models/mmproj-LFM2.5-VL-1.6b-Q8_0.gguf",
+        "--host",
+        "127.0.0.1",
+        "--port",
+        "18081",
+        "-c",
+        "4096",
+        "-np",
+        "1",
+        "-ngl",
+        "99",
+        "--cache-ram",
+        "0",
+        "--image-max-tokens",
+        "256"
+      ]
+    }
+  ],
+  "images": [
+    "H001.jpg",
+    "H002.jpg",
+    "I001.jpg",
+    "I002.jpg"
+  ],
+  "provider_api_cost_usd": 0,
+  "limitations": [
+    "Convenience sample; no general accuracy estimate",
+    "Static images; no early-detection or longitudinal evaluation",
+    "RSS is sampled process memory, not total unified/GPU memory",
+    "Memory scenarios are scripted instruction checks",
+    "Local electricity and opportunity cost are not measured",
+    "JSON syntax constrained by json_object; semantics not guaranteed"
+  ]
+}

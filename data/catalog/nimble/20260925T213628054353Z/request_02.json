@@ -1,0 +1,80 @@
+{
+  "provider": "nimble",
+  "retrieved_at": "2026-09-25T21:36:28.056835+00:00",
+  "endpoint": "https://sdk.nimbleway.com/v2/search",
+  "request": {
+    "query": "\"apple\" \"shelf life\" \"Mendeley\" image dataset",
+    "max_results": 5,
+    "search_depth": "lite",
+    "full_content": false
+  },
+  "ok": true,
+  "http_status": 200,
+  "response": {
+    "total_results": 5,
+    "results": [
+      {
+        "title": "Home Page | Shelf Life Books RVA",
+        "description": "Class description for The Ode, a class taught by Nate Waggoner at Shelf Life Books. Thu, 10/15/2026 6:00pm - 8:00pm. Writing Workshop...",
+        "url": "https://shelflifebooksrva.com/",
+        "content": "",
+        "metadata": {
+          "position": 1,
+          "entity_type": "OrganicResult",
+          "country": "US",
+          "locale": "en"
+        }
+      },
+      {
+        "title": "Shelf life",
+        "description": "Shelf life is the length of time that a commodity may be stored without becoming unfit for use, consumption, or sale. In other words, it might refer to...",
+        "url": "https://en.wikipedia.org/wiki/Shelf_life",
+        "content": "",
+        "metadata": {
+          "position": 2,
+          "entity_type": "OrganicResult",
+          "country": "US",
+          "locale": "en"
+        }
+      },
+      {
+        "title": "Shelf Life | AMNH",
+        "description": "Shelf Life Shelf Life 18: Under the Volcanoes What makes one volcano more ... Apple Store Logo Google Play Logo.",
+        "url": "https://www.amnh.org/explore/videos/shelf-life",
+        "content": "",
+        "metadata": {
+          "position": 3,
+          "entity_type": "OrganicResult",
+          "country": "US",
+          "locale": "en"
+        }
+      },
+      {
+        "title": "GSA shelf life management program",
+        "description": "Jun 2, 2026 — Shelf life codes are detailed in the DoD shelf life management manual. These codes classify items as: Type I (using alpha characters, except X):.",
+        "url": "https://www.gsa.gov/buy-through-us/purchasing-programs/requisition-programs/gsa-global-supply/gsa-global-supply-standards/gsa-shelf-life-management-program",
+        "content": "",
+        "metadata": {
+          "position": 4,
+          "entity_type": "OrganicResult",
+          "country": "US",
+          "locale": "en"
+        }
+      },
+      {
+        "title": "Shelf Life / Home",
+        "description": "Shelf Life is a comprehensive, web-based solution for healthcare supply chain management in Africa. We simplify the management of medical products for licensed...",
+        "url": "https://shelflife.co/",
+        "content": "",
+        "metadata": {
+          "position": 5,
+          "entity_type": "OrganicResult",
+          "country": "US",
+          "locale": "en"
+        }
+      }
+    ],
+    "request_id": "3841eb96-4a4f-4790-bfe4-ad6e35b50578"
+  },
+  "content_available": true
+}

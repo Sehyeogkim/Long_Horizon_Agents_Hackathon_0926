@@ -1,0 +1,80 @@
+{
+  "provider": "nimble",
+  "retrieved_at": "2026-09-25T21:37:20.908113+00:00",
+  "endpoint": "https://sdk.nimbleway.com/v2/search",
+  "request": {
+    "query": "Real-time freshness prediction Apples Lettuces Mourtzis data availability dataset images repository",
+    "max_results": 5,
+    "search_depth": "lite",
+    "full_content": false
+  },
+  "ok": true,
+  "http_status": 200,
+  "response": {
+    "total_results": 5,
+    "results": [
+      {
+        "title": "Real-time freshness prediction for Apples and Lettuces using imaging ...",
+        "description": "This research developed a smartphone application to provide real-time freshness assessment for apples and lettuces through the exclusive use of RGB imaging data.",
+        "url": "https://www.sciencedirect.com/science/article/pii/S2772375525003612",
+        "content": "",
+        "metadata": {
+          "position": 1,
+          "entity_type": "OrganicResult",
+          "country": "US",
+          "locale": "en"
+        }
+      },
+      {
+        "title": "AgriFreshNET Freshness and Shelf-Life Image Dataset - Mendeley Data",
+        "description": "The AgriFreshNET Dataset is a large-scale image dataset developed for automated produce freshness assessment and shelf-life prediction. It contains 14,500 RGB images across 24 classes of fruits and vegetables, with samples categorized into Fresh, Semi-Fresh, and Rotten stages. Images were collected from real-world environments, including local markets, supermarkets, households, farms, and ...",
+        "url": "https://data.mendeley.com/datasets/42m5tb7yv9",
+        "content": "",
+        "metadata": {
+          "position": 2,
+          "entity_type": "OrganicResult",
+          "country": "US",
+          "locale": "en"
+        }
+      },
+      {
+        "title": "GitHub - Deltacharge/realtime_fruit_ripeness: The Fruit Ripeness ...",
+        "description": "The Fruit Ripeness Prediction System is an end-to-end computer vision application that classifies fruit images into **Fresh**, **Okay (Unripe)**, or **Avoid (Rotten)** categories. The project demonstrates the complete machine learning lifecycle — from data preprocessing and model training to deployment and real-time inference via a web interface.",
+        "url": "https://github.com/Deltacharge/realtime_fruit_ripeness",
+        "content": "",
+        "metadata": {
+          "position": 3,
+          "entity_type": "OrganicResult",
+          "country": "US",
+          "locale": "en"
+        }
+      },
+      {
+        "title": "Image-Based-Food-Freshness-Prediction-System - GitHub",
+        "description": "The Image-Based Food Freshness Prediction System is an image classification project designed to classify fruits and vegetables and assess their freshness using a convolutional neural network (CNN) model built with TensorFlow. The application provides a web interface for users to upload a picture or use a webcam to capture an image, so it can predict the name of the fruit or vegetable and ...",
+        "url": "https://github.com/nickymarzz/Food-Freshness-Image-Prediction-System",
+        "content": "",
+        "metadata": {
+          "position": 4,
+          "entity_type": "OrganicResult",
+          "country": "US",
+          "locale": "en"
+        }
+      },
+      {
+        "title": "Multispectral images of apples for ripeness, sweetness and variety ...",
+        "description": "This dataset originates from an extensive research effort focused on the development and application of a cost-effective, custom-built multi-spectral imaging chamber designed for evaluating the quality of apples. The imaging setup is capable of capturing spectral reflectance across a range of wavelength bands, enabling detailed, non-invasive analysis of fruit characteristics such as ripeness ...",
+        "url": "https://data.mendeley.com/datasets/y5h6v8w6ms/2",
+        "content": "",
+        "metadata": {
+          "position": 5,
+          "entity_type": "OrganicResult",
+          "country": "US",
+          "locale": "en"
+        }
+      }
+    ],
+    "request_id": "90eee3b1-9d78-4606-a9fd-e1c86847f157"
+  },
+  "content_available": true
+}

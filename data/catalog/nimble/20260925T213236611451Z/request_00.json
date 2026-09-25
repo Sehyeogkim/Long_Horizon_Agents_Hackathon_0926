@@ -1,0 +1,79 @@
+{
+  "provider": "nimble",
+  "retrieved_at": "2026-09-25T21:32:36.613198+00:00",
+  "endpoint": "https://sdk.nimbleway.com/v2/search",
+  "request": {
+    "query": "apple fruit spoilage time series image dataset same fruit daily images fruit ID timestamps open data license",
+    "max_results": 5,
+    "search_depth": "lite",
+    "full_content": false
+  },
+  "ok": true,
+  "http_status": 200,
+  "response": {
+    "total_results": 5,
+    "results": [
+      {
+        "title": "Apple spoilage Detection Computer Vision Dataset",
+        "description": "113 open source Fresh-Apple-Spoiled-Apple images and annotations in multiple formats for training computer vision models. Apple spoilage Detection (v1, 2024-12-22 9:11pm), created by Fruit Spoilage Detection",
+        "url": "https://universe.roboflow.com/fruit-spoilage-detection/apple-spoilage-detection/dataset/1",
+        "content": "",
+        "metadata": {
+          "position": 1,
+          "entity_type": "OrganicResult",
+          "country": "US",
+          "locale": "en"
+        }
+      },
+      {
+        "title": "FruitVision: A Benchmark Dataset for Fresh, Rotten, and Formalin-mixed ...",
+        "description": "This dataset, initially consisting of 10,154 high-resolution images of five fruit types—apple, banana, mango, orange, and grapes—has been expanded to over 81,000 using advanced augmentation techniques like rotation, scaling, and brightness adjustment. The images are classified into three key categories: fresh, rotten, and formalin-mixed. This dataset offers a unique opportunity for ...",
+        "url": "https://data.mendeley.com/datasets/xkbjx8959c/2",
+        "content": "",
+        "metadata": {
+          "position": 2,
+          "entity_type": "OrganicResult",
+          "country": "US",
+          "locale": "en"
+        }
+      },
+      {
+        "title": "FruitVision: A benchmark dataset for fresh, rotten, and formalin-mixed ...",
+        "description": "This dataset provides a comprehensive collection of images of five fruit types—apple, banana, mango, orange, and grapes—classified into three categories: fresh, rotten, and formalin-mixed.",
+        "url": "https://www.sciencedirect.com/science/article/pii/S2352340925004792",
+        "content": "",
+        "metadata": {
+          "position": 3,
+          "entity_type": "OrganicResult",
+          "country": "US",
+          "locale": "en"
+        }
+      },
+      {
+        "title": "Apple spoilage Detection Object Detection Dataset by Fruit Spoilage ...",
+        "description": "113 open source Fresh-Apple-Spoiled-Apple images. Apple spoilage Detection dataset by Fruit Spoilage Detection",
+        "url": "https://universe.roboflow.com/fruit-spoilage-detection/apple-spoilage-detection",
+        "content": "",
+        "metadata": {
+          "position": 4,
+          "entity_type": "OrganicResult",
+          "country": "US",
+          "locale": "en"
+        }
+      },
+      {
+        "title": "Spoiled and fresh fruit inspection dataset - Mendeley Data",
+        "description": "The proposed dataset can be used with a deep learning-based algorithm for the identification of the fruits and the state in which they are. The data set has 8 different fruits: -banana -lemon -lulo -mango -orange -strawberry -tamarillo -tomato. Two thousand images of each one of the types of fruits are acquired for a total of 16000 samples.",
+        "url": "https://data.mendeley.com/datasets/6ps7gtp2wg/1",
+        "content": "",
+        "metadata": {
+          "position": 5,
+          "entity_type": "OrganicResult",
+          "country": "US",
+          "locale": "en"
+        }
+      }
+    ],
+    "request_id": "ddc443c6-c947-4c0a-a3b3-8c29552b1d83"
+  }
+}

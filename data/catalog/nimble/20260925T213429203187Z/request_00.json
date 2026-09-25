@@ -1,0 +1,15 @@
+{
+  "provider": "nimble",
+  "retrieved_at": "2026-09-25T21:34:29.204962+00:00",
+  "endpoint": "https://sdk.nimbleway.com/v2/extract",
+  "request": {
+    "url": "https://www.sciencedirect.com/science/article/pii/S2352340926000983",
+    "render": false,
+    "formats": [
+      "markdown"
+    ]
+  },
+  "ok": false,
+  "http_status": 500,
+  "error": "http_error"
+}

@@ -1,0 +1,43 @@
+{
+  "provider": "nimble",
+  "retrieved_at": "2026-09-25T21:35:17.237521+00:00",
+  "endpoint": "https://sdk.nimbleway.com/v2/search",
+  "request": {
+    "query": "\"soorajkavumpadi\" apple shelf life days dataset",
+    "max_results": 5,
+    "search_depth": "lite",
+    "full_content": false
+  },
+  "ok": true,
+  "http_status": 200,
+  "response": {
+    "total_results": 2,
+    "results": [
+      {
+        "title": "GitHub - prashant2-4-4/Shelf-life-of-apple · GitHub",
+        "description": "I have used the kaggle dataset https://www.kaggle.com/soorajkavumpadi/fruit-and-vegetable-dataset-for-shelf-life/code If you want to furture improve the accuracy score try using Data Augmentation.",
+        "url": "https://github.com/prashant2-4-4/Shelf-life-of-apple",
+        "content": "",
+        "metadata": {
+          "position": 1,
+          "entity_type": "OrganicResult",
+          "country": "US",
+          "locale": "en"
+        }
+      },
+      {
+        "title": "GitHub - soorajkavumpadi/DETECTING-AND-GRADING-OF-MULTIPLE-FRUITS ...",
+        "description": "We propose a real-time fruit and vegetable grading system using Machine Vision to help all users to choose the ideal fruit or vegetable for consumption effectively by providing shelf life and grade of fruit. An Android phone is used to scan the fruit or vegetable in real-time. The features of the objects are extracted, and the data is processed.",
+        "url": "https://github.com/soorajkavumpadi/DETECTING-AND-GRADING-OF-MULTIPLE-FRUITS-VEGETABLES-USING-MACHINE-VISION",
+        "content": "",
+        "metadata": {
+          "position": 2,
+          "entity_type": "OrganicResult",
+          "country": "US",
+          "locale": "en"
+        }
+      }
+    ],
+    "request_id": "6175102f-c782-4ef2-bb2e-df9336c96811"
+  }
+}

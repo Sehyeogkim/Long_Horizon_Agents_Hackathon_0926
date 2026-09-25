@@ -1,0 +1,79 @@
+{
+  "provider": "nimble",
+  "retrieved_at": "2026-09-25T21:35:17.236872+00:00",
+  "endpoint": "https://sdk.nimbleway.com/v2/search",
+  "request": {
+    "query": "\"Multimodal perishable fruits and vegetables dataset\" data Mendeley",
+    "max_results": 5,
+    "search_depth": "lite",
+    "full_content": false
+  },
+  "ok": true,
+  "http_status": 200,
+  "response": {
+    "total_results": 5,
+    "results": [
+      {
+        "title": "Multimodal perishable fruits and vegetables dataset",
+        "description": "Comprehensive lifecycle coverage: The dataset documents the full lifecycle of fruits, from the unripe stage to the visible spoilage stage, using multimodal data. Measurements are captured three times daily—morning, afternoon, and evening—recording natural variations in temperature, color, and methane emission patterns.",
+        "url": "https://www.sciencedirect.com/science/article/pii/S2352340926000983",
+        "content": "",
+        "metadata": {
+          "position": 1,
+          "entity_type": "OrganicResult",
+          "country": "US",
+          "locale": "en"
+        }
+      },
+      {
+        "title": "Multimodal perishable fruits and vegetables dataset",
+        "description": "Explore a new multimodal dataset for non-invasive fruit and vegetable freshness assessment using IR-Fusion, sRGB images, and methane sensing. Supports smart agriculture.",
+        "url": "https://visualize.jove.com/41732364-multimodal-perishable-fruits-and-vegetables-dataset",
+        "content": "",
+        "metadata": {
+          "position": 2,
+          "entity_type": "OrganicResult",
+          "country": "US",
+          "locale": "en"
+        }
+      },
+      {
+        "title": "Multimodal Perishable Fruits and Vegetables Dataset",
+        "description": "Request PDF | On Feb 1, 2026, Devika Unnikrishnan and others published Multimodal Perishable Fruits and Vegetables Dataset | Find, read and cite all the research you need on ResearchGate",
+        "url": "https://www.researchgate.net/publication/400540463_Multimodal_Perishable_Fruits_and_Vegetables_Dataset",
+        "content": "",
+        "metadata": {
+          "position": 3,
+          "entity_type": "OrganicResult",
+          "country": "US",
+          "locale": "en"
+        }
+      },
+      {
+        "title": "Multimodal perishable fruits and vegetables dataset. |...",
+        "description": "The dataset supports research in classification, food spoilage detection, shelf-life prediction, multimodal data fusion, non-invasive fruit quality assessment, and deep learning-based freshness assessment, particularly for export-oriented supply chains.",
+        "url": "https://arxivlens.com/paperview/details/multimodal-perishable-fruits-and-vegetables-dataset.-1644-60027488",
+        "content": "",
+        "metadata": {
+          "position": 4,
+          "entity_type": "OrganicResult",
+          "country": "US",
+          "locale": "en"
+        }
+      },
+      {
+        "title": "Multimodal perishable fruits and vegetables dataset. - Read by QxMD",
+        "description": "There is a growing need in the agricultural industry for non-invasive methods to classify the freshness and quality of produce. To address this, we developed a multimodal dataset comprising six commonly exported fruits and vegetables from India: guava, carrot, tomato, Indian gooseberry, banana, and mango. The specimens were allowed to undergo decomposition in an indoor environment with natural ...",
+        "url": "https://read.qxmd.com/read/41732364/multimodal-perishable-fruits-and-vegetables-dataset",
+        "content": "",
+        "metadata": {
+          "position": 5,
+          "entity_type": "OrganicResult",
+          "country": "US",
+          "locale": "en"
+        }
+      }
+    ],
+    "request_id": "1212ac01-953c-4a73-bf13-5e7cc55c9a67"
+  }
+}

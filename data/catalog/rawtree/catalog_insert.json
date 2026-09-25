@@ -1,0 +1,67 @@
+{
+  "checked_at": "2026-09-25T21:41:14.056083+00:00",
+  "transport": "stdio",
+  "package": "@rawtree/mcp@0.3.2",
+  "remote_mutation_requested": true,
+  "initialize": {
+    "protocolVersion": "2024-11-05",
+    "capabilities": {
+      "tools": {
+        "listChanged": true
+      }
+    },
+    "serverInfo": {
+      "name": "rawtree",
+      "version": "0.3.2"
+    }
+  },
+  "tools": [
+    "list-organizations",
+    "list-organization-members",
+    "add-organization-member",
+    "update-organization-member",
+    "remove-organization-member",
+    "run-query",
+    "insert-json",
+    "insert-from-url",
+    "list-tables",
+    "create-table",
+    "describe-table",
+    "delete-table",
+    "list-logs",
+    "list-api-keys",
+    "create-api-key",
+    "delete-api-key",
+    "list-databases",
+    "verify-database-s3-access",
+    "create-database",
+    "delete-database",
+    "list-clusters",
+    "list-cluster-sizes",
+    "verify-cluster-s3-access",
+    "create-cluster",
+    "get-cluster",
+    "update-cluster",
+    "pause-cluster",
+    "resume-cluster",
+    "list-connectors",
+    "get-connector",
+    "create-connector",
+    "get-connector-metrics",
+    "add-connector-destination",
+    "set-connector-status",
+    "list-apps",
+    "install-app",
+    "uninstall-app"
+  ],
+  "tool_name": "insert-json",
+  "tool_result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Insert result:\n{\n  \"inserted\": 1\n}"
+      }
+    ]
+  },
+  "ok": true
+}

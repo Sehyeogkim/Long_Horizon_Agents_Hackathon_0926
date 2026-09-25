@@ -1,0 +1,79 @@
+{
+  "provider": "nimble",
+  "retrieved_at": "2026-09-25T21:34:01.169865+00:00",
+  "endpoint": "https://sdk.nimbleway.com/v2/search",
+  "request": {
+    "query": "apple fruit decay dataset images day 1 day 7 day 14 Zenodo Mendeley",
+    "max_results": 5,
+    "search_depth": "lite",
+    "full_content": false
+  },
+  "ok": true,
+  "http_status": 200,
+  "response": {
+    "total_results": 5,
+    "results": [
+      {
+        "title": "Image Dataset of Healthy and Infected Apple Fruits for Computer Vision ...",
+        "description": "This dataset contains 1,045 labeled RGB images of apple fruits, including 545 healthy and 500 infected samples, collected from local fruit markets and retail shops in Islamabad, Pakistan.",
+        "url": "https://data.mendeley.com/datasets/y7gktb2wwb",
+        "content": "",
+        "metadata": {
+          "position": 1,
+          "entity_type": "OrganicResult",
+          "country": "US",
+          "locale": "en"
+        }
+      },
+      {
+        "title": "Apple Image Dataset for Healthy and Infected Fruit Classification",
+        "description": "This dataset contains 1,045 labeled RGB images of apple fruits, including 545 healthy and 500 infected samples, collected from local fruit markets and retail shops in Islamabad, Pakistan. The dataset is designed for binary image classification, computer vision, deep learning, transfer learning, and automated fruit quality assessment.",
+        "url": "https://data.mendeley.com/datasets/n92vx869tr",
+        "content": "",
+        "metadata": {
+          "position": 2,
+          "entity_type": "OrganicResult",
+          "country": "US",
+          "locale": "en"
+        }
+      },
+      {
+        "title": "AGS_apple_detection - Apple fruit images dataset for full ... - Zenodo",
+        "description": "This dataset correspond to full apple tree images (623) annotated for the task of object detection with its corresponding annotations in yolo format saved as txt files. The dataset was divided into test, train and validation The data was collected in 2017 on 4 different apple varieties using a Samsung sm-a510F cell phone at two different resolutions: 2448 x 3264 px and 3096 x 4128 px in the ...",
+        "url": "https://zenodo.org/records/12623540",
+        "content": "",
+        "metadata": {
+          "position": 3,
+          "entity_type": "OrganicResult",
+          "country": "US",
+          "locale": "en"
+        }
+      },
+      {
+        "title": "Apple Image Dataset for Healthy and Infected Fruit Classification ...",
+        "description": "This dataset contains 1,045 labeled RGB images of apple fruits, including 545 healthy and 500 infected samples, collected from local fruit markets and retail shops in Islamabad, Pakistan.",
+        "url": "https://datasetcatalog.nlm.nih.gov/dataset?q=0003235942",
+        "content": "",
+        "metadata": {
+          "position": 4,
+          "entity_type": "OrganicResult",
+          "country": "US",
+          "locale": "en"
+        }
+      },
+      {
+        "title": "Apple Dataset - Zenodo",
+        "description": "Citations Show only: literature (0) dataset (0) software (0) unknown (0) Citations to this version",
+        "url": "https://zenodo.org/records/14631995",
+        "content": "",
+        "metadata": {
+          "position": 5,
+          "entity_type": "OrganicResult",
+          "country": "US",
+          "locale": "en"
+        }
+      }
+    ],
+    "request_id": "90be97ff-8035-4f43-ad0e-d84865c77c33"
+  }
+}

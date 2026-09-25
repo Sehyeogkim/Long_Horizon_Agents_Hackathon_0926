@@ -1,0 +1,80 @@
+{
+  "provider": "nimble",
+  "retrieved_at": "2026-09-25T21:59:29.850713+00:00",
+  "endpoint": "https://sdk.nimbleway.com/v2/search",
+  "request": {
+    "query": "apple fresh rotten fruit dataset CC BY Mendeley Zenodo images",
+    "max_results": 5,
+    "search_depth": "lite",
+    "full_content": false
+  },
+  "ok": true,
+  "http_status": 200,
+  "response": {
+    "total_results": 5,
+    "results": [
+      {
+        "title": "A Large-Scale Dataset for Fruit Classification: Insights into Fresh ...",
+        "description": "This dataset, initially consisting of 10,154 high-resolution images of five fruit types—apple, banana, mango, orange, and grapes—has been expanded to over 81,000 using advanced augmentation techniques like rotation, scaling, and brightness adjustment. The images are classified into three key categories: fresh, rotten, and formalin-mixed. This dataset offers a unique opportunity for ...",
+        "url": "https://data.mendeley.com/datasets/xkbjx8959c/1",
+        "content": "",
+        "metadata": {
+          "position": 1,
+          "entity_type": "OrganicResult",
+          "country": "US",
+          "locale": "en"
+        }
+      },
+      {
+        "title": "Fresh and Rotten Fruits Dataset for Machine-Based Evaluation of Fruit ...",
+        "description": "Classification of fresh and rotten fruits is usually carried out by people, which is ineffective for fruit farmers, sellers as well as fruit processing industries. (2) In the recent era, computer vision techniques are very promising in performing such types of classification and detection tasks.",
+        "url": "https://data.mendeley.com/datasets/bdd69gyhv8/1",
+        "content": "",
+        "metadata": {
+          "position": 2,
+          "entity_type": "OrganicResult",
+          "country": "US",
+          "locale": "en"
+        }
+      },
+      {
+        "title": "Fruit Quality Datasets (FruQ-DB) - Zenodo",
+        "description": "A total number of 5647 preprocessed images with de-watermarked and resized (224x224). Three classes of fruit quality with number of image samples per class is summarized below: Fresh (2182 images) Mild (1364 images) Rotten (2101 images) Another datasets is uploaded FruQ-Multi is another folder containing each types of fruits and their classes.",
+        "url": "https://zenodo.org/records/7224690",
+        "content": "",
+        "metadata": {
+          "position": 3,
+          "entity_type": "OrganicResult",
+          "country": "US",
+          "locale": "en"
+        }
+      },
+      {
+        "title": "An Annotated Image Dataset for Apple Fruit Detection - Zenodo",
+        "description": "Dataset description The dataset contains 60 images in JPG format, together with the corresponding annotation files.The latter follow the YOLO annotation format and are stored as TXT files, where:- '0' represents an apple fruit- '1' represents the approximate outline of the central (dominant) tree in the image Apple fruits are annotated using rectangular bounding boxes, while trees are ...",
+        "url": "https://zenodo.org/records/17552872",
+        "content": "",
+        "metadata": {
+          "position": 4,
+          "entity_type": "OrganicResult",
+          "country": "US",
+          "locale": "en"
+        }
+      },
+      {
+        "title": "Fresh and Rotten Fruit Computer Vision Model",
+        "description": "4336 open source apples images and annotations in multiple formats for training computer vision models. Fresh and Rotten Fruit (v1, 2025-10-26 9:27pm), created by ZahraBahadori",
+        "url": "https://universe.roboflow.com/zahrabahadori/fresh-and-rotten-fruit-bsidu/dataset/1",
+        "content": "",
+        "metadata": {
+          "position": 5,
+          "entity_type": "OrganicResult",
+          "country": "US",
+          "locale": "en"
+        }
+      }
+    ],
+    "request_id": "5e55efeb-5ad4-4c88-9fbc-ae345dba9b0f"
+  },
+  "content_available": true
+}

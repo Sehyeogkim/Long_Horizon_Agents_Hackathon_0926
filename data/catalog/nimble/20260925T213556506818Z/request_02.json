@@ -1,0 +1,15 @@
+{
+  "provider": "nimble",
+  "retrieved_at": "2026-09-25T21:35:56.510157+00:00",
+  "endpoint": "https://sdk.nimbleway.com/v2/extract",
+  "request": {
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41732364/",
+    "render": true,
+    "formats": [
+      "markdown"
+    ]
+  },
+  "ok": false,
+  "error": "transport_or_json_error",
+  "content_available": false
+}
