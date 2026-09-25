@@ -37,14 +37,13 @@ The agent's question, for one fruit, every day:
 
 Three arms replay the same 18-day sequence with the same policy version.
 
-| Arm | Policy | GPT-5 calls | Low-cost days | Est. API cost (USD) |
+| Arm | Policy | GPT-5 calls | GPT-5 tokens in / out | Est. API cost (USD) |
 | --- | --- | --- | --- | --- |
-| A | GPT-5 on every photo | 18 | 0 | 0.0227 |
-| B | Liquid every day, GPT-5 by rules, **no long-term memory** | 16 | 2 | 0.0203 |
-| C | Liquid every day, GPT-5 by memory + rules (ours) | pending | pending | pending |
+| A | GPT-5 on every photo | 18 | 7,682 / 1,312 | 0.0227 |
+| B | Liquid every day, GPT-5 by rules, **no long-term memory** | 16 | 6,844 / 1,176 | 0.0203 |
+| C | Liquid every day, GPT-5 by memory + rules (**ours**) | **5** | 3,488 / 374 | **0.0081** |
 
-Numbers come from `reports/tomato_demo.json` (policy `tomato-two-path-v1`). B cut GPT-5 calls by 11 % against A on this single specimen.
-Arm C with live RawTree memory is implemented (`tomato_agent run --variant C --backend rawtree`); its replay numbers are being added.
+Against A, arm C makes 72 % fewer GPT-5 calls and costs 64 % less in cloud tokens, with 18 local Liquid calls at zero API cost. A and B come from `reports/tomato_demo.json` (policy `tomato-two-path-v1`); C from the RawTree-backed replay of 2026-09-26.
 
 What the numbers do **not** say: this is one tomato with no disease ground truth, so recall, false-positive rate and detection delay are reported as `null`, not as zero. Cost is a published-price estimate, not an invoice.
 
