@@ -1,0 +1,847 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>RawTree Agent Memory</title><style>
+:root{--bg:#f3f3ee;--card:#fff;--line:#e3e4dc;--ink:#1d3328;--mute:#5f6b64;--lo:#2f6b4c;--hi:#b8472f;--soft:#f7f7f2;--tint:#eef3ec;--acc:#3d5a80}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.55 -apple-system,BlinkMacSystemFont,"Inter",sans-serif;padding:0 24px 80px}
+.wrap{max-width:1280px;margin:0 auto}.top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;padding:24px 0 18px;border-bottom:1px solid var(--line)}
+.brand{font-weight:700}.top nav{display:flex;gap:22px;flex-wrap:wrap}.top a{color:var(--lo);text-underline-offset:3px}
+h1{font-size:40px;letter-spacing:-.03em;margin:34px 0 6px}.lede{color:var(--mute);max-width:900px;margin:0}
+section{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px;margin:22px 0}h2{margin:0 0 6px;font-size:22px}
+code{font:12px ui-monospace,Menlo,monospace;background:var(--soft);border:1px solid var(--line);border-radius:4px;padding:1px 5px;word-break:break-all}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:14px}.kpi{border:1px solid var(--line);border-radius:14px;padding:16px}
+.kpi .v{font-size:30px;font-weight:700}.kpi .s,.hint{color:var(--mute);font-size:12px}
+.flow{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:14px}.flow div{background:var(--soft);border:1px solid var(--line);border-radius:12px;padding:12px;font-size:13px}
+.flow b{display:block;margin-bottom:4px}
+.day{display:grid;grid-template-columns:170px 1fr 1fr 1.3fr;gap:16px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px;margin:12px 0}
+.day.is-high{border-color:rgba(184,71,47,.5);background:#fffaf8}.dn{font-weight:700;font-size:18px;margin-bottom:6px}
+.imgs{display:flex;align-items:center;gap:4px}.imgs img,.noimg{width:74px;height:74px;object-fit:cover;border-radius:8px;border:1px solid var(--line)}
+.noimg{display:grid;place-items:center;font-size:10px;color:var(--mute);background:var(--soft)}.imgs span{color:var(--mute)}
+.col h4{margin:0 0 6px;font-size:13px}.tag{font-size:10px;font-weight:700;letter-spacing:.06em;padding:2px 7px;border-radius:999px;margin-right:4px}
+.tag.r{background:#e8eef6;color:var(--acc)}.tag.d{background:#f4ecdc;color:#8a6420}.tag.w{background:var(--tint);color:var(--lo)}
+.kv{list-style:none;padding:0;margin:8px 0 0;font-size:12.5px}.kv li{padding:3px 0;border-bottom:1px dashed var(--line)}.kv b{display:inline-block;width:110px;color:var(--mute);font-weight:500}
+.why{margin:4px 0 8px}.pill{display:inline-block;font-size:12px;border:1px solid var(--line);border-radius:999px;padding:2px 10px;margin:2px 4px 2px 0;background:var(--soft)}
+.pill.hi{color:var(--hi);border-color:rgba(184,71,47,.4);background:#fbf1ee}.pill.lo{color:var(--lo);background:var(--tint)}.hi{color:var(--hi)}.lo{color:var(--lo)}
+.quote{font-style:italic;font-size:12.5px;margin:6px 0 0}
+.diff{width:100%;border-collapse:collapse;font-size:12px;margin-top:6px}.diff th{text-align:left;color:var(--mute);font-weight:500;border-bottom:1px solid var(--line)}
+.diff td{padding:4px 6px;border-bottom:1px solid var(--line);vertical-align:top}.diff .old{color:var(--mute);text-decoration:line-through;text-decoration-color:#c9b1aa}.diff .new{color:var(--lo);font-weight:600}
+details summary{cursor:pointer;color:var(--mute);font-size:12px;margin-top:6px}pre{background:var(--soft);border:1px solid var(--line);border-radius:8px;padding:10px;font-size:11.5px;max-height:300px;overflow:auto}
+.sql{font-size:12px}.sql li{margin:4px 0}
+@media (max-width:900px){.day{grid-template-columns:1fr}.kpis,.flow{grid-template-columns:repeat(2,1fr)}}
+</style></head><body><div class="wrap">
+<div class="top"><div class="brand">TOMATO / RAWTREE MEMORY</div><nav><a href="final_demo.html">Demos 1–3</a><a href="#tables">Tables</a><a href="#timeline">Memory timeline</a><a href="http://127.0.0.1:8766/tr6_database.html">TR-6 catalog ↗</a></nav></div>
+<h1>How the agent remembers</h1>
+<p class="lede">Every observation <b>reads</b> the latest memory from RawTree with the MCP <code>run-query</code> tool, uses it to decide whether GPT-5 is needed, then <b>writes</b> the updated memory back with <code>insert-json</code>. All rows below were just read from RawTree for run <code>tomato_c_demo_v6_full</code> (2026-09-25 22:55 UTC).</p>
+
+<section id="tables"><h2>What is stored in RawTree</h2><p class="hint">Four append-only event tables. Each row keeps queryable columns (run_id, entity_id, elapsed_seconds, event_id) plus the exact event as <code>event_json</code>.</p>
+<div class="kpis"><div class='kpi'><div class='v'>18</div><div class='l'><code>tomato_lha_observations</code></div><div class='s'>rows for this run · 115 total</div></div><div class='kpi'><div class='v'>23</div><div class='l'><code>tomato_lha_model_calls</code></div><div class='s'>rows for this run · 143 total</div></div><div class='kpi'><div class='v'>18</div><div class='l'><code>tomato_lha_memory_events</code></div><div class='s'>rows for this run · 118 total</div></div><div class='kpi'><div class='v'>18</div><div class='l'><code>tomato_lha_agent_events</code></div><div class='s'>rows for this run · 104 total</div></div></div>
+<div class="flow">
+<div><b>tomato_lha_observations</b>Which photo arrived, when, SHA-256, sensor context</div>
+<div><b>tomato_lha_model_calls</b>Every Liquid / GPT-5 call: inputs used, raw output, tokens, cost</div>
+<div><b>tomato_lha_memory_events</b>Agent memory after each step: previous image, last judgment, last GPT-5 time, open questions</div>
+<div><b>tomato_lha_agent_events</b>Routing decision: action, rule, Liquid recommendation, links to memory before/after</div>
+<div><b>Loop</b>① run-query memory → ② Liquid + guards decide → ③ GPT-5 if HIGH → ④ insert-json → read-back verified</div></div>
+<details><summary>Exact MCP queries used to build this page</summary><ul class="sql"><li><code>SELECT event_json FROM tomato_lha_observations WHERE run_id = &#x27;tomato_c_demo_v6_full&#x27;</code> → 18 events</li><li><code>SELECT event_json FROM tomato_lha_model_calls WHERE run_id = &#x27;tomato_c_demo_v6_full&#x27;</code> → 23 events</li><li><code>SELECT event_json FROM tomato_lha_memory_events WHERE run_id = &#x27;tomato_c_demo_v6_full&#x27;</code> → 18 events</li><li><code>SELECT event_json FROM tomato_lha_agent_events WHERE run_id = &#x27;tomato_c_demo_v6_full&#x27;</code> → 18 events</li></ul></details>
+<details><summary>Example memory row as stored (event_json)</summary><pre>{
+  &quot;dataset_id&quot;: &quot;zenodo_tomato_18day_21943147&quot;,
+  &quot;dataset_version&quot;: &quot;21943147&quot;,
+  &quot;elapsed_seconds&quot;: 777600,
+  &quot;entity_id&quot;: &quot;tomato_01&quot;,
+  &quot;event_id&quot;: &quot;202dce0e1a710ae92a5451f96a7e268684ff55829307d53059c35f184c1b7fb4&quot;,
+  &quot;kind&quot;: &quot;memory_events&quot;,
+  &quot;observation_id&quot;: &quot;tomato_18day_day_10&quot;,
+  &quot;record_version&quot;: 777600001,
+  &quot;run_id&quot;: &quot;tomato_c_demo_v6_full&quot;,
+  &quot;schema_version&quot;: 1,
+  &quot;sequence_id&quot;: &quot;tomato_18day_specimen_01&quot;,
+  &quot;state&quot;: {
+    &quot;evidence&quot;: &quot;Wrinkled, sunken surface with pronounced creasing and uneven texture compared to smooth skin&quot;,
+    &quot;first_observation_elapsed_seconds&quot;: 0,
+    &quot;last_cheap_elapsed_seconds&quot;: 777600,
+    &quot;last_observation_elapsed_seconds&quot;: 777600,
+    &quot;last_observation_id&quot;: &quot;tomato_18day_day_10&quot;,
+    &quot;last_strong_anomaly&quot;: &quot;yes&quot;,
+    &quot;last_strong_elapsed_seconds&quot;: 777600,
+    &quot;open_questions&quot;: [
+      {
+        &quot;due_elapsed_seconds&quot;: 864000,
+        &quot;evidence_observation_id&quot;: &quot;tomato_18day_day_10&quot;,
+        &quot;last_local_review_elapsed_seconds&quot;: 777600,
+        &quot;last_reviewed_elapsed_seconds&quot;: 777600,
+        &quot;opened_elapsed_seconds&quot;: 259200,
+        &quot;question&quot;: &quot;Does the observed concerning appearance persist or worsen?&quot;,
+        &quot;question_id&quot;: &quot;followup_tomato_18day_day_04&quot;,
+        &quot;status&quot;: &quot;open&quot;
+      }
+    ],
+    &quot;previous_evidence&quot;: &quot;The surface of the tomato in the current image shows no visible damage or defects compared to the previous image.&quot;,
+    &quot;previous_frame_sha256&quot;: &quot;06687eae58f8c445641ca69b170d10eab4e15c997892ff4345fc2cbb6f7a5163&quot;,
+    &quot;previous_frame_uri&quot;: &quot;data/samples/tomato_18day/frames/RGB_10.png&quot;,
+    &quot;previous_observed_at&quot;: null,
+    &quot;previous_recommendation&quot;: &quot;LOW_COST_ONLY&quot;,
+    &quot;prior_frame_uri&quot;: &quot;data/samples/tomato_18day/frames/RGB_10.png&quot;,
+    &quot;prior_observation_id&quot;: &quot;tomato_18day_day_10&quot;,
+    &quot;review_required&quot;: false,
+    &quot;summary&quot;: &quot;Wrinkled, sunken surface with pronounced creasing and uneven texture compared to smooth skin&quot;,
+    &quot;temporal_change&quot;: &quot;stable&quot;
+  },
+  &quot;synthetic&quot;: false,
+  &quot;variant&quot;: &quot;C&quot;
+}</pre></details></section>
+
+<section id="timeline"><h2>Memory timeline · 18 observations · GPT-5 used 5×</h2>
+<p class="hint">For each day: ① what memory was read, ② how it drove the decision, ③ which memory fields changed in the new row.</p>
+
+<article class="day " id="d1">
+  <div class="dh"><div class="dn">Day 1</div><div class="imgs"><div class='noimg'>no history</div><span>→</span><img src="../data/samples/tomato_18day/frames/RGB_01.png" alt=""></div></div>
+  <div class="col"><h4><span class="tag r">① READ</span> memory via <code>run-query</code></h4><code>SELECT event_json FROM tomato_lha_memory_events WHERE run_id='tomato_c_demo_v6_full' AND entity_id='tomato_01' AND elapsed_seconds &lt;= -0.001</code><div class='hint'>→ event <code>none</code></div>
+    <ul class="kv"><li><b>previous image</b> —</li>
+    <li><b>last GPT-5</b> never</li>
+    <li><b>open questions</b> 0 open question(s)</li>
+    <li><b>last judgment</b> —</li></ul></div>
+  <div class="col"><h4><span class="tag d">② DECIDE</span> <b class=lo>LOW_COST_ONLY</b></h4>
+    <p class="why">No prior memory (first observation). Liquid marked the photo unusable → retake requested, no GPT-5.</p>
+    <div class="pill">Liquid local · 399+53 tok · $0</div><div class='pill lo'>GPT-5 skipped · 0 cloud tokens</div></div>
+  <div class="col"><h4><span class="tag w">③ WRITE</span> new memory via <code>insert-json</code></h4>
+    <div class="hint">tomato_lha_memory_events · event <code>8a8b27754c0f</code> + agent_events + model_calls</div>
+    <table class="diff"><tr><th>field</th><th>before</th><th>after</th></tr><tr><td><code>previous_frame_uri</code><div class='hint'>comparison image for next step</div></td><td class='old'>—</td><td class='new'>RGB_01.png</td></tr><tr><td><code>previous_evidence</code><div class='hint'>previous_evidence</div></td><td class='old'>—</td><td class='new'>No visible damage or defects on the tomato&#x27;s surface.</td></tr><tr><td><code>previous_recommendation</code><div class='hint'>previous_recommendation</div></td><td class='old'>—</td><td class='new'>LOW_COST_ONLY</td></tr><tr><td><code>temporal_change</code><div class='hint'>temporal_change</div></td><td class='old'>—</td><td class='new'>no_history</td></tr><tr><td><code>review_required</code><div class='hint'>review_required</div></td><td class='old'>—</td><td class='new'>True</td></tr></table>
+    <details><summary>Full memory row written</summary><pre>{
+  &quot;first_observation_elapsed_seconds&quot;: 0,
+  &quot;last_cheap_elapsed_seconds&quot;: 0,
+  &quot;last_observation_elapsed_seconds&quot;: 0,
+  &quot;last_observation_id&quot;: &quot;tomato_18day_day_01&quot;,
+  &quot;previous_evidence&quot;: &quot;No visible damage or defects on the tomato&#x27;s surface.&quot;,
+  &quot;previous_frame_sha256&quot;: &quot;77e5ba3f5df379d2eb81f783af03ce24bf2bd5a55b8065dbf8e2f7747741b1e7&quot;,
+  &quot;previous_frame_uri&quot;: &quot;data/samples/tomato_18day/frames/RGB_01.png&quot;,
+  &quot;previous_observed_at&quot;: null,
+  &quot;previous_recommendation&quot;: &quot;LOW_COST_ONLY&quot;,
+  &quot;review_required&quot;: true,
+  &quot;temporal_change&quot;: &quot;no_history&quot;
+}</pre></details></div>
+</article>
+<article class="day " id="d2">
+  <div class="dh"><div class="dn">Day 2</div><div class="imgs"><img src='../data/samples/tomato_18day/frames/RGB_01.png' alt=''><span>→</span><img src="../data/samples/tomato_18day/frames/RGB_02.png" alt=""></div></div>
+  <div class="col"><h4><span class="tag r">① READ</span> memory via <code>run-query</code></h4><code>SELECT event_json FROM tomato_lha_memory_events WHERE run_id='tomato_c_demo_v6_full' AND entity_id='tomato_01' AND elapsed_seconds &lt;= 86399.999</code><div class='hint'>→ event <code>8a8b27754c0f</code></div>
+    <ul class="kv"><li><b>previous image</b> RGB_01.png</li>
+    <li><b>last GPT-5</b> never</li>
+    <li><b>open questions</b> 0 open question(s)</li>
+    <li><b>last judgment</b> No visible damage or defects on the tomato&#x27;s surface.</li></ul></div>
+  <div class="col"><h4><span class="tag d">② DECIDE</span> <b class=lo>LOW_COST_ONLY</b></h4>
+    <p class="why">Memory supplied the previous image (RGB_01.png) and prior notes → Liquid judged <b>stable</b> and recommended LOW_COST_ONLY. Only 24 h since last precision check (< 72 h).</p>
+    <div class="pill">Liquid local · 769+50 tok · $0</div><div class='pill lo'>GPT-5 skipped · 0 cloud tokens</div></div>
+  <div class="col"><h4><span class="tag w">③ WRITE</span> new memory via <code>insert-json</code></h4>
+    <div class="hint">tomato_lha_memory_events · event <code>c9699463c132</code> + agent_events + model_calls</div>
+    <table class="diff"><tr><th>field</th><th>before</th><th>after</th></tr><tr><td><code>previous_frame_uri</code><div class='hint'>comparison image for next step</div></td><td class='old'>RGB_01.png</td><td class='new'>RGB_02.png</td></tr><tr><td><code>temporal_change</code><div class='hint'>temporal_change</div></td><td class='old'>no_history</td><td class='new'>stable</td></tr><tr><td><code>open_questions</code><div class='hint'>open follow-up questions</div></td><td class='old'>—</td><td class='new'>0 open question(s)</td></tr><tr><td><code>review_required</code><div class='hint'>review_required</div></td><td class='old'>True</td><td class='new'>False</td></tr></table>
+    <details><summary>Full memory row written</summary><pre>{
+  &quot;first_observation_elapsed_seconds&quot;: 0,
+  &quot;last_cheap_elapsed_seconds&quot;: 86400,
+  &quot;last_observation_elapsed_seconds&quot;: 86400,
+  &quot;last_observation_id&quot;: &quot;tomato_18day_day_02&quot;,
+  &quot;open_questions&quot;: [],
+  &quot;previous_evidence&quot;: &quot;No visible damage or defects on the tomato&#x27;s surface.&quot;,
+  &quot;previous_frame_sha256&quot;: &quot;cae77389b17058349246085dbb7626d3796b12a9f4db008a35bc2bca0a7668e6&quot;,
+  &quot;previous_frame_uri&quot;: &quot;data/samples/tomato_18day/frames/RGB_02.png&quot;,
+  &quot;previous_observed_at&quot;: null,
+  &quot;previous_recommendation&quot;: &quot;LOW_COST_ONLY&quot;,
+  &quot;review_required&quot;: false,
+  &quot;temporal_change&quot;: &quot;stable&quot;
+}</pre></details></div>
+</article>
+<article class="day " id="d3">
+  <div class="dh"><div class="dn">Day 3</div><div class="imgs"><img src='../data/samples/tomato_18day/frames/RGB_02.png' alt=''><span>→</span><img src="../data/samples/tomato_18day/frames/RGB_03.png" alt=""></div></div>
+  <div class="col"><h4><span class="tag r">① READ</span> memory via <code>run-query</code></h4><code>SELECT event_json FROM tomato_lha_memory_events WHERE run_id='tomato_c_demo_v6_full' AND entity_id='tomato_01' AND elapsed_seconds &lt;= 172799.999</code><div class='hint'>→ event <code>c9699463c132</code></div>
+    <ul class="kv"><li><b>previous image</b> RGB_02.png</li>
+    <li><b>last GPT-5</b> never</li>
+    <li><b>open questions</b> 0 open question(s)</li>
+    <li><b>last judgment</b> No visible damage or defects on the tomato&#x27;s surface.</li></ul></div>
+  <div class="col"><h4><span class="tag d">② DECIDE</span> <b class=lo>LOW_COST_ONLY</b></h4>
+    <p class="why">Memory supplied the previous image (RGB_02.png) and prior notes → Liquid judged <b>stable</b> and recommended LOW_COST_ONLY. Only 48 h since last precision check (< 72 h).</p>
+    <div class="pill">Liquid local · 754+60 tok · $0</div><div class='pill lo'>GPT-5 skipped · 0 cloud tokens</div></div>
+  <div class="col"><h4><span class="tag w">③ WRITE</span> new memory via <code>insert-json</code></h4>
+    <div class="hint">tomato_lha_memory_events · event <code>82cee202dab0</code> + agent_events + model_calls</div>
+    <table class="diff"><tr><th>field</th><th>before</th><th>after</th></tr><tr><td><code>previous_frame_uri</code><div class='hint'>comparison image for next step</div></td><td class='old'>RGB_02.png</td><td class='new'>RGB_03.png</td></tr><tr><td><code>previous_evidence</code><div class='hint'>previous_evidence</div></td><td class='old'>No visible damage or defects on the tomato&#x27;s surface.</td><td class='new'>The surface of the tomato in the current image shows no visible damage or defects compared to the previous image.</td></tr></table>
+    <details><summary>Full memory row written</summary><pre>{
+  &quot;first_observation_elapsed_seconds&quot;: 0,
+  &quot;last_cheap_elapsed_seconds&quot;: 172800,
+  &quot;last_observation_elapsed_seconds&quot;: 172800,
+  &quot;last_observation_id&quot;: &quot;tomato_18day_day_03&quot;,
+  &quot;open_questions&quot;: [],
+  &quot;previous_evidence&quot;: &quot;The surface of the tomato in the current image shows no visible damage or defects compared to the previous image.&quot;,
+  &quot;previous_frame_sha256&quot;: &quot;6ec38e49ec3aed20c7261067e1dd6f72d6b9aaf454db80dce4d3308fb7022a3c&quot;,
+  &quot;previous_frame_uri&quot;: &quot;data/samples/tomato_18day/frames/RGB_03.png&quot;,
+  &quot;previous_observed_at&quot;: null,
+  &quot;previous_recommendation&quot;: &quot;LOW_COST_ONLY&quot;,
+  &quot;review_required&quot;: false,
+  &quot;temporal_change&quot;: &quot;stable&quot;
+}</pre></details></div>
+</article>
+<article class="day is-high" id="d4">
+  <div class="dh"><div class="dn">Day 4</div><div class="imgs"><img src='../data/samples/tomato_18day/frames/RGB_03.png' alt=''><span>→</span><img src="../data/samples/tomato_18day/frames/RGB_04.png" alt=""></div></div>
+  <div class="col"><h4><span class="tag r">① READ</span> memory via <code>run-query</code></h4><code>SELECT event_json FROM tomato_lha_memory_events WHERE run_id='tomato_c_demo_v6_full' AND entity_id='tomato_01' AND elapsed_seconds &lt;= 259199.999</code><div class='hint'>→ event <code>82cee202dab0</code></div>
+    <ul class="kv"><li><b>previous image</b> RGB_03.png</li>
+    <li><b>last GPT-5</b> never</li>
+    <li><b>open questions</b> 0 open question(s)</li>
+    <li><b>last judgment</b> The surface of the tomato in the current image shows no visible damage or defects compared to the previous ima…</li></ul></div>
+  <div class="col"><h4><span class="tag d">② DECIDE</span> <b class=hi>HIGH_COST_ANALYSIS</b></h4>
+    <p class="why">Memory says the first observation (no GPT-5 yet) was 72 h ago ≥ 72 h safety gap → precision check forced.</p>
+    <div class="pill">Liquid local · 748+60 tok · $0</div><div class='pill hi'>GPT-5 called · 564+77 tok · $0.00147</div><p class='quote'>“Localized pale/whitish patch with a slightly sunken, glossy area on the tomato surface distinct from normal ripening color”</p></div>
+  <div class="col"><h4><span class="tag w">③ WRITE</span> new memory via <code>insert-json</code></h4>
+    <div class="hint">tomato_lha_memory_events · event <code>665f701a11a0</code> + agent_events + model_calls</div>
+    <table class="diff"><tr><th>field</th><th>before</th><th>after</th></tr><tr><td><code>previous_frame_uri</code><div class='hint'>comparison image for next step</div></td><td class='old'>RGB_03.png</td><td class='new'>RGB_04.png</td></tr><tr><td><code>last_strong_elapsed_seconds</code><div class='hint'>last GPT-5 time</div></td><td class='old'>never</td><td class='new'>72 h</td></tr><tr><td><code>last_strong_anomaly</code><div class='hint'>last_strong_anomaly</div></td><td class='old'>—</td><td class='new'>yes</td></tr><tr><td><code>summary</code><div class='hint'>summary</div></td><td class='old'>—</td><td class='new'>Localized pale/whitish patch with a slightly sunken, glossy area on the tomato surface distinct from normal ripening color</td></tr><tr><td><code>open_questions</code><div class='hint'>open follow-up questions</div></td><td class='old'>0 open question(s)</td><td class='new'>1 open question(s)</td></tr></table>
+    <details><summary>Full memory row written</summary><pre>{
+  &quot;evidence&quot;: &quot;Localized pale/whitish patch with a slightly sunken, glossy area on the tomato surface distinct from normal ripening color&quot;,
+  &quot;first_observation_elapsed_seconds&quot;: 0,
+  &quot;last_cheap_elapsed_seconds&quot;: 259200,
+  &quot;last_observation_elapsed_seconds&quot;: 259200,
+  &quot;last_observation_id&quot;: &quot;tomato_18day_day_04&quot;,
+  &quot;last_strong_anomaly&quot;: &quot;yes&quot;,
+  &quot;last_strong_elapsed_seconds&quot;: 259200,
+  &quot;open_questions&quot;: [
+    {
+      &quot;due_elapsed_seconds&quot;: 345600,
+      &quot;evidence_observation_id&quot;: &quot;tomato_18day_day_04&quot;,
+      &quot;opened_elapsed_seconds&quot;: 259200,
+      &quot;question&quot;: &quot;Does the observed concerning appearance persist or worsen?&quot;,
+      &quot;question_id&quot;: &quot;followup_tomato_18day_day_04&quot;,
+      &quot;status&quot;: &quot;open&quot;
+    }
+  ],
+  &quot;previous_evidence&quot;: &quot;The surface of the tomato in the current image shows no visible damage or defects compared to the previous image.&quot;,
+  &quot;previous_frame_sha256&quot;: &quot;b4cacec9f0c13464fce6def8e847221246265165d8b30b7a03ff6ac44acc2596&quot;,
+  &quot;previous_frame_uri&quot;: &quot;data/samples/tomato_18day/frames/RGB_04.png&quot;,
+  &quot;previous_observed_at&quot;: null,
+  &quot;previous_recommendation&quot;: &quot;LOW_COST_ONLY&quot;,
+  &quot;prior_frame_uri&quot;: &quot;data/samples/tomato_18day/frames/RGB_04.png&quot;,
+  &quot;prior_observation_id&quot;: &quot;tomato_18day_day_04&quot;,
+  &quot;review_required&quot;: false,
+  &quot;summary&quot;: &quot;Localized pale/whitish patch with a slightly sunken, glossy area on the tomato surface distinct from normal ripening color&quot;,
+  &quot;temporal_change&quot;: &quot;stable&quot;
+}</pre></details></div>
+</article>
+<article class="day " id="d5">
+  <div class="dh"><div class="dn">Day 5</div><div class="imgs"><img src='../data/samples/tomato_18day/frames/RGB_04.png' alt=''><span>→</span><img src="../data/samples/tomato_18day/frames/RGB_05.png" alt=""></div></div>
+  <div class="col"><h4><span class="tag r">① READ</span> memory via <code>run-query</code></h4><code>SELECT event_json FROM tomato_lha_memory_events WHERE run_id='tomato_c_demo_v6_full' AND entity_id='tomato_01' AND elapsed_seconds &lt;= 345599.999</code><div class='hint'>→ event <code>665f701a11a0</code></div>
+    <ul class="kv"><li><b>previous image</b> RGB_04.png</li>
+    <li><b>last GPT-5</b> 72 h</li>
+    <li><b>open questions</b> 1 open question(s)</li>
+    <li><b>last judgment</b> Localized pale/whitish patch with a slightly sunken, glossy area on the tomato surface distinct from normal ri…</li></ul></div>
+  <div class="col"><h4><span class="tag d">② DECIDE</span> <b class=lo>LOW_COST_ONLY</b></h4>
+    <p class="why">Memory supplied the previous image (RGB_04.png) and prior notes incl. 1 open question → Liquid judged <b>stable</b> and recommended LOW_COST_ONLY. Only 24 h since last precision check (< 72 h).</p>
+    <div class="pill">Liquid local · 846+60 tok · $0</div><div class='pill lo'>GPT-5 skipped · 0 cloud tokens</div></div>
+  <div class="col"><h4><span class="tag w">③ WRITE</span> new memory via <code>insert-json</code></h4>
+    <div class="hint">tomato_lha_memory_events · event <code>61e9666c5669</code> + agent_events + model_calls</div>
+    <table class="diff"><tr><th>field</th><th>before</th><th>after</th></tr><tr><td><code>previous_frame_uri</code><div class='hint'>comparison image for next step</div></td><td class='old'>RGB_04.png</td><td class='new'>RGB_05.png</td></tr><tr><td><code>open_questions</code><div class='hint'>open follow-up questions</div></td><td class='old'>1 open question(s)</td><td class='new'>1 open question(s)</td></tr></table>
+    <details><summary>Full memory row written</summary><pre>{
+  &quot;evidence&quot;: &quot;Localized pale/whitish patch with a slightly sunken, glossy area on the tomato surface distinct from normal ripening color&quot;,
+  &quot;first_observation_elapsed_seconds&quot;: 0,
+  &quot;last_cheap_elapsed_seconds&quot;: 345600,
+  &quot;last_observation_elapsed_seconds&quot;: 345600,
+  &quot;last_observation_id&quot;: &quot;tomato_18day_day_05&quot;,
+  &quot;last_strong_anomaly&quot;: &quot;yes&quot;,
+  &quot;last_strong_elapsed_seconds&quot;: 259200,
+  &quot;open_questions&quot;: [
+    {
+      &quot;due_elapsed_seconds&quot;: 345600,
+      &quot;evidence_observation_id&quot;: &quot;tomato_18day_day_04&quot;,
+      &quot;last_local_review_elapsed_seconds&quot;: 345600,
+      &quot;opened_elapsed_seconds&quot;: 259200,
+      &quot;question&quot;: &quot;Does the observed concerning appearance persist or worsen?&quot;,
+      &quot;question_id&quot;: &quot;followup_tomato_18day_day_04&quot;,
+      &quot;status&quot;: &quot;open&quot;
+    }
+  ],
+  &quot;previous_evidence&quot;: &quot;The surface of the tomato in the current image shows no visible damage or defects compared to the previous image.&quot;,
+  &quot;previous_frame_sha256&quot;: &quot;783f5e9fc0200562dfa52668e17884db26779473bd0b765b58b9243333746464&quot;,
+  &quot;previous_frame_uri&quot;: &quot;data/samples/tomato_18day/frames/RGB_05.png&quot;,
+  &quot;previous_observed_at&quot;: null,
+  &quot;previous_recommendation&quot;: &quot;LOW_COST_ONLY&quot;,
+  &quot;prior_frame_uri&quot;: &quot;data/samples/tomato_18day/frames/RGB_04.png&quot;,
+  &quot;prior_observation_id&quot;: &quot;tomato_18day_day_04&quot;,
+  &quot;review_required&quot;: false,
+  &quot;summary&quot;: &quot;Localized pale/whitish patch with a slightly sunken, glossy area on the tomato surface distinct from normal ripening color&quot;,
+  &quot;temporal_change&quot;: &quot;stable&quot;
+}</pre></details></div>
+</article>
+<article class="day " id="d6">
+  <div class="dh"><div class="dn">Day 6</div><div class="imgs"><img src='../data/samples/tomato_18day/frames/RGB_05.png' alt=''><span>→</span><img src="../data/samples/tomato_18day/frames/RGB_06.png" alt=""></div></div>
+  <div class="col"><h4><span class="tag r">① READ</span> memory via <code>run-query</code></h4><code>SELECT event_json FROM tomato_lha_memory_events WHERE run_id='tomato_c_demo_v6_full' AND entity_id='tomato_01' AND elapsed_seconds &lt;= 431999.999</code><div class='hint'>→ event <code>61e9666c5669</code></div>
+    <ul class="kv"><li><b>previous image</b> RGB_05.png</li>
+    <li><b>last GPT-5</b> 72 h</li>
+    <li><b>open questions</b> 1 open question(s)</li>
+    <li><b>last judgment</b> Localized pale/whitish patch with a slightly sunken, glossy area on the tomato surface distinct from normal ri…</li></ul></div>
+  <div class="col"><h4><span class="tag d">② DECIDE</span> <b class=lo>LOW_COST_ONLY</b></h4>
+    <p class="why">Memory supplied the previous image (RGB_05.png) and prior notes incl. 1 open question → Liquid judged <b>stable</b> and recommended LOW_COST_ONLY. Only 48 h since last precision check (< 72 h).</p>
+    <div class="pill">Liquid local · 862+60 tok · $0</div><div class='pill lo'>GPT-5 skipped · 0 cloud tokens</div></div>
+  <div class="col"><h4><span class="tag w">③ WRITE</span> new memory via <code>insert-json</code></h4>
+    <div class="hint">tomato_lha_memory_events · event <code>95973ac53ee4</code> + agent_events + model_calls</div>
+    <table class="diff"><tr><th>field</th><th>before</th><th>after</th></tr><tr><td><code>previous_frame_uri</code><div class='hint'>comparison image for next step</div></td><td class='old'>RGB_05.png</td><td class='new'>RGB_06.png</td></tr><tr><td><code>open_questions</code><div class='hint'>open follow-up questions</div></td><td class='old'>1 open question(s)</td><td class='new'>1 open question(s)</td></tr></table>
+    <details><summary>Full memory row written</summary><pre>{
+  &quot;evidence&quot;: &quot;Localized pale/whitish patch with a slightly sunken, glossy area on the tomato surface distinct from normal ripening color&quot;,
+  &quot;first_observation_elapsed_seconds&quot;: 0,
+  &quot;last_cheap_elapsed_seconds&quot;: 432000,
+  &quot;last_observation_elapsed_seconds&quot;: 432000,
+  &quot;last_observation_id&quot;: &quot;tomato_18day_day_06&quot;,
+  &quot;last_strong_anomaly&quot;: &quot;yes&quot;,
+  &quot;last_strong_elapsed_seconds&quot;: 259200,
+  &quot;open_questions&quot;: [
+    {
+      &quot;due_elapsed_seconds&quot;: 345600,
+      &quot;evidence_observation_id&quot;: &quot;tomato_18day_day_04&quot;,
+      &quot;last_local_review_elapsed_seconds&quot;: 432000,
+      &quot;opened_elapsed_seconds&quot;: 259200,
+      &quot;question&quot;: &quot;Does the observed concerning appearance persist or worsen?&quot;,
+      &quot;question_id&quot;: &quot;followup_tomato_18day_day_04&quot;,
+      &quot;status&quot;: &quot;open&quot;
+    }
+  ],
+  &quot;previous_evidence&quot;: &quot;The surface of the tomato in the current image shows no visible damage or defects compared to the previous image.&quot;,
+  &quot;previous_frame_sha256&quot;: &quot;6ef941e86983250261fece9302d73beddf5ffbadeb0c8fb897d27e655858dcbb&quot;,
+  &quot;previous_frame_uri&quot;: &quot;data/samples/tomato_18day/frames/RGB_06.png&quot;,
+  &quot;previous_observed_at&quot;: null,
+  &quot;previous_recommendation&quot;: &quot;LOW_COST_ONLY&quot;,
+  &quot;prior_frame_uri&quot;: &quot;data/samples/tomato_18day/frames/RGB_04.png&quot;,
+  &quot;prior_observation_id&quot;: &quot;tomato_18day_day_04&quot;,
+  &quot;review_required&quot;: false,
+  &quot;summary&quot;: &quot;Localized pale/whitish patch with a slightly sunken, glossy area on the tomato surface distinct from normal ripening color&quot;,
+  &quot;temporal_change&quot;: &quot;stable&quot;
+}</pre></details></div>
+</article>
+<article class="day is-high" id="d7">
+  <div class="dh"><div class="dn">Day 7</div><div class="imgs"><img src='../data/samples/tomato_18day/frames/RGB_06.png' alt=''><span>→</span><img src="../data/samples/tomato_18day/frames/RGB_07.png" alt=""></div></div>
+  <div class="col"><h4><span class="tag r">① READ</span> memory via <code>run-query</code></h4><code>SELECT event_json FROM tomato_lha_memory_events WHERE run_id='tomato_c_demo_v6_full' AND entity_id='tomato_01' AND elapsed_seconds &lt;= 518399.999</code><div class='hint'>→ event <code>95973ac53ee4</code></div>
+    <ul class="kv"><li><b>previous image</b> RGB_06.png</li>
+    <li><b>last GPT-5</b> 72 h</li>
+    <li><b>open questions</b> 1 open question(s)</li>
+    <li><b>last judgment</b> Localized pale/whitish patch with a slightly sunken, glossy area on the tomato surface distinct from normal ri…</li></ul></div>
+  <div class="col"><h4><span class="tag d">② DECIDE</span> <b class=hi>HIGH_COST_ANALYSIS</b></h4>
+    <p class="why">Memory says the last GPT-5 analysis was 72 h ago ≥ 72 h safety gap → precision check forced.</p>
+    <div class="pill">Liquid local · 862+60 tok · $0</div><div class='pill hi'>GPT-5 called · 841+72 tok · $0.00177</div><p class='quote'>“Wrinkled, slightly sunken area on the tomato surface with uneven texture distinct from normal smooth skin”</p></div>
+  <div class="col"><h4><span class="tag w">③ WRITE</span> new memory via <code>insert-json</code></h4>
+    <div class="hint">tomato_lha_memory_events · event <code>57b53f44d3e0</code> + agent_events + model_calls</div>
+    <table class="diff"><tr><th>field</th><th>before</th><th>after</th></tr><tr><td><code>previous_frame_uri</code><div class='hint'>comparison image for next step</div></td><td class='old'>RGB_06.png</td><td class='new'>RGB_07.png</td></tr><tr><td><code>last_strong_elapsed_seconds</code><div class='hint'>last GPT-5 time</div></td><td class='old'>72 h</td><td class='new'>144 h</td></tr><tr><td><code>summary</code><div class='hint'>summary</div></td><td class='old'>Localized pale/whitish patch with a slightly sunken, glossy area on the tomato surface distinct from normal ripening color</td><td class='new'>Wrinkled, slightly sunken area on the tomato surface with uneven texture distinct from normal smooth skin</td></tr><tr><td><code>open_questions</code><div class='hint'>open follow-up questions</div></td><td class='old'>1 open question(s)</td><td class='new'>1 open question(s)</td></tr></table>
+    <details><summary>Full memory row written</summary><pre>{
+  &quot;evidence&quot;: &quot;Wrinkled, slightly sunken area on the tomato surface with uneven texture distinct from normal smooth skin&quot;,
+  &quot;first_observation_elapsed_seconds&quot;: 0,
+  &quot;last_cheap_elapsed_seconds&quot;: 518400,
+  &quot;last_observation_elapsed_seconds&quot;: 518400,
+  &quot;last_observation_id&quot;: &quot;tomato_18day_day_07&quot;,
+  &quot;last_strong_anomaly&quot;: &quot;yes&quot;,
+  &quot;last_strong_elapsed_seconds&quot;: 518400,
+  &quot;open_questions&quot;: [
+    {
+      &quot;due_elapsed_seconds&quot;: 561600,
+      &quot;evidence_observation_id&quot;: &quot;tomato_18day_day_07&quot;,
+      &quot;last_local_review_elapsed_seconds&quot;: 518400,
+      &quot;last_reviewed_elapsed_seconds&quot;: 518400,
+      &quot;opened_elapsed_seconds&quot;: 259200,
+      &quot;question&quot;: &quot;Does the observed concerning appearance persist or worsen?&quot;,
+      &quot;question_id&quot;: &quot;followup_tomato_18day_day_04&quot;,
+      &quot;status&quot;: &quot;open&quot;
+    }
+  ],
+  &quot;previous_evidence&quot;: &quot;The surface of the tomato in the current image shows no visible damage or defects compared to the previous image.&quot;,
+  &quot;previous_frame_sha256&quot;: &quot;02dc44ca937720a794632cff8b1f3067ca1ed560a0210ff6de308a49fdbe201d&quot;,
+  &quot;previous_frame_uri&quot;: &quot;data/samples/tomato_18day/frames/RGB_07.png&quot;,
+  &quot;previous_observed_at&quot;: null,
+  &quot;previous_recommendation&quot;: &quot;LOW_COST_ONLY&quot;,
+  &quot;prior_frame_uri&quot;: &quot;data/samples/tomato_18day/frames/RGB_07.png&quot;,
+  &quot;prior_observation_id&quot;: &quot;tomato_18day_day_07&quot;,
+  &quot;review_required&quot;: false,
+  &quot;summary&quot;: &quot;Wrinkled, slightly sunken area on the tomato surface with uneven texture distinct from normal smooth skin&quot;,
+  &quot;temporal_change&quot;: &quot;stable&quot;
+}</pre></details></div>
+</article>
+<article class="day " id="d8">
+  <div class="dh"><div class="dn">Day 8</div><div class="imgs"><img src='../data/samples/tomato_18day/frames/RGB_07.png' alt=''><span>→</span><img src="../data/samples/tomato_18day/frames/RGB_08.png" alt=""></div></div>
+  <div class="col"><h4><span class="tag r">① READ</span> memory via <code>run-query</code></h4><code>SELECT event_json FROM tomato_lha_memory_events WHERE run_id='tomato_c_demo_v6_full' AND entity_id='tomato_01' AND elapsed_seconds &lt;= 604799.999</code><div class='hint'>→ event <code>57b53f44d3e0</code></div>
+    <ul class="kv"><li><b>previous image</b> RGB_07.png</li>
+    <li><b>last GPT-5</b> 144 h</li>
+    <li><b>open questions</b> 1 open question(s)</li>
+    <li><b>last judgment</b> Wrinkled, slightly sunken area on the tomato surface with uneven texture distinct from normal smooth skin</li></ul></div>
+  <div class="col"><h4><span class="tag d">② DECIDE</span> <b class=lo>LOW_COST_ONLY</b></h4>
+    <p class="why">Memory supplied the previous image (RGB_07.png) and prior notes incl. 1 open question → Liquid judged <b>stable</b> and recommended LOW_COST_ONLY. Only 24 h since last precision check (< 72 h).</p>
+    <div class="pill">Liquid local · 850+60 tok · $0</div><div class='pill lo'>GPT-5 skipped · 0 cloud tokens</div></div>
+  <div class="col"><h4><span class="tag w">③ WRITE</span> new memory via <code>insert-json</code></h4>
+    <div class="hint">tomato_lha_memory_events · event <code>02163c8a8eae</code> + agent_events + model_calls</div>
+    <table class="diff"><tr><th>field</th><th>before</th><th>after</th></tr><tr><td><code>previous_frame_uri</code><div class='hint'>comparison image for next step</div></td><td class='old'>RGB_07.png</td><td class='new'>RGB_08.png</td></tr><tr><td><code>open_questions</code><div class='hint'>open follow-up questions</div></td><td class='old'>1 open question(s)</td><td class='new'>1 open question(s)</td></tr></table>
+    <details><summary>Full memory row written</summary><pre>{
+  &quot;evidence&quot;: &quot;Wrinkled, slightly sunken area on the tomato surface with uneven texture distinct from normal smooth skin&quot;,
+  &quot;first_observation_elapsed_seconds&quot;: 0,
+  &quot;last_cheap_elapsed_seconds&quot;: 604800,
+  &quot;last_observation_elapsed_seconds&quot;: 604800,
+  &quot;last_observation_id&quot;: &quot;tomato_18day_day_08&quot;,
+  &quot;last_strong_anomaly&quot;: &quot;yes&quot;,
+  &quot;last_strong_elapsed_seconds&quot;: 518400,
+  &quot;open_questions&quot;: [
+    {
+      &quot;due_elapsed_seconds&quot;: 561600,
+      &quot;evidence_observation_id&quot;: &quot;tomato_18day_day_07&quot;,
+      &quot;last_local_review_elapsed_seconds&quot;: 604800,
+      &quot;last_reviewed_elapsed_seconds&quot;: 518400,
+      &quot;opened_elapsed_seconds&quot;: 259200,
+      &quot;question&quot;: &quot;Does the observed concerning appearance persist or worsen?&quot;,
+      &quot;question_id&quot;: &quot;followup_tomato_18day_day_04&quot;,
+      &quot;status&quot;: &quot;open&quot;
+    }
+  ],
+  &quot;previous_evidence&quot;: &quot;The surface of the tomato in the current image shows no visible damage or defects compared to the previous image.&quot;,
+  &quot;previous_frame_sha256&quot;: &quot;24730374cb15d48848713d1310549e86e7eeae34b3cb607dc1b7dac2fd131f00&quot;,
+  &quot;previous_frame_uri&quot;: &quot;data/samples/tomato_18day/frames/RGB_08.png&quot;,
+  &quot;previous_observed_at&quot;: null,
+  &quot;previous_recommendation&quot;: &quot;LOW_COST_ONLY&quot;,
+  &quot;prior_frame_uri&quot;: &quot;data/samples/tomato_18day/frames/RGB_07.png&quot;,
+  &quot;prior_observation_id&quot;: &quot;tomato_18day_day_07&quot;,
+  &quot;review_required&quot;: false,
+  &quot;summary&quot;: &quot;Wrinkled, slightly sunken area on the tomato surface with uneven texture distinct from normal smooth skin&quot;,
+  &quot;temporal_change&quot;: &quot;stable&quot;
+}</pre></details></div>
+</article>
+<article class="day " id="d9">
+  <div class="dh"><div class="dn">Day 9</div><div class="imgs"><img src='../data/samples/tomato_18day/frames/RGB_08.png' alt=''><span>→</span><img src="../data/samples/tomato_18day/frames/RGB_09.png" alt=""></div></div>
+  <div class="col"><h4><span class="tag r">① READ</span> memory via <code>run-query</code></h4><code>SELECT event_json FROM tomato_lha_memory_events WHERE run_id='tomato_c_demo_v6_full' AND entity_id='tomato_01' AND elapsed_seconds &lt;= 691199.999</code><div class='hint'>→ event <code>02163c8a8eae</code></div>
+    <ul class="kv"><li><b>previous image</b> RGB_08.png</li>
+    <li><b>last GPT-5</b> 144 h</li>
+    <li><b>open questions</b> 1 open question(s)</li>
+    <li><b>last judgment</b> Wrinkled, slightly sunken area on the tomato surface with uneven texture distinct from normal smooth skin</li></ul></div>
+  <div class="col"><h4><span class="tag d">② DECIDE</span> <b class=lo>LOW_COST_ONLY</b></h4>
+    <p class="why">Memory supplied the previous image (RGB_08.png) and prior notes incl. 1 open question → Liquid judged <b>stable</b> and recommended LOW_COST_ONLY. Only 48 h since last precision check (< 72 h).</p>
+    <div class="pill">Liquid local · 866+60 tok · $0</div><div class='pill lo'>GPT-5 skipped · 0 cloud tokens</div></div>
+  <div class="col"><h4><span class="tag w">③ WRITE</span> new memory via <code>insert-json</code></h4>
+    <div class="hint">tomato_lha_memory_events · event <code>be0d916a808c</code> + agent_events + model_calls</div>
+    <table class="diff"><tr><th>field</th><th>before</th><th>after</th></tr><tr><td><code>previous_frame_uri</code><div class='hint'>comparison image for next step</div></td><td class='old'>RGB_08.png</td><td class='new'>RGB_09.png</td></tr><tr><td><code>open_questions</code><div class='hint'>open follow-up questions</div></td><td class='old'>1 open question(s)</td><td class='new'>1 open question(s)</td></tr></table>
+    <details><summary>Full memory row written</summary><pre>{
+  &quot;evidence&quot;: &quot;Wrinkled, slightly sunken area on the tomato surface with uneven texture distinct from normal smooth skin&quot;,
+  &quot;first_observation_elapsed_seconds&quot;: 0,
+  &quot;last_cheap_elapsed_seconds&quot;: 691200,
+  &quot;last_observation_elapsed_seconds&quot;: 691200,
+  &quot;last_observation_id&quot;: &quot;tomato_18day_day_09&quot;,
+  &quot;last_strong_anomaly&quot;: &quot;yes&quot;,
+  &quot;last_strong_elapsed_seconds&quot;: 518400,
+  &quot;open_questions&quot;: [
+    {
+      &quot;due_elapsed_seconds&quot;: 561600,
+      &quot;evidence_observation_id&quot;: &quot;tomato_18day_day_07&quot;,
+      &quot;last_local_review_elapsed_seconds&quot;: 691200,
+      &quot;last_reviewed_elapsed_seconds&quot;: 518400,
+      &quot;opened_elapsed_seconds&quot;: 259200,
+      &quot;question&quot;: &quot;Does the observed concerning appearance persist or worsen?&quot;,
+      &quot;question_id&quot;: &quot;followup_tomato_18day_day_04&quot;,
+      &quot;status&quot;: &quot;open&quot;
+    }
+  ],
+  &quot;previous_evidence&quot;: &quot;The surface of the tomato in the current image shows no visible damage or defects compared to the previous image.&quot;,
+  &quot;previous_frame_sha256&quot;: &quot;6c25d7b22f73f29bf47ed5ad4f2f9cb2ded1b9c65caaecd3273d38c2e5924981&quot;,
+  &quot;previous_frame_uri&quot;: &quot;data/samples/tomato_18day/frames/RGB_09.png&quot;,
+  &quot;previous_observed_at&quot;: null,
+  &quot;previous_recommendation&quot;: &quot;LOW_COST_ONLY&quot;,
+  &quot;prior_frame_uri&quot;: &quot;data/samples/tomato_18day/frames/RGB_07.png&quot;,
+  &quot;prior_observation_id&quot;: &quot;tomato_18day_day_07&quot;,
+  &quot;review_required&quot;: false,
+  &quot;summary&quot;: &quot;Wrinkled, slightly sunken area on the tomato surface with uneven texture distinct from normal smooth skin&quot;,
+  &quot;temporal_change&quot;: &quot;stable&quot;
+}</pre></details></div>
+</article>
+<article class="day is-high" id="d10">
+  <div class="dh"><div class="dn">Day 10</div><div class="imgs"><img src='../data/samples/tomato_18day/frames/RGB_09.png' alt=''><span>→</span><img src="../data/samples/tomato_18day/frames/RGB_10.png" alt=""></div></div>
+  <div class="col"><h4><span class="tag r">① READ</span> memory via <code>run-query</code></h4><code>SELECT event_json FROM tomato_lha_memory_events WHERE run_id='tomato_c_demo_v6_full' AND entity_id='tomato_01' AND elapsed_seconds &lt;= 777599.999</code><div class='hint'>→ event <code>be0d916a808c</code></div>
+    <ul class="kv"><li><b>previous image</b> RGB_09.png</li>
+    <li><b>last GPT-5</b> 144 h</li>
+    <li><b>open questions</b> 1 open question(s)</li>
+    <li><b>last judgment</b> Wrinkled, slightly sunken area on the tomato surface with uneven texture distinct from normal smooth skin</li></ul></div>
+  <div class="col"><h4><span class="tag d">② DECIDE</span> <b class=hi>HIGH_COST_ANALYSIS</b></h4>
+    <p class="why">Memory says the last GPT-5 analysis was 72 h ago ≥ 72 h safety gap → precision check forced.</p>
+    <div class="pill">Liquid local · 850+60 tok · $0</div><div class='pill hi'>GPT-5 called · 691+70 tok · $0.00156</div><p class='quote'>“Wrinkled, sunken surface with pronounced creasing and uneven texture compared to smooth skin”</p></div>
+  <div class="col"><h4><span class="tag w">③ WRITE</span> new memory via <code>insert-json</code></h4>
+    <div class="hint">tomato_lha_memory_events · event <code>202dce0e1a71</code> + agent_events + model_calls</div>
+    <table class="diff"><tr><th>field</th><th>before</th><th>after</th></tr><tr><td><code>previous_frame_uri</code><div class='hint'>comparison image for next step</div></td><td class='old'>RGB_09.png</td><td class='new'>RGB_10.png</td></tr><tr><td><code>last_strong_elapsed_seconds</code><div class='hint'>last GPT-5 time</div></td><td class='old'>144 h</td><td class='new'>216 h</td></tr><tr><td><code>summary</code><div class='hint'>summary</div></td><td class='old'>Wrinkled, slightly sunken area on the tomato surface with uneven texture distinct from normal smooth skin</td><td class='new'>Wrinkled, sunken surface with pronounced creasing and uneven texture compared to smooth skin</td></tr><tr><td><code>open_questions</code><div class='hint'>open follow-up questions</div></td><td class='old'>1 open question(s)</td><td class='new'>1 open question(s)</td></tr></table>
+    <details><summary>Full memory row written</summary><pre>{
+  &quot;evidence&quot;: &quot;Wrinkled, sunken surface with pronounced creasing and uneven texture compared to smooth skin&quot;,
+  &quot;first_observation_elapsed_seconds&quot;: 0,
+  &quot;last_cheap_elapsed_seconds&quot;: 777600,
+  &quot;last_observation_elapsed_seconds&quot;: 777600,
+  &quot;last_observation_id&quot;: &quot;tomato_18day_day_10&quot;,
+  &quot;last_strong_anomaly&quot;: &quot;yes&quot;,
+  &quot;last_strong_elapsed_seconds&quot;: 777600,
+  &quot;open_questions&quot;: [
+    {
+      &quot;due_elapsed_seconds&quot;: 864000,
+      &quot;evidence_observation_id&quot;: &quot;tomato_18day_day_10&quot;,
+      &quot;last_local_review_elapsed_seconds&quot;: 777600,
+      &quot;last_reviewed_elapsed_seconds&quot;: 777600,
+      &quot;opened_elapsed_seconds&quot;: 259200,
+      &quot;question&quot;: &quot;Does the observed concerning appearance persist or worsen?&quot;,
+      &quot;question_id&quot;: &quot;followup_tomato_18day_day_04&quot;,
+      &quot;status&quot;: &quot;open&quot;
+    }
+  ],
+  &quot;previous_evidence&quot;: &quot;The surface of the tomato in the current image shows no visible damage or defects compared to the previous image.&quot;,
+  &quot;previous_frame_sha256&quot;: &quot;06687eae58f8c445641ca69b170d10eab4e15c997892ff4345fc2cbb6f7a5163&quot;,
+  &quot;previous_frame_uri&quot;: &quot;data/samples/tomato_18day/frames/RGB_10.png&quot;,
+  &quot;previous_observed_at&quot;: null,
+  &quot;previous_recommendation&quot;: &quot;LOW_COST_ONLY&quot;,
+  &quot;prior_frame_uri&quot;: &quot;data/samples/tomato_18day/frames/RGB_10.png&quot;,
+  &quot;prior_observation_id&quot;: &quot;tomato_18day_day_10&quot;,
+  &quot;review_required&quot;: false,
+  &quot;summary&quot;: &quot;Wrinkled, sunken surface with pronounced creasing and uneven texture compared to smooth skin&quot;,
+  &quot;temporal_change&quot;: &quot;stable&quot;
+}</pre></details></div>
+</article>
+<article class="day " id="d11">
+  <div class="dh"><div class="dn">Day 11</div><div class="imgs"><img src='../data/samples/tomato_18day/frames/RGB_10.png' alt=''><span>→</span><img src="../data/samples/tomato_18day/frames/RGB_11.png" alt=""></div></div>
+  <div class="col"><h4><span class="tag r">① READ</span> memory via <code>run-query</code></h4><code>SELECT event_json FROM tomato_lha_memory_events WHERE run_id='tomato_c_demo_v6_full' AND entity_id='tomato_01' AND elapsed_seconds &lt;= 863999.999</code><div class='hint'>→ event <code>202dce0e1a71</code></div>
+    <ul class="kv"><li><b>previous image</b> RGB_10.png</li>
+    <li><b>last GPT-5</b> 216 h</li>
+    <li><b>open questions</b> 1 open question(s)</li>
+    <li><b>last judgment</b> Wrinkled, sunken surface with pronounced creasing and uneven texture compared to smooth skin</li></ul></div>
+  <div class="col"><h4><span class="tag d">② DECIDE</span> <b class=lo>LOW_COST_ONLY</b></h4>
+    <p class="why">Memory supplied the previous image (RGB_10.png) and prior notes incl. 1 open question → Liquid judged <b>stable</b> and recommended LOW_COST_ONLY. Only 24 h since last precision check (< 72 h).</p>
+    <div class="pill">Liquid local · 830+60 tok · $0</div><div class='pill lo'>GPT-5 skipped · 0 cloud tokens</div></div>
+  <div class="col"><h4><span class="tag w">③ WRITE</span> new memory via <code>insert-json</code></h4>
+    <div class="hint">tomato_lha_memory_events · event <code>e53af8430629</code> + agent_events + model_calls</div>
+    <table class="diff"><tr><th>field</th><th>before</th><th>after</th></tr><tr><td><code>previous_frame_uri</code><div class='hint'>comparison image for next step</div></td><td class='old'>RGB_10.png</td><td class='new'>RGB_11.png</td></tr><tr><td><code>open_questions</code><div class='hint'>open follow-up questions</div></td><td class='old'>1 open question(s)</td><td class='new'>1 open question(s)</td></tr></table>
+    <details><summary>Full memory row written</summary><pre>{
+  &quot;evidence&quot;: &quot;Wrinkled, sunken surface with pronounced creasing and uneven texture compared to smooth skin&quot;,
+  &quot;first_observation_elapsed_seconds&quot;: 0,
+  &quot;last_cheap_elapsed_seconds&quot;: 864000,
+  &quot;last_observation_elapsed_seconds&quot;: 864000,
+  &quot;last_observation_id&quot;: &quot;tomato_18day_day_11&quot;,
+  &quot;last_strong_anomaly&quot;: &quot;yes&quot;,
+  &quot;last_strong_elapsed_seconds&quot;: 777600,
+  &quot;open_questions&quot;: [
+    {
+      &quot;due_elapsed_seconds&quot;: 864000,
+      &quot;evidence_observation_id&quot;: &quot;tomato_18day_day_10&quot;,
+      &quot;last_local_review_elapsed_seconds&quot;: 864000,
+      &quot;last_reviewed_elapsed_seconds&quot;: 777600,
+      &quot;opened_elapsed_seconds&quot;: 259200,
+      &quot;question&quot;: &quot;Does the observed concerning appearance persist or worsen?&quot;,
+      &quot;question_id&quot;: &quot;followup_tomato_18day_day_04&quot;,
+      &quot;status&quot;: &quot;open&quot;
+    }
+  ],
+  &quot;previous_evidence&quot;: &quot;The surface of the tomato in the current image shows no visible damage or defects compared to the previous image.&quot;,
+  &quot;previous_frame_sha256&quot;: &quot;9968ac31121459bba523c8926e82b0db8dc8031b805956198f516f9804e43ad4&quot;,
+  &quot;previous_frame_uri&quot;: &quot;data/samples/tomato_18day/frames/RGB_11.png&quot;,
+  &quot;previous_observed_at&quot;: null,
+  &quot;previous_recommendation&quot;: &quot;LOW_COST_ONLY&quot;,
+  &quot;prior_frame_uri&quot;: &quot;data/samples/tomato_18day/frames/RGB_10.png&quot;,
+  &quot;prior_observation_id&quot;: &quot;tomato_18day_day_10&quot;,
+  &quot;review_required&quot;: false,
+  &quot;summary&quot;: &quot;Wrinkled, sunken surface with pronounced creasing and uneven texture compared to smooth skin&quot;,
+  &quot;temporal_change&quot;: &quot;stable&quot;
+}</pre></details></div>
+</article>
+<article class="day " id="d12">
+  <div class="dh"><div class="dn">Day 12</div><div class="imgs"><img src='../data/samples/tomato_18day/frames/RGB_11.png' alt=''><span>→</span><img src="../data/samples/tomato_18day/frames/RGB_12.png" alt=""></div></div>
+  <div class="col"><h4><span class="tag r">① READ</span> memory via <code>run-query</code></h4><code>SELECT event_json FROM tomato_lha_memory_events WHERE run_id='tomato_c_demo_v6_full' AND entity_id='tomato_01' AND elapsed_seconds &lt;= 950399.999</code><div class='hint'>→ event <code>e53af8430629</code></div>
+    <ul class="kv"><li><b>previous image</b> RGB_11.png</li>
+    <li><b>last GPT-5</b> 216 h</li>
+    <li><b>open questions</b> 1 open question(s)</li>
+    <li><b>last judgment</b> Wrinkled, sunken surface with pronounced creasing and uneven texture compared to smooth skin</li></ul></div>
+  <div class="col"><h4><span class="tag d">② DECIDE</span> <b class=lo>LOW_COST_ONLY</b></h4>
+    <p class="why">Memory supplied the previous image (RGB_11.png) and prior notes incl. 1 open question → Liquid judged <b>stable</b> and recommended LOW_COST_ONLY. Only 48 h since last precision check (< 72 h).</p>
+    <div class="pill">Liquid local · 846+60 tok · $0</div><div class='pill lo'>GPT-5 skipped · 0 cloud tokens</div></div>
+  <div class="col"><h4><span class="tag w">③ WRITE</span> new memory via <code>insert-json</code></h4>
+    <div class="hint">tomato_lha_memory_events · event <code>4a7362bdb875</code> + agent_events + model_calls</div>
+    <table class="diff"><tr><th>field</th><th>before</th><th>after</th></tr><tr><td><code>previous_frame_uri</code><div class='hint'>comparison image for next step</div></td><td class='old'>RGB_11.png</td><td class='new'>RGB_12.png</td></tr><tr><td><code>open_questions</code><div class='hint'>open follow-up questions</div></td><td class='old'>1 open question(s)</td><td class='new'>1 open question(s)</td></tr></table>
+    <details><summary>Full memory row written</summary><pre>{
+  &quot;evidence&quot;: &quot;Wrinkled, sunken surface with pronounced creasing and uneven texture compared to smooth skin&quot;,
+  &quot;first_observation_elapsed_seconds&quot;: 0,
+  &quot;last_cheap_elapsed_seconds&quot;: 950400,
+  &quot;last_observation_elapsed_seconds&quot;: 950400,
+  &quot;last_observation_id&quot;: &quot;tomato_18day_day_12&quot;,
+  &quot;last_strong_anomaly&quot;: &quot;yes&quot;,
+  &quot;last_strong_elapsed_seconds&quot;: 777600,
+  &quot;open_questions&quot;: [
+    {
+      &quot;due_elapsed_seconds&quot;: 864000,
+      &quot;evidence_observation_id&quot;: &quot;tomato_18day_day_10&quot;,
+      &quot;last_local_review_elapsed_seconds&quot;: 950400,
+      &quot;last_reviewed_elapsed_seconds&quot;: 777600,
+      &quot;opened_elapsed_seconds&quot;: 259200,
+      &quot;question&quot;: &quot;Does the observed concerning appearance persist or worsen?&quot;,
+      &quot;question_id&quot;: &quot;followup_tomato_18day_day_04&quot;,
+      &quot;status&quot;: &quot;open&quot;
+    }
+  ],
+  &quot;previous_evidence&quot;: &quot;The surface of the tomato in the current image shows no visible damage or defects compared to the previous image.&quot;,
+  &quot;previous_frame_sha256&quot;: &quot;af7b1bbb768426e197133a311b7caf2746aa57e06bbfe7bdd5ac675210d0203e&quot;,
+  &quot;previous_frame_uri&quot;: &quot;data/samples/tomato_18day/frames/RGB_12.png&quot;,
+  &quot;previous_observed_at&quot;: null,
+  &quot;previous_recommendation&quot;: &quot;LOW_COST_ONLY&quot;,
+  &quot;prior_frame_uri&quot;: &quot;data/samples/tomato_18day/frames/RGB_10.png&quot;,
+  &quot;prior_observation_id&quot;: &quot;tomato_18day_day_10&quot;,
+  &quot;review_required&quot;: false,
+  &quot;summary&quot;: &quot;Wrinkled, sunken surface with pronounced creasing and uneven texture compared to smooth skin&quot;,
+  &quot;temporal_change&quot;: &quot;stable&quot;
+}</pre></details></div>
+</article>
+<article class="day is-high" id="d13">
+  <div class="dh"><div class="dn">Day 13</div><div class="imgs"><img src='../data/samples/tomato_18day/frames/RGB_12.png' alt=''><span>→</span><img src="../data/samples/tomato_18day/frames/RGB_13.png" alt=""></div></div>
+  <div class="col"><h4><span class="tag r">① READ</span> memory via <code>run-query</code></h4><code>SELECT event_json FROM tomato_lha_memory_events WHERE run_id='tomato_c_demo_v6_full' AND entity_id='tomato_01' AND elapsed_seconds &lt;= 1036799.999</code><div class='hint'>→ event <code>4a7362bdb875</code></div>
+    <ul class="kv"><li><b>previous image</b> RGB_12.png</li>
+    <li><b>last GPT-5</b> 216 h</li>
+    <li><b>open questions</b> 1 open question(s)</li>
+    <li><b>last judgment</b> Wrinkled, sunken surface with pronounced creasing and uneven texture compared to smooth skin</li></ul></div>
+  <div class="col"><h4><span class="tag d">② DECIDE</span> <b class=hi>HIGH_COST_ANALYSIS</b></h4>
+    <p class="why">Memory says the last GPT-5 analysis was 72 h ago ≥ 72 h safety gap → precision check forced.</p>
+    <div class="pill">Liquid local · 847+60 tok · $0</div><div class='pill hi'>GPT-5 called · 687+79 tok · $0.00165</div><p class='quote'>“Wrinkled, sunken surface with pronounced creasing and uneven texture; areas appear collapsed and discolored compared to smooth, taut skin”</p></div>
+  <div class="col"><h4><span class="tag w">③ WRITE</span> new memory via <code>insert-json</code></h4>
+    <div class="hint">tomato_lha_memory_events · event <code>25e5c8652fc9</code> + agent_events + model_calls</div>
+    <table class="diff"><tr><th>field</th><th>before</th><th>after</th></tr><tr><td><code>previous_frame_uri</code><div class='hint'>comparison image for next step</div></td><td class='old'>RGB_12.png</td><td class='new'>RGB_13.png</td></tr><tr><td><code>last_strong_elapsed_seconds</code><div class='hint'>last GPT-5 time</div></td><td class='old'>216 h</td><td class='new'>288 h</td></tr><tr><td><code>summary</code><div class='hint'>summary</div></td><td class='old'>Wrinkled, sunken surface with pronounced creasing and uneven texture compared to smooth skin</td><td class='new'>Wrinkled, sunken surface with pronounced creasing and uneven texture; areas appear collapsed and discolored compared to smooth, taut skin</td></tr><tr><td><code>open_questions</code><div class='hint'>open follow-up questions</div></td><td class='old'>1 open question(s)</td><td class='new'>1 open question(s)</td></tr></table>
+    <details><summary>Full memory row written</summary><pre>{
+  &quot;evidence&quot;: &quot;Wrinkled, sunken surface with pronounced creasing and uneven texture; areas appear collapsed and discolored compared to smooth, taut skin&quot;,
+  &quot;first_observation_elapsed_seconds&quot;: 0,
+  &quot;last_cheap_elapsed_seconds&quot;: 1036800,
+  &quot;last_observation_elapsed_seconds&quot;: 1036800,
+  &quot;last_observation_id&quot;: &quot;tomato_18day_day_13&quot;,
+  &quot;last_strong_anomaly&quot;: &quot;yes&quot;,
+  &quot;last_strong_elapsed_seconds&quot;: 1036800,
+  &quot;open_questions&quot;: [
+    {
+      &quot;due_elapsed_seconds&quot;: 1080000,
+      &quot;evidence_observation_id&quot;: &quot;tomato_18day_day_13&quot;,
+      &quot;last_local_review_elapsed_seconds&quot;: 1036800,
+      &quot;last_reviewed_elapsed_seconds&quot;: 1036800,
+      &quot;opened_elapsed_seconds&quot;: 259200,
+      &quot;question&quot;: &quot;Does the observed concerning appearance persist or worsen?&quot;,
+      &quot;question_id&quot;: &quot;followup_tomato_18day_day_04&quot;,
+      &quot;status&quot;: &quot;open&quot;
+    }
+  ],
+  &quot;previous_evidence&quot;: &quot;The surface of the tomato in the current image shows no visible damage or defects compared to the previous image.&quot;,
+  &quot;previous_frame_sha256&quot;: &quot;ddfe22475f1801481a69c054756d5247e26e5848dc03fa6e986958bcbad03065&quot;,
+  &quot;previous_frame_uri&quot;: &quot;data/samples/tomato_18day/frames/RGB_13.png&quot;,
+  &quot;previous_observed_at&quot;: null,
+  &quot;previous_recommendation&quot;: &quot;LOW_COST_ONLY&quot;,
+  &quot;prior_frame_uri&quot;: &quot;data/samples/tomato_18day/frames/RGB_13.png&quot;,
+  &quot;prior_observation_id&quot;: &quot;tomato_18day_day_13&quot;,
+  &quot;review_required&quot;: false,
+  &quot;summary&quot;: &quot;Wrinkled, sunken surface with pronounced creasing and uneven texture; areas appear collapsed and discolored compared to smooth, taut skin&quot;,
+  &quot;temporal_change&quot;: &quot;stable&quot;
+}</pre></details></div>
+</article>
+<article class="day " id="d14">
+  <div class="dh"><div class="dn">Day 14</div><div class="imgs"><img src='../data/samples/tomato_18day/frames/RGB_13.png' alt=''><span>→</span><img src="../data/samples/tomato_18day/frames/RGB_14.png" alt=""></div></div>
+  <div class="col"><h4><span class="tag r">① READ</span> memory via <code>run-query</code></h4><code>SELECT event_json FROM tomato_lha_memory_events WHERE run_id='tomato_c_demo_v6_full' AND entity_id='tomato_01' AND elapsed_seconds &lt;= 1123199.999</code><div class='hint'>→ event <code>25e5c8652fc9</code></div>
+    <ul class="kv"><li><b>previous image</b> RGB_13.png</li>
+    <li><b>last GPT-5</b> 288 h</li>
+    <li><b>open questions</b> 1 open question(s)</li>
+    <li><b>last judgment</b> Wrinkled, sunken surface with pronounced creasing and uneven texture; areas appear collapsed and discolored co…</li></ul></div>
+  <div class="col"><h4><span class="tag d">② DECIDE</span> <b class=lo>LOW_COST_ONLY</b></h4>
+    <p class="why">Memory supplied the previous image (RGB_13.png) and prior notes incl. 1 open question → Liquid judged <b>stable</b> and recommended LOW_COST_ONLY. Only 24 h since last precision check (< 72 h).</p>
+    <div class="pill">Liquid local · 853+60 tok · $0</div><div class='pill lo'>GPT-5 skipped · 0 cloud tokens</div></div>
+  <div class="col"><h4><span class="tag w">③ WRITE</span> new memory via <code>insert-json</code></h4>
+    <div class="hint">tomato_lha_memory_events · event <code>eb0edd7eb77a</code> + agent_events + model_calls</div>
+    <table class="diff"><tr><th>field</th><th>before</th><th>after</th></tr><tr><td><code>previous_frame_uri</code><div class='hint'>comparison image for next step</div></td><td class='old'>RGB_13.png</td><td class='new'>RGB_14.png</td></tr><tr><td><code>open_questions</code><div class='hint'>open follow-up questions</div></td><td class='old'>1 open question(s)</td><td class='new'>1 open question(s)</td></tr></table>
+    <details><summary>Full memory row written</summary><pre>{
+  &quot;evidence&quot;: &quot;Wrinkled, sunken surface with pronounced creasing and uneven texture; areas appear collapsed and discolored compared to smooth, taut skin&quot;,
+  &quot;first_observation_elapsed_seconds&quot;: 0,
+  &quot;last_cheap_elapsed_seconds&quot;: 1123200,
+  &quot;last_observation_elapsed_seconds&quot;: 1123200,
+  &quot;last_observation_id&quot;: &quot;tomato_18day_day_14&quot;,
+  &quot;last_strong_anomaly&quot;: &quot;yes&quot;,
+  &quot;last_strong_elapsed_seconds&quot;: 1036800,
+  &quot;open_questions&quot;: [
+    {
+      &quot;due_elapsed_seconds&quot;: 1080000,
+      &quot;evidence_observation_id&quot;: &quot;tomato_18day_day_13&quot;,
+      &quot;last_local_review_elapsed_seconds&quot;: 1123200,
+      &quot;last_reviewed_elapsed_seconds&quot;: 1036800,
+      &quot;opened_elapsed_seconds&quot;: 259200,
+      &quot;question&quot;: &quot;Does the observed concerning appearance persist or worsen?&quot;,
+      &quot;question_id&quot;: &quot;followup_tomato_18day_day_04&quot;,
+      &quot;status&quot;: &quot;open&quot;
+    }
+  ],
+  &quot;previous_evidence&quot;: &quot;The surface of the tomato in the current image shows no visible damage or defects compared to the previous image.&quot;,
+  &quot;previous_frame_sha256&quot;: &quot;a2b7689f48aaf9b288c5990c01f28b3924a98747d67ce27bb3c9d7e9cb30d36e&quot;,
+  &quot;previous_frame_uri&quot;: &quot;data/samples/tomato_18day/frames/RGB_14.png&quot;,
+  &quot;previous_observed_at&quot;: null,
+  &quot;previous_recommendation&quot;: &quot;LOW_COST_ONLY&quot;,
+  &quot;prior_frame_uri&quot;: &quot;data/samples/tomato_18day/frames/RGB_13.png&quot;,
+  &quot;prior_observation_id&quot;: &quot;tomato_18day_day_13&quot;,
+  &quot;review_required&quot;: false,
+  &quot;summary&quot;: &quot;Wrinkled, sunken surface with pronounced creasing and uneven texture; areas appear collapsed and discolored compared to smooth, taut skin&quot;,
+  &quot;temporal_change&quot;: &quot;stable&quot;
+}</pre></details></div>
+</article>
+<article class="day " id="d15">
+  <div class="dh"><div class="dn">Day 15</div><div class="imgs"><img src='../data/samples/tomato_18day/frames/RGB_14.png' alt=''><span>→</span><img src="../data/samples/tomato_18day/frames/RGB_15.png" alt=""></div></div>
+  <div class="col"><h4><span class="tag r">① READ</span> memory via <code>run-query</code></h4><code>SELECT event_json FROM tomato_lha_memory_events WHERE run_id='tomato_c_demo_v6_full' AND entity_id='tomato_01' AND elapsed_seconds &lt;= 1209599.999</code><div class='hint'>→ event <code>eb0edd7eb77a</code></div>
+    <ul class="kv"><li><b>previous image</b> RGB_14.png</li>
+    <li><b>last GPT-5</b> 288 h</li>
+    <li><b>open questions</b> 1 open question(s)</li>
+    <li><b>last judgment</b> Wrinkled, sunken surface with pronounced creasing and uneven texture; areas appear collapsed and discolored co…</li></ul></div>
+  <div class="col"><h4><span class="tag d">② DECIDE</span> <b class=lo>LOW_COST_ONLY</b></h4>
+    <p class="why">Memory supplied the previous image (RGB_14.png) and prior notes incl. 1 open question → Liquid judged <b>stable</b> and recommended LOW_COST_ONLY. Only 48 h since last precision check (< 72 h).</p>
+    <div class="pill">Liquid local · 869+60 tok · $0</div><div class='pill lo'>GPT-5 skipped · 0 cloud tokens</div></div>
+  <div class="col"><h4><span class="tag w">③ WRITE</span> new memory via <code>insert-json</code></h4>
+    <div class="hint">tomato_lha_memory_events · event <code>a3290e082d01</code> + agent_events + model_calls</div>
+    <table class="diff"><tr><th>field</th><th>before</th><th>after</th></tr><tr><td><code>previous_frame_uri</code><div class='hint'>comparison image for next step</div></td><td class='old'>RGB_14.png</td><td class='new'>RGB_15.png</td></tr><tr><td><code>open_questions</code><div class='hint'>open follow-up questions</div></td><td class='old'>1 open question(s)</td><td class='new'>1 open question(s)</td></tr></table>
+    <details><summary>Full memory row written</summary><pre>{
+  &quot;evidence&quot;: &quot;Wrinkled, sunken surface with pronounced creasing and uneven texture; areas appear collapsed and discolored compared to smooth, taut skin&quot;,
+  &quot;first_observation_elapsed_seconds&quot;: 0,
+  &quot;last_cheap_elapsed_seconds&quot;: 1209600,
+  &quot;last_observation_elapsed_seconds&quot;: 1209600,
+  &quot;last_observation_id&quot;: &quot;tomato_18day_day_15&quot;,
+  &quot;last_strong_anomaly&quot;: &quot;yes&quot;,
+  &quot;last_strong_elapsed_seconds&quot;: 1036800,
+  &quot;open_questions&quot;: [
+    {
+      &quot;due_elapsed_seconds&quot;: 1080000,
+      &quot;evidence_observation_id&quot;: &quot;tomato_18day_day_13&quot;,
+      &quot;last_local_review_elapsed_seconds&quot;: 1209600,
+      &quot;last_reviewed_elapsed_seconds&quot;: 1036800,
+      &quot;opened_elapsed_seconds&quot;: 259200,
+      &quot;question&quot;: &quot;Does the observed concerning appearance persist or worsen?&quot;,
+      &quot;question_id&quot;: &quot;followup_tomato_18day_day_04&quot;,
+      &quot;status&quot;: &quot;open&quot;
+    }
+  ],
+  &quot;previous_evidence&quot;: &quot;The surface of the tomato in the current image shows no visible damage or defects compared to the previous image.&quot;,
+  &quot;previous_frame_sha256&quot;: &quot;59188fd942dee37bd95c5812eb70ee650402b7d0ea10fbd6ca6a1aef536b8f37&quot;,
+  &quot;previous_frame_uri&quot;: &quot;data/samples/tomato_18day/frames/RGB_15.png&quot;,
+  &quot;previous_observed_at&quot;: null,
+  &quot;previous_recommendation&quot;: &quot;LOW_COST_ONLY&quot;,
+  &quot;prior_frame_uri&quot;: &quot;data/samples/tomato_18day/frames/RGB_13.png&quot;,
+  &quot;prior_observation_id&quot;: &quot;tomato_18day_day_13&quot;,
+  &quot;review_required&quot;: false,
+  &quot;summary&quot;: &quot;Wrinkled, sunken surface with pronounced creasing and uneven texture; areas appear collapsed and discolored compared to smooth, taut skin&quot;,
+  &quot;temporal_change&quot;: &quot;stable&quot;
+}</pre></details></div>
+</article>
+<article class="day is-high" id="d16">
+  <div class="dh"><div class="dn">Day 16</div><div class="imgs"><img src='../data/samples/tomato_18day/frames/RGB_15.png' alt=''><span>→</span><img src="../data/samples/tomato_18day/frames/RGB_16.png" alt=""></div></div>
+  <div class="col"><h4><span class="tag r">① READ</span> memory via <code>run-query</code></h4><code>SELECT event_json FROM tomato_lha_memory_events WHERE run_id='tomato_c_demo_v6_full' AND entity_id='tomato_01' AND elapsed_seconds &lt;= 1295999.999</code><div class='hint'>→ event <code>a3290e082d01</code></div>
+    <ul class="kv"><li><b>previous image</b> RGB_15.png</li>
+    <li><b>last GPT-5</b> 288 h</li>
+    <li><b>open questions</b> 1 open question(s)</li>
+    <li><b>last judgment</b> Wrinkled, sunken surface with pronounced creasing and uneven texture; areas appear collapsed and discolored co…</li></ul></div>
+  <div class="col"><h4><span class="tag d">② DECIDE</span> <b class=hi>HIGH_COST_ANALYSIS</b></h4>
+    <p class="why">Memory says the last GPT-5 analysis was 72 h ago ≥ 72 h safety gap → precision check forced.</p>
+    <div class="pill">Liquid local · 869+60 tok · $0</div><div class='pill hi'>GPT-5 called · 705+76 tok · $0.00164</div><p class='quote'>“Severely wrinkled, sunken fruit with darkened, collapsed areas and a pale fuzzy patch on one side”</p></div>
+  <div class="col"><h4><span class="tag w">③ WRITE</span> new memory via <code>insert-json</code></h4>
+    <div class="hint">tomato_lha_memory_events · event <code>5471d55079cc</code> + agent_events + model_calls</div>
+    <table class="diff"><tr><th>field</th><th>before</th><th>after</th></tr><tr><td><code>previous_frame_uri</code><div class='hint'>comparison image for next step</div></td><td class='old'>RGB_15.png</td><td class='new'>RGB_16.png</td></tr><tr><td><code>last_strong_elapsed_seconds</code><div class='hint'>last GPT-5 time</div></td><td class='old'>288 h</td><td class='new'>360 h</td></tr><tr><td><code>summary</code><div class='hint'>summary</div></td><td class='old'>Wrinkled, sunken surface with pronounced creasing and uneven texture; areas appear collapsed and discolored compared to smooth, taut skin</td><td class='new'>Severely wrinkled, sunken fruit with darkened, collapsed areas and a pale fuzzy patch on one side</td></tr><tr><td><code>open_questions</code><div class='hint'>open follow-up questions</div></td><td class='old'>1 open question(s)</td><td class='new'>1 open question(s)</td></tr><tr><td><code>review_required</code><div class='hint'>review_required</div></td><td class='old'>False</td><td class='new'>True</td></tr></table>
+    <details><summary>Full memory row written</summary><pre>{
+  &quot;evidence&quot;: &quot;Severely wrinkled, sunken fruit with darkened, collapsed areas and a pale fuzzy patch on one side&quot;,
+  &quot;first_observation_elapsed_seconds&quot;: 0,
+  &quot;last_cheap_elapsed_seconds&quot;: 1296000,
+  &quot;last_observation_elapsed_seconds&quot;: 1296000,
+  &quot;last_observation_id&quot;: &quot;tomato_18day_day_16&quot;,
+  &quot;last_strong_anomaly&quot;: &quot;yes&quot;,
+  &quot;last_strong_elapsed_seconds&quot;: 1296000,
+  &quot;open_questions&quot;: [
+    {
+      &quot;due_elapsed_seconds&quot;: 1339200,
+      &quot;evidence_observation_id&quot;: &quot;tomato_18day_day_16&quot;,
+      &quot;last_local_review_elapsed_seconds&quot;: 1296000,
+      &quot;last_reviewed_elapsed_seconds&quot;: 1296000,
+      &quot;opened_elapsed_seconds&quot;: 259200,
+      &quot;question&quot;: &quot;Does the observed concerning appearance persist or worsen?&quot;,
+      &quot;question_id&quot;: &quot;followup_tomato_18day_day_04&quot;,
+      &quot;status&quot;: &quot;open&quot;
+    }
+  ],
+  &quot;previous_evidence&quot;: &quot;The surface of the tomato in the current image shows no visible damage or defects compared to the previous image.&quot;,
+  &quot;previous_frame_sha256&quot;: &quot;e8ec4c46aaddb0f1fd7e713bc396e1d14aff0aa2bc0ce35752a108acbde2d89e&quot;,
+  &quot;previous_frame_uri&quot;: &quot;data/samples/tomato_18day/frames/RGB_16.png&quot;,
+  &quot;previous_observed_at&quot;: null,
+  &quot;previous_recommendation&quot;: &quot;LOW_COST_ONLY&quot;,
+  &quot;prior_frame_uri&quot;: &quot;data/samples/tomato_18day/frames/RGB_16.png&quot;,
+  &quot;prior_observation_id&quot;: &quot;tomato_18day_day_16&quot;,
+  &quot;review_required&quot;: true,
+  &quot;summary&quot;: &quot;Severely wrinkled, sunken fruit with darkened, collapsed areas and a pale fuzzy patch on one side&quot;,
+  &quot;temporal_change&quot;: &quot;stable&quot;
+}</pre></details></div>
+</article>
+<article class="day " id="d17">
+  <div class="dh"><div class="dn">Day 17</div><div class="imgs"><img src='../data/samples/tomato_18day/frames/RGB_16.png' alt=''><span>→</span><img src="../data/samples/tomato_18day/frames/RGB_17.png" alt=""></div></div>
+  <div class="col"><h4><span class="tag r">① READ</span> memory via <code>run-query</code></h4><code>SELECT event_json FROM tomato_lha_memory_events WHERE run_id='tomato_c_demo_v6_full' AND entity_id='tomato_01' AND elapsed_seconds &lt;= 1382399.999</code><div class='hint'>→ event <code>5471d55079cc</code></div>
+    <ul class="kv"><li><b>previous image</b> RGB_16.png</li>
+    <li><b>last GPT-5</b> 360 h</li>
+    <li><b>open questions</b> 1 open question(s)</li>
+    <li><b>last judgment</b> Severely wrinkled, sunken fruit with darkened, collapsed areas and a pale fuzzy patch on one side</li></ul></div>
+  <div class="col"><h4><span class="tag d">② DECIDE</span> <b class=lo>LOW_COST_ONLY</b></h4>
+    <p class="why">Memory supplied the previous image (RGB_16.png) and prior notes incl. 1 open question → Liquid judged <b>stable</b> and recommended LOW_COST_ONLY. Only 24 h since last precision check (< 72 h).</p>
+    <div class="pill">Liquid local · 857+60 tok · $0</div><div class='pill lo'>GPT-5 skipped · 0 cloud tokens</div></div>
+  <div class="col"><h4><span class="tag w">③ WRITE</span> new memory via <code>insert-json</code></h4>
+    <div class="hint">tomato_lha_memory_events · event <code>63f156772fc8</code> + agent_events + model_calls</div>
+    <table class="diff"><tr><th>field</th><th>before</th><th>after</th></tr><tr><td><code>previous_frame_uri</code><div class='hint'>comparison image for next step</div></td><td class='old'>RGB_16.png</td><td class='new'>RGB_17.png</td></tr><tr><td><code>open_questions</code><div class='hint'>open follow-up questions</div></td><td class='old'>1 open question(s)</td><td class='new'>1 open question(s)</td></tr><tr><td><code>review_required</code><div class='hint'>review_required</div></td><td class='old'>True</td><td class='new'>False</td></tr></table>
+    <details><summary>Full memory row written</summary><pre>{
+  &quot;evidence&quot;: &quot;Severely wrinkled, sunken fruit with darkened, collapsed areas and a pale fuzzy patch on one side&quot;,
+  &quot;first_observation_elapsed_seconds&quot;: 0,
+  &quot;last_cheap_elapsed_seconds&quot;: 1382400,
+  &quot;last_observation_elapsed_seconds&quot;: 1382400,
+  &quot;last_observation_id&quot;: &quot;tomato_18day_day_17&quot;,
+  &quot;last_strong_anomaly&quot;: &quot;yes&quot;,
+  &quot;last_strong_elapsed_seconds&quot;: 1296000,
+  &quot;open_questions&quot;: [
+    {
+      &quot;due_elapsed_seconds&quot;: 1339200,
+      &quot;evidence_observation_id&quot;: &quot;tomato_18day_day_16&quot;,
+      &quot;last_local_review_elapsed_seconds&quot;: 1382400,
+      &quot;last_reviewed_elapsed_seconds&quot;: 1296000,
+      &quot;opened_elapsed_seconds&quot;: 259200,
+      &quot;question&quot;: &quot;Does the observed concerning appearance persist or worsen?&quot;,
+      &quot;question_id&quot;: &quot;followup_tomato_18day_day_04&quot;,
+      &quot;status&quot;: &quot;open&quot;
+    }
+  ],
+  &quot;previous_evidence&quot;: &quot;The surface of the tomato in the current image shows no visible damage or defects compared to the previous image.&quot;,
+  &quot;previous_frame_sha256&quot;: &quot;b8bea61bf1d28e6efaaaff92ce95a750a5229f20e9f214ac32a0c5910f8cbaed&quot;,
+  &quot;previous_frame_uri&quot;: &quot;data/samples/tomato_18day/frames/RGB_17.png&quot;,
+  &quot;previous_observed_at&quot;: null,
+  &quot;previous_recommendation&quot;: &quot;LOW_COST_ONLY&quot;,
+  &quot;prior_frame_uri&quot;: &quot;data/samples/tomato_18day/frames/RGB_16.png&quot;,
+  &quot;prior_observation_id&quot;: &quot;tomato_18day_day_16&quot;,
+  &quot;review_required&quot;: false,
+  &quot;summary&quot;: &quot;Severely wrinkled, sunken fruit with darkened, collapsed areas and a pale fuzzy patch on one side&quot;,
+  &quot;temporal_change&quot;: &quot;stable&quot;
+}</pre></details></div>
+</article>
+<article class="day " id="d18">
+  <div class="dh"><div class="dn">Day 18</div><div class="imgs"><img src='../data/samples/tomato_18day/frames/RGB_17.png' alt=''><span>→</span><img src="../data/samples/tomato_18day/frames/RGB_18.png" alt=""></div></div>
+  <div class="col"><h4><span class="tag r">① READ</span> memory via <code>run-query</code></h4><code>SELECT event_json FROM tomato_lha_memory_events WHERE run_id='tomato_c_demo_v6_full' AND entity_id='tomato_01' AND elapsed_seconds &lt;= 1468799.999</code><div class='hint'>→ event <code>63f156772fc8</code></div>
+    <ul class="kv"><li><b>previous image</b> RGB_17.png</li>
+    <li><b>last GPT-5</b> 360 h</li>
+    <li><b>open questions</b> 1 open question(s)</li>
+    <li><b>last judgment</b> Severely wrinkled, sunken fruit with darkened, collapsed areas and a pale fuzzy patch on one side</li></ul></div>
+  <div class="col"><h4><span class="tag d">② DECIDE</span> <b class=lo>LOW_COST_ONLY</b></h4>
+    <p class="why">Memory supplied the previous image (RGB_17.png) and prior notes incl. 1 open question → Liquid judged <b>stable</b> and recommended LOW_COST_ONLY. Only 48 h since last precision check (< 72 h).</p>
+    <div class="pill">Liquid local · 873+60 tok · $0</div><div class='pill lo'>GPT-5 skipped · 0 cloud tokens</div></div>
+  <div class="col"><h4><span class="tag w">③ WRITE</span> new memory via <code>insert-json</code></h4>
+    <div class="hint">tomato_lha_memory_events · event <code>1e38d855fe86</code> + agent_events + model_calls</div>
+    <table class="diff"><tr><th>field</th><th>before</th><th>after</th></tr><tr><td><code>previous_frame_uri</code><div class='hint'>comparison image for next step</div></td><td class='old'>RGB_17.png</td><td class='new'>RGB_18.png</td></tr><tr><td><code>open_questions</code><div class='hint'>open follow-up questions</div></td><td class='old'>1 open question(s)</td><td class='new'>1 open question(s)</td></tr></table>
+    <details><summary>Full memory row written</summary><pre>{
+  &quot;evidence&quot;: &quot;Severely wrinkled, sunken fruit with darkened, collapsed areas and a pale fuzzy patch on one side&quot;,
+  &quot;first_observation_elapsed_seconds&quot;: 0,
+  &quot;last_cheap_elapsed_seconds&quot;: 1468800,
+  &quot;last_observation_elapsed_seconds&quot;: 1468800,
+  &quot;last_observation_id&quot;: &quot;tomato_18day_day_18&quot;,
+  &quot;last_strong_anomaly&quot;: &quot;yes&quot;,
+  &quot;last_strong_elapsed_seconds&quot;: 1296000,
+  &quot;open_questions&quot;: [
+    {
+      &quot;due_elapsed_seconds&quot;: 1339200,
+      &quot;evidence_observation_id&quot;: &quot;tomato_18day_day_16&quot;,
+      &quot;last_local_review_elapsed_seconds&quot;: 1468800,
+      &quot;last_reviewed_elapsed_seconds&quot;: 1296000,
+      &quot;opened_elapsed_seconds&quot;: 259200,
+      &quot;question&quot;: &quot;Does the observed concerning appearance persist or worsen?&quot;,
+      &quot;question_id&quot;: &quot;followup_tomato_18day_day_04&quot;,
+      &quot;status&quot;: &quot;open&quot;
+    }
+  ],
+  &quot;previous_evidence&quot;: &quot;The surface of the tomato in the current image shows no visible damage or defects compared to the previous image.&quot;,
+  &quot;previous_frame_sha256&quot;: &quot;5937b919e48b57d251a4b2d7fa81222f9bbcb479d0b830f39c374f7dba5ea99c&quot;,
+  &quot;previous_frame_uri&quot;: &quot;data/samples/tomato_18day/frames/RGB_18.png&quot;,
+  &quot;previous_observed_at&quot;: null,
+  &quot;previous_recommendation&quot;: &quot;LOW_COST_ONLY&quot;,
+  &quot;prior_frame_uri&quot;: &quot;data/samples/tomato_18day/frames/RGB_16.png&quot;,
+  &quot;prior_observation_id&quot;: &quot;tomato_18day_day_16&quot;,
+  &quot;review_required&quot;: false,
+  &quot;summary&quot;: &quot;Severely wrinkled, sunken fruit with darkened, collapsed areas and a pale fuzzy patch on one side&quot;,
+  &quot;temporal_change&quot;: &quot;stable&quot;
+}</pre></details></div>
+</article></section>
+</div></body></html>

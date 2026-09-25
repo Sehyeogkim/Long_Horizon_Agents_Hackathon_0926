@@ -94,7 +94,7 @@ class ModelsTest(unittest.TestCase):
         self.assertIsNone(estimate_gpt5_cost({"input_tokens": 10, "output_tokens": 2, "cached_input_tokens": None}))
 
     @patch("tomato_agent.models._image_url", return_value="data:image/png;base64,AA")
-    def test_liquid_no_action_and_invalid_feature_rejected(self, *_):
+    def test_liquid_invalid_feature_rejected(self, *_):
         model = LiquidModel(self.path)
         model.process = Mock()
         model.process.poll.return_value = None
@@ -107,6 +107,63 @@ class ModelsTest(unittest.TestCase):
         self.assertEqual(record["usage"]["output_tokens"], 30)
         self.assertEqual(record["api_cost_usd_estimate"], 0)
         self.assertNotIn("secret_future_label", json.dumps(request.call_args.args[1]))
+
+    @patch("tomato_agent.models._image_url", side_effect=lambda path, resize=False: "data:image/png;base64," + path.name)
+    def test_temporal_payload_has_ordered_pair_bounded_notes_and_timestamps(self, *_):
+        model = LiquidModel(self.path)
+        model.process = Mock()
+        model.process.poll.return_value = None
+        result = {"quality": "usable", "evidence": "Same surface",
+                  "change_level": "stable", "recommendation": "LOW_COST_ONLY",
+                  }
+        response = {"usage": {"prompt_tokens": 500, "completion_tokens": 150}, "choices": [{
+            "finish_reason": "stop", "message": {"content": json.dumps(result)}}]}
+        observation = dict(self.observation, observation_id="now", elapsed_seconds=3600, observed_at=None)
+        memory = {"previous_frame_uri": "before.png", "last_observation_id": "before",
+                  "last_observation_elapsed_seconds": 0, "previous_observed_at": None,
+                  "summary": "x" * 5000, "previous_evidence": "y" * 5000, "future_label": "LEAKED",
+                  "open_questions": [{"question": "z" * 5000, "due_elapsed_seconds": 3000,
+                                      "status": "open", "ground_truth": "LEAKED"}] * 8}
+        with patch("tomato_agent.models._request_json", return_value=response) as request:
+            record = model.observe(observation, memory)
+        self.assertEqual(record["status"], "success")
+        content = request.call_args.args[1]["messages"][0]["content"]
+        images = [p["image_url"]["url"] for p in content if p["type"] == "image_url"]
+        self.assertEqual(images, ["data:image/png;base64,before.png", "data:image/png;base64,irrelevant.png"])
+        text = json.dumps([p for p in content if p["type"] == "text"])
+        for forbidden in ("LEAKED", "secret_future_label", "x" * 901, "y" * 401, "z" * 251):
+            self.assertNotIn(forbidden, text)
+        self.assertEqual(record["input_context"]["previous"]["elapsed_seconds"], 0)
+        self.assertIsNone(record["input_context"]["current"]["observed_at"])
+        self.assertEqual(len(record["input_context"]["prior_notes"]["open_questions"]), 3)
+        self.assertTrue(record["input_context"]["prior_notes"]["open_questions"][0]["due_now"])
+        self.assertEqual(record["input_observation_ids"], ["before", "now"])
+        memory["last_observation_elapsed_seconds"] = 3600
+        with patch("tomato_agent.models._request_json") as request:
+            record = model.observe(observation, memory)
+        self.assertEqual(record["error"], "invalid_prior_time")
+        request.assert_not_called()
+
+    @patch("tomato_agent.models._image_url", return_value="data:image/png;base64,AA")
+    def test_first_image_cannot_claim_temporal_change(self, *_):
+        model = LiquidModel(self.path)
+        model.process = Mock()
+        model.process.poll.return_value = None
+        result = {"quality": "usable", "evidence": "Clear surface",
+                  "change_level": "stable", "recommendation": "LOW_COST_ONLY",
+                  }
+        response = {"usage": {"prompt_tokens": 50, "completion_tokens": 50}, "choices": [{
+            "finish_reason": "stop", "message": {"content": json.dumps(result)}}]}
+        with patch("tomato_agent.models._request_json", return_value=response):
+            record = model.observe(dict(self.observation, elapsed_seconds=0))
+        self.assertEqual(record["error"], "invalid_temporal_context")
+        self.assertEqual(record["usage"]["output_tokens"], 50)
+
+    def test_placeholder_evidence_is_not_a_valid_observation(self):
+        from tomato_agent.models import _validate
+        for placeholder in ("no_history", "no_evidence", "No evidence.", "stable", "unknown"):
+            self.assertFalse(_validate({"quality": "usable", "change_level": "stable",
+                             "evidence": placeholder, "recommendation": "LOW_COST_ONLY"}, "liquid"))
 
     def test_liquid_refuses_existing_server_without_termination(self):
         model = LiquidModel(self.path)

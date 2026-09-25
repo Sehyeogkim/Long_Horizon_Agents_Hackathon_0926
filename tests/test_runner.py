@@ -30,6 +30,8 @@ class RunnerTests(unittest.TestCase):
         self.manifest.write_text("".join(json.dumps(row) + "\n" for row in self.rows))
         self.cheap_calls, self.strong_calls = [], []
         self.cheap_contexts = []
+        self.cheap_memories = []
+        self.first_recommendation = "HIGH_COST_ANALYSIS"
         self.fail_strong_once = False
         case = self
 
@@ -44,10 +46,13 @@ class RunnerTests(unittest.TestCase):
             def __exit__(self, *_):
                 pass
 
-            def observe(self, observation):
+            def observe(self, observation, memory=None):
+                case.cheap_memories.append(copy.deepcopy(memory))
                 case.cheap_calls.append((self.run_id, copy.deepcopy(observation)))
-                return case.call("liquid", {"visible_anomaly": "no", "quality": "usable",
-                                            "evidence": "No visible damage", "features": ["none"]})
+                return case.call("liquid", {"quality": "usable",
+                                            "evidence": "No visible damage",
+                                            "change_level": "stable" if memory and memory.get("previous_frame_uri") else "no_history",
+                                            "recommendation": case.first_recommendation if observation["elapsed_seconds"] == 0 else "LOW_COST_ONLY"})
 
         class FakeStrong:
             def __init__(self, output_dir, max_calls):
@@ -100,24 +105,40 @@ class RunnerTests(unittest.TestCase):
         self.assertEqual((len(self.cheap_calls), len(self.strong_calls)), (first_cheap, first_strong))
         self.replay("C")
         self.assertEqual([obs["observation_id"] for _, obs in self.cheap_calls], ["o0", "o1", "o2"])
-        self.assertEqual([obs["observation_id"] for _, obs, *_ in self.strong_calls], ["o0", "o2"])
+        self.assertEqual([obs["observation_id"] for _, obs, *_ in self.strong_calls], ["o0"])
         self.assertEqual(len(self.events("C", "agent_events")), 3)
 
-    def test_due_question_triggers_c_only_and_runs_are_isolated(self):
+    def test_due_question_can_stay_low_and_runs_are_isolated(self):
         self.replay("C")
         self.replay("B")
         c = self.events("C", "agent_events")
-        b = self.events("B", "agent_events")
-        self.assertIn("unresolved_question_due", c[-1]["rules"])
-        self.assertNotIn("unresolved_question_due", b[-1]["rules"])
-        self.assertEqual(sum(e["action"] == "HIGH_COST_ANALYSIS" for e in c), 2)
-        self.assertEqual(sum(e["action"] == "HIGH_COST_ANALYSIS" for e in b), 1)
+        self.assertEqual(sum(e["action"] == "HIGH_COST_ANALYSIS" for e in c), 1)
+        self.assertEqual(c[-1]["action"], "LOW_COST_ONLY")
+        self.assertTrue(self.cheap_memories[2]["open_questions"])
         for run_id, _, memory, _ in self.strong_calls:
             if run_id == "fixture_B":
                 self.assertIsNone(memory)
         for event in self.events("B", "memory_events"):
             self.assertNotIn("summary", event["state"])
             self.assertNotIn("open_questions", event["state"])
+
+    def test_first_can_stay_low_and_next_uses_immediate_low_observation(self):
+        self.first_recommendation = "LOW_COST_ONLY"
+        self.replay("C")
+        self.assertEqual(self.strong_calls, [])
+        self.assertEqual(self.cheap_memories[1]["last_observation_id"], "o0")
+        self.assertEqual(self.cheap_memories[2]["last_observation_id"], "o1")
+        self.assertEqual(self.cheap_memories[2]["previous_frame_uri"], self.rows[1]["frame_uri"])
+        self.assertEqual(self.cheap_memories[2]["first_observation_elapsed_seconds"], 0)
+        self.assertNotIn("last_strong_elapsed_seconds", self.cheap_memories[2])
+
+    def test_changed_implementation_blocks_resume(self):
+        from unittest.mock import patch
+        self.replay("A", limit=1)
+        with patch("tomato_agent.runner.implementation_identity", return_value={"changed": True}):
+            with self.assertRaisesRegex(ValueError, "configuration differs"):
+                self.replay("A")
+        self.assertEqual(len(self.strong_calls), 1)
 
     def test_manifest_labels_never_pass_to_models(self):
         self.replay("C")

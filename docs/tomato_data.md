@@ -1,52 +1,52 @@
-# 실제 토마토 18일 시계열 데이터
+# Real tomato observations over 18 days
 
-주 시연 데이터는 [Zenodo 21943147](https://zenodo.org/records/21943147)의 **같은 토마토 한 개를 18일 동안 촬영한 실제 RGB 사진 18장**이다. 원본 PNG 18개와 원본 XLSX를 내려받았으며 전체 5,160,730바이트, 19개 파일 모두 Zenodo가 제공한 MD5와 일치한다. 라이선스는 **CC BY 4.0**, 제공자는 Elvianto Hartono, DOI는 `10.5281/zenodo.21943147`이다.
+The primary demo dataset is [Zenodo 21943147](https://zenodo.org/records/21943147): **18 real RGB photographs of the same tomato over 18 days**. All 18 original PNG files and the original XLSX were downloaded. The 19 files total 5,160,730 bytes, and every file matches the MD5 supplied by Zenodo. The license is **CC BY 4.0**, the contributor is Elvianto Hartono, and the DOI is `10.5281/zenodo.21943147`.
 
-이는 저장 중 외관 변화 시연용 단일 개체 데이터다. 18장은 독립적인 18개 토마토가 아니며, 감염 여부·병명·생리적 신선도·섭취 안전성 정답은 제공되지 않는다. 모델의 문장이나 영상상의 변화를 새 병리 정답으로 만들지 않는다.
+This is a single-specimen dataset for demonstrating visible changes during storage. The 18 images are not 18 independent tomatoes. The source provides no ground truth for infection, disease identity, physiological freshness, or food safety. Model descriptions and visible changes must not be turned into new pathology labels.
 
-## 바로 사용할 파일
+## Files ready to use
 
-- 실행 입력: `data/samples/tomato_18day/observations.jsonl`
-- 원본 이미지: `data/samples/tomato_18day/frames/RGB_01.png`부터 `RGB_18.png`
-- 원본 상태 자료: `data/samples/tomato_18day/source/Tomato_RGB_UV_Data_Availability.xlsx`
-- 출처·라이선스·파일별 SHA256/MD5: `data/samples/tomato_18day/provenance.json`
-- 원본 API 메타데이터: `data/catalog/tomato/zenodo_21943147.json`
-- Nimble 원문 검증: `data/catalog/tomato/nimble/20260925T215658529501Z/request_00.json`
+- Runtime input: `data/samples/tomato_18day/observations.jsonl`
+- Original images: `data/samples/tomato_18day/frames/RGB_01.png` through `RGB_18.png`
+- Original environmental data: `data/samples/tomato_18day/source/Tomato_RGB_UV_Data_Availability.xlsx`
+- Provenance, license, and per-file SHA256/MD5: `data/samples/tomato_18day/provenance.json`
+- Original API metadata: `data/catalog/tomato/zenodo_21943147.json`
+- Nimble source-page verification: `data/catalog/tomato/nimble/20260925T215658529501Z/request_00.json`
 
-최초 자료 지목은 사용자 작업 맥락에서 이루어졌고, 원문 확인은 Nimble, 파일 목록·라이선스·체크섬 확인은 Zenodo 공개 API, 바이너리 다운로드는 직접 HTTPS로 수행했다. Nimble 응답 자체를 이미지 데이터로 간주하지 않는다.
+The dataset was first identified in the user's task context. Nimble verified the source page; the public Zenodo API supplied the file list, license, and checksums; direct HTTPS downloaded the binaries. The Nimble response itself is not image data.
 
 ```sh
 python3 scripts/collect_tomatoes.py
 ```
 
-수집기는 최대 네 파일을 병렬로 받는다. 요청당 30초, 최대 두 번 시도하고, 파일 크기 및 MD5를 확인한 뒤 저장한다. 검증된 로컬 파일이 있으면 재사용한다. 전체 선택 데이터는 100 MiB 미만으로 제한한다. XLSX는 변경하지 않고 표준 Python ZIP/XML로 원시 환경값만 읽는다.
+The collector downloads up to four files in parallel. Each request has a 30-second timeout and at most two attempts. It checks file size and MD5 before saving, and reuses verified local files. The entire selected dataset is capped below 100 MiB. The XLSX remains unchanged; standard Python ZIP/XML readers extract only the raw environmental values.
 
-## 입력 계약과 상태값
+## Input contract and environmental values
 
-`dataset_id=zenodo_tomato_18day_21943147`, `dataset_version=21943147`, `sequence_id=tomato_18day_specimen_01`, `entity_id=tomato_01`로 고정했다. 관측 ID는 `tomato_18day_day_01`부터 `_18`이다. `frame_uri`는 저장소 루트 기준 상대 경로다.
+The identifiers are fixed as `dataset_id=zenodo_tomato_18day_21943147`, `dataset_version=21943147`, `sequence_id=tomato_18day_specimen_01`, and `entity_id=tomato_01`. Observation IDs range from `tomato_18day_day_01` through `_18`. Each `frame_uri` is relative to the repository root.
 
-`elapsed_seconds`는 일차 순서로부터 계산한 상대 축이다. 1일차는 0초, 18일차는 1,468,800초다. 절대 촬영 시각은 원본에서 확인되지 않아 모든 `observed_at`은 `null`이다. 정밀한 촬영 간격이나 시각을 추가 추정하지 않는다. 모든 행에서 `synthetic=false`, `disease_label=null`이다.
+`elapsed_seconds` is a relative axis derived from the day index: day 1 is 0 seconds and day 18 is 1,468,800 seconds. Absolute capture times were not established from the source, so every `observed_at` is `null`. No additional precision in capture times or intervals is inferred. Every row has `synthetic=false` and `disease_label=null`.
 
-| `state` 필드 | 실제 원본 | 단위·주의점 |
+| `state` field | Original source | Unit and interpretation |
 | --- | --- | --- |
-| `storage_day` | `Environment_Context`의 `Day` | 1–18일 관측 인덱스 |
+| `storage_day` | `Day` in `Environment_Context` | Observation day index, 1–18 |
 | `temperature_c` | `Temperature_C` | °C |
 | `relative_humidity_pct` | `RelativeHumidity_pct` | % |
-| `eco2_ppm` | `eCO2_ppm` | SGP30의 등가 CO₂ 출력. 기준급 직접 CO₂ 측정값이 아님 |
-| `tvoc_ppb` | `TVOC_ppb` | SGP30의 총휘발성유기화합물 센서 출력 |
+| `eco2_ppm` | `eCO2_ppm` | Equivalent CO₂ output from an SGP30; not a reference-grade direct CO₂ measurement |
+| `tvoc_ppb` | `TVOC_ppb` | Total volatile organic compound sensor output from an SGP30 |
 
-`Environment_Context!A4:E21`을 `Day`로 정확히 연결했다. 각 JSONL 행의 `state_source`에 원본 파일·시트·행 범위가 있다. 이 네 환경값은 원본 연구에서 맥락 자료로 제공한 값이며 질병 정답이 아니다. 원본의 일부 상관계수 파생 시트에는 캐시된 `#NAME?` 오류가 있어, 해당 계산값은 입력하지 않았다. 원시 환경값 18행은 모두 숫자이며 별도 `openpyxl` 읽기 결과와 일치한다.
+Rows `Environment_Context!A4:E21` were joined exactly by `Day`. Each JSONL row records the original file, sheet, and row range in `state_source`. These four environmental measurements are contextual data supplied by the original study, not disease labels. Some derived correlation sheets contain cached `#NAME?` errors, so those calculated values were excluded. All 18 raw environmental rows are numeric and match a separate `openpyxl` reading.
 
-## 검증 범위
+## Verification scope
 
-18개 PNG의 디코딩·SHA256, 원본 파일 19개의 MD5, 고유 관측 ID, 일차 순서, 상대 시간, XLSX 상태값 대응을 검증했다. 첫날과 마지막 날 사진도 직접 확인했다. 병리 평가나 조기진단 성능 검증은 수행하지 않았다. 같은 단일 개체의 사진을 임의로 나눠 일반화 성능으로 보고하면 안 된다.
+Verification covered decoding and SHA256 of the 18 PNGs, MD5 of all 19 original files, unique observation IDs, day order, relative time, and matching environmental values from the XLSX. The first and last images were also inspected directly. No pathology evaluation or early-diagnosis performance validation was performed. Arbitrary splits of photographs of this one specimen must not be reported as evidence of generalization.
 
-## TR-6 추가 자료: 큰 ZIP에서 토마토만 선택 가능
+## Additional TR-6 data: select tomatoes from a large ZIP
 
-[TriModal Ripeness 6](https://figshare.com/articles/dataset/30783827), DOI `10.6084/m9.figshare.30783827.v1`, 라이선스 **CC BY 4.0**도 공식 Figshare API로 확인했다. 전체 자료는 단일 `TR-6.zip`, 20,388,430,589바이트다. 전체 ZIP은 내려받지 않았다.
+[TriModal Ripeness 6](https://figshare.com/articles/dataset/30783827), DOI `10.6084/m9.figshare.30783827.v1`, was also verified through the official Figshare API. Its license is **CC BY 4.0**. The complete dataset is one `TR-6.zip` file of 20,388,430,589 bytes. The full ZIP was not downloaded.
 
-서버의 HTTP Range 지원을 실제로 확인하고 ZIP64 꼬리와 중앙 디렉터리만 읽었다. 전송량은 **2,754,017바이트**다. 토마토 경로의 9,183개 항목(디렉터리 10개 포함)을 `data/catalog/tomato/tr6_tomato_file_index.json`에 저장했다. `Normal/Tomato/sRGB_images`에는 디렉터리를 제외한 2,244개 JPG가 있으며, IR-fusion 및 methane TXT도 있다. `Classified`에는 `Not_spoiled`/`Spoiled` 구조가 있으나 `Normal`과 중복될 수 있다.
+HTTP Range support was verified, and only the ZIP64 tail and central directory were read. The transfer totaled **2,754,017 bytes**. The 9,183 entries under tomato paths, including 10 directories, were saved to `data/catalog/tomato/tr6_tomato_file_index.json`. Excluding directory entries, `Normal/Tomato/sRGB_images` contains 2,244 JPGs. IR-fusion images and methane TXT files also exist. `Classified` contains `Not_spoiled`/`Spoiled` directories, which may overlap with `Normal`.
 
-예시 이름 `TR-6/Normal/Tomato/sRGB_images/20250723_092034.jpg`는 촬영 시각 형식을 담고 있다. 다만 이 목록만으로 물리적 개체 ID, 센서와 이미지의 정확한 대응, 클래스별 실험 절차를 확정하지 않았다. 이 단계에서는 TR-6 이미지·센서 본문을 받거나 주 시연 manifest에 합치지 않았다. 향후 ZIP 중앙 디렉터리의 파일 오프셋을 이용해 토마토 일부만 가져오는 방법은 기술적으로 가능하며, 추출 시 ZIP CRC와 원본 메타데이터를 추가 검증해야 한다.
+An example name, `TR-6/Normal/Tomato/sRGB_images/20250723_092034.jpg`, contains a capture-time pattern. This listing alone does not establish physical specimen IDs, exact sensor-to-image alignment, or the experimental procedure behind each class. No TR-6 image or sensor payloads were downloaded or merged into the primary demo manifest at this stage. Selective tomato downloads using central-directory offsets are technically possible; extraction would also require checking ZIP CRCs and source metadata.
 
-Figshare의 Nimble 페이지 추출은 HTTP 500으로 실패했다. TR-6의 위 파일 목록·라이선스·범위 다운로드 결과는 **공식 API 및 실제 Range 요청에서 확인한 결과**다.
+Nimble extraction of the Figshare page failed with HTTP 500. The TR-6 file listing, license, and range-download results above come from **the official API and actual HTTP Range requests**.

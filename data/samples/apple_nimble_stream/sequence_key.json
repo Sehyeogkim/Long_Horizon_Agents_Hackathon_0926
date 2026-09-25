@@ -1,0 +1,128 @@
+[
+ {
+  "observation_id": "apple_stream_obs_01",
+  "frame_uri": "data/apple/extracted/apple_nimble/02_processed_images/01_original_images/test_set/healthy/IMG_(1).jpg",
+  "label": "healthy",
+  "lesion": "0.19079",
+  "source_url": "https://data.mendeley.com/public-files/datasets/9zgkwwv9j8/files/7e62db70-7f4b-45f9-86ae-618740b7b0aa/file_downloaded"
+ },
+ {
+  "observation_id": "apple_stream_obs_02",
+  "frame_uri": "data/apple/extracted/apple_nimble/02_processed_images/01_original_images/test_set/healthy/IMG_(10).jpg",
+  "label": "healthy",
+  "lesion": "0.00947",
+  "source_url": "https://data.mendeley.com/public-files/datasets/9zgkwwv9j8/files/0f529324-7314-48f7-bbfd-9e97344a8f07/file_downloaded"
+ },
+ {
+  "observation_id": "apple_stream_obs_03",
+  "frame_uri": "data/apple/extracted/apple_nimble/02_processed_images/01_original_images/test_set/healthy/IMG_(11).jpg",
+  "label": "healthy",
+  "lesion": "0.00486",
+  "source_url": "https://data.mendeley.com/public-files/datasets/9zgkwwv9j8/files/a38bc272-7c1f-42d3-b0ae-07395c7cc1aa/file_downloaded"
+ },
+ {
+  "observation_id": "apple_stream_obs_04",
+  "frame_uri": "data/apple/extracted/apple_nimble/02_processed_images/01_original_images/test_set/healthy/IMG_(12).jpg",
+  "label": "healthy",
+  "lesion": "0.0065",
+  "source_url": "https://data.mendeley.com/public-files/datasets/9zgkwwv9j8/files/7430b5a5-6f06-4033-aa19-d7545bf1b3bc/file_downloaded"
+ },
+ {
+  "observation_id": "apple_stream_obs_05",
+  "frame_uri": "data/apple/extracted/apple_nimble/02_processed_images/01_original_images/test_set/healthy/IMG_(13).jpg",
+  "label": "healthy",
+  "lesion": "0.00455",
+  "source_url": "https://data.mendeley.com/public-files/datasets/9zgkwwv9j8/files/395cb7c4-1204-469d-917d-ff2d6351cdb0/file_downloaded"
+ },
+ {
+  "observation_id": "apple_stream_obs_06",
+  "frame_uri": "data/apple/extracted/apple_nimble/02_processed_images/01_original_images/test_set/healthy/IMG_(2).jpg",
+  "label": "healthy",
+  "lesion": "0.01794",
+  "source_url": "https://data.mendeley.com/public-files/datasets/9zgkwwv9j8/files/d1d0d12a-4033-4393-91fc-1229409ba68e/file_downloaded"
+ },
+ {
+  "observation_id": "apple_stream_obs_07",
+  "frame_uri": "data/apple/extracted/apple_nimble/02_processed_images/01_original_images/validation_set/anthracnose/IMG_(5).jpg",
+  "label": "anthracnose_early",
+  "lesion": "0.00823",
+  "source_url": "https://data.mendeley.com/public-files/datasets/9zgkwwv9j8/files/2e861884-3d6c-44ef-8642-846701f3a256/file_downloaded"
+ },
+ {
+  "observation_id": "apple_stream_obs_08",
+  "frame_uri": "data/apple/extracted/apple_nimble/02_processed_images/01_original_images/training_set/anthracnose/A1_(54).jpg",
+  "label": "anthracnose_early",
+  "lesion": "0.01333",
+  "source_url": "https://data.mendeley.com/public-files/datasets/9zgkwwv9j8/files/d9dab4ab-6a3e-417b-8be6-cce6f91f8e8f/file_downloaded"
+ },
+ {
+  "observation_id": "apple_stream_obs_09",
+  "frame_uri": "data/apple/extracted/apple_nimble/02_processed_images/01_original_images/training_set/anthracnose/A1_(2).jpg",
+  "label": "anthracnose_early",
+  "lesion": "0.01785",
+  "source_url": "https://data.mendeley.com/public-files/datasets/9zgkwwv9j8/files/9c06ec61-fd34-4e5e-8567-3659198bd3f7/file_downloaded"
+ },
+ {
+  "observation_id": "apple_stream_obs_10",
+  "frame_uri": "data/apple/extracted/apple_nimble/02_processed_images/01_original_images/training_set/anthracnose/A1_(55).jpg",
+  "label": "anthracnose_advanced",
+  "lesion": "0.02517",
+  "source_url": "https://data.mendeley.com/public-files/datasets/9zgkwwv9j8/files/5cfb555e-78ba-424c-8511-9ce44354e5b5/file_downloaded"
+ },
+ {
+  "observation_id": "apple_stream_obs_11",
+  "frame_uri": "data/apple/extracted/apple_nimble/02_processed_images/01_original_images/training_set/anthracnose/A1_(68).jpg",
+  "label": "anthracnose_advanced",
+  "lesion": "0.05386",
+  "source_url": "https://data.mendeley.com/public-files/datasets/9zgkwwv9j8/files/0a51cf04-2893-46cd-9fb9-dd73a0c48126/file_downloaded"
+ },
+ {
+  "observation_id": "apple_stream_obs_12",
+  "frame_uri": "data/apple/extracted/apple_nimble/02_processed_images/01_original_images/validation_set/anthracnose/IMG_(17).jpg",
+  "label": "anthracnose_advanced",
+  "lesion": "0.08334",
+  "source_url": "https://data.mendeley.com/public-files/datasets/9zgkwwv9j8/files/f99be049-eb28-416e-a900-0b2cb568c55c/file_downloaded"
+ },
+ {
+  "observation_id": "apple_stream_obs_13",
+  "frame_uri": "data/apple/extracted/apple_nimble/02_processed_images/01_original_images/validation_set/anthracnose/IMG_(9).jpg",
+  "label": "anthracnose_advanced",
+  "lesion": "0.10884",
+  "source_url": "https://data.mendeley.com/public-files/datasets/9zgkwwv9j8/files/827ae10f-c486-4ecd-843c-26b485f646e6/file_downloaded"
+ },
+ {
+  "observation_id": "apple_stream_obs_14",
+  "frame_uri": "data/apple/extracted/apple_nimble/02_processed_images/01_original_images/training_set/anthracnose/A1_(72).jpg",
+  "label": "anthracnose_advanced",
+  "lesion": "0.14452",
+  "source_url": "https://data.mendeley.com/public-files/datasets/9zgkwwv9j8/files/e1eaf178-685a-439d-bf1e-f90cfd613090/file_downloaded"
+ },
+ {
+  "observation_id": "apple_stream_obs_15",
+  "frame_uri": "data/apple/extracted/apple_nimble/02_processed_images/01_original_images/training_set/anthracnose/A1_(10).jpg",
+  "label": "anthracnose_advanced",
+  "lesion": "0.1794",
+  "source_url": "https://data.mendeley.com/public-files/datasets/9zgkwwv9j8/files/f65aedf5-3c57-4e18-b7fc-1468d6f75c89/file_downloaded"
+ },
+ {
+  "observation_id": "apple_stream_obs_16",
+  "frame_uri": "data/apple/extracted/apple_nimble/02_processed_images/01_original_images/training_set/anthracnose/A1_(67).jpg",
+  "label": "anthracnose_advanced",
+  "lesion": "0.23855",
+  "source_url": "https://data.mendeley.com/public-files/datasets/9zgkwwv9j8/files/eabdbdb4-f2de-4bb4-a6a0-191c241f2cb4/file_downloaded"
+ },
+ {
+  "observation_id": "apple_stream_obs_17",
+  "frame_uri": "data/apple/extracted/apple_nimble/02_processed_images/01_original_images/training_set/anthracnose/A1_(82).jpg",
+  "label": "anthracnose_advanced",
+  "lesion": "0.35179",
+  "source_url": "https://data.mendeley.com/public-files/datasets/9zgkwwv9j8/files/22f56bbd-6a6f-4394-abcd-c47940dc7446/file_downloaded"
+ },
+ {
+  "observation_id": "apple_stream_obs_18",
+  "frame_uri": "data/apple/extracted/apple_nimble/02_processed_images/01_original_images/test_set/anthracnose/IMG_(20).jpg",
+  "label": "anthracnose_advanced",
+  "lesion": "0.65264",
+  "source_url": "https://data.mendeley.com/public-files/datasets/9zgkwwv9j8/files/7b7062d8-b738-4d1d-a225-7149f962e551/file_downloaded"
+ }
+]

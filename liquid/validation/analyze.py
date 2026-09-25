@@ -31,6 +31,12 @@ def summarize(rows, gates):
         return row['parsed']['visible_anomaly']
     matrix = {label:{key:sum(perception(r)==key for r in group) for key in ('yes','no','uncertain','invalid')}
               for label,group in [('healthy',healthy),('infected',infected)]}
+    def feature(row):
+        parsed=row.get('parsed')
+        value=parsed.get('visible_anomaly') if isinstance(parsed,dict) else None
+        return value if value in ('yes','no','uncertain') else 'invalid'
+    feature_matrix={label:{key:sum(feature(r)==key for r in group) for key in ('yes','no','uncertain','invalid')}
+                    for label,group in [('healthy',healthy),('infected',infected)]}
     referred = lambda r: r['guard_action']!='routine_observation'
     tp,fn = sum(referred(r) for r in infected),sum(not referred(r) for r in infected)
     fp,tn = sum(referred(r) for r in healthy),sum(not referred(r) for r in healthy)
@@ -40,6 +46,9 @@ def summarize(rows, gates):
     clear = [r for r in rows if r['case']=='memory_clear']
     result = {'n':len(appearances),'source_class_counts':{'healthy':len(healthy),'infected':len(infected)},
         'perception_matrix':matrix,
+        'perception_matrix_note':'Full-contract-invalid outputs appear as invalid even if visible_anomaly was present',
+        'visible_anomaly_field_matrix':feature_matrix,
+        'visible_anomaly_field_validity':ratio(sum(feature(r)!='invalid' for r in appearances),len(appearances)),
         'conservative_referral_matrix':{'TP':tp,'FN':fn,'FP':fp,'TN':tn},
         'infected_source_referral_recall':ratio(tp,len(infected)),
         'healthy_source_referral_rate':ratio(fp,len(healthy)),

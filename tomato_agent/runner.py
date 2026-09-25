@@ -109,6 +109,27 @@ def report_run(store, run_id, variant):
                             "Policy fixed before replay; this is a development demonstration"]}
 
 
+def implementation_identity():
+    """Pin prompts, adapter/controller code and local runtime artifact metadata on resume."""
+    from .models import LiquidModel, GPT5Model, LIQUID_PROMPT, GPT_PROMPT
+    code = {name: hashlib.sha256((ROOT / "tomato_agent" / name).read_bytes()).hexdigest()
+            for name in ("models.py", "policy.py", "runner.py", "storage.py")}
+    artifacts = {}
+    for name in ("runtime/llama-b11191/llama-server", "models/LFM2.5-VL-1.6B-Q4_K_M.gguf",
+                 "models/mmproj-LFM2.5-VL-1.6b-Q8_0.gguf"):
+        path = ROOT / "liquid" / name
+        stat = path.stat() if path.exists() else None
+        artifacts[name] = {"bytes": stat.st_size, "mtime_ns": stat.st_mtime_ns} if stat else None
+    return {"code_sha256": code, "runtime_artifacts_size_mtime": artifacts,
+            "liquid_model": LiquidModel.model, "liquid_prompt_version": LiquidModel.prompt_version,
+            "liquid_prompt_sha256": hashlib.sha256(LIQUID_PROMPT.encode()).hexdigest(),
+            "gpt_model": GPT5Model.model, "gpt_prompt_version": GPT5Model.prompt_version,
+            "gpt_prompt_sha256": hashlib.sha256(GPT_PROMPT.encode()).hexdigest(),
+            "liquid_settings": {"seed": 42, "temperature": 0, "max_tokens": 512,
+                                "context": 4096, "image_max_tokens": 256, "resize": 512},
+            "gpt_settings": {"reasoning": "minimal", "max_output_tokens": 1500, "detail": "high"}}
+
+
 def run(manifest, output_dir, variant="C", backend="local", run_id=None, limit=None,
         max_gap_hours=72, max_gpt_calls=20, max_api_cost_usd=1.0, liquid_factory=None,
         strong_factory=None, store_factory=None):
@@ -129,6 +150,7 @@ def run(manifest, output_dir, variant="C", backend="local", run_id=None, limit=N
     config = {"run_id": run_id, "variant": variant, "backend": backend,
               "manifest_sha256": hashlib.sha256(Path(manifest).read_bytes()).hexdigest(),
               "policy_version": POLICY_VERSION, "max_gap_hours": max_gap_hours,
+              "implementation": implementation_identity(),
               "dataset_id": rows[0]["dataset_id"], "manifest": str(Path(manifest).resolve())}
     config_path = run_dir / "run.json"
     if config_path.exists() and json.loads(config_path.read_text()) != config:
@@ -185,7 +207,7 @@ def run(manifest, output_dir, variant="C", backend="local", run_id=None, limit=N
                     memory = (prior or {}).get("state", {})
                     # B does not receive semantic memory, even if storage is accidentally enriched.
                     if variant != "C":
-                        memory = {k: v for k, v in memory.items() if k.startswith("last_") and k != "last_strong_anomaly"}
+                        memory = {k: v for k, v in memory.items() if (k.startswith("last_") and k != "last_strong_anomaly") or k == "first_observation_elapsed_seconds"}
                     obs_event = event_for(observation, run_id, variant, "observations", {"observation": observation})
                     store.append("observations", obs_event)
 
@@ -220,7 +242,7 @@ def run(manifest, output_dir, variant="C", backend="local", run_id=None, limit=N
                             cache[key] = call
                         return call
 
-                    cheap = model_call("cheap", lambda obs: liquid.observe(obs)) if variant != "A" else None
+                    cheap = model_call("cheap", lambda obs: liquid.observe(obs, memory if variant == "C" else None)) if variant != "A" else None
                     decision = choose_path(observation, cheap or {}, memory, variant, max_gap_hours)
                     strong_call = None
                     if decision["action"] == HIGH:
@@ -231,10 +253,12 @@ def run(manifest, output_dir, variant="C", backend="local", run_id=None, limit=N
                     memory_event = event_for(observation, run_id, variant, "memory_events", {"state": state})
                     store.append("memory_events", memory_event)
                     event = event_for(observation, run_id, variant, "agent_events", {
-                        **decision, "selected_by": "explicit_policy", "policy_version": POLICY_VERSION,
+                        **decision, "selected_by": "baseline" if variant == "A" else "liquid_recommendation_with_guards", "policy_version": POLICY_VERSION,
                         "status": "completed", "memory_event_id": memory_event["event_id"],
                         "prior_memory_event_id": (prior or {}).get("event_id"),
                         "cheap_call_id": (cheap or {}).get("call_id"),
+                        "temporal_change": ((cheap or {}).get("result") or {}).get("change_level"),
+                        "liquid_recommendation": ((cheap or {}).get("result") or {}).get("recommendation"),
                         "strong_call_id": (strong_call or {}).get("call_id"),
                         "evidence": ((strong_call or cheap or {}).get("result") or {}).get("evidence", ""),
                         "visible_anomaly": ((strong_call or cheap or {}).get("result") or {}).get("visible_anomaly"),

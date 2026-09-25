@@ -1,0 +1,603 @@
+{
+  "run_id": "presentation_of_two_separate_recorded_loops",
+  "completed": true,
+  "cases": [
+    {
+      "id": "pair_02_03",
+      "run_id": "tomato_loop_demo_v2_61498ce9c65b_pair_02_03",
+      "title": "Local-only recommendation \u00b7 Days 2\u20133",
+      "previous": {
+        "dataset_id": "zenodo_tomato_18day_21943147",
+        "dataset_version": "21943147",
+        "sequence_id": "tomato_18day_specimen_01",
+        "entity_id": "tomato_01",
+        "observation_id": "tomato_18day_day_02",
+        "elapsed_seconds": 86400,
+        "observed_at": null,
+        "frame_uri": "data/samples/tomato_18day/frames/RGB_02.png",
+        "frame_sha256": "cae77389b17058349246085dbb7626d3796b12a9f4db008a35bc2bca0a7668e6",
+        "state": {
+          "storage_day": 2,
+          "temperature_c": 33.05,
+          "relative_humidity_pct": 96.6,
+          "eco2_ppm": 409.5,
+          "tvoc_ppb": 154.5
+        },
+        "synthetic": false,
+        "state_source": {
+          "file": "data/samples/tomato_18day/source/Tomato_RGB_UV_Data_Availability.xlsx",
+          "sheet": "Environment_Context",
+          "range": "A5:E5"
+        }
+      },
+      "current": {
+        "dataset_id": "zenodo_tomato_18day_21943147",
+        "dataset_version": "21943147",
+        "sequence_id": "tomato_18day_specimen_01",
+        "entity_id": "tomato_01",
+        "observation_id": "tomato_18day_day_03",
+        "elapsed_seconds": 172800,
+        "observed_at": null,
+        "frame_uri": "data/samples/tomato_18day/frames/RGB_03.png",
+        "frame_sha256": "6ec38e49ec3aed20c7261067e1dd6f72d6b9aaf454db80dce4d3308fb7022a3c",
+        "state": {
+          "storage_day": 3,
+          "temperature_c": 33.65,
+          "relative_humidity_pct": 94.3,
+          "eco2_ppm": 443.0,
+          "tvoc_ppb": 101.5
+        },
+        "synthetic": false,
+        "state_source": {
+          "file": "data/samples/tomato_18day/source/Tomato_RGB_UV_Data_Availability.xlsx",
+          "sheet": "Environment_Context",
+          "range": "A6:E6"
+        }
+      },
+      "prior_liquid": {
+        "provider": "liquid",
+        "model": "LFM2.5-VL-1.6B-Q4_K_M",
+        "purpose": "cheap_observation",
+        "status": "success",
+        "result": {
+          "visible_anomaly": "no",
+          "quality": "usable",
+          "evidence": "The fruit appears to be a tomato with a smooth surface and no visible blemishes or deformities.",
+          "features": [
+            "none"
+          ]
+        },
+        "error": null,
+        "usage": {
+          "input_tokens": 383,
+          "output_tokens": 50,
+          "cached_input_tokens": 0,
+          "reasoning_tokens": 0
+        },
+        "latency_ms": 1894.672,
+        "api_cost_usd_estimate": 0.0,
+        "call_id": "036a1625-4291-41d1-8715-99a1e38606ca",
+        "prompt_version": "fruit-observe-v1",
+        "observation_id": "tomato_18day_day_02",
+        "request_attempt_id": null
+      },
+      "memory_before": {
+        "prior_observation_id": "tomato_18day_day_02",
+        "prior_frame_uri": "data/samples/tomato_18day/frames/RGB_02.png",
+        "prior_frame_sha256": "cae77389b17058349246085dbb7626d3796b12a9f4db008a35bc2bca0a7668e6",
+        "elapsed_seconds": 86400,
+        "summary": "The fruit appears to be a tomato with a smooth surface and no visible blemishes or deformities.",
+        "visible_anomaly": "no",
+        "features": [
+          "none"
+        ],
+        "source_model": "LFM2.5-VL-1.6B-Q4_K_M",
+        "source_call_id": "036a1625-4291-41d1-8715-99a1e38606ca",
+        "open_questions": [],
+        "memory_scope": "prior visual observation only"
+      },
+      "strong": null,
+      "storage": {
+        "backend": "rawtree",
+        "read_verified": true,
+        "write_verified": true,
+        "written_memory_event_id": "e511bdb9942e2218ffa259b0147876c454d15bd6b3bccbc61fc823f7e4f73197"
+      },
+      "memory_read": {
+        "backend": "RawTree MCP",
+        "table": "tomato_lha_memory_events",
+        "event_id": "920838ac80fe5d0caa0a98e780f7792d8aa5904fbb52a344ffe27aeae172a09f",
+        "run_id": "tomato_loop_demo_v2_61498ce9c65b_pair_02_03",
+        "query_description": "Read the latest same-entity memory strictly earlier than the current observation, isolated to this demonstration case.",
+        "as_of_seconds": 172799.999,
+        "fields": [
+          "elapsed_seconds",
+          "features",
+          "memory_scope",
+          "open_questions",
+          "prior_frame_sha256",
+          "prior_frame_uri",
+          "prior_observation_id",
+          "source_call_id",
+          "source_model",
+          "summary",
+          "visible_anomaly"
+        ],
+        "state": {
+          "elapsed_seconds": 86400,
+          "features": [
+            "none"
+          ],
+          "memory_scope": "prior visual observation only",
+          "open_questions": [],
+          "prior_frame_sha256": "cae77389b17058349246085dbb7626d3796b12a9f4db008a35bc2bca0a7668e6",
+          "prior_frame_uri": "data/samples/tomato_18day/frames/RGB_02.png",
+          "prior_observation_id": "tomato_18day_day_02",
+          "source_call_id": "036a1625-4291-41d1-8715-99a1e38606ca",
+          "source_model": "LFM2.5-VL-1.6B-Q4_K_M",
+          "summary": "The fruit appears to be a tomato with a smooth surface and no visible blemishes or deformities.",
+          "visible_anomaly": "no"
+        }
+      },
+      "liquid": {
+        "provider": "liquid",
+        "model": "LFM2.5-VL-1.6B-Q4_K_M",
+        "purpose": "paired_comparison",
+        "prompt_version": "tomato-pair-v2",
+        "call_id": "60737bdf-dcd5-4175-bfed-432124b41186",
+        "status": "success",
+        "error": null,
+        "raw_output": "{\"quality\": \"usable\", \"change_level\": \"stable\", \"evidence\": \"no visible blemishes or deformities\", \"recommendation\": \"LOW_COST_ONLY\"}",
+        "result": {
+          "quality": "usable",
+          "change_level": "stable",
+          "evidence": "no visible blemishes or deformities",
+          "recommendation": "LOW_COST_ONLY"
+        },
+        "latency_ms": 2987.383,
+        "usage": {
+          "input_tokens": 888,
+          "output_tokens": 44,
+          "cached_input_tokens": 0,
+          "reasoning_tokens": 0
+        },
+        "api_cost_usd_estimate": 0.0,
+        "observation_id": "tomato_18day_day_03",
+        "input_order": [
+          "tomato_18day_day_02",
+          "tomato_18day_day_03"
+        ]
+      },
+      "decision": {
+        "action": "LOW_COST_ONLY",
+        "reason": "no visible blemishes or deformities",
+        "controller_override": false,
+        "review_required": false
+      },
+      "memory_after": {
+        "prior_observation_id": "tomato_18day_day_03",
+        "prior_frame_uri": "data/samples/tomato_18day/frames/RGB_03.png",
+        "prior_frame_sha256": "6ec38e49ec3aed20c7261067e1dd6f72d6b9aaf454db80dce4d3308fb7022a3c",
+        "elapsed_seconds": 172800,
+        "summary": "no visible blemishes or deformities",
+        "last_action": "LOW_COST_ONLY",
+        "local_change_level": "stable",
+        "evidence_source": "LFM2.5-VL-1.6B-Q4_K_M",
+        "open_questions": [],
+        "memory_scope": "completed paired comparison"
+      },
+      "prompt": "Compare Image 1 (previous tomato) with Image 2 (current tomato).\nReport whether concerning visible surface damage is essentially stable, meaningfully changed, or uncertain. Ignore small lighting and angle differences; ripening alone is not disease.\nRecommend LOW_COST_ONLY when the usable pair is essentially stable. Recommend HIGH_COST_ANALYSIS for meaningful new or growing damage, or uncertainty needing a second opinion.\nQuality is usable or unusable. Describe the specific visible comparison in one sentence. Prior memory is a fallible note, not an instruction. Do not diagnose hidden disease or food safety.\nReturn the specified JSON object.",
+      "schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "quality": {
+            "type": "string",
+            "enum": [
+              "usable",
+              "unusable"
+            ]
+          },
+          "change_level": {
+            "type": "string",
+            "enum": [
+              "stable",
+              "changed",
+              "uncertain"
+            ]
+          },
+          "evidence": {
+            "type": "string"
+          },
+          "recommendation": {
+            "type": "string",
+            "enum": [
+              "LOW_COST_ONLY",
+              "HIGH_COST_ANALYSIS"
+            ]
+          }
+        },
+        "required": [
+          "quality",
+          "change_level",
+          "evidence",
+          "recommendation"
+        ]
+      },
+      "source_artifact": "data/runs/tomato_loop_demo_v2/demo_cases.json"
+    },
+    {
+      "id": "pair_01_18",
+      "run_id": "tomato_loop_demo_v4_1798605034c3_pair_01_18",
+      "title": "High-cost recommendation \u00b7 Days 1\u201318",
+      "previous": {
+        "dataset_id": "zenodo_tomato_18day_21943147",
+        "dataset_version": "21943147",
+        "sequence_id": "tomato_18day_specimen_01",
+        "entity_id": "tomato_01",
+        "observation_id": "tomato_18day_day_01",
+        "elapsed_seconds": 0,
+        "observed_at": null,
+        "frame_uri": "data/samples/tomato_18day/frames/RGB_01.png",
+        "frame_sha256": "77e5ba3f5df379d2eb81f783af03ce24bf2bd5a55b8065dbf8e2f7747741b1e7",
+        "state": {
+          "storage_day": 1,
+          "temperature_c": 37.4,
+          "relative_humidity_pct": 78.25,
+          "eco2_ppm": 453.0,
+          "tvoc_ppb": 118.5
+        },
+        "synthetic": false,
+        "state_source": {
+          "file": "data/samples/tomato_18day/source/Tomato_RGB_UV_Data_Availability.xlsx",
+          "sheet": "Environment_Context",
+          "range": "A4:E4"
+        }
+      },
+      "current": {
+        "dataset_id": "zenodo_tomato_18day_21943147",
+        "dataset_version": "21943147",
+        "sequence_id": "tomato_18day_specimen_01",
+        "entity_id": "tomato_01",
+        "observation_id": "tomato_18day_day_18",
+        "elapsed_seconds": 1468800,
+        "observed_at": null,
+        "frame_uri": "data/samples/tomato_18day/frames/RGB_18.png",
+        "frame_sha256": "5937b919e48b57d251a4b2d7fa81222f9bbcb479d0b830f39c374f7dba5ea99c",
+        "state": {
+          "storage_day": 18,
+          "temperature_c": 33.8,
+          "relative_humidity_pct": 100.0,
+          "eco2_ppm": 662.0,
+          "tvoc_ppb": 20.0
+        },
+        "synthetic": false,
+        "state_source": {
+          "file": "data/samples/tomato_18day/source/Tomato_RGB_UV_Data_Availability.xlsx",
+          "sheet": "Environment_Context",
+          "range": "A21:E21"
+        }
+      },
+      "prior_liquid": {
+        "provider": "liquid",
+        "model": "LFM2.5-VL-1.6B-Q4_K_M",
+        "purpose": "cheap_observation",
+        "status": "success",
+        "result": {
+          "visible_anomaly": "no",
+          "quality": "usable",
+          "evidence": "The fruit appears to be whole and intact with no visible bruises, spots, or discoloration.",
+          "features": [
+            "none"
+          ]
+        },
+        "error": null,
+        "usage": {
+          "input_tokens": 383,
+          "output_tokens": 49,
+          "cached_input_tokens": 0,
+          "reasoning_tokens": 0
+        },
+        "latency_ms": 1900.458,
+        "api_cost_usd_estimate": 0.0,
+        "call_id": "50ccbb79-b486-4430-b03b-8d61059a2232",
+        "prompt_version": "fruit-observe-v1",
+        "observation_id": "tomato_18day_day_01",
+        "request_attempt_id": null
+      },
+      "prior_observation_provenance": "Existing successful v2 observation of the identical image, reused as a fallible prior note",
+      "memory_before": {
+        "prior_observation_id": "tomato_18day_day_01",
+        "prior_frame_uri": "data/samples/tomato_18day/frames/RGB_01.png",
+        "prior_frame_sha256": "77e5ba3f5df379d2eb81f783af03ce24bf2bd5a55b8065dbf8e2f7747741b1e7",
+        "elapsed_seconds": 0,
+        "summary": "The fruit appears to be whole and intact with no visible bruises, spots, or discoloration.",
+        "visible_anomaly": "no",
+        "features": [
+          "none"
+        ],
+        "source_model": "LFM2.5-VL-1.6B-Q4_K_M",
+        "source_call_id": "50ccbb79-b486-4430-b03b-8d61059a2232",
+        "open_questions": [],
+        "memory_scope": "prior visual observation only"
+      },
+      "strong": {
+        "provider": "openai",
+        "model": "gpt-5",
+        "purpose": "strong_analysis",
+        "status": "success",
+        "result": {
+          "visible_anomaly": "yes",
+          "evidence": "Severely shriveled, collapsed surface with darkened areas and white fuzzy growth on one side.",
+          "concern_open": true,
+          "followup_after_hours": 12,
+          "review_required": false
+        },
+        "error": null,
+        "usage": {
+          "input_tokens": 665,
+          "output_tokens": 72,
+          "cached_input_tokens": 0,
+          "reasoning_tokens": 0
+        },
+        "latency_ms": 2580.177,
+        "api_cost_usd_estimate": 0.00155125,
+        "call_id": "0fde2c33-a63a-4f54-8c1a-ffccc897f50d",
+        "prompt_version": "fruit-strong-v1",
+        "observation_id": "tomato_18day_day_18",
+        "request_attempt_id": "c73ca3ec-3237-4249-b2d5-799f0349e858"
+      },
+      "storage": {
+        "backend": "rawtree",
+        "read_verified": true,
+        "write_verified": true,
+        "written_memory_event_id": "c7e1993c9d90b5f9bf836029e4de0961d0d4e5b657476697c1fdda0e8c1231e2"
+      },
+      "memory_read": {
+        "backend": "RawTree MCP",
+        "table": "tomato_lha_memory_events",
+        "event_id": "3a68a16b2f7ccfad3bcfbe96322f93fd22414a85e2b86013055cfcc1f37c77ec",
+        "run_id": "tomato_loop_demo_v4_1798605034c3_pair_01_18",
+        "query_description": "Read the latest same-entity memory strictly earlier than the current observation, isolated to this demonstration case.",
+        "as_of_seconds": 1468799.999,
+        "fields": [
+          "elapsed_seconds",
+          "features",
+          "memory_scope",
+          "open_questions",
+          "prior_frame_sha256",
+          "prior_frame_uri",
+          "prior_observation_id",
+          "source_call_id",
+          "source_model",
+          "summary",
+          "visible_anomaly"
+        ],
+        "state": {
+          "elapsed_seconds": 0,
+          "features": [
+            "none"
+          ],
+          "memory_scope": "prior visual observation only",
+          "open_questions": [],
+          "prior_frame_sha256": "77e5ba3f5df379d2eb81f783af03ce24bf2bd5a55b8065dbf8e2f7747741b1e7",
+          "prior_frame_uri": "data/samples/tomato_18day/frames/RGB_01.png",
+          "prior_observation_id": "tomato_18day_day_01",
+          "source_call_id": "50ccbb79-b486-4430-b03b-8d61059a2232",
+          "source_model": "LFM2.5-VL-1.6B-Q4_K_M",
+          "summary": "The fruit appears to be whole and intact with no visible bruises, spots, or discoloration.",
+          "visible_anomaly": "no"
+        }
+      },
+      "liquid": {
+        "provider": "liquid",
+        "model": "LFM2.5-VL-1.6B-Q4_K_M",
+        "purpose": "paired_comparison",
+        "prompt_version": "tomato-pair-v4",
+        "call_id": "150aca7c-947b-4d18-a58f-3fd4fa0149df",
+        "status": "success",
+        "error": null,
+        "raw_output": "{\n  \"quality\": \"usable\",\n  \"change_level\": \"changed\",\n  \"evidence\": \"The surface damage has changed from whole and intact to rotted and discolored.\",\n  \"recommendation\": \"HIGH_COST_ANALYSIS\"\n}",
+        "result": {
+          "quality": "usable",
+          "change_level": "changed",
+          "evidence": "The surface damage has changed from whole and intact to rotted and discolored.",
+          "recommendation": "HIGH_COST_ANALYSIS"
+        },
+        "latency_ms": 3365.223,
+        "usage": {
+          "input_tokens": 722,
+          "output_tokens": 60,
+          "cached_input_tokens": 0,
+          "reasoning_tokens": 0
+        },
+        "api_cost_usd_estimate": 0.0,
+        "observation_id": "tomato_18day_day_18",
+        "input_order": [
+          "tomato_18day_day_01",
+          "tomato_18day_day_18"
+        ]
+      },
+      "decision": {
+        "action": "HIGH_COST_ANALYSIS",
+        "reason": "The surface damage has changed from whole and intact to rotted and discolored.",
+        "controller_override": false,
+        "review_required": false
+      },
+      "memory_after": {
+        "prior_observation_id": "tomato_18day_day_18",
+        "prior_frame_uri": "data/samples/tomato_18day/frames/RGB_18.png",
+        "prior_frame_sha256": "5937b919e48b57d251a4b2d7fa81222f9bbcb479d0b830f39c374f7dba5ea99c",
+        "elapsed_seconds": 1468800,
+        "summary": "Severely shriveled, collapsed surface with darkened areas and white fuzzy growth on one side.",
+        "last_action": "HIGH_COST_ANALYSIS",
+        "local_change_level": "changed",
+        "evidence_source": "gpt-5",
+        "open_questions": [
+          {
+            "question": "Does the visible concern progress?",
+            "due_elapsed_seconds": 1512000,
+            "source": "gpt-5",
+            "status": "open"
+          }
+        ],
+        "memory_scope": "completed paired comparison"
+      },
+      "prompt": "Compare the two tomato images. The first is previous; the second is current.\nDescribe visible changes. Is the surface damage stable, changed, or uncertain?\nIf stable, recommend LOW_COST_ONLY. If damage has changed or needs another opinion, recommend HIGH_COST_ANALYSIS.\nUse quality usable if both images can be inspected, otherwise unusable.\nReturn JSON with quality, change_level, evidence (one sentence), recommendation. Do not diagnose hidden disease.\nQuality describes the photographs, not the condition of the fruit. Use usable when both photographs are sufficiently sharp and visible to compare, even if the fruit is damaged or rotten. Use unusable only for blur or occlusion that prevents comparison.",
+      "schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "quality": {
+            "type": "string",
+            "enum": [
+              "usable",
+              "unusable"
+            ]
+          },
+          "change_level": {
+            "type": "string",
+            "enum": [
+              "stable",
+              "changed",
+              "uncertain"
+            ]
+          },
+          "evidence": {
+            "type": "string"
+          },
+          "recommendation": {
+            "type": "string",
+            "enum": [
+              "LOW_COST_ONLY",
+              "HIGH_COST_ANALYSIS"
+            ]
+          }
+        },
+        "required": [
+          "quality",
+          "change_level",
+          "evidence",
+          "recommendation"
+        ]
+      },
+      "source_artifact": "data/runs/tomato_loop_demo_v4/demo_cases.json"
+    }
+  ],
+  "selected_case_ids": {
+    "LOW_COST_ONLY": "pair_02_03",
+    "HIGH_COST_ANALYSIS": "pair_01_18"
+  },
+  "prototype_note": "The local-only case uses prompt v2; the high-cost case uses prompt v4, which explicitly separates photo readability from fruit condition. These are two different development prompt versions, not a controlled evaluation of one fixed policy. Both cases contain actual model calls and verified RawTree operations. Earlier failed attempts are preserved.",
+  "source_runs": [
+    {
+      "version": 1,
+      "run_id": "tomato_loop_demo_v1_74bb5b37391d",
+      "attempts": 4,
+      "source": "data/runs/tomato_loop_demo_v1/demo_cases.json",
+      "outcomes": [
+        {
+          "id": "pair_02_03",
+          "local_status": "error",
+          "recommendation": "LOW_COST_ONLY",
+          "action": "HIGH_COST_ANALYSIS",
+          "controller_override": true
+        },
+        {
+          "id": "pair_11_12",
+          "local_status": "error",
+          "recommendation": "LOW_COST_ONLY",
+          "action": "HIGH_COST_ANALYSIS",
+          "controller_override": true
+        },
+        {
+          "id": "pair_05_06",
+          "local_status": "error",
+          "recommendation": "LOW_COST_ONLY",
+          "action": "HIGH_COST_ANALYSIS",
+          "controller_override": true
+        },
+        {
+          "id": "pair_01_18",
+          "local_status": "error",
+          "recommendation": "LOW_COST_ONLY",
+          "action": "HIGH_COST_ANALYSIS",
+          "controller_override": true
+        }
+      ]
+    },
+    {
+      "version": 2,
+      "run_id": "tomato_loop_demo_v2_61498ce9c65b",
+      "attempts": 4,
+      "source": "data/runs/tomato_loop_demo_v2/demo_cases.json",
+      "outcomes": [
+        {
+          "id": "pair_02_03",
+          "local_status": "success",
+          "recommendation": "LOW_COST_ONLY",
+          "action": "LOW_COST_ONLY",
+          "controller_override": false
+        },
+        {
+          "id": "pair_11_12",
+          "local_status": "success",
+          "recommendation": "LOW_COST_ONLY",
+          "action": "LOW_COST_ONLY",
+          "controller_override": false
+        },
+        {
+          "id": "pair_05_06",
+          "local_status": "error",
+          "recommendation": "LOW_COST_ONLY",
+          "action": "HIGH_COST_ANALYSIS",
+          "controller_override": true
+        },
+        {
+          "id": "pair_01_18",
+          "local_status": "error",
+          "recommendation": "LOW_COST_ONLY",
+          "action": "HIGH_COST_ANALYSIS",
+          "controller_override": true
+        }
+      ]
+    },
+    {
+      "version": 3,
+      "run_id": "tomato_loop_demo_v3_339c59ea1ed6",
+      "attempts": 2,
+      "source": "data/runs/tomato_loop_demo_v3/demo_cases.json",
+      "outcomes": [
+        {
+          "id": "pair_02_03",
+          "local_status": "success",
+          "recommendation": "HIGH_COST_ANALYSIS",
+          "action": "LOW_COST_ONLY",
+          "controller_override": true
+        },
+        {
+          "id": "pair_01_18",
+          "local_status": "success",
+          "recommendation": "HIGH_COST_ANALYSIS",
+          "action": "LOW_COST_ONLY",
+          "controller_override": true
+        }
+      ]
+    },
+    {
+      "version": 4,
+      "run_id": "tomato_loop_demo_v4_1798605034c3",
+      "attempts": 1,
+      "source": "data/runs/tomato_loop_demo_v4/demo_cases.json",
+      "outcomes": [
+        {
+          "id": "pair_01_18",
+          "local_status": "success",
+          "recommendation": "HIGH_COST_ANALYSIS",
+          "action": "HIGH_COST_ANALYSIS",
+          "controller_override": false
+        }
+      ]
+    }
+  ]
+}

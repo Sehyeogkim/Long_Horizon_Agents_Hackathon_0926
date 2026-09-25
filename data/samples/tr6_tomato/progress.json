@@ -1,0 +1,20 @@
+{
+  "expected_frames": 2244,
+  "expected_compressed_bytes": 3984925186,
+  "expected_image_bytes": 4163502423,
+  "expected_range_bytes": 4132165246,
+  "planned_range_batches": 253,
+  "status": "completed",
+  "verified_frames": 2244,
+  "failed_frames": 0,
+  "image_bytes": 4163502423,
+  "network_bytes_this_run": 3244723110,
+  "resumed_frames": 388,
+  "started_at": "2026-09-25T22:26:08.857512+00:00",
+  "license": "CC BY 4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "full_archive_downloaded": false,
+  "full_archive_md5_verified": false,
+  "updated_at": "2026-09-25T22:30:25.119532+00:00",
+  "errors": []
+}

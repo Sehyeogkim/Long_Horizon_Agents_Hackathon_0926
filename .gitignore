@@ -18,3 +18,8 @@ data/runs/
 # In-progress validation runs and raw HTTP session headers
 liquid/validation/runs/
 liquid/validation/source_research/*headers*.txt
+
+# Large source datasets (re-download with scripts/; catalogs live in RawTree)
+data/apple/
+data/samples/tr6_tomato/frames/
+*.lock

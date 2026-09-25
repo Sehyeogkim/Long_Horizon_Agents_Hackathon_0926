@@ -1,8 +1,8 @@
-# 토마토 에이전트 이벤트 저장과 복원
+# Tomato agent event storage and recovery
 
-`tomato_agent/storage.py`는 로컬 JSONL 영속 저장과 공식 RawTree MCP 저장을 같은 `EventStore` 인터페이스로 제공한다. RawTree 모드도 로컬 저널을 반드시 유지한다. REST API로 우회하지 않으며 `scripts/rawtree_mcp_probe.py`의 공식 stdio MCP client를 재사용한다.
+`tomato_agent/storage.py` provides durable local JSONL storage and official RawTree MCP storage through the same `EventStore` interface. RawTree mode always retains a local journal. It reuses the official stdio MCP client in `scripts/rawtree_mcp_probe.py` without substituting direct REST calls.
 
-## 사용 계약
+## Usage contract
 
 ```python
 from pathlib import Path
@@ -26,77 +26,77 @@ with EventStore(Path("data/runs/example/journal"), backend="local") as store:
     store.flush()
 ```
 
-- `root`는 로컬 저널 디렉터리다. API key 설정 위치와 무관하다.
-- `backend="rawtree"`이면 `RAWTREE_API_KEY`를 사용하는 공식 MCP wrapper가 연결한다. 키는 명령행에 넣지 않는다.
-- 허용 kind: `observations`, `agent_events`, `memory_events`, `model_calls`, `evaluation_results`.
-- 실제 테이블: `tomato_lha_{kind}`. 기존 사과 및 다른 프로젝트 테이블의 내용은 읽거나 수정하지 않는다.
-- `latest_memory`는 `state`만이 아니라 **기억 이벤트 전체**를 반환한다. 결과가 없으면 `None`이다.
-- `existing_events`는 지정 run의 이벤트만 읽어 `event_id` 중복을 제거하고 재생 시간·버전·ID 순으로 반환한다.
+- `root` is the local journal directory, independent of the API key configuration location.
+- `backend="rawtree"` connects through the official MCP wrapper using `RAWTREE_API_KEY`. The key is never a command-line argument.
+- Allowed kinds: `observations`, `agent_events`, `memory_events`, `model_calls`, `evaluation_results`.
+- Physical tables: `tomato_lha_{kind}`. Existing apple and unrelated project table contents are not read or modified.
+- `latest_memory` returns the **entire memory event**, not only its `state`; it returns `None` when no event qualifies.
+- `existing_events` reads only the requested run, deduplicates by `event_id`, and returns events ordered by replay time, version, and ID.
 
-## 저널과 원격 쓰기 순서
+## Journal and remote write sequence
 
-1. 공통 필드와 JSON 직렬화를 검증한다. 동일 event ID의 다른 payload는 오류다.
-2. `events.jsonl`에 append하고 flush/fsync한다.
-3. RawTree 모드에서는 해당 프로젝트 테이블과 run/event ID를 조회한다. 이미 동일 payload가 있으면 재삽입하지 않는다.
-4. 미존재 이벤트는 MCP `insert-json`으로 넣는다. 원격 행에는 조회용 공통 필드와 원본 이벤트 전체의 canonical `event_json`을 저장한다. 모델 관측을 정답으로 변환하지 않는다.
-5. 같은 ID를 MCP `run-query`로 재조회한다. 쓰기 성공 직후 보이지 않으면 즉시·0.3·0.7·1.5·3초 간격으로 최대 5번 조회만 시도한다(총 추가 대기 5.5초, 네트워크 시간 별도). 같은 시도에서 insert를 다시 보내지 않는다. payload가 일치할 때만 `acknowledgements.jsonl`에 완료 기록을 남긴다. 서버의 텍스트 쓰기 응답만으로 성공을 판정하지 않는다.
+1. Validate common fields and JSON serialization. Reusing an event ID with a different payload is an error.
+2. Append to `events.jsonl`, then flush and fsync.
+3. In RawTree mode, query the project table by run/event ID. An identical existing payload is not inserted again.
+4. Insert missing events with MCP `insert-json`. Each remote row contains queryable common fields and canonical `event_json` preserving the entire original event. Model observations are not converted into ground truth.
+5. Read the same ID through MCP `run-query`. If it is not visible immediately after a successful write, attempt at most five reads with delays of 0, 0.3, 0.7, 1.5, and 3 seconds: 5.5 seconds of added waiting, excluding network time. Do not repeat the insert within that attempt. Append a completion record to `acknowledgements.jsonl` only after the payload matches. A textual server acknowledgement alone is not proof of persistence.
 
-동일 `EventStore`에서 존재가 확인된 토마토 전용 테이블은 캐시하여 반복 `list-tables`를 생략한다. 없는 테이블은 캐시하지 않아 나중에 생성된 테이블을 발견한다. payload 조회·쓰기 후 재조회는 계속 실제 MCP를 호출한다.
+Within an `EventStore`, confirmed tomato table names are cached to avoid repeated `list-tables` calls. Missing tables are not cached, so tables created later can be discovered. Payload reads and post-write verification still make real MCP calls.
 
-실패 시 `StorageError`를 발생시키고 로컬 미완료 이벤트를 남긴다. 오류 메시지에 원격 응답 본문이나 키를 출력하지 않는다. 연결 복구 후 같은 root로 재시작하여 `flush()`하면 미완료 이벤트를 순서대로 처리한다. 재전송 전에 같은 최대 5번의 조회 대기를 수행하여 아직 보이지 않던 기존 쓰기를 확인한다. 끝까지 없을 때만 재전송한다. 원격 쓰기가 실제로 성공하고 응답만 유실된 경우에도 재조회 후 확인하므로 중복 삽입을 줄인다.
+Failures raise `StorageError` and retain unfinished local events. Error messages do not print remote response bodies or keys. After restoring connectivity, reopen the same root and call `flush()` to process pending events in order. Before resending, use the same bounded five-read window to discover earlier writes that were not yet visible. Resend only if the event remains absent. This also reduces duplicate inserts when a write succeeded but its response was lost.
 
-정상 context 종료는 `flush()`를 실행한다. 예외가 발생한 종료는 자동 재전송하지 않고 연결만 닫는다. RawTree 조회 실패를 로컬 성공으로 대체하지 않는다. 로컬 모드를 명시적으로 선택하면 로컬 저널만 조회한다.
+Normal context exit calls `flush()`. An exceptional exit closes the connection without automatically resending. Failed RawTree reads are not replaced by successful local results. Explicit local mode reads only the local journal.
 
-## 시간·실험 격리
+## Time and experiment isolation
 
-원격 기억 조회는 `run_id`, `entity_id`, `elapsed_seconds <= as_of_seconds`를 SQL에서 먼저 제한한다. 반환 결과에도 같은 조건을 적용한 후 가장 높은 `record_version`을 선택한다. 미래의 높은 버전을 먼저 선택하고 시간 필터를 적용하는 순서를 사용하지 않는다.
+Remote memory queries first constrain `run_id`, `entity_id`, and `elapsed_seconds <= as_of_seconds` in SQL. The same filters are applied to returned events before choosing the highest `record_version`. A future version is never selected before applying the cutoff.
 
-`elapsed_seconds`는 해당 실행에서 정보가 이용 가능해진 재생 시각이어야 한다. 미래 정보로 만든 기억에 과거 시각을 부여하면 저장 계층만으로 이를 탐지할 수 없다. 호출자는 원본 관측 순서와 모델 결과 공개 시각을 보존해야 한다. 날짜가 없는 영상에는 실제 촬영 날짜를 임의로 부여하지 않는다.
+`elapsed_seconds` must represent the replay time when information became available in that run. The storage layer cannot detect a memory derived from future information but assigned an earlier timestamp. Callers must preserve source observation order and model-result availability. Do not invent actual capture dates for undated footage.
 
-RawTree 모드는 로컬 저널이 비어 있어도 원격 데이터를 조회해 재시작 상태를 복원한다. 전체 이벤트 JSON을 보존하므로 중첩 `state`도 동일하게 돌아온다. 문자열 SQL 값은 따옴표와 역슬래시를 escape하며 테이블 이름은 고정 allowlist에서만 만든다.
+RawTree mode reads remote data to restore state even when the local journal is empty. Preserving the complete event JSON also preserves nested `state` values. SQL string values escape quotes and backslashes; table names come only from a fixed allowlist.
 
-## 검증 결과
+## Verification results
 
-2026-09-25에 다음 로컬 테스트 12개를 통과했다.
+The following 12 local tests passed on 2026-09-25:
 
-- 재시작 영속성, 시간 차단, run/entity 격리.
-- 동일 ID 재시도 중복 제거와 다른 payload 충돌 검출.
-- 중단된 JSONL 마지막 쓰기 복구.
-- 빈 로컬 폴더에서 원격 기억 복원과 미래 버전 차단.
-- 원격 쓰기 실패의 outbox 보존과 재시작 후 재전송.
-- 텍스트 쓰기 응답 이후 원본 payload 재조회.
-- 원격 장애 때 로컬 성공으로 대체하지 않음.
-- 따옴표가 포함된 run ID의 안전한 SQL literal 처리.
-- 존재가 확인된 전용 테이블의 metadata 캐시, 뒤늦게 생성된 테이블 발견, 신규 run 격리.
-- 첫 삽입으로 생성된 테이블의 발견과 이후 목록 조회 생략.
-- 쓰기 후 지연 가시성의 제한된 조회 재시도와 중복 insert 미실행.
-- 조회 대기 초과 시 outbox 유지 및 재시작 후 재전송 전 조회 대기.
+- Persistence across restarts, temporal cutoff, and run/entity isolation.
+- Deduplication of same-ID retries and detection of conflicting payloads.
+- Recovery of an interrupted final JSONL write.
+- Remote memory recovery from an empty local directory, excluding future versions.
+- Outbox retention after a remote write failure and replay after restart.
+- Exact payload verification after a textual insert acknowledgement.
+- No local-success fallback during remote failures.
+- Safe SQL literals for run IDs containing quotes.
+- Caching confirmed table metadata, discovering tables created later, and isolating new runs.
+- Discovering a table created by the first insert and avoiding subsequent listing calls.
+- Bounded read polling for delayed visibility without repeating the insert.
+- Retaining the outbox after polling expires and waiting before resending on restart.
 
 ```sh
 python3 -m unittest discover -s tests -p test_storage.py -v
 ```
 
-실제 공식 RawTree MCP에서도 **쓰기·재조회·빈 로컬 디렉터리 재시작·미래 차단·다른 run 격리·중복 재시도**를 통과했다.
+Live official RawTree MCP validation also passed **write/readback, restart with an empty local directory, future cutoff, cross-run isolation, and duplicate retry** checks.
 
-| 항목 | 실제 검증값 |
+| Item | Verified value |
 | --- | --- |
-| 테이블 | `tomato_lha_memory_events` |
-| 테스트 run | `storage_fixture_ee6c8c98c6584a3191237fea0216ed1e` |
-| 격리 비교 run | 위 ID + `_isolated` |
-| 남긴 행 | 테스트 기억 총 3건, 모두 `integration_fixture=true` |
-| 기본 run의 기억 | 10초 version 1, 30초 version 2 |
-| 20초 조회 | 10초 기억 반환 |
-| 30초 조회 | 30초 기억 반환 |
-| 9초 조회 | `None` |
-| 재시작 후 같은 이벤트 재전송 | 기본 run 이벤트 2개 유지 |
+| Table | `tomato_lha_memory_events` |
+| Test run | `storage_fixture_ee6c8c98c6584a3191237fea0216ed1e` |
+| Isolation comparison run | The same ID plus `_isolated` |
+| Rows retained | Three fixture memory events, all `integration_fixture=true` |
+| Main-run memory | Version 1 at 10 seconds; version 2 at 30 seconds |
+| Query at 20 seconds | Returns the 10-second memory |
+| Query at 30 seconds | Returns the 30-second memory |
+| Query at 9 seconds | `None` |
+| Resending the same event after restart | Main run remains at two events |
 
-이 행들은 실제 토마토 관측이나 모델 추론이 아니다. `dataset_id=integration_fixture`, `state.not_real_observation=true`로도 표시했다. 평가 데이터에 포함하지 않는다. 초기 쓰기 응답의 텍스트 형식 차이를 수정한 뒤 같은 run을 이어서 검증하여 최종 3개 fixture 행만 남겼다.
+These rows are not real tomato observations or model inferences. They also carry `dataset_id=integration_fixture` and `state.not_real_observation=true`, and must be excluded from evaluation. After handling the server's textual write acknowledgement, validation continued with the same run and left only the three final fixture rows.
 
-추가로 실제 `tomato_c_demo_v1` 실행의 day03 관측이 쓰기 직후 보이지 않아 남은 outbox 1건을 복구했다. 수정 후 `flush()`는 원격 조회 1회만으로 기존 행을 확인하고 pending을 1→0으로 바꿨다. 이 복구에서 insert와 모델 호출은 모두 0회였다.
+A pending day03 observation from the real `tomato_c_demo_v1` run was also recovered after it was not visible immediately following insertion. With the fix, `flush()` confirmed the existing row using one remote query and reduced pending events from 1 to 0. Recovery made zero insert calls and zero model calls.
 
-## MVP 제한
+## MVP limits
 
-- 단일 writer를 전제로 한다. `read-before-write`는 동시 writer에 대한 DB 고유성 보장이 아니다. 같은 root/run을 여러 프로세스가 동시에 쓰지 않는다.
-- SQL 조회는 종류/run별 최대 10,000행이다. 상한에 도달하면 불완전한 보고를 반환하지 않고 오류를 내므로 장기 실행에는 페이지 조회가 필요하다.
-- 로컬 파일의 완성된 잘못된 JSON 행은 숨기지 않고 오류를 낸다. 마지막 미완성 append만 복구한다.
-- 원격 outbox 동기화는 순차적이다. 자동 백그라운드 전송이나 무한 재시도는 없다.
+- One writer is assumed. Read-before-write does not provide database uniqueness under concurrent writers. Do not write the same root/run from multiple processes concurrently.
+- SQL reads are capped at 10,000 rows per kind/run. Reaching the cap raises an error instead of returning an incomplete report; longer runs require pagination.
+- A malformed complete JSON record raises an error. Only an incomplete final append is recovered.
+- Remote outbox synchronization is sequential. There is no automatic background delivery or unbounded retry loop.

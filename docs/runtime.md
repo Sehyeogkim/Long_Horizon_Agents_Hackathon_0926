@@ -1,66 +1,72 @@
-# 토마토 관측 MVP 실행
+# Running the Tomato Observation MVP
 
-실행 코드는 `tomato_agent/`, 실제 입력은 `data/samples/tomato_18day/observations.jsonl`이다. 매 관측 Liquid를 실행한 뒤 저비용으로 종료하거나 GPT-5를 추가한다. 모델 학습은 하지 않는다.
+Runtime code is in `tomato_agent/`. Real input is `data/samples/tomato_18day/observations.jsonl`. Our temporal v6 agent (variant C) gives Liquid the previous/current images and bounded stored judgments/questions on every observation, then either finishes locally or adds GPT-5. The system does not train a model.
 
-## 준비
+## Prerequisites
 
-- Python 3.9 이상, `python3 -m pip install -r requirements.txt`.
-- `liquid/setup.py`로 설치한 고정 버전 llama.cpp·Liquid 가중치. 이미 이 작업에서 설치·검증한 파일은 재사용한다.
-- `.env`: `OPENAI_API_KEY` 또는 기존 `OPEN_AI_API_KEY`, `RAWTREE_API_KEY`, 데이터 검색 시 `NIMBLE_API_KEY`.
-- RawTree MCP는 공식 `@rawtree/mcp@0.3.2`와 npx를 사용한다. 키는 자식 환경에만 전달한다.
+- Python 3.9 or newer; install dependencies with `python3 -m pip install -r requirements.txt`.
+- Pinned llama.cpp and Liquid weights installed by `liquid/setup.py`. Reuse the already verified installation when present.
+- `.env`: `OPENAI_API_KEY` or the existing `OPEN_AI_API_KEY` alias, `RAWTREE_API_KEY`, and `NIMBLE_API_KEY` for dataset searches.
+- RawTree MCP uses the official `@rawtree/mcp@0.3.2` package through npx. Credentials are passed through the child environment.
 
-## 실행 명령
+## Commands
 
 ```sh
-# 데이터가 없는 새 환경: 검증된 원본 수집/일차·환경값 매칭
+# New environment without data: collect verified originals and align storage days/environment records.
 python3 scripts/collect_tomatoes.py
 
-# 네트워크·모델 호출 없이 정책/저장/예산/재시작 검증
+# Offline policy, storage, budget, and recovery tests; no model/network calls.
 python3 -m unittest discover -s tests -p 'test_*.py'
 
-# C: 실제 RawTree 기억을 사용하는 두 관측 연결 검사
-python3 -m tomato_agent run --variant C --backend rawtree --run-id my_tomato_c --limit 2
-# 같은 run-id와 설정으로 계속 실행: 성공한 호출/관측은 재사용
-python3 -m tomato_agent run --variant C --backend rawtree --run-id my_tomato_c
+# C: two-observation integration check using actual RawTree memory.
+python3 -m tomato_agent run --variant C --backend rawtree --run-id my_tomato_c_temporal_v6 --limit 2
+# Continue with the same run ID and settings; successful calls/observations are reused.
+python3 -m tomato_agent run --variant C --backend rawtree --run-id my_tomato_c_temporal_v6
 
-# A/B: 같은 시퀀스를 사용하는 비교 실험
+# Baseline A: GPT-5 directly on every photograph in the same sequence.
 python3 -m tomato_agent run --variant A --backend local --run-id my_tomato_a
-python3 -m tomato_agent run --variant B --backend local --run-id my_tomato_b
 
-# 실제 실행 기록에서 공유 가능한 단일 HTML 생성
-python3 -m tomato_agent report data/runs/my_tomato_a data/runs/my_tomato_b data/runs/my_tomato_c --output reports/tomato_demo.html
+# Build a standalone viewer from actual execution records.
+python3 -m tomato_agent report data/runs/my_tomato_a data/runs/my_tomato_c_temporal_v6 --output reports/tomato_demo.html
 python3 -m http.server 8765 --bind 127.0.0.1 --directory reports
 ```
 
-뷰어 주소는 `http://127.0.0.1:8765/tomato_demo.html`이다. 정적 HTML에 축소 이미지와 관측·판단·기억을 포함하므로 모델 서버가 없어도 볼 수 있다. 공개 배포는 하지 않는다.
+Open [the local viewer](http://127.0.0.1:8765/tomato_demo.html). The static HTML embeds reduced-size image previews, observations, decisions, and memory, so viewing it requires no model server. This command serves localhost only; it does not publish the report publicly.
 
-Liquid 실행 포트는 `127.0.0.1:18081`이다. 이미 다른 서버가 사용 중이면 종료시키지 않고 실패한다. B와 C를 같은 머신에서 동시에 실행하지 않는다. A는 Liquid를 사용하지 않으므로 별도로 병렬 실행할 수 있다. 소유한 모델 서버는 성공·오류 모두 종료한다.
+Liquid binds to `127.0.0.1:18081`. If another server occupies the port, startup fails without terminating that process. Do not run multiple Liquid-backed agent processes concurrently on the same machine. A does not use Liquid and may run independently in parallel. The runtime stops its own model server on success or error.
 
-## 예산과 재시작
+## Budgets and restart recovery
 
-- 기본 GPT 요청 상한은 run당 20회다. `--max-gpt-calls`로 변경한다. 실패한 호출도 횟수에 포함한다.
-- `--max-api-cost-usd` 기본값은 $1이다. 기록된 공개 단가 추정액과 다음 요청의 $0.10 예약 여유로 실행을 제한한다. 이는 결제 시스템의 엄밀한 청구 한도가 아니다. 반환된 사용량이 없는 호출은 비용 미측정으로 남기고 다음 유료 요청을 중단한다.
-- 유료 요청 전 intent를 디스크에 기록하고 응답은 별도 로그에 fsync한다. 응답 수신 후 원격 저장 전에 중단되면 로컬 모델 로그에서 복원한다. 요청을 보낸 뒤 응답을 저장하지 못해 결과가 불명확하면 자동 재호출하지 않는다.
-- 새 run-id는 새 실험이므로 비용이 다시 발생한다. 이어서 실행할 때는 같은 run-id·manifest·정책·backend를 유지한다.
-- 현재 MCP 저장은 단일 writer 기반이다. 동시에 같은 run-id를 실행하지 않는다. 서버의 원자적 중복 방지 기능을 가정하지 않는다.
+- The default GPT request limit is 20 per run. Change it with `--max-gpt-calls`. Failed calls also count.
+- `--max-api-cost-usd` defaults to $1. The runtime checks recorded price-based estimates plus a $0.10 reservation for the next request. This is a conservative application guard, not a strict billing-system cap. A request without returned usage remains unmeasured and blocks the next paid request.
+- A paid-request intent is persisted before the request; its response is fsynced in a separate model log. A response logged before interrupted event/remote persistence can be recovered locally. If the request outcome is unknown because no response was saved, the runtime does not automatically repeat it.
+- A new run ID starts a new experiment and incurs new charges. To resume, preserve the run ID, manifest, policy, and backend. `run.json` now pins code/prompt hashes, model names, settings, and local runtime artifact size/mtime. Changed or legacy configurations are rejected: use a new run ID for v6 and retain old results unchanged. Artifact size/mtime is a change detector, not a cryptographic weight checksum.
+- Storage assumes one writer per run. Do not run the same run ID concurrently. The implementation does not assume an atomic server-side uniqueness constraint.
+- A truncated final line in a model/intent recovery log may require manual inspection. Never resolve an unknown paid outcome by blindly starting another request.
 
-## 기억·시간·평가 경계
+## Memory, timing, and evaluation boundaries
 
-- C는 RawTree `run-query`로 직전 시점의 기억을 복원하고 `insert-json`으로 관측·호출·결정·전체 기억 스냅샷을 저장한다. 네트워크 실패 시 로컬 outbox를 보존하고 성공으로 위장하지 않는다.
-- A/B의 비교 실행은 로컬 이벤트 로그, C는 RawTree를 사용한다. 모델 호출·API 비용 비교는 가능하지만 DB 지연을 포함한 종단간 지연을 같은 조건의 비교로 주장하지 않는다.
-- B에는 마지막 분석 시각 같은 운영 상태만 제공하고, 의미 있는 요약·과거 사진·미해결 질문은 제공하지 않는다.
-- 매 관측 Liquid 성공 시각과 GPT-5 성공 시각을 분리한다. 흐린 사진은 재촬영 과제로 남기고 정상으로 처리하지 않는다.
-- 초기 정책은 최대 정밀 분석 공백 72시간, 관측별 기한/새 이상/불확실성 규칙이다. 이미지 차이만으로 경로를 선택하지 않는다. 일차 기반 상대 시간은 정확한 촬영 타임스탬프가 아니다.
-- 현재 모델 입력은 RGB와 C의 제한된 과거 근거다. 환경값은 기록·화면에서 제공하지만 아직 판단 규칙이나 모델 입력에 사용하지 않는다. 센서까지 사용하는 실험은 별도 버전으로 구분한다.
-- 데이터는 단일 토마토 18장이고 병리 정답이 없다. recall·오탐률·질병 탐지 지연은 `null`이다. GPT-5 결과를 정답으로 간주하지 않는다.
-- B/C는 동일한 Liquid·정책을 사용하며 C의 기억을 추가한다. 각 실행에서 Liquid를 따로 호출하므로 출력 변동이 섞일 수 있다. 기억만의 인과 효과를 분리하려면 동일한 저비용 출력 캐시를 공유하는 후속 ablation이 필요하다. GPT-5는 같은 모델·출력 계약을 사용하되 C에 필요한 과거 근거가 더해져 입력 토큰이 증가할 수 있다.
+- C with `--backend rawtree` restores earlier memory through `run-query` and writes observations, calls, decisions, and complete memory snapshots through `insert-json`. Network failures retain the local outbox and are not presented as successful remote writes.
+- The primary comparison uses local event storage for Baseline A and RawTree for Our agent C. Model-call/API-cost comparisons are possible; end-to-end latency including database overhead is not a controlled comparison across these backends.
+- An existing B run is an auxiliary historical experiment, not part of the primary comparison. It receives operational timing only, without semantic summaries, prior images, or unresolved questions.
+- Observation, successful Liquid analysis, and successful GPT-5 analysis times are separate. An unusable image remains a recapture/review issue rather than a normal diagnosis.
+- Liquid proposes a path from visible temporal evidence. The controller validates it and guards invalid/uncertain output, unusable images, and a maximum precision gap (default 72 hours). The gap starts at the first observation until a successful GPT call exists. Neither the first observation nor a due question automatically forces GPT-5. Relative storage-day time is not an exact capture timestamp.
+- Liquid returns `quality`, `change_level`, `evidence`, and `recommendation`. Controller-generated questions retain explicit provenance; a LOW review does not push an existing deadline forward.
+- After the first observation, Liquid receives the immediately previous image even when that observation was LOW, then the current image, elapsed time, available `observed_at`, and bounded earlier judgments/open questions. GPT-5 retains its original current-image and optional precision-reference input contract. The current model inputs are RGB plus C's bounded earlier evidence. Environmental measurements are recorded and displayed but are not yet used in prompts or routing. Sensor-aware experiments must use a separate version.
+- The replay benchmark remains the 18-image tomato dataset. The TR-6 collection/catalog is separate: 2,244 RGB entries across 48 dates include multiple camera views and unverified specimen identity. Collection does not make it one verified trajectory; see [TR-6 audit](tr6_data_audit.md).
+- The active dataset has 18 observations of one tomato and no pathology ground truth. Recall, false-positive rate, and disease detection delay remain null. GPT-5 is not the source of evaluation truth.
+- The primary comparison is **Baseline A versus Our agent C**. It measures the complete proposed system rather than memory alone. The agent may add earlier evidence to GPT-5 and consume more input tokens per precision call. Cost savings are an experimental outcome, not a guarantee. Temporal v6 has only bounded local checks, with an unresolved first-image quality inconsistency; small integration validation is planned; historical v1 totals do not measure the new algorithm.
+- Historical B/C runs invoke Liquid separately. A future memory-only ablation should share cached local outputs to avoid confounding from output variation.
+- The implemented runtime is observation-driven replay. It checks follow-up deadlines when the next observation arrives. An autonomous production camera scheduler is future work.
 
-## 파일
+## Output files
 
-- `data/runs/<run-id>/run.json`: 고정 설정과 manifest 해시.
-- `store/events.jsonl`, `acknowledgements.jsonl`: 관측·호출·정책·기억과 원격 저장 확인.
-- `paid_request_intents.jsonl`, `model_calls.jsonl`: 유료 호출 복구 기록, 비밀키·이미지 요청 본문 없음.
-- `summary.json`: 성공·실패 호출, 사용량, 공개 단가 기반 비용 추정, 미측정 지표.
-- `reports/tomato_demo.html`, `.json`: 대화형 관측 재생과 비교 결과.
+- `data/runs/<run-id>/run.json`: fixed run configuration and manifest hash.
+- `store/events.jsonl`, `store/acknowledgements.jsonl`: observations, calls, policy decisions, memory, and verified remote acknowledgements.
+- `paid_request_intents.jsonl`, `model_calls.jsonl`: paid-call recovery records without credentials or image request bodies. Liquid calls include `input_context.previous`, `current`, and `prior_notes`, documenting exactly which image references and bounded notes were supplied.
+- `summary.json`: successful/failed calls, usage, price-based cost estimates, and unmeasured metrics.
+- `reports/tomato_demo.html` and `.json`: interactive replay and comparison results.
 
-BFL은 키 대기 중인 선택적 합성 시나리오 도구다. 실제 토마토·Liquid·RawTree·Nimble MVP 실행에 필요하지 않다.
+BFL is an optional synthetic-scenario integration awaiting a key. It is not required to run the real tomato, Liquid, RawTree, and Nimble MVP. See [the temporal algorithm](temporal_algorithm.md), [the design](../final_plan.md) and [measured results](../reports/results.md) for scope and run status.
+
+See the [temporal validation record](../reports/temporal_validation.md) for preserved development trials, observed limitations, and the subsequent integration-check status.

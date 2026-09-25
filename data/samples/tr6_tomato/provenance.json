@@ -1,0 +1,36 @@
+{
+  "dataset_id": "tr6_tomato_srgb",
+  "dataset_version": "30783827.v1",
+  "title": "TriModal Ripeness 6",
+  "authors": [
+    "T Bagyammal",
+    "Yogini Aishwaryaa P T S",
+    "Krishna Deepak",
+    "Devika Unnikrishnan"
+  ],
+  "source_record_url": "https://figshare.com/articles/dataset/30783827",
+  "doi": "10.6084/m9.figshare.30783827.v1",
+  "license": {
+    "value": 1,
+    "name": "CC BY 4.0",
+    "url": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "source_archive_file_id": 60094544,
+  "source_archive_url": "https://ndownloader.figshare.com/files/60094544",
+  "source_archive_bytes": 20388430589,
+  "source_declared_archive_md5": "cdbcc4a667051aa35d46c2de71a723d9",
+  "full_archive_downloaded": false,
+  "full_archive_md5_verified": false,
+  "retrieval_method": "HTTPS Range ZIP64 selective extraction with coalesced adjacent entries",
+  "source_selection": "TR-6/Normal/Tomato/sRGB_images/*.jpg",
+  "excluded": "Classified duplicates, other crops, other modalities",
+  "original_image_bytes_modified": false,
+  "images_downloaded": 2244,
+  "image_bytes": 4163502423,
+  "manifest_sha256": "a8991832b1eb0b6280ea20929a087802609d7f937f95726901ba92c9f983ff91",
+  "identity_caveat": "Source filename does not establish the identity of a tomato across images.",
+  "timestamp_caveat": "Naive filename timestamps only; source timezone unknown.",
+  "disease_label": null,
+  "synthetic": false,
+  "audit_path": "data/catalog/tomato/tr6_download_audit.json"
+}
