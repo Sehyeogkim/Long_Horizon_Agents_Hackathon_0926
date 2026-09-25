@@ -29,6 +29,7 @@ Same 18-frame sequence, two policies. Baseline sends every frame to GPT-5. Our a
 | **Apple** · baseline | 18 | 16,426 | $0.0321 | 0 |
 | **Apple** · our agent | **5** (−72 %) | 7,360 (−55 %) | **$0.0125** (−61 %) | 18 calls |
 | **Tomato** · baseline | 18 | 8,994 | $0.0227 | 0 |
+| **Tomato** · Liquid + rules, **no memory** | 16 | 8,020 | $0.0203 | 18 calls |
 | **Tomato** · our agent | **5** (−72 %) | 3,862 (−57 %) | **$0.0081** (−64 %) | 18 calls |
 
 <p align="center"><img src="docs/cover/results_apple.png" alt="Apple: GPT-5 tokens per frame, baseline vs agent, with the 18 frames and skip / GPT-5 decisions" width="92%"></p>
@@ -36,6 +37,8 @@ Same 18-frame sequence, two policies. Baseline sends every frame to GPT-5. Our a
 
 <p align="center"><img src="docs/cover/results_tomato.png" alt="Tomato: GPT-5 tokens per frame, baseline vs agent, with the 18 daily frames" width="92%"></p>
 <p align="center"><sub><b>Tomato.</b> One real tomato photographed on 18 consecutive storage days (Zenodo 21943147). Same policy, same savings.</sub></p>
+
+**What memory does.** Without memory every "anomaly: yes" from Liquid is new, so GPT-5 fires almost daily (16 of 18). With memory the agent knows the lesion was already confirmed, suppresses the repeats, and keeps only a 72-hour safety re-check, so 16 calls become 5. Days 4, 7, 10, 13 and 16 are that safety cap; the saving between 16 and 5 is the memory.
 
 Costs are recorded usage × published GPT-5 prices ($1.25 / M input, $10 / M output), not invoices. Neither sequence has disease ground truth, so we report calls and cost, not detection accuracy. See [Limits](#limits).
 
