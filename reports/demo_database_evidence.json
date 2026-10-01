@@ -1,0 +1,487 @@
+{
+  "schema_version": 1,
+  "source": "Official RawTree MCP run-query",
+  "read_only": true,
+  "dashboard_url": "https://rawtree.com/login",
+  "dashboard_url_source": "https://rawtree.com/ (Sign in link)",
+  "storage_description": "RawTree stores image references, integrity metadata, observations, model calls, routing decisions, and memory. Image bytes remain in local files.",
+  "catalogs": [
+    {
+      "title": "TR-6 tomato sRGB",
+      "table": "tomato_lha_tr6_frames",
+      "dataset_id": "tr6_tomato_srgb",
+      "source_url": "https://figshare.com/articles/dataset/30783827",
+      "counts": {
+        "physical_rows": 2244,
+        "unique_frame_ids": 2244,
+        "unique_image_hashes": 2243,
+        "duplicate_database_rows": 0,
+        "duplicate_source_content_files": 1
+      },
+      "local_index_rows": 2244,
+      "local_files_present": 2244,
+      "samples": [
+        {
+          "frame_id": "tr6_0007b268d2fd0ef291853f5b",
+          "dataset_id": "tr6_tomato_srgb",
+          "frame_uri": "data/samples/tr6_tomato/frames/20250923_133207.jpg",
+          "source_url": "https://figshare.com/articles/dataset/30783827",
+          "sha256": "9b3d9c82d6c0b35ac8b2ec5824bc61bb6ac3971161308d6d2deb544aa4baebd2",
+          "collection_status": "verified",
+          "timestamp_verified": false,
+          "entity_identity_verified": false
+        },
+        {
+          "frame_id": "tr6_00585b2220a828ce08320c90",
+          "dataset_id": "tr6_tomato_srgb",
+          "frame_uri": "data/samples/tr6_tomato/frames/20250829_163653.jpg",
+          "source_url": "https://figshare.com/articles/dataset/30783827",
+          "sha256": "008fddc5498a8ab52e4e4a86fa025f2a0b128a2e96aca0c82222689f5c7b3619",
+          "collection_status": "verified",
+          "timestamp_verified": false,
+          "entity_identity_verified": false
+        }
+      ],
+      "note": "Collected metadata catalog; specimen identity and filename-derived capture times are unverified. Not the 18-frame demo sequence."
+    },
+    {
+      "title": "Manalagi apple disease dataset",
+      "table": "apple_lha_nimble_frames",
+      "dataset_id": "nimble_apple_mendeley_9zgkwwv9j8",
+      "source_url": "https://data.mendeley.com/datasets/9zgkwwv9j8/6",
+      "counts": {
+        "physical_rows": 10832,
+        "unique_frame_ids": 7516,
+        "unique_image_hashes": 7514,
+        "duplicate_database_rows": 3316,
+        "duplicate_source_content_files": 2
+      },
+      "local_index_rows": 7516,
+      "local_files_present": 7516,
+      "samples": [
+        {
+          "frame_id": "apple_000328920a5f7bcf837a8dad",
+          "dataset_id": "nimble_apple_mendeley_9zgkwwv9j8",
+          "frame_uri": "data/apple/extracted/apple_nimble/02_processed_images/02_augmented_images/healthy/C_(14)_rotate_180.jpg",
+          "source_url": "https://data.mendeley.com/public-files/datasets/9zgkwwv9j8/files/a3fdbbf6-cb05-411a-ac60-38f160ceb857/file_downloaded",
+          "source_sha1": "039870d3241df6d729da3b57d0cba4aedd42861c",
+          "subset": "augmented",
+          "label": "healthy",
+          "file_present": true,
+          "nimble_task_id": "34837ef3-1d22-4a88-99e4-99da61fbf22d"
+        },
+        {
+          "frame_id": "apple_000328920a5f7bcf837a8dad",
+          "dataset_id": "nimble_apple_mendeley_9zgkwwv9j8",
+          "frame_uri": "data/apple/extracted/apple_nimble/02_processed_images/02_augmented_images/healthy/C_(14)_rotate_180.jpg",
+          "source_url": "https://data.mendeley.com/public-files/datasets/9zgkwwv9j8/files/a3fdbbf6-cb05-411a-ac60-38f160ceb857/file_downloaded",
+          "source_sha1": "039870d3241df6d729da3b57d0cba4aedd42861c",
+          "subset": "augmented",
+          "label": "healthy",
+          "file_present": true,
+          "nimble_task_id": "34837ef3-1d22-4a88-99e4-99da61fbf22d"
+        }
+      ],
+      "note": "Nimble provenance retained per source file. Includes raw and processed subsets; source files are not independent apples. Duplicate database rows are counted separately."
+    }
+  ],
+  "execution_tables": [
+    {
+      "table": "tomato_lha_observations",
+      "kind": "observations",
+      "runs": [
+        {
+          "run_id": "apple_a_stream_v1",
+          "physical_rows": 18,
+          "unique_events": 18
+        },
+        {
+          "run_id": "apple_c_stream_v6",
+          "physical_rows": 18,
+          "unique_events": 18
+        },
+        {
+          "run_id": "tomato_c_demo_v6_full",
+          "physical_rows": 18,
+          "unique_events": 18
+        }
+      ]
+    },
+    {
+      "table": "tomato_lha_agent_events",
+      "kind": "agent_events",
+      "runs": [
+        {
+          "run_id": "apple_a_stream_v1",
+          "physical_rows": 18,
+          "unique_events": 18
+        },
+        {
+          "run_id": "apple_c_stream_v6",
+          "physical_rows": 18,
+          "unique_events": 18
+        },
+        {
+          "run_id": "tomato_c_demo_v6_full",
+          "physical_rows": 18,
+          "unique_events": 18
+        }
+      ]
+    },
+    {
+      "table": "tomato_lha_memory_events",
+      "kind": "memory_events",
+      "runs": [
+        {
+          "run_id": "apple_a_stream_v1",
+          "physical_rows": 18,
+          "unique_events": 18
+        },
+        {
+          "run_id": "apple_c_stream_v6",
+          "physical_rows": 18,
+          "unique_events": 18
+        },
+        {
+          "run_id": "tomato_c_demo_v6_full",
+          "physical_rows": 18,
+          "unique_events": 18
+        }
+      ]
+    },
+    {
+      "table": "tomato_lha_model_calls",
+      "kind": "model_calls",
+      "runs": [
+        {
+          "run_id": "apple_a_stream_v1",
+          "physical_rows": 18,
+          "unique_events": 18
+        },
+        {
+          "run_id": "apple_c_stream_v6",
+          "physical_rows": 23,
+          "unique_events": 23
+        },
+        {
+          "run_id": "tomato_c_demo_v6_full",
+          "physical_rows": 23,
+          "unique_events": 23
+        }
+      ]
+    }
+  ],
+  "queries": [
+    {
+      "name": "tomato_lha_tr6_frames_counts",
+      "queried_at_utc": "2026-10-01T01:16:47.924964+00:00",
+      "sql": "SELECT count() AS physical_rows, uniqExact(toString(frame_id)) AS unique_frame_ids, uniqExact(toString(sha256)) AS unique_image_hashes FROM tomato_lha_tr6_frames WHERE toString(dataset_id) = 'tr6_tomato_srgb'",
+      "rows": [
+        {
+          "physical_rows": 2244,
+          "unique_frame_ids": 2244,
+          "unique_image_hashes": 2243,
+          "duplicate_database_rows": 0,
+          "duplicate_source_content_files": 1
+        }
+      ]
+    },
+    {
+      "name": "tomato_lha_tr6_frames_samples",
+      "queried_at_utc": "2026-10-01T01:16:48.092945+00:00",
+      "sql": "SELECT frame_id, dataset_id, frame_uri, source_url, sha256, collection_status, timestamp_verified, entity_identity_verified FROM tomato_lha_tr6_frames WHERE toString(dataset_id) = 'tr6_tomato_srgb' ORDER BY toString(frame_id) LIMIT 2",
+      "rows": [
+        {
+          "frame_id": "tr6_0007b268d2fd0ef291853f5b",
+          "dataset_id": "tr6_tomato_srgb",
+          "frame_uri": "data/samples/tr6_tomato/frames/20250923_133207.jpg",
+          "source_url": "https://figshare.com/articles/dataset/30783827",
+          "sha256": "9b3d9c82d6c0b35ac8b2ec5824bc61bb6ac3971161308d6d2deb544aa4baebd2",
+          "collection_status": "verified",
+          "timestamp_verified": false,
+          "entity_identity_verified": false
+        },
+        {
+          "frame_id": "tr6_00585b2220a828ce08320c90",
+          "dataset_id": "tr6_tomato_srgb",
+          "frame_uri": "data/samples/tr6_tomato/frames/20250829_163653.jpg",
+          "source_url": "https://figshare.com/articles/dataset/30783827",
+          "sha256": "008fddc5498a8ab52e4e4a86fa025f2a0b128a2e96aca0c82222689f5c7b3619",
+          "collection_status": "verified",
+          "timestamp_verified": false,
+          "entity_identity_verified": false
+        }
+      ]
+    },
+    {
+      "name": "apple_lha_nimble_frames_counts",
+      "queried_at_utc": "2026-10-01T01:16:48.313567+00:00",
+      "sql": "SELECT count() AS physical_rows, uniqExact(toString(frame_id)) AS unique_frame_ids, uniqExact(toString(source_sha1)) AS unique_image_hashes FROM apple_lha_nimble_frames WHERE toString(dataset_id) = 'nimble_apple_mendeley_9zgkwwv9j8'",
+      "rows": [
+        {
+          "physical_rows": 10832,
+          "unique_frame_ids": 7516,
+          "unique_image_hashes": 7514,
+          "duplicate_database_rows": 3316,
+          "duplicate_source_content_files": 2
+        }
+      ]
+    },
+    {
+      "name": "apple_lha_nimble_frames_samples",
+      "queried_at_utc": "2026-10-01T01:16:48.655071+00:00",
+      "sql": "SELECT frame_id, dataset_id, frame_uri, source_url, source_sha1, subset, label, file_present, nimble_task_id FROM apple_lha_nimble_frames WHERE toString(dataset_id) = 'nimble_apple_mendeley_9zgkwwv9j8' ORDER BY toString(frame_id) LIMIT 2",
+      "rows": [
+        {
+          "frame_id": "apple_000328920a5f7bcf837a8dad",
+          "dataset_id": "nimble_apple_mendeley_9zgkwwv9j8",
+          "frame_uri": "data/apple/extracted/apple_nimble/02_processed_images/02_augmented_images/healthy/C_(14)_rotate_180.jpg",
+          "source_url": "https://data.mendeley.com/public-files/datasets/9zgkwwv9j8/files/a3fdbbf6-cb05-411a-ac60-38f160ceb857/file_downloaded",
+          "source_sha1": "039870d3241df6d729da3b57d0cba4aedd42861c",
+          "subset": "augmented",
+          "label": "healthy",
+          "file_present": true,
+          "nimble_task_id": "34837ef3-1d22-4a88-99e4-99da61fbf22d"
+        },
+        {
+          "frame_id": "apple_000328920a5f7bcf837a8dad",
+          "dataset_id": "nimble_apple_mendeley_9zgkwwv9j8",
+          "frame_uri": "data/apple/extracted/apple_nimble/02_processed_images/02_augmented_images/healthy/C_(14)_rotate_180.jpg",
+          "source_url": "https://data.mendeley.com/public-files/datasets/9zgkwwv9j8/files/a3fdbbf6-cb05-411a-ac60-38f160ceb857/file_downloaded",
+          "source_sha1": "039870d3241df6d729da3b57d0cba4aedd42861c",
+          "subset": "augmented",
+          "label": "healthy",
+          "file_present": true,
+          "nimble_task_id": "34837ef3-1d22-4a88-99e4-99da61fbf22d"
+        }
+      ]
+    },
+    {
+      "name": "tomato_lha_observations_demo_runs",
+      "queried_at_utc": "2026-10-01T01:16:49.237382+00:00",
+      "sql": "SELECT toString(run_id) AS run_id, count() AS physical_rows, uniqExact(toString(event_id)) AS unique_events FROM tomato_lha_observations WHERE toString(run_id) IN ('tomato_a_demo_v1', 'tomato_c_demo_v6_full', 'apple_a_stream_v1', 'apple_c_stream_v6') GROUP BY run_id ORDER BY run_id",
+      "rows": [
+        {
+          "run_id": "apple_a_stream_v1",
+          "physical_rows": 18,
+          "unique_events": 18
+        },
+        {
+          "run_id": "apple_c_stream_v6",
+          "physical_rows": 18,
+          "unique_events": 18
+        },
+        {
+          "run_id": "tomato_c_demo_v6_full",
+          "physical_rows": 18,
+          "unique_events": 18
+        }
+      ]
+    },
+    {
+      "name": "tomato_lha_agent_events_demo_runs",
+      "queried_at_utc": "2026-10-01T01:16:49.435185+00:00",
+      "sql": "SELECT toString(run_id) AS run_id, count() AS physical_rows, uniqExact(toString(event_id)) AS unique_events FROM tomato_lha_agent_events WHERE toString(run_id) IN ('tomato_a_demo_v1', 'tomato_c_demo_v6_full', 'apple_a_stream_v1', 'apple_c_stream_v6') GROUP BY run_id ORDER BY run_id",
+      "rows": [
+        {
+          "run_id": "apple_a_stream_v1",
+          "physical_rows": 18,
+          "unique_events": 18
+        },
+        {
+          "run_id": "apple_c_stream_v6",
+          "physical_rows": 18,
+          "unique_events": 18
+        },
+        {
+          "run_id": "tomato_c_demo_v6_full",
+          "physical_rows": 18,
+          "unique_events": 18
+        }
+      ]
+    },
+    {
+      "name": "tomato_lha_memory_events_demo_runs",
+      "queried_at_utc": "2026-10-01T01:16:49.689707+00:00",
+      "sql": "SELECT toString(run_id) AS run_id, count() AS physical_rows, uniqExact(toString(event_id)) AS unique_events FROM tomato_lha_memory_events WHERE toString(run_id) IN ('tomato_a_demo_v1', 'tomato_c_demo_v6_full', 'apple_a_stream_v1', 'apple_c_stream_v6') GROUP BY run_id ORDER BY run_id",
+      "rows": [
+        {
+          "run_id": "apple_a_stream_v1",
+          "physical_rows": 18,
+          "unique_events": 18
+        },
+        {
+          "run_id": "apple_c_stream_v6",
+          "physical_rows": 18,
+          "unique_events": 18
+        },
+        {
+          "run_id": "tomato_c_demo_v6_full",
+          "physical_rows": 18,
+          "unique_events": 18
+        }
+      ]
+    },
+    {
+      "name": "tomato_lha_model_calls_demo_runs",
+      "queried_at_utc": "2026-10-01T01:16:50.063826+00:00",
+      "sql": "SELECT toString(run_id) AS run_id, count() AS physical_rows, uniqExact(toString(event_id)) AS unique_events FROM tomato_lha_model_calls WHERE toString(run_id) IN ('tomato_a_demo_v1', 'tomato_c_demo_v6_full', 'apple_a_stream_v1', 'apple_c_stream_v6') GROUP BY run_id ORDER BY run_id",
+      "rows": [
+        {
+          "run_id": "apple_a_stream_v1",
+          "physical_rows": 18,
+          "unique_events": 18
+        },
+        {
+          "run_id": "apple_c_stream_v6",
+          "physical_rows": 23,
+          "unique_events": 23
+        },
+        {
+          "run_id": "tomato_c_demo_v6_full",
+          "physical_rows": 23,
+          "unique_events": 23
+        }
+      ]
+    },
+    {
+      "name": "tomato_c_demo_v6_full_memory_example",
+      "queried_at_utc": "2026-10-01T01:16:50.252725+00:00",
+      "sql": "SELECT event_json FROM tomato_lha_memory_events WHERE toString(run_id) = 'tomato_c_demo_v6_full' ORDER BY elapsed_seconds DESC LIMIT 1",
+      "rows": [
+        {
+          "event_json": "{\"dataset_id\":\"zenodo_tomato_18day_21943147\",\"dataset_version\":\"21943147\",\"elapsed_seconds\":1468800,\"entity_id\":\"tomato_01\",\"event_id\":\"1e38d855fe8614134e9da4252e9d5193df5b33a3b9a408332df1723401b4185c\",\"kind\":\"memory_events\",\"observation_id\":\"tomato_18day_day_18\",\"record_version\":1468800001,\"run_id\":\"tomato_c_demo_v6_full\",\"schema_version\":1,\"sequence_id\":\"tomato_18day_specimen_01\",\"state\":{\"evidence\":\"Severely wrinkled, sunken fruit with darkened, collapsed areas and a pale fuzzy patch on one side\",\"first_observation_elapsed_seconds\":0,\"last_cheap_elapsed_seconds\":1468800,\"last_observation_elapsed_seconds\":1468800,\"last_observation_id\":\"tomato_18day_day_18\",\"last_strong_anomaly\":\"yes\",\"last_strong_elapsed_seconds\":1296000,\"open_questions\":[{\"due_elapsed_seconds\":1339200,\"evidence_observation_id\":\"tomato_18day_day_16\",\"last_local_review_elapsed_seconds\":1468800,\"last_reviewed_elapsed_seconds\":1296000,\"opened_elapsed_seconds\":259200,\"question\":\"Does the observed concerning appearance persist or worsen?\",\"question_id\":\"followup_tomato_18day_day_04\",\"status\":\"open\"}],\"previous_evidence\":\"The surface of the tomato in the current image shows no visible damage or defects compared to the previous image.\",\"previous_frame_sha256\":\"5937b919e48b57d251a4b2d7fa81222f9bbcb479d0b830f39c374f7dba5ea99c\",\"previous_frame_uri\":\"data/samples/tomato_18day/frames/RGB_18.png\",\"previous_observed_at\":null,\"previous_recommendation\":\"LOW_COST_ONLY\",\"prior_frame_uri\":\"data/samples/tomato_18day/frames/RGB_16.png\",\"prior_observation_id\":\"tomato_18day_day_16\",\"review_required\":false,\"summary\":\"Severely wrinkled, sunken fruit with darkened, collapsed areas and a pale fuzzy patch on one side\",\"temporal_change\":\"stable\"},\"synthetic\":false,\"variant\":\"C\"}"
+        }
+      ]
+    },
+    {
+      "name": "apple_c_stream_v6_memory_example",
+      "queried_at_utc": "2026-10-01T01:16:50.379680+00:00",
+      "sql": "SELECT event_json FROM tomato_lha_memory_events WHERE toString(run_id) = 'apple_c_stream_v6' ORDER BY elapsed_seconds DESC LIMIT 1",
+      "rows": [
+        {
+          "event_json": "{\"dataset_id\":\"nimble_apple_mendeley_9zgkwwv9j8\",\"dataset_version\":\"index_v1\",\"elapsed_seconds\":1468800,\"entity_id\":\"apple_stream_01\",\"event_id\":\"5cf7444089efee820d178c7a18a0ae4ff6339b4312c6790629e055598d06f85a\",\"kind\":\"memory_events\",\"observation_id\":\"apple_stream_obs_18\",\"record_version\":1468800001,\"run_id\":\"apple_c_stream_v6\",\"schema_version\":1,\"sequence_id\":\"apple_simulated_progression_01\",\"state\":{\"evidence\":\"Multiple dark brown to black circular sunken spots with reddish halos across the fruit surface; clustered lesions including near the calyx.\",\"first_observation_elapsed_seconds\":0,\"last_cheap_elapsed_seconds\":1468800,\"last_observation_elapsed_seconds\":1468800,\"last_observation_id\":\"apple_stream_obs_18\",\"last_strong_anomaly\":\"yes\",\"last_strong_elapsed_seconds\":1296000,\"open_questions\":[{\"due_elapsed_seconds\":1382400,\"evidence_observation_id\":\"apple_stream_obs_16\",\"last_local_review_elapsed_seconds\":1468800,\"last_reviewed_elapsed_seconds\":1296000,\"opened_elapsed_seconds\":518400,\"question\":\"Does the observed concerning appearance persist or worsen?\",\"question_id\":\"followup_apple_stream_obs_07\",\"status\":\"open\"}],\"previous_evidence\":\"The surface of the apple in the current image shows no visible damage or defects compared to the previous image.\",\"previous_frame_sha256\":\"eae5bb604862877a80cab68ca4fa10847da99e36e2ed95a59ef2d29804bf5519\",\"previous_frame_uri\":\"data/apple/extracted/apple_nimble/02_processed_images/01_original_images/test_set/anthracnose/IMG_(20).jpg\",\"previous_observed_at\":null,\"previous_recommendation\":\"LOW_COST_ONLY\",\"prior_frame_uri\":\"data/apple/extracted/apple_nimble/02_processed_images/01_original_images/training_set/anthracnose/A1_(67).jpg\",\"prior_observation_id\":\"apple_stream_obs_16\",\"review_required\":false,\"summary\":\"Multiple dark brown to black circular sunken spots with reddish halos across the fruit surface; clustered lesions including near the calyx.\",\"temporal_change\":\"stable\"},\"synthetic\":false,\"variant\":\"C\"}"
+        }
+      ]
+    }
+  ],
+  "memory_samples": [
+    {
+      "run_id": "tomato_c_demo_v6_full",
+      "event": {
+        "dataset_id": "zenodo_tomato_18day_21943147",
+        "dataset_version": "21943147",
+        "elapsed_seconds": 1468800,
+        "entity_id": "tomato_01",
+        "event_id": "1e38d855fe8614134e9da4252e9d5193df5b33a3b9a408332df1723401b4185c",
+        "kind": "memory_events",
+        "observation_id": "tomato_18day_day_18",
+        "record_version": 1468800001,
+        "run_id": "tomato_c_demo_v6_full",
+        "schema_version": 1,
+        "sequence_id": "tomato_18day_specimen_01",
+        "state": {
+          "evidence": "Severely wrinkled, sunken fruit with darkened, collapsed areas and a pale fuzzy patch on one side",
+          "first_observation_elapsed_seconds": 0,
+          "last_cheap_elapsed_seconds": 1468800,
+          "last_observation_elapsed_seconds": 1468800,
+          "last_observation_id": "tomato_18day_day_18",
+          "last_strong_anomaly": "yes",
+          "last_strong_elapsed_seconds": 1296000,
+          "open_questions": [
+            {
+              "due_elapsed_seconds": 1339200,
+              "evidence_observation_id": "tomato_18day_day_16",
+              "last_local_review_elapsed_seconds": 1468800,
+              "last_reviewed_elapsed_seconds": 1296000,
+              "opened_elapsed_seconds": 259200,
+              "question": "Does the observed concerning appearance persist or worsen?",
+              "question_id": "followup_tomato_18day_day_04",
+              "status": "open"
+            }
+          ],
+          "previous_evidence": "The surface of the tomato in the current image shows no visible damage or defects compared to the previous image.",
+          "previous_frame_sha256": "5937b919e48b57d251a4b2d7fa81222f9bbcb479d0b830f39c374f7dba5ea99c",
+          "previous_frame_uri": "data/samples/tomato_18day/frames/RGB_18.png",
+          "previous_observed_at": null,
+          "previous_recommendation": "LOW_COST_ONLY",
+          "prior_frame_uri": "data/samples/tomato_18day/frames/RGB_16.png",
+          "prior_observation_id": "tomato_18day_day_16",
+          "review_required": false,
+          "summary": "Severely wrinkled, sunken fruit with darkened, collapsed areas and a pale fuzzy patch on one side",
+          "temporal_change": "stable"
+        },
+        "synthetic": false,
+        "variant": "C"
+      }
+    },
+    {
+      "run_id": "apple_c_stream_v6",
+      "event": {
+        "dataset_id": "nimble_apple_mendeley_9zgkwwv9j8",
+        "dataset_version": "index_v1",
+        "elapsed_seconds": 1468800,
+        "entity_id": "apple_stream_01",
+        "event_id": "5cf7444089efee820d178c7a18a0ae4ff6339b4312c6790629e055598d06f85a",
+        "kind": "memory_events",
+        "observation_id": "apple_stream_obs_18",
+        "record_version": 1468800001,
+        "run_id": "apple_c_stream_v6",
+        "schema_version": 1,
+        "sequence_id": "apple_simulated_progression_01",
+        "state": {
+          "evidence": "Multiple dark brown to black circular sunken spots with reddish halos across the fruit surface; clustered lesions including near the calyx.",
+          "first_observation_elapsed_seconds": 0,
+          "last_cheap_elapsed_seconds": 1468800,
+          "last_observation_elapsed_seconds": 1468800,
+          "last_observation_id": "apple_stream_obs_18",
+          "last_strong_anomaly": "yes",
+          "last_strong_elapsed_seconds": 1296000,
+          "open_questions": [
+            {
+              "due_elapsed_seconds": 1382400,
+              "evidence_observation_id": "apple_stream_obs_16",
+              "last_local_review_elapsed_seconds": 1468800,
+              "last_reviewed_elapsed_seconds": 1296000,
+              "opened_elapsed_seconds": 518400,
+              "question": "Does the observed concerning appearance persist or worsen?",
+              "question_id": "followup_apple_stream_obs_07",
+              "status": "open"
+            }
+          ],
+          "previous_evidence": "The surface of the apple in the current image shows no visible damage or defects compared to the previous image.",
+          "previous_frame_sha256": "eae5bb604862877a80cab68ca4fa10847da99e36e2ed95a59ef2d29804bf5519",
+          "previous_frame_uri": "data/apple/extracted/apple_nimble/02_processed_images/01_original_images/test_set/anthracnose/IMG_(20).jpg",
+          "previous_observed_at": null,
+          "previous_recommendation": "LOW_COST_ONLY",
+          "prior_frame_uri": "data/apple/extracted/apple_nimble/02_processed_images/01_original_images/training_set/anthracnose/A1_(67).jpg",
+          "prior_observation_id": "apple_stream_obs_16",
+          "review_required": false,
+          "summary": "Multiple dark brown to black circular sunken spots with reddish halos across the fruit surface; clustered lesions including near the calyx.",
+          "temporal_change": "stable"
+        },
+        "synthetic": false,
+        "variant": "C"
+      }
+    }
+  ],
+  "demo_datasets": [
+    {
+      "title": "Tomato 18-day storage sequence",
+      "frames": 18,
+      "source_url": "https://zenodo.org/records/21943147",
+      "agent_run": "tomato_c_demo_v6_full",
+      "baseline_run": "tomato_a_demo_v1",
+      "note": "One tomato over 18 storage days. Baseline logs are local; no baseline RawTree rows should be inferred when absent from these query results."
+    },
+    {
+      "title": "Apple 18-frame replay",
+      "frames": 18,
+      "source_url": "https://data.mendeley.com/datasets/9zgkwwv9j8/6",
+      "agent_run": "apple_c_stream_v6",
+      "baseline_run": "apple_a_stream_v1",
+      "note": "Different apples ordered into a replay by lesion score; not a time series of one physical apple."
+    }
+  ],
+  "queried_at_utc": "2026-10-01T01:16:50.379730+00:00"
+}
